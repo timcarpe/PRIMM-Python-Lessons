@@ -1,0 +1,5 @@
+letter = input("One lower-case letter a-y: ")
+code = ord(letter)
+next_letter = chr(code + 1)
+print("Character code:", code)
+print("Next letter:", next_letter)

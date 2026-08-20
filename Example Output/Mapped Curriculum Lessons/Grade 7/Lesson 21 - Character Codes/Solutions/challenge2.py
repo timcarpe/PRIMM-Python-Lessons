@@ -1,0 +1,5 @@
+letter = input("One lower-case letter a-w: ")
+shift = int(input("Shift 1 to 3: "))
+code = ord(letter)
+encoded = chr(code + shift)
+print("Encoded letter:", encoded)

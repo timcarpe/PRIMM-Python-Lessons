@@ -1,0 +1,5 @@
+venue = input("Venue: ")
+activity = input("Activity: ")
+group = input("Group: ")
+tag = venue.lower() + "/" + activity.lower() + "-" + group.upper()
+print("Event tag:", tag)

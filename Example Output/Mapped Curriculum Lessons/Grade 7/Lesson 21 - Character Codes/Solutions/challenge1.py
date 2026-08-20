@@ -1,0 +1,5 @@
+letter = input("One lower-case letter b-z: ")
+code = ord(letter)
+previous_letter = chr(code - 1)
+print("Character code:", code)
+print("Previous letter:", previous_letter)

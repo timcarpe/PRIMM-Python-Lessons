@@ -1,0 +1,6 @@
+name = input("First name: ")
+name = name.lower()
+group = input("Two-letter group: ")
+group = group.upper()
+print("Account name:", name)
+print("Group code:", group)

@@ -1,0 +1,7 @@
+title = input("Title: ")
+subtitle = input("Subtitle: ")
+title_count = len(title)
+subtitle_count = len(subtitle)
+print("Text:\n" + title + "\n" + subtitle)
+print("Title characters:", title_count)
+print("Subtitle characters:", subtitle_count)

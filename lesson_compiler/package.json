@@ -1,0 +1,13 @@
+{
+  "name": "python-programming-lessons-compiler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "python3 src/compile_non_capstone_suite.py",
+    "verify": "python3 src/verify_non_capstone_suite.py"
+  },
+  "dependencies": {
+    "@oai/artifact-tool": "2.8.48"
+  }
+}

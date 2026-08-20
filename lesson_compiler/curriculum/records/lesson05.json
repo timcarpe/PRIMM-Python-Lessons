@@ -1,0 +1,403 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 5,
+    "slug": "lesson05",
+    "title": "More Decisions",
+    "driving_question": "How can a program sort a value into one of several outcomes?",
+    "primary_concept_family": "An if/elif/else chain checks ordered comparison conditions.",
+    "new_callable_patterns": [
+      "elif",
+      "comparison operators"
+    ],
+    "retrieved_knowledge": [
+      "input()",
+      "int()",
+      "variables",
+      "if",
+      "else",
+      "print()",
+      "arithmetic"
+    ],
+    "deferred": [
+      "and",
+      "or",
+      "nested decisions",
+      "while",
+      "for",
+      "lists"
+    ],
+    "misconceptions": [
+      "elif is checked only after earlier if conditions are false.",
+      "The first true branch runs and the remaining branches are skipped.",
+      "Comparison operators include the boundary when they use >= or <=.",
+      "else does not have a condition."
+    ]
+  },
+  "granular_map": {
+    "prerequisites": [
+      "Lesson 04 if/else and ==",
+      "Lesson 02 int() and numeric input"
+    ],
+    "concept_budget": {
+      "new_syntax": [
+        "elif",
+        "comparison operators"
+      ],
+      "comparison_set": [
+        ">",
+        "<",
+        ">=",
+        "<=",
+        "!=",
+        "=="
+      ],
+      "extension_excluded": [
+        "and",
+        "or",
+        "nested if"
+      ]
+    },
+    "progression": {
+      "retrieve": "trace one if/else choice",
+      "modify_a": "change a boundary",
+      "modify_b": "add a middle classification",
+      "make": "classify a temperature"
+    },
+    "code_expectations": [
+      "Compare integers, not input strings.",
+      "Order the highest threshold first.",
+      "Use one indented print() per branch.",
+      "Keep the final else as the catch-all outcome."
+    ],
+    "image_specification": "three distinct high-key black-and-white fine-line objects: thermometer, traffic light, and apple; one recognizable object per bitmap, generous white space, no text",
+    "render_constraints": [
+      "13 slides",
+      "exact Lesson 1 shape topology",
+      "code must fit inherited 20pt solution frames",
+      "one-page challenge extraction"
+    ]
+  },
+  "contracts": {
+    "style_contract": "lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or prior lessons",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "More Decisions - Starter Code.py",
+    "code": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")",
+    "predict_input": "7\n",
+    "trace": [
+      {
+        "variable": "score",
+        "value": "7"
+      },
+      {
+        "variable": "score >= 8",
+        "value": "False"
+      },
+      {
+        "variable": "score >= 5",
+        "value": "True"
+      },
+      {
+        "variable": "visible branch",
+        "value": "elif block"
+      }
+    ],
+    "expected_output": "Good"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall how an if/else statement chooses one of two paths. What type of value does int(input()) produce?"
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use the exact input 7. Write the result of each comparison and predict the one message that will appear. Explain why the final else is not reached."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run the supplied file with 7. Compare the result with your prediction, then test one score from each range."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "If you enter 8, which message appears? Which comparison is True?",
+        "If score >= 5 is checked first, what message would a score of 9 receive?",
+        "If you enter 5, which message appears?",
+        "Why does a value that matches no earlier condition run the else block without another comparison?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "A score of 9 should now count as Excellent. Adjust the first comparison, then prove the boundary by running scores 8 and 9 and recording the two different results."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Add one elif branch so scores 3 and 4 display \"Keep practising\". Scores below 3 should display \"Try again\"; the Excellent and Good outcomes stay unchanged."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Create a temperature classifier with three outcomes: Hot at 30 or above, Warm from 20 to 29, and Cool below 20. Test 19, 20 and 30."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the comparison boundary and the output variable. Test one score in every outcome."
+    }
+  ],
+  "concept_sheet": {
+    "title": "More Decisions - Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Comparison",
+        "definition": "A comparison checks two values and produces True or False. Comparisons help a program choose an outcome.",
+        "example": "score >= 8"
+      },
+      {
+        "term": "elif",
+        "definition": "elif means else if. It checks another condition when the earlier if condition was False.",
+        "example": "elif score >= 5:\n    print(\"Good\")"
+      },
+      {
+        "term": ">=",
+        "definition": ">= means greater than or equal to. The boundary value is included.",
+        "example": "score >= 8"
+      },
+      {
+        "term": "Branch order",
+        "definition": "Python checks an if/elif/else chain from top to bottom. The first True branch runs, then the chain ends.",
+        "example": "if score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")"
+      },
+      {
+        "term": "Classifier",
+        "definition": "A classifier puts an input into one named group. if, elif and else make the groups exclusive.",
+        "example": "if score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "More Decisions",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will do if the user enters 7?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "If you enter 8, which message appears? Which comparison is True?",
+        "If score >= 5 is checked first, what message would a score of 9 receive?",
+        "If you enter 5, which message appears?",
+        "Why does a value that matches no earlier condition run the else block without another comparison?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "A score of 9 should now count as Excellent. Adjust the first comparison, then prove the boundary by running scores 8 and 9 and recording the two different results.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Add one elif branch so scores 3 and 4 display \"Keep practising\". Scores below 3 should display \"Try again\"; the Excellent and Good outcomes stay unchanged.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Create a temperature classifier with three outcomes: Hot at 30 or above, Warm from 20 to 29, and Cool below 20. Test 19, 20 and 30.",
+          "layout_profile": "challenge-code-heavy"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "More Decisions",
+      "subtitle": "Lesson 05"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. If you enter 8, which message appears? Which comparison is True?\n2. If score >= 5 is checked first, what message would a score of 9 receive?\n3. If you enter 5, which message appears?\n4. Why does a value that matches no earlier condition run the else block without another comparison?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "A score of 9 should now count as Excellent. Adjust the first comparison, then prove the boundary by running scores 8 and 9 and recording the two different results.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 - Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Add one elif branch so scores 3 and 4 display \"Keep practising\". Scores below 3 should display \"Try again\"; the Excellent and Good outcomes stay unchanged.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 - Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Create a temperature classifier with three outcomes: Hot at 30 or above, Warm from 20 to 29, and Cool below 20. Test 19, 20 and 30.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 - Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! - Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 9:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")",
+    "challenge2": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelif score >= 3:\n    print(\"Keep practising\")\nelse:\n    print(\"Try again\")",
+    "challenge3": "temperature = int(input(\"Enter the temperature: \" ))\nif temperature >= 30:\n    print(\"Hot\")\nelif temperature >= 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")",
+    "broken": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score > 5:\n    print(\"Good\", score_value)\nelse:\n    print(\"Keep practising\")",
+    "fixed": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")\n# Each branch displays one result."
+  },
+  "assets": {
+    "master": "lesson_compiler/assets/lesson05/apple-canonical.png",
+    "title_layout": "lesson_compiler/assets/lesson05/apple-canonical.png",
+    "worksheet": "lesson_compiler/assets/lesson05/apple-canonical.png"
+  },
+  "test": {
+    "starter_input": "7\n",
+    "starter_contains": [
+      "Good"
+    ],
+    "solution_inputs": [
+      "9\n",
+      "4\n",
+      "25\n",
+      "2\n"
+    ],
+    "broken_input": "7\n"
+  },
+  "investigation": {
+    "term": "Comparison",
+    "definition": "A comparison checks two values and produces True or False. Comparisons help a program choose an outcome.",
+    "questions": [
+      "If you enter 8, which message appears? Which comparison is True?",
+      "If score >= 5 is checked first, what message would a score of 9 receive?",
+      "If you enter 5, which message appears?",
+      "Why does a value that matches no earlier condition run the else block without another comparison?"
+    ],
+    "source": "lesson_compiler/curriculum/investigation_revision_ingestion.json"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson folder, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "provenance": {
+    "materialization": "reused_standard_lesson",
+    "source_json": "lesson_compiler/curriculum/lesson05.json",
+    "source_lesson": 5,
+    "target_lesson": 5,
+    "content_policy": "Released semantic content and three-activity ladder reused; only continuous identity metadata changes unless an explicit coverage override is recorded."
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 17,
+    "slug": "lesson17",
+    "title": "Lists",
+    "driving_question": "How can one variable hold a growing collection of items?",
+    "primary_concept_family": "Lists store ordered collections that a program can change.",
+    "prerequisites": [
+      "strings",
+      "variables",
+      "assignment",
+      "input()",
+      "print()",
+      "indexing"
+    ],
+    "new_callable_patterns": [
+      "list literal",
+      ".append()"
+    ],
+    "retrieved_knowledge": [
+      "variables",
+      "assignment",
+      "input()",
+      "print()",
+      "strings",
+      "method calls"
+    ],
+    "deferred": [
+      "for item in list",
+      "len(list)",
+      "list indexing",
+      "slicing",
+      "list removal",
+      "nested lists"
+    ],
+    "concept_budget": "One collection family and one mutation method; do not iterate or count yet.",
+    "misconceptions": [
+      "A list needs square brackets and commas between its items.",
+      "append() adds one item to the end of the list.",
+      "The list variable keeps the changed collection after append().",
+      "append() needs parentheses and the item is passed inside them."
+    ],
+    "progression_note": "A fixed list becomes a changing list when the learner appends one user choice. Lesson 11 will read the collection with a loop and len().",
+    "code_expectations": [
+      "short semantic snake_case names",
+      "one list literal",
+      "one append() call per added item",
+      "visible list output",
+      "no loops or dictionary syntax"
+    ]
+  },
+  "contracts": {
+    "style_contract": "lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or prior lessons",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Lists - Starter Code.py",
+    "code": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)",
+    "predict_input": "torch",
+    "trace": [
+      {
+        "variable": "item after input()",
+        "value": "torch"
+      },
+      {
+        "variable": "packing_list after the list literal",
+        "value": "['water', 'map']"
+      },
+      {
+        "variable": "packing_list after append()",
+        "value": "['water', 'map', 'torch']"
+      }
+    ],
+    "expected_output": "Packing list: ['water', 'map', 'torch']"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall: What does a variable store? How does input() get text? What do square brackets show?"
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Without running the code, use the input 'torch'. Predict the list before and after append(), then predict the final display. Explain your prediction to a partner."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run the supplied file with 'torch'. Compare the displayed list with your prediction and explain one match or mismatch."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "If you enter compass, what exact list is printed?",
+        "Why does append(item) add one item instead of joining the characters of item separately?",
+        "Which line adds the new item to packing_list?",
+        "Why is the new item placed at the end rather than at position 0?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "The user should add two items in total. Ask for a second item, append it, then show all four items in the final packing list."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the undefined item used in append(), then run the corrected packing-list program."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Lists – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "List",
+        "definition": "An ordered collection of items written between square brackets. Items are separated with commas.",
+        "example": "packing_list = [\"water\", \"map\"]"
+      },
+      {
+        "term": "List literal",
+        "definition": "The square-bracket code which creates a list and gives it its starting items.",
+        "example": "packing_list = [\"water\", \"map\"]"
+      },
+      {
+        "term": "append()",
+        "definition": "Adds one item to the end of a list. The item goes inside the parentheses.",
+        "example": "packing_list.append(item)"
+      },
+      {
+        "term": "Changing a list",
+        "definition": "A list can hold its original items and a new item after the program calls append().",
+        "example": "packing_list.append(\"torch\")"
+      },
+      {
+        "term": "Packing-list flow",
+        "definition": "Create a starting list, ask for one more item, append the answer and display the changed list.",
+        "example": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Lists",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will do if the user enters 'torch'?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "If you enter compass, what exact list is printed?",
+        "Why does append(item) add one item instead of joining the characters of item separately?",
+        "Which line adds the new item to packing_list?",
+        "Why is the new item placed at the end rather than at position 0?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "The user should add two items in total. Ask for a second item, append it, then show all four items in the final packing list.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading.",
+          "layout_profile": "challenge-medium"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Lists",
+      "subtitle": "Lesson 17"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. If you enter compass, what exact list is printed?\n2. Why does append(item) add one item instead of joining the characters of item separately?\n3. Which line adds the new item to packing_list?\n4. Why is the new item placed at the end rather than at position 0?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "The user should add two items in total. Ask for a second item, append it, then show all four items in the final packing list.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\", \"snacks\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)",
+    "challenge2": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nanother_item = input(\"Pack one more item: \" )\npacking_list.append(another_item)\nprint(\"Packing list:\", packing_list)",
+    "challenge3": "item = input(\"Add a movie-night item: \" )\nmovie_night = [\"film\", \"popcorn\"]\nmovie_night.append(item)\nprint(\"Movie-night checklist:\", movie_night)",
+    "broken": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(missing_item)\nprint(\"Packing list:\", packing_list)",
+    "fixed": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)"
+  },
+  "assets": {
+    "master": "lesson_compiler/assets/lesson10/compass-canonical.png",
+    "title_layout": "lesson_compiler/assets/lesson10/compass-canonical.png",
+    "worksheet": "lesson_compiler/assets/lesson10/compass-canonical.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson folder, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "torch\n",
+    "challenge1_input": "torch\n",
+    "challenge2_input": "torch\nsocks\n",
+    "challenge3_input": "board game\n",
+    "fixed_input": "torch\n"
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "append()",
+    "definition": "Adds one item to the end of a list. The item goes inside the parentheses.",
+    "questions": [
+      "If you enter compass, what exact list is printed?",
+      "Why does append(item) add one item instead of joining the characters of item separately?",
+      "Which line adds the new item to packing_list?",
+      "Why is the new item placed at the end rather than at position 0?"
+    ],
+    "source": "lesson_compiler/curriculum/investigation_revision_ingestion.json"
+  },
+  "provenance": {
+    "materialization": "reused_standard_lesson",
+    "source_json": "lesson_compiler/curriculum/lesson10.json",
+    "source_lesson": 10,
+    "target_lesson": 17,
+    "content_policy": "Released semantic content and three-activity ladder reused; only continuous identity metadata changes unless an explicit coverage override is recorded."
+  }
+}

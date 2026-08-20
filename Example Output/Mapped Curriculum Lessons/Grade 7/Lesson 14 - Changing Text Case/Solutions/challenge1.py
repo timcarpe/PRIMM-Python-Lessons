@@ -1,0 +1,6 @@
+team = input("Team name: ")
+team = team.upper()
+code = input("Team code: ")
+code = code.lower()
+print("Team:", team)
+print("Code:", code)

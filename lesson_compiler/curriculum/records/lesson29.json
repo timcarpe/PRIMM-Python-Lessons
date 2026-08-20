@@ -1,0 +1,471 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 29,
+    "slug": "lesson29",
+    "title": "Updating 2D List Cells",
+    "driving_question": "How can a program update one field without replacing the whole record?",
+    "primary_concept_family": "Replacing one field in a selected 2D-list row",
+    "prerequisites": [
+      "2D list literals",
+      "double indexing",
+      "int(input())",
+      "assignment"
+    ],
+    "new_callable_patterns": [
+      "double-index assignment"
+    ],
+    "retrieved_knowledge": [
+      "index assignment",
+      "row and column meaning",
+      "labelled output"
+    ],
+    "deferred": [
+      "row changes",
+      "search",
+      "validation",
+      "functions"
+    ],
+    "concept_budget": "Replace one valid cell using a row index and a fixed field index; row editing and validation are deferred.",
+    "misconceptions": [
+      "Double-index assignment changes one cell only.",
+      "The outer index still selects the row.",
+      "The field index must match the intended column.",
+      "A numeric field should receive a numeric value."
+    ],
+    "progression_note": "Extends the reading model from Lesson 28 to controlled updates of individual fields.",
+    "code_expectations": [
+      "valid row assumption",
+      "correct field index",
+      "type-appropriate replacement",
+      "before/after evidence"
+    ]
+  },
+  "contracts": {
+    "style_contract": "lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Updating 2D List Cells - Starter Code.py",
+    "code": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nrow = int(input(\"Club row 0 to 2: \"))\nnew_members = int(input(\"New member count: \"))\nclubs[row][1] = new_members\nprint(\"Updated record:\", clubs[row])\nprint(\"All records:\", clubs)",
+    "predict_input": "1 then 20",
+    "trace": [
+      {
+        "variable": "row",
+        "value": "1"
+      },
+      {
+        "variable": "new_members",
+        "value": "20"
+      },
+      {
+        "variable": "changed cell",
+        "value": "clubs[1][1]"
+      },
+      {
+        "variable": "unchanged name",
+        "value": "Chess"
+      }
+    ],
+    "expected_output": "Updated record: ['Chess', 20]\nAll records: [['Art', 12], ['Chess', 20], ['Code', 15]]"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall how index assignment replaces one item in a 1D list and how two indexes identify a 2D-list cell."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use row 1 and 20. Mark the one changed cell and list every value that remains unchanged."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run with 1 and 20, then restart with 0 and 10. Confirm that only the selected member count changes."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Which of the two indexes selects the row, and which selects the field to update?",
+        "Why does clubs[row][1] = new_members leave the club name unchanged?",
+        "What happens if new_members is not converted to int() before it is stored?",
+        "How could choosing the wrong column silently replace a name with a number?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Update row 2 to 17 members. The Code name and all other records must remain unchanged."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the double-index assignment and convert the new member count to an integer."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Updating 2D List Cells – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Cell",
+        "definition": "One field at the intersection of a row and column.",
+        "example": "clubs[1][1]"
+      },
+      {
+        "term": "Double-index assignment",
+        "definition": "Replacing one cell using row and field positions.",
+        "example": "clubs[row][1] = new_members"
+      },
+      {
+        "term": "Field type",
+        "definition": "The kind of value expected in a column.",
+        "example": "member count is an integer"
+      },
+      {
+        "term": "Target row",
+        "definition": "The record selected for an update.",
+        "example": "clubs[row]"
+      },
+      {
+        "term": "Preserved field",
+        "definition": "A value in the record that is not changed by the assignment.",
+        "example": "club name remains Chess"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Updating 2D List Cells",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Which of the two indexes selects the row, and which selects the field to update?",
+        "Why does clubs[row][1] = new_members leave the club name unchanged?",
+        "What happens if new_members is not converted to int() before it is stored?",
+        "How could choosing the wrong column silently replace a name with a number?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nrow = int(input(\"Club row 0 to 2: \"))\nnew_members = int(input(\"New member count: \"))\nclubs[row][1] = new_members\nprint(\"Updated record:\", clubs[row])\nprint(\"All records:\", clubs)",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Update row 2 to 17 members. The Code name and all other records must remain unchanged.",
+          "layout_profile": "challenge-short"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Updating 2D List Cells",
+      "subtitle": "Lesson 29"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Which of the two indexes selects the row, and which selects the field to update?\n2. Why does clubs[row][1] = new_members leave the club name unchanged?\n3. What happens if new_members is not converted to int() before it is stored?\n4. How could choosing the wrong column silently replace a name with a number?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Update row 2 to 17 members. The Code name and all other records must remain unchanged.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nclubs[2][1] = 17\nprint(\"Updated record:\", clubs[2])\nprint(\"All records:\", clubs)",
+    "challenge2": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nrow = int(input(\"Club row 0 to 2: \"))\nprint(\"Before:\", clubs[row])\nnew_name = input(\"New club name: \")\nnew_members = int(input(\"New member count: \"))\nclubs[row][0] = new_name\nclubs[row][1] = new_members\nprint(\"After:\", clubs[row])",
+    "challenge3": "stock = [[\"Pens\", 10], [\"Books\", 6], [\"Tape\", 4]]\nrow = int(input(\"Stock row 0 to 2: \"))\ndelivery = int(input(\"Delivery amount: \"))\nstock[row][1] = stock[row][1] + delivery\nprint(\"Updated record:\", stock[row])\nfor item in stock:\n    print(item[0], item[1])",
+    "broken": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nrow = 1\nnew_members = input(\"New member count: \")\nclubs[row, 1] == new_members\nprint(clubs)",
+    "fixed": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nrow = 1\nnew_members = int(input(\"New member count: \"))\nclubs[row][1] = new_members\nprint(clubs)"
+  },
+  "assets": {
+    "master": "lesson_compiler/assets/lesson14/plant-pencil-v2.png",
+    "title_layout": "lesson_compiler/assets/lesson14/plant-pencil-v2.png",
+    "worksheet": "lesson_compiler/assets/lesson14/plant-pencil-v2.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "1\n20\n",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "Cell",
+    "definition": "One field at the intersection of a row and column.",
+    "questions": [
+      "Which of the two indexes selects the row, and which selects the field to update?",
+      "Why does clubs[row][1] = new_members leave the club name unchanged?",
+      "What happens if new_members is not converted to int() before it is stored?",
+      "How could choosing the wrong column silently replace a name with a number?"
+    ],
+    "source": "lesson_compiler/curriculum/spiral_review/build_review_data.mjs#investigationQuestions"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "Modify A",
+      "observable_outcome": "Changes clubs[2][1]; Preserves all names and other counts",
+      "success_criteria": [
+        "Changes clubs[2][1]",
+        "Preserves all names and other counts"
+      ],
+      "test_cases": [
+        "Code record becomes Code/17"
+      ],
+      "complexity": {
+        "edit_distance": 1,
+        "concept_composition": 1,
+        "transfer_distance": 0,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 3
+      },
+      "layout_profile": "challenge-short",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "Modify B",
+      "observable_outcome": "Displays before state; Updates both fields separately; Displays after state",
+      "success_criteria": [
+        "Displays before state",
+        "Updates both fields separately",
+        "Displays after state"
+      ],
+      "test_cases": [
+        "0/Craft/14 changes only row 0",
+        "2/Robotics/20 changes only row 2"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 1,
+        "decision_or_state_burden": 1,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 7
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "Make",
+      "observable_outcome": "Reads an existing numeric cell; Stores the increased value; Traverses all updated records",
+      "success_criteria": [
+        "Reads an existing numeric cell",
+        "Stores the increased value",
+        "Traverses all updated records"
+      ],
+      "test_cases": [
+        "1/3 makes Books 9",
+        "0/0 keeps Pens 10"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 2,
+        "decision_or_state_burden": 1,
+        "test_burden": 2,
+        "openness": 1,
+        "total": 10
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    }
+  ]
+}

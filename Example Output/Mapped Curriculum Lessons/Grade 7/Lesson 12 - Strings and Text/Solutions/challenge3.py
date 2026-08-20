@@ -1,0 +1,7 @@
+city = input("Enter a city: ")
+city = city.strip()
+city = city.title()
+country = input("Enter a country: ")
+country = country.strip()
+country = country.title()
+print("Destination:", city, "-", country)

@@ -1,0 +1,7 @@
+name = input("What is your first name? ")
+name = name.strip()
+name = name.title()
+surname = input("What is your surname? ")
+surname = surname.strip()
+surname = surname.title()
+print("Hello,", name, surname, "!")

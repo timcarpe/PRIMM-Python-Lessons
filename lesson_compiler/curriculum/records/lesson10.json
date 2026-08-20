@@ -1,0 +1,473 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 10,
+    "slug": "lesson10",
+    "title": "Choosing Loop Structures",
+    "driving_question": "How can the reason for repetition determine which loop structure to use?",
+    "primary_concept_family": "Choosing and combining count-controlled and condition-controlled loops",
+    "prerequisites": [
+      "for",
+      "range()",
+      "while",
+      "comparisons",
+      "assignment",
+      "counters"
+    ],
+    "new_callable_patterns": [],
+    "retrieved_knowledge": [
+      "count-controlled loops",
+      "condition-controlled loops",
+      "selection",
+      "state updates"
+    ],
+    "deferred": [
+      "lists",
+      "functions",
+      "break",
+      "nested loops"
+    ],
+    "concept_budget": "Compare and combine already-taught for and while structures without introducing another loop form.",
+    "misconceptions": [
+      "A for loop suits a known repetition count.",
+      "A while loop suits repetition controlled by a condition.",
+      "A while-loop control value must change.",
+      "The loop body is the indented block."
+    ],
+    "progression_note": "Integrates the two Grade 6 loop families before the recap-style capstone.",
+    "code_expectations": [
+      "justified loop choice",
+      "finite condition-controlled loop",
+      "predictable count sequence",
+      "selection may appear inside a loop"
+    ]
+  },
+  "contracts": {
+    "style_contract": "lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Choosing Loop Structures - Starter Code.py",
+    "code": "for round_number in range(1, 4):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")",
+    "predict_input": "wait then done",
+    "trace": [
+      {
+        "variable": "round_number",
+        "value": "1, 2, 3"
+      },
+      {
+        "variable": "answer",
+        "value": "starts empty"
+      },
+      {
+        "variable": "first answer",
+        "value": "wait"
+      },
+      {
+        "variable": "second answer",
+        "value": "done"
+      }
+    ],
+    "expected_output": "Warm-up round 1\nWarm-up round 2\nWarm-up round 3\nSession complete."
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall when range() fixes the number of repeats and why a while-loop control value must change."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use answers wait and done. Predict the warm-up numbers, the number of prompts, and the final message."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run with wait then done. Mark which output came from the counted loop and which interaction came from the condition loop."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Which loop runs exactly three times, and which part of the code sets that limit?",
+        "What happens if answer = input(...) is moved outside the while loop?",
+        "Why does range(1, 4) display 1, 2 and 3 rather than four values?",
+        "If the user enters DONE instead of done, why does the condition-controlled loop repeat?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Make the counted warm-up display rounds 1 to 5. The condition-controlled section must still finish only when the user types done."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Add an attempt counter to the while loop. After done is entered, display the number of answers entered. For wait, wait, done the count must be 3."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Create a practice timer without real-time code. Use a for loop to display exactly four exercise stations, then a while loop to collect effort ratings until the user enters 0. Count and display the non-zero ratings."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the range end and update answer inside the while loop so the program displays three rounds and can terminate."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Choosing Loop Structures – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Known count",
+        "definition": "A fixed number of repetitions known before the loop begins.",
+        "example": "for round_number in range(1, 4):"
+      },
+      {
+        "term": "Controlling condition",
+        "definition": "A test that decides whether a while loop repeats.",
+        "example": "while answer != \"done\":"
+      },
+      {
+        "term": "State update",
+        "definition": "A change to a value used by the loop condition.",
+        "example": "answer = input(\"Type done: \")"
+      },
+      {
+        "term": "Loop choice",
+        "definition": "Selecting a loop structure that matches why repetition ends.",
+        "example": "for = known count; while = condition"
+      },
+      {
+        "term": "Sentinel value",
+        "definition": "A special input that signals the end of repeated input.",
+        "example": "done"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Choosing Loop Structures",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Which loop runs exactly three times, and which part of the code sets that limit?",
+        "What happens if answer = input(...) is moved outside the while loop?",
+        "Why does range(1, 4) display 1, 2 and 3 rather than four values?",
+        "If the user enters DONE instead of done, why does the condition-controlled loop repeat?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "for round_number in range(1, 4):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Make the counted warm-up display rounds 1 to 5. The condition-controlled section must still finish only when the user types done.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Add an attempt counter to the while loop. After done is entered, display the number of answers entered. For wait, wait, done the count must be 3.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Create a practice timer without real-time code. Use a for loop to display exactly four exercise stations, then a while loop to collect effort ratings until the user enters 0. Count and display the non-zero ratings.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Choosing Loop Structures",
+      "subtitle": "Lesson 10"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Which loop runs exactly three times, and which part of the code sets that limit?\n2. What happens if answer = input(...) is moved outside the while loop?\n3. Why does range(1, 4) display 1, 2 and 3 rather than four values?\n4. If the user enters DONE instead of done, why does the condition-controlled loop repeat?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Make the counted warm-up display rounds 1 to 5. The condition-controlled section must still finish only when the user types done.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Add an attempt counter to the while loop. After done is entered, display the number of answers entered. For wait, wait, done the count must be 3.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Create a practice timer without real-time code. Use a for loop to display exactly four exercise stations, then a while loop to collect effort ratings until the user enters 0. Count and display the non-zero ratings.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "for round_number in range(1, 6):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")",
+    "challenge2": "for round_number in range(1, 4):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nattempts = 0\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\n    attempts = attempts + 1\nprint(\"Answers entered:\", attempts)",
+    "challenge3": "for station in range(1, 5):\n    print(\"Exercise station\", station)\nrating = -1\nratings = 0\nwhile rating != 0:\n    rating = int(input(\"Effort rating, or 0 to stop: \"))\n    if rating != 0:\n        ratings = ratings + 1\nprint(\"Ratings recorded:\", ratings)",
+    "broken": "for round_number in range(1, 3):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    input(\"Type done to finish: \")\nprint(\"Session complete.\")",
+    "fixed": "for round_number in range(1, 4):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")"
+  },
+  "assets": {
+    "master": "lesson_compiler/assets/lesson02/pocket-watch-pencil-v2.png",
+    "title_layout": "lesson_compiler/assets/lesson02/pocket-watch-pencil-v2.png",
+    "worksheet": "lesson_compiler/assets/lesson02/pocket-watch-pencil-v2.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "wait\ndone\n",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "Known count",
+    "definition": "A fixed number of repetitions known before the loop begins.",
+    "questions": [
+      "Which loop runs exactly three times, and which part of the code sets that limit?",
+      "What happens if answer = input(...) is moved outside the while loop?",
+      "Why does range(1, 4) display 1, 2 and 3 rather than four values?",
+      "If the user enters DONE instead of done, why does the condition-controlled loop repeat?"
+    ],
+    "source": "lesson_compiler/curriculum/spiral_review/build_review_data.mjs#investigationQuestions"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "Modify A",
+      "observable_outcome": "Displays five numbered rounds; Retains condition-controlled finishing",
+      "success_criteria": [
+        "Displays five numbered rounds",
+        "Retains condition-controlled finishing"
+      ],
+      "test_cases": [
+        "done gives five rounds and one prompt",
+        "wait/done gives two prompts"
+      ],
+      "complexity": {
+        "edit_distance": 1,
+        "concept_composition": 1,
+        "transfer_distance": 0,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 3
+      },
+      "layout_profile": "challenge-medium",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "Modify B",
+      "observable_outcome": "Initialises and updates attempts; Counts the terminating answer; Displays a label",
+      "success_criteria": [
+        "Initialises and updates attempts",
+        "Counts the terminating answer",
+        "Displays a label"
+      ],
+      "test_cases": [
+        "done gives 1",
+        "wait/wait/done gives 3"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 1,
+        "decision_or_state_burden": 1,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 7
+      },
+      "layout_profile": "challenge-code-heavy",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "Make",
+      "observable_outcome": "Uses for for the four fixed stations; Uses while for sentinel input; Does not count the terminating zero",
+      "success_criteria": [
+        "Uses for for the four fixed stations",
+        "Uses while for sentinel input",
+        "Does not count the terminating zero"
+      ],
+      "test_cases": [
+        "0 gives 0 ratings",
+        "3/4/0 gives 2 ratings"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 2,
+        "decision_or_state_burden": 1,
+        "test_burden": 2,
+        "openness": 1,
+        "total": 10
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    }
+  ]
+}
