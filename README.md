@@ -1,56 +1,170 @@
-# Python Programming Lessons K–12
+# Python Programming Lessons
 
-This repository contains the source lessons and compiler inputs for the accepted 20 August 2026 non-capstone curriculum build. It produces the same two folder trees used under OneDrive `Lesson Plans/Resources`:
+This is a three-year sequence of introductory Python lessons for Grades 6–8.
+The lessons teach programming through short, readable examples that pupils
+predict, run, investigate, modify, and eventually use to make a new program.
 
-- `Mapped Curriculum Lessons` — learner PowerPoint, one-page challenge PDF, and starter Python file.
-- `Mapped Curriculum Lesson - Supplemental Material` — concept sheet, worksheet, and five solution/debug Python files.
+The sequence is based on PRIMM: **Predict, Run, Investigate, Modify, Make**.
+The approach is described by Sue Sentance and Jane Waite in
+[“PRIMM: Exploring pedagogical approaches for teaching text-based programming
+in school”](https://doi.org/10.1145/3137065.3137084).
 
-The build contains 33 lessons: 01–10, 12–26, and 28–35. Capstones 11, 27, and 36 are intentionally excluded. Existing Lesson 0 Review and capstone folders in OneDrive are not compilation targets and must remain unchanged.
+## Where the lessons are
 
-## Preserved Lesson 01
+The repository contains one current set of lessons in two root folders:
 
-Lesson 01 is copied byte-for-byte from the pre-run 2024 `Programming Lessons/Lesson Suite/Lesson 01 - Hello Python!` source retained in this repository. It is not passed through the challenge-language compiler. This preserves its original 13-slide deck and companion files.
+- `Mapped Curriculum Lessons` contains the files used directly with pupils.
+- `Mapped Curriculum Lesson - Supplemental Material` contains teacher and
+  planning resources.
 
-Lessons 02–35, excluding capstones, are recompiled from the retained source artifacts. The accepted challenge wording, starter-code changes, and solution-code changes are recorded in `lesson_compiler/curriculum/recompilation_run_2026-08-20.json`. This is canonical build data, not an audit archive.
+Lessons are grouped by grade and numbered as one continuous curriculum. Lesson
+numbers 11, 27, and 36 are reserved for capstone work and are not included in
+this non-capstone collection.
 
-## Requirements
+## Resources in each lesson
 
-- Python 3.11 or later and the packages in `requirements.txt`.
-- Node.js and `@oai/artifact-tool` 2.8.48 (`npm install` inside `lesson_compiler`).
-- LibreOffice plus the Codex DOCX renderer. The compiler discovers the bundled renderer automatically. Outside Codex, pass its path with `--doc-renderer` or set `LESSON_DOCX_RENDERER`.
+Every lesson has the same predictable set of resources.
 
-Suggested setup:
+| Resource | Audience | Purpose |
+| --- | --- | --- |
+| Slides | Whole class | Introduce the example, guide PRIMM discussion, present three challenges, and finish with debugging. |
+| Starter Code | Pupils | The complete example program used for prediction, running, investigation, and modification. |
+| Challenges PDF | Pupils | A printable one-page copy of the example and the three programming challenges. |
+| Worksheet | Pupils and teachers | Records predictions, observations, investigation answers, challenge work, debugging, testing, and reflection. |
+| Concept Sheet | Pupils and teachers | Summarises the lesson’s vocabulary, syntax, and small code examples. |
+| Solutions | Teachers | Includes solutions for all three challenges, the broken debugging program, and its corrected version. |
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-cd lesson_compiler
-npm install
-cd ..
-```
+Learner slide decks do not contain solution slides. Solutions are kept in the
+supplemental lesson folder so that the same slides can be presented directly to
+a class.
 
-## Compile and verify
+## How to teach a lesson with PRIMM
 
-Run from the repository root. `build/` must not already exist.
+### 1. Predict
 
-```bash
-python3 lesson_compiler/src/compile_non_capstone_suite.py
-python3 lesson_compiler/src/verify_non_capstone_suite.py
-```
+Show the example code without running it. Ask pupils to explain what they think
+will happen and to identify any values they can already trace. A useful
+prediction is specific: it names an expected value, route, repetition, or line
+of output.
 
-The output is written to `build/Recompiled Lesson Suite - Non-Capstone`, with intermediate records and document renders in `build/work`. Verification expects:
+### 2. Run
 
-- 33 PowerPoint files and 33 one-page challenge PDFs;
-- 66 DOCX files and 198 Python files;
-- 301 total slide pages: the preserved 13-slide Lesson 01 deck plus 32 nine-slide learner decks;
-- no solution slides in recompiled Lessons 02–35;
-- exact accepted challenge text across slides, worksheets, and PDFs;
-- quoted green string literals and blue code references in recompiled challenge text;
-- three-page worksheet render sources before page 2 is extracted as each challenge PDF.
+Run the unchanged starter program. Compare its actual behaviour with the class
+prediction. Treat an incorrect prediction as useful evidence about how pupils
+currently understand the code.
 
-Do not deploy by replacing either Grade folder wholesale. Copy only the compiled lesson directories 01–10, 12–26, and 28–35 into their matching Grade 6–8 locations in both OneDrive trees. This leaves Lesson 0 Review and capstones 11, 27, and 36 untouched.
+### 3. Investigate
 
-## Manual inspection note
+Use the investigation questions to read the program closely. Pupils should
+trace variables, conditions, loop behaviour, indexes, inputs, and outputs from
+the code in front of them. Ask them to justify answers with a particular line
+or value rather than guessing from the program’s topic.
 
-The compilation and structural checks pass. The only known visual follow-up is manual resizing of unusually long code text boxes, most visibly in Lessons 06, 07, 20, 31, 34, and 35. No capstone compilation is included.
+### 4. Modify
+
+Move through Challenges 1 and 2. Challenge 1 makes a small, meaningful change
+to the example’s main concept. Challenge 2 extends that change or combines it
+with another familiar idea. Pupils should save each completed challenge as a
+new file and test it before continuing.
+
+### 5. Make
+
+Challenge 3 asks pupils to create a related program with less scaffolding. The
+example remains available as a pattern, but pupils must decide how to adapt its
+structure. Finish with the debugging task so pupils also practise explaining,
+testing, and correcting code.
+
+## Suggested classroom routine
+
+1. Share the lesson goal and briefly retrieve the prerequisite knowledge.
+2. Open the starter code, but do not run it during prediction.
+3. Collect several predictions and ask pupils to explain their reasoning.
+4. Run the code with the suggested inputs and compare results.
+5. Work through the investigation questions before permitting edits.
+6. Model only the first change needed for Challenge 1 when support is required.
+7. Have pupils save and test each challenge separately.
+8. Use the fix-the-code task as a final check of understanding.
+9. Review a small selection of solutions, focusing on reasoning and tests rather
+   than one “perfect” program.
+
+The concept sheet can be given before the lesson as vocabulary support, during
+the Modify stage as a reference, or after the lesson for revision. The full
+worksheet is useful when written evidence is needed; the challenge PDF supports
+a lighter practical lesson.
+
+## Challenge scaffolding
+
+The three challenges deliberately increase independence:
+
+- **Challenge 1:** change the example while keeping its recognisable structure.
+- **Challenge 2:** extend the program with another input, calculation, route,
+  repetition, or data change.
+- **Challenge 3:** make a new but closely related program using the same core
+  concept.
+
+Instructions use short sentences and direct verbs such as *ask*, *store*,
+*change*, *display*, and *test*. Bracketed names such as `[total]` identify
+variables. Quoted text identifies exact output. Where a test value is supplied,
+pupils should be able to observe whether their program meets the requirement.
+
+## Curriculum sequence
+
+### Grade 6: foundations and control flow
+
+| Lesson | Focus |
+| --- | --- |
+| 01 — Hello Python! | Input, output, variables, and strings |
+| 02 — Operators and Integers | Whole-number input, `int()`, variables, and arithmetic |
+| 03 — Decimal Numbers | Decimal input, `float()`, and arithmetic |
+| 04 — Decisions | `if`/`else`, Boolean conditions, and indentation |
+| 05 — More Decisions | Ordered `if`/`elif`/`else` choices |
+| 06 — Logical Choices | Combining conditions with `and` and `or` |
+| 07 — Nested Decisions | A decision inside another decision |
+| 08 — Counted Loops | Repetition with `for` and `range()` |
+| 09 — Condition Loops | Repetition with `while`, conditions, and counters |
+| 10 — Choosing Loop Structures | Selecting and combining appropriate loop structures |
+
+### Grade 7: text, randomness, menus, and lists
+
+| Lesson | Focus |
+| --- | --- |
+| 12 — Strings and Text | Cleaning and formatting text with string methods |
+| 13 — String Positions | Reading characters and substrings with indexes and slices |
+| 14 — Changing Text Case | Normalising text with upper- and lower-case methods |
+| 15 — Joining Text | Building new strings by concatenation |
+| 16 — Text Length and Lines | Measuring strings and arranging output across lines |
+| 17 — Lists | Creating, displaying, and appending to ordered collections |
+| 18 — Random Whole Numbers | Generating bounded random integers |
+| 19 — Random Steps and Choices | Random stepped values and choices from a list |
+| 20 — Reliable Menus | Repeating and validating a menu with a Boolean flag |
+| 21 — Character Codes | Converting between characters and numeric codes |
+| 22 — List Positions and Updates | Reading and replacing items by position |
+| 23 — Inserting and Removing List Items | Changing list membership by value and position |
+| 24 — Deleting by List Position | Removing an item when its position is known |
+| 25 — Working Through Lists | Visiting each item with a loop and counting with `len()` |
+| 26 — Building Lists with Loops | Collecting repeated input into a list |
+
+### Grade 8: two-dimensional data and functions
+
+| Lesson | Focus |
+| --- | --- |
+| 28 — Reading 2D Lists | Representing records as rows and reading rows or cells |
+| 29 — Updating 2D List Cells | Replacing one field in a selected row |
+| 30 — Changing 2D List Rows | Appending, inserting, and deleting complete records |
+| 31 — Searching 2D Lists | Finding a record and handling a not-found result |
+| 32 — Functions | Defining and calling a reusable procedure |
+| 33 — Functions with Results | Passing parameters and returning a result |
+| 34 — Several Functions | Dividing a program into separate responsibilities |
+| 35 — Functions with 2D Data | Passing record data into display and search functions |
+
+## Assessment and support
+
+Prediction and investigation answers reveal misconceptions before pupils begin
+editing. Challenge programs provide evidence that pupils can apply the concept.
+The Make task shows whether they can transfer it to a related problem.
+
+For additional support, keep the starter code visible, trace one worked input,
+and provide the concept sheet. For greater challenge, ask pupils to select their
+own test cases, explain why those cases are useful, or compare two correct
+solutions. Avoid introducing untaught syntax merely to make a solution shorter;
+the sequence is designed to build complexity gradually.

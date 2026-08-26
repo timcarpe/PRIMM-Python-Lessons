@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "stats": {
+    "lessons": 33,
+    "pptx": 33,
+    "pdf": 33,
+    "docx": 66,
+    "python": 198,
+    "slide_pages": 297
+  },
+  "excluded_capstones": [
+    11,
+    27,
+    36
+  ],
+  "failures": []
+}

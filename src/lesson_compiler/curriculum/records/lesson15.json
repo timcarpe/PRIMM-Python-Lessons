@@ -1,0 +1,464 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 15,
+    "slug": "lesson15",
+    "title": "Joining Text",
+    "driving_question": "How can separate pieces of text be joined into one useful value?",
+    "primary_concept_family": "Building new strings by concatenating text values",
+    "prerequisites": [
+      "strings",
+      "input()",
+      "assignment",
+      "print()"
+    ],
+    "new_callable_patterns": [
+      "string concatenation with +"
+    ],
+    "retrieved_knowledge": [
+      "variables",
+      "string literals",
+      "lower()",
+      "labelled output"
+    ],
+    "deferred": [
+      "str() conversion",
+      "format strings",
+      "join()",
+      "lists"
+    ],
+    "concept_budget": "Join strings with +; number-to-string conversion and formatting syntax are deferred.",
+    "misconceptions": [
+      "The + operator joins strings only when both operands are text.",
+      "Spaces must be included deliberately.",
+      "Concatenation creates a new string value.",
+      "A comma in print() is not stored as part of the string."
+    ],
+    "progression_note": "Completes the core Grade 7 text manipulation strand before random values.",
+    "code_expectations": [
+      "two or more string operands",
+      "deliberate separator",
+      "stored combined value",
+      "no untaught conversion"
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Joining Text - Starter Code.py",
+    "code": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + \".\" + last_name.lower()\nprint(\"Username:\", username)",
+    "predict_input": "Asha then Khan",
+    "trace": [
+      {
+        "variable": "first_name",
+        "value": "Asha"
+      },
+      {
+        "variable": "last_name",
+        "value": "Khan"
+      },
+      {
+        "variable": "username",
+        "value": "asha.khan"
+      }
+    ],
+    "expected_output": "Username: asha.khan"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall how lower() returns changed text and how a literal such as a full stop can be stored inside quotes."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use Asha and Khan. Track each lower-case value and the full stop before writing the final username."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run with Asha and Khan, then with JO and LI. Check that exactly one full stop separates the two parts."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Why must a separator such as a full stop be added explicitly when two strings are joined?",
+        "Why does entering digits for a name still concatenate text instead of performing addition?",
+        "For inputs Ava and Li, what username would appear if both lower() calls were removed?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the missing string separator and the misspelled variable name so the username can be joined."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Joining Text – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Concatenation",
+        "definition": "Joining strings to create one new string.",
+        "example": "full = first + last"
+      },
+      {
+        "term": "Separator",
+        "definition": "Text deliberately placed between joined parts.",
+        "example": "first + \".\" + last"
+      },
+      {
+        "term": "String operand",
+        "definition": "A text value on one side of the + operator.",
+        "example": "first_name.lower()"
+      },
+      {
+        "term": "Combined value",
+        "definition": "The new string stored after concatenation.",
+        "example": "username = first + \".\" + last"
+      },
+      {
+        "term": "Text pipeline",
+        "definition": "Several taught string operations used in a clear sequence.",
+        "example": "name.lower() + \"-\" + code.upper()"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Joining Text",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Why must a separator such as a full stop be added explicitly when two strings are joined?",
+        "Why does entering digits for a name still concatenate text instead of performing addition?",
+        "For inputs Ava and Li, what username would appear if both lower() calls were removed?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + \".\" + last_name.lower()\nprint(\"Username:\", username)",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan.",
+          "layout_profile": "challenge-short"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Joining Text",
+      "subtitle": "Lesson 15"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Why must a separator such as a full stop be added explicitly when two strings are joined?\n2. Why does entering digits for a name still concatenate text instead of performing addition?\n3. For inputs Ava and Li, what username would appear if both lower() calls were removed?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + \"_\" + last_name.lower()\nprint(\"Username:\", username)",
+    "challenge2": "last_name = input(\"Last name: \")\ndepartment = input(\"Department code: \")\naccount_label = last_name.lower() + \"-\" + department.upper()\nprint(\"Account label:\", account_label)",
+    "challenge3": "venue = input(\"Venue: \")\nactivity = input(\"Activity: \")\ngroup = input(\"Group: \")\ntag = venue.lower() + \"/\" + activity.lower() + \"-\" + group.upper()\nprint(\"Event tag:\", tag)",
+    "broken": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + . + last_name.lower()\nprint(\"Username:\", user_name)",
+    "fixed": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + \".\" + last_name.lower()\nprint(\"Username:\", username)"
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson03/pen-paper-pencil-v2.png",
+    "title_layout": "src/lesson_compiler/assets/lesson03/pen-paper-pencil-v2.png",
+    "worksheet": "src/lesson_compiler/assets/lesson03/pen-paper-pencil-v2.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "Asha\nKhan\n",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "Concatenation",
+    "definition": "Joining strings to create one new string.",
+    "questions": [
+      "Why must a separator such as a full stop be added explicitly when two strings are joined?",
+      "Why does entering digits for a name still concatenate text instead of performing addition?",
+      "For inputs Ava and Li, what username would appear if both lower() calls were removed?"
+    ],
+    "source": "src/lesson_compiler/curriculum/spiral_review/build_review_data.mjs#investigationQuestions"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "Modify A",
+      "observable_outcome": "Changes the separator; Keeps both lower-case parts",
+      "success_criteria": [
+        "Changes the separator",
+        "Keeps both lower-case parts"
+      ],
+      "test_cases": [
+        "Asha/Khan gives asha_khan"
+      ],
+      "complexity": {
+        "edit_distance": 1,
+        "concept_composition": 1,
+        "transfer_distance": 0,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 3
+      },
+      "layout_profile": "challenge-short",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "Modify B",
+      "observable_outcome": "Collects and transforms two strings; Uses a hyphen separator; Stores the joined result",
+      "success_criteria": [
+        "Collects and transforms two strings",
+        "Uses a hyphen separator",
+        "Stores the joined result"
+      ],
+      "test_cases": [
+        "Khan/art gives khan-ART"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 1,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 6
+      },
+      "layout_profile": "challenge-code-heavy",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "Make",
+      "observable_outcome": "Combines three inputs; Applies the required case to each part; Uses both separators",
+      "success_criteria": [
+        "Combines three inputs",
+        "Applies the required case to each part",
+        "Uses both separators"
+      ],
+      "test_cases": [
+        "Hall/Chess/b2 gives hall/chess-B2",
+        "LAB/Code/a gives lab/code-A"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 2,
+        "decision_or_state_burden": 1,
+        "test_burden": 2,
+        "openness": 1,
+        "total": 10
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    }
+  ]
+}

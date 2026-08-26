@@ -1,0 +1,352 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 12,
+    "slug": "lesson12",
+    "title": "Strings and Text",
+    "driving_question": "How can a program clean and present text entered by a user?",
+    "primary_concept_family": "String methods return cleaned or formatted copies of text.",
+    "new_callable_patterns": [
+      ".strip()",
+      ".title()"
+    ],
+    "retrieved_knowledge": [
+      "strings",
+      "variables",
+      "assignment",
+      "input()",
+      "comma-separated print()"
+    ],
+    "deferred": [
+      "+ concatenation",
+      "len()",
+      ".upper()",
+      ".lower()",
+      "indexing",
+      "negative indexing",
+      "slicing"
+    ],
+    "misconceptions": [
+      "A method call needs parentheses.",
+      "String methods return a new string; they do not rewrite the original value.",
+      "strip() removes leading and trailing whitespace, not internal spaces.",
+      "A variable name must match exactly when it is used."
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or prior lessons",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "forbidden_tokens": [
+        "+",
+        "len(",
+        ".upper(",
+        ".lower(",
+        "[",
+        "]"
+      ],
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; assign each returned string back to its variable; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Strings and Text - Starter Code.py",
+    "code": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")",
+    "normalization": [
+      {
+        "find": "\" )",
+        "replace": "\")"
+      }
+    ],
+    "predict_input": "  aLEX  ",
+    "trace": [
+      {
+        "variable": "name after input()",
+        "value": "  aLEX  "
+      },
+      {
+        "variable": "name after strip()",
+        "value": "aLEX"
+      },
+      {
+        "variable": "name after title()",
+        "value": "Alex"
+      }
+    ],
+    "expected_output": "Hello, Alex !"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall: What value does input() return? What does = do? How can print() display several values?"
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Without running the code, use the exact input '  aLEX  '. Write the value of name after each line and the final output. Explain your trace to a partner and agree on one prediction."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run the supplied file with the same input. Compare the result with your prediction and explain one match or mismatch."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "If you type one space before and after ana, which spaces does strip() remove?",
+        "If you enter ana with two spaces before and after it, what value is stored after both lines run?",
+        "Why must the results of strip() and title() be assigned back to name before it is printed?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\"."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair missing method parentheses and the mismatched output variable, then test the corrected program."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Strings and Text – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "String method",
+        "definition": "A text operation written after a string or variable with a dot. The method name is followed by parentheses.",
+        "example": "name = name.strip()"
+      },
+      {
+        "term": "strip()",
+        "definition": "Returns a copy of a string with spaces removed from the beginning and end. Spaces inside the text remain.",
+        "example": "name = name.strip()"
+      },
+      {
+        "term": "title()",
+        "definition": "Returns a copy of a string with the first letter of each word changed to a capital letter.",
+        "example": "name = name.title()"
+      },
+      {
+        "term": "Returned string",
+        "definition": "A string method returns new text. Assign the result to a variable if the program needs to use it later.",
+        "example": "name = name.title()"
+      },
+      {
+        "term": "Text-processing flow",
+        "definition": "Ask for text, remove unwanted spaces, change the case and then display the result. One operation on each line makes the program easy to trace.",
+        "example": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Strings and Text",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will do if the user enters '  aLEX  '?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "If you type one space before and after ana, which spaces does strip() remove?",
+        "If you enter ana with two spaces before and after it, what value is stored after both lines run?",
+        "Why must the results of strip() and title() be assigned back to name before it is printed?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name.",
+          "layout_profile": "challenge-code-heavy"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\".",
+          "layout_profile": "challenge-code-heavy"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Strings and Text",
+      "subtitle": "Lesson 12"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. If you type one space before and after ana, which spaces does strip() remove?\n2. If you enter ana with two spaces before and after it, what value is stored after both lines run?\n3. Why must the results of strip() and title() be assigned back to name before it is printed?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\".",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "name = input(\"What is your first name? \")\nclean_name = name.strip().title()\n\nprint(\"Hello,\", clean_name, \"!\")",
+    "challenge2": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nsurname = input(\"What is your surname? \" )\nsurname = surname.strip()\nsurname = surname.title()\nprint(\"Hello,\", name, surname, \"!\")",
+    "challenge3": "city = input(\"Enter a city: \" )\ncity = city.strip()\ncity = city.title()\ncountry = input(\"Enter a country: \" )\ncountry = country.strip()\ncountry = country.title()\nprint(\"Destination:\", city, \"-\", country)",
+    "broken": "name = input(\"What is your first name? \" )\nname = name.strip\nname = name.title()\nprint(\"Hello,\", display_name, \"!\")",
+    "fixed": "name = input(\"What is your first name? \" )\nname = name.strip()  # Add the missing parentheses.\nname = name.title()\nprint(\"Hello,\", name, \"!\")  # Use the correct variable."
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson03/typewriter-canonical.png",
+    "title_layout": "src/lesson_compiler/assets/lesson03/typewriter-canonical.png",
+    "worksheet": "src/lesson_compiler/assets/lesson03/typewriter-canonical.png"
+  },
+  "investigation": {
+    "term": "strip()",
+    "definition": "Returns a copy of a string with spaces removed from the beginning and end. Spaces inside the text remain.",
+    "questions": [
+      "If you type one space before and after ana, which spaces does strip() remove?",
+      "If you enter ana with two spaces before and after it, what value is stored after both lines run?",
+      "Why must the results of strip() and title() be assigned back to name before it is printed?"
+    ],
+    "source": "src/lesson_compiler/curriculum/investigation_revision_ingestion.json"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson folder, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "provenance": {
+    "materialization": "reused_standard_lesson",
+    "source_json": "src/lesson_compiler/curriculum/lesson03.json",
+    "source_lesson": 3,
+    "target_lesson": 12,
+    "content_policy": "Released semantic content and three-activity ladder reused; only continuous identity metadata changes unless an explicit coverage override is recorded."
+  }
+}

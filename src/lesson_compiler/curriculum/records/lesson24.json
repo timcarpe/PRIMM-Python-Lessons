@@ -1,0 +1,471 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 24,
+    "slug": "lesson24",
+    "title": "Deleting by List Position",
+    "driving_question": "How can a program delete a list item when it knows the position rather than the value?",
+    "primary_concept_family": "Deleting a list item when its position is known",
+    "prerequisites": [
+      "list indexing",
+      "int(input())",
+      "remove()",
+      "print()"
+    ],
+    "new_callable_patterns": [
+      "del list[index]"
+    ],
+    "retrieved_knowledge": [
+      "zero-based positions",
+      "value removal",
+      "list display"
+    ],
+    "deferred": [
+      "pop()",
+      "slices",
+      "bounds validation",
+      "2D rows"
+    ],
+    "concept_budget": "Use del with one valid position and contrast it explicitly with remove() by value.",
+    "misconceptions": [
+      "del uses square-bracket indexing.",
+      "Deleting shifts later items left.",
+      "remove() chooses by value while del chooses by position.",
+      "The deleted position must exist."
+    ],
+    "progression_note": "Completes the core list-editing operations and prepares positional row deletion in 2D data.",
+    "code_expectations": [
+      "valid position stated",
+      "del statement",
+      "before/after evidence",
+      "explicit remove-versus-del language"
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Deleting by List Position - Starter Code.py",
+    "code": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = int(input(\"Completed position 0 to 3: \"))\ncompleted = tasks[position]\ndel tasks[position]\nprint(\"Completed:\", completed)\nprint(\"Remaining:\", tasks)",
+    "predict_input": "2",
+    "trace": [
+      {
+        "variable": "position",
+        "value": "2"
+      },
+      {
+        "variable": "completed",
+        "value": "test"
+      },
+      {
+        "variable": "deleted item",
+        "value": "test"
+      },
+      {
+        "variable": "tasks",
+        "value": "email, design, publish"
+      }
+    ],
+    "expected_output": "Completed: test\nRemaining: ['email', 'design', 'publish']"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall how indexing reads an item and how remove() deletes a known value."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use position 2. Record completed before deletion and trace which later item shifts left."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run with 2 and then restart with 0. Confirm the completed label always matches the item that disappears."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Why is the item stored before del removes it?",
+        "What happens if del uses a position that does not exist?",
+        "How do later positions change after an item is deleted?",
+        "If you enter position 1, what are the exact Completed and Remaining lines?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Keep the user-selected deletion. After it, display the new first task with the label \"Next:\". Test position 0; email must be completed and design must be next."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "After the first deletion, ask for a second valid position in the shortened list. Label and delete that item, then display what remains. Test the program by entering 1 for both positions."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the square brackets and use del as a statement before displaying the shortened list."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Deleting by List Position – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "del",
+        "definition": "A statement that removes the item at a specified list position.",
+        "example": "del tasks[position]"
+      },
+      {
+        "term": "Deletion position",
+        "definition": "The zero-based index of the item to remove.",
+        "example": "position = 2"
+      },
+      {
+        "term": "Shift left",
+        "definition": "Later items move one position earlier after deletion.",
+        "example": "publish moves from 3 to 2"
+      },
+      {
+        "term": "Delete by position",
+        "definition": "Use del when the index is known.",
+        "example": "del tasks[1]"
+      },
+      {
+        "term": "Remove by value",
+        "definition": "Use remove() when the stored value is known.",
+        "example": "tasks.remove(\"design\")"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Deleting by List Position",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Why is the item stored before del removes it?",
+        "What happens if del uses a position that does not exist?",
+        "How do later positions change after an item is deleted?",
+        "If you enter position 1, what are the exact Completed and Remaining lines?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = int(input(\"Completed position 0 to 3: \"))\ncompleted = tasks[position]\ndel tasks[position]\nprint(\"Completed:\", completed)\nprint(\"Remaining:\", tasks)",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Keep the user-selected deletion. After it, display the new first task with the label \"Next:\". Test position 0; email must be completed and design must be next.",
+          "layout_profile": "challenge-short"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "After the first deletion, ask for a second valid position in the shortened list. Label and delete that item, then display what remains. Test the program by entering 1 for both positions.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Deleting by List Position",
+      "subtitle": "Lesson 24"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Why is the item stored before del removes it?\n2. What happens if del uses a position that does not exist?\n3. How do later positions change after an item is deleted?\n4. If you enter position 1, what are the exact Completed and Remaining lines?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Keep the user-selected deletion. After it, display the new first task with the label \"Next:\". Test position 0; email must be completed and design must be next.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "After the first deletion, ask for a second valid position in the shortened list. Label and delete that item, then display what remains. Test the program by entering 1 for both positions.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = int(input(\"Completed position 0 to 3: \"))\ncompleted = tasks[position]\ndel tasks[position]\n\nprint(\"Completed:\", completed)\nprint(\"Next:\", tasks[0])\nprint(\"Remaining:\", tasks)",
+    "challenge2": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nfirst_position = int(input(\"First position 0 to 3: \"))\nfirst_completed = tasks[first_position]\ndel tasks[first_position]\nsecond_position = int(input(\"Second position 0 to 2: \"))\nsecond_completed = tasks[second_position]\ndel tasks[second_position]\nprint(\"Completed:\", first_completed, second_completed)\nprint(\"Remaining:\", tasks)",
+    "challenge3": "queue = [\"Ari\", \"Bao\", \"Cleo\", \"Dara\"]\nposition = int(input(\"Cancel position 0 to 3: \"))\ncancelled = queue[position]\ndel queue[position]\nprint(\"Cancelled:\", cancelled)\nnumber = 0\nfor name in queue:\n    print(number, name)\n    number = number + 1",
+    "broken": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = 2\ncompleted = tasks(position)\ndel(tasks[position])\nprint(tasks)",
+    "fixed": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = 2\ncompleted = tasks[position]\ndel tasks[position]\nprint(tasks)"
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson11/bell-pencil-v2.png",
+    "title_layout": "src/lesson_compiler/assets/lesson11/bell-pencil-v2.png",
+    "worksheet": "src/lesson_compiler/assets/lesson11/bell-pencil-v2.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "2\n",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "del",
+    "definition": "A statement that removes the item at a specified list position.",
+    "questions": [
+      "Why is the item stored before del removes it?",
+      "What happens if del uses a position that does not exist?",
+      "How do later positions change after an item is deleted?",
+      "If you enter position 1, what are the exact Completed and Remaining lines?"
+    ],
+    "source": "src/lesson_compiler/curriculum/spiral_review/build_review_data.mjs#investigationQuestions"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "Modify A",
+      "observable_outcome": "Keep the user-selected deletion. After it, display the new first task with the label \"Next:\". Test position 0; email must be completed and design must be next.",
+      "success_criteria": [
+        "Deletes index 0",
+        "Labels the deleted item",
+        "Preserves remaining order"
+      ],
+      "test_cases": [
+        "Keep the user-selected deletion. After it, display the new first task with the label \"Next:\". Test position 0; email must be completed and design must be next."
+      ],
+      "complexity": {
+        "edit_distance": 1,
+        "concept_composition": 1,
+        "transfer_distance": 0,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 3
+      },
+      "layout_profile": "challenge-short",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "Modify B",
+      "observable_outcome": "After the first deletion, ask for a second valid position in the shortened list. Label and delete that item, then display what remains. Test the program by entering 1 for both positions.",
+      "success_criteria": [
+        "Uses the shortened-list bounds",
+        "Stores both values before deletion",
+        "Shows both completions"
+      ],
+      "test_cases": [
+        "After the first deletion, ask for a second valid position in the shortened list. Label and delete that item, then display what remains. Test the program by entering 1 for both positions."
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 1,
+        "decision_or_state_burden": 1,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 7
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "Make",
+      "observable_outcome": "Deletes by supplied valid position; Labels the cancelled name; Displays renumbered remaining queue",
+      "success_criteria": [
+        "Deletes by supplied valid position",
+        "Labels the cancelled name",
+        "Displays renumbered remaining queue"
+      ],
+      "test_cases": [
+        "1 cancels Bao and renumbers Ari/Cleo/Dara",
+        "3 cancels Dara"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 2,
+        "decision_or_state_burden": 1,
+        "test_burden": 2,
+        "openness": 1,
+        "total": 10
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "python-programming-lessons-compiler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "lesson-compiler build",
+    "verify": "lesson-compiler verify"
+  },
+  "dependencies": {
+    "@oai/artifact-tool": "2.8.48"
+  }
+}

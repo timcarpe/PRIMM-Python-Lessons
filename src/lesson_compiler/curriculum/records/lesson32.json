@@ -1,0 +1,384 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 32,
+    "slug": "lesson32",
+    "title": "Functions",
+    "driving_question": "How can a named block of code be written once and used again?",
+    "primary_concept_family": "A function stores a reusable procedure and a function call runs it.",
+    "prerequisites": [
+      "variables",
+      "assignment",
+      "print()",
+      "for loops",
+      "indentation"
+    ],
+    "new_callable_patterns": [
+      "def",
+      "function call"
+    ],
+    "retrieved_knowledge": [
+      "sequence",
+      "indentation",
+      "print()",
+      "named variables",
+      "repetition"
+    ],
+    "deferred": [
+      "parameters",
+      "return",
+      "default arguments",
+      "scope",
+      "nested functions"
+    ],
+    "concept_budget": "Define and call one parameter-free function; parameters and returned values are deferred to Lesson 13.",
+    "misconceptions": [
+      "def creates a function but does not run its body immediately.",
+      "The indented lines belong to the function body.",
+      "A function call needs parentheses.",
+      "The function must be defined before the call runs."
+    ],
+    "progression_note": "The learner moves repeated output into a named block, then calls the block again. Lesson 13 will add inputs and results to the function.",
+    "code_expectations": [
+      "def name(): syntax",
+      "one indented function body",
+      "function call with parentheses",
+      "no parameters or return yet"
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or prior lessons",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Functions - Starter Code.py",
+    "code": "def show_greeting():\n    print(\"Hello, Python learner!\")\nshow_greeting()\nprint(\"Welcome to Python.\")",
+    "predict_input": "no input",
+    "trace": [
+      {
+        "variable": "function name",
+        "value": "show_greeting"
+      },
+      {
+        "variable": "function call",
+        "value": "runs the indented print() line"
+      },
+      {
+        "variable": "final display",
+        "value": "Welcome to Python."
+      }
+    ],
+    "expected_output": "Hello, Python learner!\nWelcome to Python."
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall: What does indentation show? How can a loop save repeated code? What does a name help us remember?"
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Predict which lines display when the function is defined, when it is called, and when the final print() runs. Explain when the function body runs."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run the supplied file. Compare the order of the two messages with your prediction and explain one match or mismatch."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Why does Python not run a function body when it first reads the def statement?",
+        "What happens if the function name is written without parentheses where a call is intended?",
+        "Why must the function body be indented?",
+        "Which two messages appear, and in what order?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "A greeting is useful more than once. Call show_greeting() a second time so \"Hello, Python learner!\" appears twice. Keep the final \"Welcome to Python.\" message. Predict the number of greetings before you run the program."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Build one no-input function called show_tip() that displays a Python tip of your choice. Call it twice; the same tip should appear two times."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the undefined message used inside the function, then run the corrected greeting program."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Functions – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Function",
+        "definition": "A named block of code which performs a task. The indented body is stored until the function is called.",
+        "example": "def show_greeting():\n    print(\"Hello, Python learner!\")"
+      },
+      {
+        "term": "def",
+        "definition": "The keyword which starts a function definition. The line ends with a colon.",
+        "example": "def show_greeting():"
+      },
+      {
+        "term": "Function body",
+        "definition": "The indented lines under the def line. These lines belong to the function.",
+        "example": "def show_greeting():\n    print(\"Hello, Python learner!\")"
+      },
+      {
+        "term": "Function call",
+        "definition": "The function name followed by parentheses. A call runs the stored function body.",
+        "example": "show_greeting()"
+      },
+      {
+        "term": "Reusable greeting flow",
+        "definition": "Define the greeting once, call it when the program needs the greeting, and keep the rest of the program readable.",
+        "example": "def show_greeting():\n    print(\"Hello, Python learner!\")\nshow_greeting()\nprint(\"Welcome to Python.\")"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Functions",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Why does Python not run a function body when it first reads the def statement?",
+        "What happens if the function name is written without parentheses where a call is intended?",
+        "Why must the function body be indented?",
+        "Which two messages appear, and in what order?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "def show_greeting():\n    print(\"Hello, Python learner!\")\nshow_greeting()\nprint(\"Welcome to Python.\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "A greeting is useful more than once. Call show_greeting() a second time so \"Hello, Python learner!\" appears twice. Keep the final \"Welcome to Python.\" message. Predict the number of greetings before you run the program.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Build one no-input function called show_tip() that displays a Python tip of your choice. Call it twice; the same tip should appear two times.",
+          "layout_profile": "challenge-medium"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Functions",
+      "subtitle": "Lesson 32"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Why does Python not run a function body when it first reads the def statement?\n2. What happens if the function name is written without parentheses where a call is intended?\n3. Why must the function body be indented?\n4. Which two messages appear, and in what order?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "A greeting is useful more than once. Call show_greeting() a second time so \"Hello, Python learner!\" appears twice. Keep the final \"Welcome to Python.\" message. Predict the number of greetings before you run the program.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Build one no-input function called show_tip() that displays a Python tip of your choice. Call it twice; the same tip should appear two times.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "def show_welcome():\n    print(\"Hello, Python learner!\")\n\n\nshow_welcome()\nprint(\"Welcome to Python.\")",
+    "challenge2": "def show_greeting():\n    print(\"Hello, Python learner!\")\n\n\nshow_greeting()\nshow_greeting()\nprint(\"Welcome to Python.\")",
+    "challenge3": "def show_tip():\n    print(\"Use clear names.\")\nshow_tip()\nshow_tip()",
+    "broken": "def show_greeting():\n    print(greeting_message)\nshow_greeting()\nprint(\"Welcome to Python.\")",
+    "fixed": "def show_greeting():\n    print(\"Hello, Python learner!\")\nshow_greeting()\nprint(\"Welcome to Python.\")"
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson12/desk-lamp-canonical.png",
+    "title_layout": "src/lesson_compiler/assets/lesson12/desk-lamp-canonical.png",
+    "worksheet": "src/lesson_compiler/assets/lesson12/desk-lamp-canonical.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson folder, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "Function call",
+    "definition": "The function name followed by parentheses. A call runs the stored function body.",
+    "questions": [
+      "Why does Python not run a function body when it first reads the def statement?",
+      "What happens if the function name is written without parentheses where a call is intended?",
+      "Why must the function body be indented?",
+      "Which two messages appear, and in what order?"
+    ],
+    "source": "src/lesson_compiler/curriculum/investigation_revision_ingestion.json"
+  },
+  "provenance": {
+    "materialization": "reused_standard_lesson",
+    "source_json": "src/lesson_compiler/curriculum/lesson12.json",
+    "source_lesson": 12,
+    "target_lesson": 32,
+    "content_policy": "Released semantic content and three-activity ladder reused; only continuous identity metadata changes unless an explicit coverage override is recorded."
+  }
+}

@@ -1,0 +1,415 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 1,
+    "slug": "lesson01",
+    "title": "Hello Python!",
+    "driving_question": "How can a Python program ask for input and display a message?",
+    "primary_concept_family": "Input, output, variables and strings",
+    "prerequisites": [],
+    "new_callable_patterns": [
+      "input()",
+      "print()"
+    ],
+    "retrieved_knowledge": [],
+    "deferred": [
+      "numeric conversion",
+      "selection",
+      "loops"
+    ],
+    "concept_budget": "Store text input in variables and display it with print().",
+    "misconceptions": [
+      "Text literals need quotation marks.",
+      "The equal sign stores a value in a variable.",
+      "input() returns the text entered by the user.",
+      "print() can display several values in order."
+    ],
+    "progression_note": "Introduces the input-process-output pattern used throughout the suite.",
+    "code_expectations": [
+      "input()",
+      "assignment",
+      "print()",
+      "string literals"
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "illustration_placement_authority": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 02 - Operators and Integers/Operators and Integers - Worksheet.docx",
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Hello Python! - Starter Code.py",
+    "code": "name = input(\"What is your name? \")\n\nprint(\"Hello,\", name, \"!\")",
+    "predict_input": "Tim",
+    "trace": [
+      {
+        "variable": "name",
+        "value": "Tim"
+      }
+    ],
+    "expected_output": "Hello, Tim !"
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Identify the input, variable and output in the example program."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Predict the complete message when the user enters a name."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run the supplied file and compare the output with your prediction."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "What does input() do?",
+        "What does the equal sign do?",
+        "What creates the green string literals?",
+        "How does print() combine several values?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the quotation marks, input call and variable name."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Hello Python! – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Assignment",
+        "definition": "Storing a value in a variable with the equal sign (=).",
+        "example": "sport = \"football\""
+      },
+      {
+        "term": "Input",
+        "definition": "Receiving text entered by the user with input().",
+        "example": "input(\"What is your favorite sport?\")"
+      },
+      {
+        "term": "Output",
+        "definition": "Displaying information for the user with print().",
+        "example": "print(\"football\")"
+      },
+      {
+        "term": "Strings",
+        "definition": "A collection of text characters inside quotation marks.",
+        "example": "\"football\""
+      },
+      {
+        "term": "Variable",
+        "definition": "A name used to store and access information.",
+        "example": "sport"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Hello Python!",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "Write down exactly what you think this code will do:",
+      "run_heading": "Run the code! Were you correct?",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "What does input() do?",
+        "What does the equal sign do?",
+        "What creates the green string literals?",
+        "How does print() combine several values?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "name = input(\"What is your name? \")\n\nprint(\"Hello,\", name, \"!\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark."
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers."
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers."
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Hello Python!",
+      "subtitle": "Lesson 01"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. What does input() do?\n2. What does the equal sign do?\n3. What creates the green string literals?\n4. How does print() combine several values?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "name = input(\"What is your name? \")\ngreeting = \"Xin chao\"\n\nprint(greeting, name, \"!\")",
+    "challenge2": "name = input(\"What is your name? \")\nfriend_name = input(\"What is your friend's name? \")\n\nprint(\"Hello,\", name, \"and\", friend_name, \"!\")",
+    "challenge3": "subject_1 = input(\"What subject do you study in school? \")\nsubject_2 = input(\"What is another subject you study in school? \")\n\nprint(\"I think\", subject_1, \"and\", subject_2, \"are great subjects!\")",
+    "broken": "# Lesson 01 - Hello Python!\n# Fix the code!\n\nname = input(What is your name?)\nsport = print(\"What is your favorite sport?\")\n\nprint(\"Hmmmmm\")\nprint(\"Today I learned\", name, \"really likes\", favSport, \"!\")",
+    "fixed": "# Lesson 01 - Hello Python!\n# Fix the code! - Solution\n\nname = input(\"What is your name?\") #Use quotation marks for text/strings\nsport = input(\"What is your favorite sport?\") #Use input instead of print\n\nprint(\"Hmmmmm\")\nprint(\"Today I learned\", name, \"really likes\", sport, \"!\") #Use matching variable names - sport instead of favSport"
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson01/python-canonical.png",
+    "title_layout": "src/lesson_compiler/assets/lesson01/python-canonical.png",
+    "worksheet": "src/lesson_compiler/assets/lesson01/python-canonical.png",
+    "worksheet_width_inches": 1.7
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "Tim\n",
+    "challenge1_input": "Tim\n",
+    "challenge2_input": "Tim\nAna\n",
+    "challenge3_input": "Maths\nScience\n",
+    "fixed_input": "Tim\nfootball\n"
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "input()",
+    "definition": "Pauses the program and returns text entered by the user.",
+    "questions": [
+      "What does input() do?",
+      "What does the equal sign do?",
+      "What creates the green string literals?",
+      "How does print() combine several values?"
+    ],
+    "source": "Mapped Curriculum Lessons/Grade 6/Lesson 01 - Hello Python!"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "small constrained edit",
+      "observable_outcome": "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark.",
+      "success_criteria": [
+        "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark."
+      ],
+      "test_cases": [
+        "Create a variable called greeting and store a greeting in another language, such as \"Xin chao\". Change print() so it displays the greeting, the user's name and an exclamation mark."
+      ],
+      "layout_profile": "challenge-medium",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "functional extension",
+      "observable_outcome": "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers.",
+      "success_criteria": [
+        "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers."
+      ],
+      "test_cases": [
+        "Ask for the user's name and a friend's name. Display \"Hello, [name] and [friend]!\" using both answers."
+      ],
+      "layout_profile": "challenge-medium",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "independent transfer",
+      "observable_outcome": "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers.",
+      "success_criteria": [
+        "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers."
+      ],
+      "test_cases": [
+        "Create a new program that asks for two school subjects. Display the message \"I think [subject 1] and [subject 2] are great subjects!\" using the two answers."
+      ],
+      "layout_profile": "challenge-medium",
+      "program_change": true
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "schema_version": "1.0",
+  "lesson": {
+    "number": 20,
+    "slug": "lesson20",
+    "title": "Reliable Menus",
+    "driving_question": "How can a menu continue safely until the user chooses to leave?",
+    "primary_concept_family": "Controlling and validating a repeating menu with a Boolean flag",
+    "prerequisites": [
+      "while",
+      "if/elif/else",
+      "input()",
+      "string comparison"
+    ],
+    "new_callable_patterns": [
+      "Boolean control flag"
+    ],
+    "retrieved_knowledge": [
+      "condition-controlled loop",
+      "multi-route selection",
+      "input normalisation",
+      "error feedback"
+    ],
+    "deferred": [
+      "functions",
+      "exception handling",
+      "match",
+      "persistent storage"
+    ],
+    "concept_budget": "Use one Boolean flag to control one repeating menu and an else route for invalid input.",
+    "misconceptions": [
+      "True and False are Boolean values without quotes.",
+      "The menu repeats while the flag remains True.",
+      "Only the exit route changes the flag to False.",
+      "Invalid input should not terminate the menu."
+    ],
+    "progression_note": "Combines Grade 6 loops and selection with Grade 7 text normalisation to produce a robust repeated interface.",
+    "code_expectations": [
+      "Boolean flag initialised before loop",
+      "normalised menu input",
+      "if/elif/else routes",
+      "exit route updates flag"
+    ]
+  },
+  "contracts": {
+    "style_contract": "src/lesson_compiler/contracts/lesson-suite-style.json",
+    "presentation": {
+      "template_lesson": 1,
+      "slides": 13,
+      "hidden_slides": [
+        2,
+        7,
+        9,
+        11,
+        13
+      ],
+      "content_area_policy": "replace text only; preserve every existing shape and exact bounds"
+    },
+    "concept_sheet": {
+      "template_lesson": 1,
+      "pages": 2,
+      "body_structure": "five established concept blocks"
+    },
+    "worksheet": {
+      "template_lesson": 1,
+      "pages": 3,
+      "body_sdts": 8,
+      "content_area_policy": "preserve every response SDT and field"
+    },
+    "challenge_pdf": {
+      "source": "worksheet page 2",
+      "pages": 1,
+      "starter_code_policy": "show the complete shared program",
+      "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
+    },
+    "investigation": {
+      "question_count_policy": "Use the number of questions needed to address the common misconceptions exposed by the starter code; do not pad to a fixed count.",
+      "usual_range": "2-6 questions",
+      "evidence_policy": "Every question must identify an exact value, variable, condition, operation, route or output present in the starter code, or a common one-step learner mistake made while editing that code.",
+      "priority": [
+        "type and input assumptions",
+        "boundary and route behavior",
+        "state changes and termination",
+        "index or field selection",
+        "indentation and ownership",
+        "returned versus displayed values"
+      ],
+      "exclusions": [
+        "redundant restatement of the scenario",
+        "terminology recall without code reasoning",
+        "obscure runtime edge cases",
+        "syntax not yet taught",
+        "hypothetical changes unrelated to a likely learner mistake"
+      ]
+    },
+    "images": {
+      "tone": "high-fidelity black-and-white graphite pencil sketch on pure white",
+      "novelty": "hash must not occur in templates or an earlier packaged lesson",
+      "placement": "preserve inherited frame bounds; contain without crop; lock aspect ratio",
+      "source_contract": "src/lesson_compiler/curriculum/illustration_revision_ingestion.json",
+      "identity": "one canonical asset path and subject across master/title/worksheet roles",
+      "presentation_hierarchy": "no master illustration; one opaque title-layout illustration; one 28-percent-alpha illustration on every non-title layout",
+      "overlay_policy": "exactly one visible illustration per slide; no inherited title-slide duplicate and no masking overlay"
+    },
+    "code": {
+      "python_version": "3",
+      "expected_files": 6,
+      "variable_style": "short semantic snake_case names",
+      "method_style": "one operation per line; no method chaining"
+    }
+  },
+  "shared_program": {
+    "filename": "Reliable Menus - Starter Code.py",
+    "code": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False\n    else:\n        print(\"Choose 1 or 2.\")\nprint(\"Menu closed.\")",
+    "predict_input": "x then 1 then 2",
+    "trace": [
+      {
+        "variable": "running",
+        "value": "True"
+      },
+      {
+        "variable": "choice",
+        "value": "x, then 1, then 2"
+      },
+      {
+        "variable": "invalid route",
+        "value": "prints guidance"
+      },
+      {
+        "variable": "exit route",
+        "value": "sets running to False"
+      }
+    ],
+    "expected_output": "Choose 1 or 2.\nHello!\nMenu closed."
+  },
+  "primm": [
+    {
+      "phase": "Retrieve",
+      "ownership": "teacher-led recall",
+      "prompt": "Recall how a while condition is rechecked and how an else route catches values not matched by if or elif."
+    },
+    {
+      "phase": "Predict",
+      "ownership": "individual then pair",
+      "prompt": "Use x, 1 and 2. Trace running after each choice and list the three visible messages in order."
+    },
+    {
+      "phase": "Run",
+      "ownership": "paired comparison",
+      "prompt": "Run x, 1, 2 and then a second path using 2 immediately. Confirm invalid input repeats and exit closes the menu."
+    },
+    {
+      "phase": "Investigate",
+      "ownership": "guided explanation",
+      "questions": [
+        "Why does an invalid menu choice repeat instead of setting running to False?",
+        "When the user enters 2, which statement changes running and what message appears after the loop?",
+        "Why must the menu input be updated inside the while loop?"
+      ]
+    },
+    {
+      "phase": "Modify A",
+      "ownership": "small constrained edit",
+      "prompt": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0."
+    },
+    {
+      "phase": "Modify B",
+      "ownership": "functional extension",
+      "prompt": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2."
+    },
+    {
+      "phase": "Make",
+      "ownership": "independent transfer",
+      "prompt": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response."
+    },
+    {
+      "phase": "Debug",
+      "ownership": "diagnose and repair",
+      "prompt": "Repair the Boolean literals and update running on the exit route so the menu can close."
+    }
+  ],
+  "concept_sheet": {
+    "title": "Reliable Menus – Concept Sheet",
+    "intro": "In this lesson we learned:",
+    "blocks": [
+      {
+        "term": "Boolean",
+        "definition": "A value that is either True or False.",
+        "example": "running = True"
+      },
+      {
+        "term": "Control flag",
+        "definition": "A Boolean variable used by a loop condition.",
+        "example": "while running == True:"
+      },
+      {
+        "term": "Exit route",
+        "definition": "The menu route that changes the flag so repetition ends.",
+        "example": "running = False"
+      },
+      {
+        "term": "Invalid route",
+        "definition": "An else branch that explains acceptable input and lets the menu repeat.",
+        "example": "else: print(\"Choose 1 or 2.\")"
+      },
+      {
+        "term": "Robust menu",
+        "definition": "A repeating interface with useful, exit and invalid-input routes.",
+        "example": "while + if/elif/else"
+      }
+    ]
+  },
+  "worksheet": {
+    "title": "Reliable Menus",
+    "page1": {
+      "look_heading": "Look at this code:",
+      "predict_heading": "What do you think this code will display?",
+      "run_heading": "Run the code. Compare the result with your prediction:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
+      "investigate_questions": [
+        "Why does an invalid menu choice repeat instead of setting running to False?",
+        "When the user enters 2, which statement changes running and what message appears after the loop?",
+        "Why must the menu input be updated inside the while loop?"
+      ]
+    },
+    "page2": {
+      "reference_heading": "Look at this code:",
+      "reference": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False\n    else:\n        print(\"Choose 1 or 2.\")\nprint(\"Menu closed.\")",
+      "heading": "Programming Challenges",
+      "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
+      "challenges": [
+        {
+          "title": "Challenge 1",
+          "prompt": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+          "layout_profile": "challenge-medium"
+        },
+        {
+          "title": "Challenge 2",
+          "prompt": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        },
+        {
+          "title": "Challenge 3",
+          "prompt": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response.",
+          "layout_profile": "challenge-code-heavy-multi-step"
+        }
+      ]
+    },
+    "page3": {
+      "heading": "Fix the code!",
+      "instruction": "This code has errors! Look closely at the code to find the problems:",
+      "rewrite": "Rewrite the whole program in the box below with fixes to the errors.",
+      "test": "After you are confident that you fixed all the errors, copy the code from the box and run it.",
+      "reflect": "Did it work correctly on your first try? Did you find all the errors?"
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "role": "title",
+      "title": "Reliable Menus",
+      "subtitle": "Lesson 20"
+    },
+    {
+      "number": 2,
+      "role": "hidden shared code",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 3,
+      "role": "retrieve/look",
+      "title": "Look at this code:",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 4,
+      "role": "predict",
+      "title": "What do you think this code will do?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 5,
+      "role": "investigate",
+      "title": "Let’s investigate.",
+      "body": "Answer the questions:\n1. Why does an invalid menu choice repeat instead of setting running to False?\n2. When the user enters 2, which statement changes running and what message appears after the loop?\n3. Why must the menu input be updated inside the while loop?",
+      "code_ref": "shared_program"
+    },
+    {
+      "number": 6,
+      "role": "modify A",
+      "title": "Challenge 1",
+      "body": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 7,
+      "role": "hidden solution A",
+      "title": "Challenge 1 – Suggested Solution",
+      "solution_ref": "challenge1"
+    },
+    {
+      "number": 8,
+      "role": "modify B",
+      "title": "Challenge 2",
+      "body": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 9,
+      "role": "hidden solution B",
+      "title": "Challenge 2 – Suggested Solution",
+      "solution_ref": "challenge2"
+    },
+    {
+      "number": 10,
+      "role": "make",
+      "title": "Challenge 3",
+      "body": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response.",
+      "starter_ref": "shared_program"
+    },
+    {
+      "number": 11,
+      "role": "hidden solution C",
+      "title": "Challenge 3 – Suggested Solution",
+      "solution_ref": "challenge3"
+    },
+    {
+      "number": 12,
+      "role": "debug",
+      "title": "Fix the code!",
+      "body": "This code has errors! Look closely at the code to find the problems:",
+      "code_ref": "broken"
+    },
+    {
+      "number": 13,
+      "role": "hidden debug solution",
+      "title": "Fix the code! – Suggested Solution",
+      "solution_ref": "fixed"
+    }
+  ],
+  "programs": {
+    "challenge1": "running = True\n\nwhile running == True:\n    choice = input(\"1: greet, 0: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"0\":\n        running = False\n    else:\n        print(\"Choose 1 or 0.\")\n\nprint(\"Menu closed.\")",
+    "challenge2": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave, 3: help: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False\n    elif choice == \"3\":\n        print(\"Help: choose a number.\")\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Menu closed.\")",
+    "challenge3": "running = True\nwhile running == True:\n    choice = input(\"1: bus, 2: walk, 3: leave: \")\n    if choice == \"1\":\n        stop = input(\"Bus stop: \")\n        print(\"Selected stop:\", stop)\n    elif choice == \"2\":\n        print(\"Walking route selected.\")\n    elif choice == \"3\":\n        running = False\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Planner closed.\")",
+    "broken": "running = \"True\"\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running == False",
+    "fixed": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False"
+  },
+  "assets": {
+    "master": "src/lesson_compiler/assets/lesson06/doorbell-pencil-v2.png",
+    "title_layout": "src/lesson_compiler/assets/lesson06/doorbell-pencil-v2.png",
+    "worksheet": "src/lesson_compiler/assets/lesson06/doorbell-pencil-v2.png"
+  },
+  "image_spec": "One canonical recognizable animal or everyday object per lesson, reused byte-for-byte in the title layout, transparent non-title layout treatment, worksheet, and derived challenge PDF; high-fidelity black-and-white graphite pencil sketch on pure white; contain without crop or distortion.",
+  "render_constraints": {
+    "concept_pages": 2,
+    "worksheet_pages": 3,
+    "challenge_pdf_pages": 1,
+    "slides": 13,
+    "hidden_slides": [
+      2,
+      7,
+      9,
+      11,
+      13
+    ],
+    "worksheet_heading_tolerance_pt": 12,
+    "top_edge_dark_pixels": 0
+  },
+  "verification": {
+    "shared_input": "x\n1\n2\n",
+    "challenge1_input": "",
+    "challenge2_input": "",
+    "challenge3_input": "",
+    "fixed_input": ""
+  },
+  "answer_artifacts": [
+    "hidden solution slides 7, 9, 11, 13",
+    "Solutions/challenge1.py",
+    "Solutions/challenge2.py",
+    "Solutions/challenge3.py",
+    "Solutions/fixTheCode.py",
+    "Solutions/fixTheCode - solution.py"
+  ],
+  "investigation": {
+    "term": "Boolean",
+    "definition": "A value that is either True or False.",
+    "questions": [
+      "Why does an invalid menu choice repeat instead of setting running to False?",
+      "When the user enters 2, which statement changes running and what message appears after the loop?",
+      "Why must the menu input be updated inside the while loop?"
+    ],
+    "source": "src/lesson_compiler/curriculum/spiral_review/build_review_data.mjs#investigationQuestions"
+  },
+  "challenge_contracts": [
+    {
+      "challenge": 1,
+      "ownership": "Modify A",
+      "observable_outcome": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+      "success_criteria": [
+        "Changes route 1 outcome",
+        "Retains invalid and exit routes"
+      ],
+      "test_cases": [
+        "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0."
+      ],
+      "complexity": {
+        "edit_distance": 1,
+        "concept_composition": 1,
+        "transfer_distance": 0,
+        "decision_or_state_burden": 0,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 3
+      },
+      "layout_profile": "challenge-medium",
+      "program_change": true
+    },
+    {
+      "challenge": 2,
+      "ownership": "Modify B",
+      "observable_outcome": "Adds a third valid route; Updates prompt and guidance; Menu still exits only on 2",
+      "success_criteria": [
+        "Adds a third valid route",
+        "Updates prompt and guidance",
+        "Menu still exits only on 2"
+      ],
+      "test_cases": [
+        "3/x/2 shows help, guidance, closed",
+        "2 closes immediately"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 1,
+        "decision_or_state_burden": 1,
+        "test_burden": 1,
+        "openness": 0,
+        "total": 7
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    },
+    {
+      "challenge": 3,
+      "ownership": "Make",
+      "observable_outcome": "Has two useful routes and one exit; One route collects and labels more data; Invalid input repeats",
+      "success_criteria": [
+        "Has two useful routes and one exit",
+        "One route collects and labels more data",
+        "Invalid input repeats"
+      ],
+      "test_cases": [
+        "x/3 shows guidance then closes",
+        "1/Central/3 labels Central"
+      ],
+      "complexity": {
+        "edit_distance": 2,
+        "concept_composition": 2,
+        "transfer_distance": 2,
+        "decision_or_state_burden": 1,
+        "test_burden": 2,
+        "openness": 1,
+        "total": 10
+      },
+      "layout_profile": "challenge-code-heavy-multi-step",
+      "program_change": true
+    }
+  ]
+}
