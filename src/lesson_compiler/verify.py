@@ -15,18 +15,16 @@ from lesson_compiler.paths import (
     CONFIG_PATH,
     DEFAULT_REPOSITORY_ROOT,
     LEARNER_DIRECTORY,
+    RECORDS_ROOT,
     SUPPLEMENTAL_DIRECTORY,
 )
-from lesson_compiler.support import write_manifest
+from lesson_compiler.support import patch_standard_record, write_manifest
 
 
 def plain(text: str) -> str:
     """Normalize prose for cross-format challenge-text comparisons."""
-    return re.sub(
-        r"\s+",
-        " ",
-        text.replace('"', "").replace("“", "").replace("”", "").replace("'", ""),
-    ).strip()
+    text = re.sub(r"-\s*\n\s*", "-", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def verify_suite(
@@ -67,6 +65,15 @@ def verify_suite(
         )
 
     for number in sorted(expected):
+        record = patch_standard_record(
+            json.loads(
+                (RECORDS_ROOT / f"lesson{number:02d}.json").read_text(
+                    encoding="utf-8"
+                )
+            ),
+            changes,
+            config,
+        )
         learner_dir = next(learner.glob(f"Grade */Lesson {number:02d} - *"), None)
         supplemental_dir = next(
             supplemental.glob(f"Grade */Lesson {number:02d} - *"),
@@ -118,10 +125,9 @@ def verify_suite(
             paragraph.text for paragraph in Document(worksheet).paragraphs
         )
         pdf_text = PdfReader(str(challenge_pdfs[0])).pages[0].extract_text() or ""
-        for challenge in range(1, 4):
-            replacement = changes.get((number, challenge))
-            if replacement is None:
-                continue
+        prompts = record["worksheet"]["page2"]["challenges"]
+        for challenge, item in enumerate(prompts, 1):
+            replacement = item["prompt"]
             needle = plain(replacement)
             for artifact, text in (
                 ("deck", deck_text),
@@ -150,26 +156,6 @@ def verify_suite(
         failures.append("L01: worksheet illustration is not anchored")
     if not re.search(r"<wp:wrap(?:Square|Tight|Through)\b", lesson_one_xml):
         failures.append("L01: worksheet illustration has no text-wrapping rule")
-
-    lesson_two_slides = next(learner.glob("Grade 6/Lesson 02 -*/* - Slides.pptx"))
-    with ZipFile(lesson_two_slides) as archive:
-        slide_xml = "\n".join(
-            archive.read(name).decode("utf-8")
-            for name in archive.namelist()
-            if re.fullmatch(r"ppt/slides/slide[678]\.xml", name)
-        )
-    if "&quot;Total:&quot;" not in slide_xml and '"Total:"' not in slide_xml:
-        failures.append('L02: quoted "Total:" absent from challenge slides')
-    if "067D17" not in slide_xml:
-        failures.append("L02: green literal colour absent from challenge slides")
-
-    lesson_two_worksheet = next(
-        supplemental.glob("Grade 6/Lesson 02 -*/* - Worksheet.docx")
-    )
-    with ZipFile(lesson_two_worksheet) as archive:
-        worksheet_xml = archive.read("word/document.xml").decode("utf-8")
-    if "067D17" not in worksheet_xml or "Total:" not in worksheet_xml:
-        failures.append("L02: quoted green literal absent from worksheet")
 
     report = {
         "passed": not failures,

@@ -4,26 +4,14 @@ const BLACK = "#080808";
 const UNAMBIGUOUS_KEYWORDS = new Set(["def", "return", "elif", "else", "break", "continue"]);
 const INLINE_TYPES = new Set(["integer", "integers", "string", "strings", "list", "lists", "dictionary", "dictionaries", "boolean", "booleans"]);
 
-function unquote(value) {
-  if (value.length >= 2 && value[0] === value.at(-1) && ["'", '"'].includes(value[0])) {
-    return value.slice(1, -1);
-  }
-  return value;
-}
-
 export function buildCodeVocabulary(codeBlobs = []) {
   const functions = new Set(["print", "input", "int", "str", "float", "bool", "range", "len", "list", "dict", "set", "tuple", "sum", "max", "min"]);
-  const strings = new Set();
   for (const value of codeBlobs.filter(Boolean)) {
     const code = String(value);
-    for (const match of code.matchAll(/("[^"\n]*"|'[^'\n]*')/g)) {
-      const text = unquote(match[0]).trim();
-      if (text.length >= 2 && !/^[+-]?\d+(?:\.\d+)?$/.test(text)) strings.add(text);
-    }
     for (const match of code.matchAll(/\bdef\s+([A-Za-z_]\w*)\s*\(/g)) functions.add(match[1]);
     for (const match of code.matchAll(/\b((?:[A-Za-z_]\w*\.)+[A-Za-z_]\w*)\s*\(/g)) functions.add(match[1]);
   }
-  return { functions, strings: [...strings].sort((a, b) => b.length - a.length) };
+  return { functions };
 }
 
 function candidates(text, vocabulary) {
@@ -31,16 +19,7 @@ function candidates(text, vocabulary) {
   const add = (start, end, color) => {
     if (start >= 0 && end > start) found.push({ start, end, color });
   };
-  for (const phrase of vocabulary.strings ?? []) {
-    let cursor = 0;
-    while (cursor < text.length) {
-      const start = text.indexOf(phrase, cursor);
-      if (start < 0) break;
-      add(start, start + phrase.length, GREEN);
-      cursor = start + phrase.length;
-    }
-  }
-  for (const match of text.matchAll(/("[^"\n]*"|'[^'\n]*')/g)) add(match.index, match.index + match[0].length, GREEN);
+  for (const match of text.matchAll(/("[^"\n]*"|(?<![A-Za-z0-9_])'[^'\n]*'(?![A-Za-z0-9_]))/g)) add(match.index, match.index + match[0].length, GREEN);
   for (const match of text.matchAll(/\b(?:[A-Za-z_]\w*\.)*[A-Za-z_]\w*\s*\(\s*\)/g)) add(match.index, match.index + match[0].length, BLUE);
   for (const match of text.matchAll(/\b(?:[A-Za-z_]\w*\.)*[A-Za-z_]\w*(?=\s*\()/g)) {
     const name = match[0];
@@ -60,28 +39,8 @@ function candidates(text, vocabulary) {
   return found.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
 }
 
-function quoteExactStringReferences(text, vocabulary) {
-  const quoted = [...String(text).matchAll(/("[^"\n]*"|'[^'\n]*')/g)].map((match) => [match.index, match.index + match[0].length]);
-  const replacements = [];
-  for (const phrase of vocabulary.strings ?? []) {
-    let cursor = 0;
-    while (cursor < text.length) {
-      const start = text.indexOf(phrase, cursor);
-      if (start < 0) break;
-      const end = start + phrase.length;
-      if (!quoted.some(([a, b]) => start >= a && end <= b)) replacements.push([start, end, `"${phrase}"`]);
-      cursor = end;
-    }
-  }
-  let result = text;
-  for (const [start, end, replacement] of replacements.sort((a, b) => b[0] - a[0])) {
-    result = result.slice(0, start) + replacement + result.slice(end);
-  }
-  return result;
-}
-
 export function proseRuns(text, vocabulary, { fontSize = "18pt", typeface = "Arial", bold = false } = {}) {
-  text = quoteExactStringReferences(String(text), vocabulary);
+  text = String(text);
   const base = { color: BLACK, typeface, fontSize, bold };
   const selected = [];
   let occupiedUntil = -1;

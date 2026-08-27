@@ -6,6 +6,7 @@ All notable changes to this project are documented here.
 
 ### Changed
 
+- Preserved canonical challenge prose while applying semantic code colours.
 - Promoted the current learner and supplemental lesson trees to the repository root.
 - Consolidated compiler code, curriculum data, assets, and templates under `src`.
 - Made the two root lesson folders the compiler's default output.

@@ -201,11 +201,6 @@ def _call_name(node: ast.AST) -> str | None:
 
 def challenge_vocabulary(code_context: str = "") -> dict[str, set[str]]:
     functions = set(BUILTIN_CALLS)
-    strings: set[str] = set()
-    for match in re.finditer(r'("[^"\n]*"|\'[^\'\n]*\')', code_context):
-        value = match.group(0)[1:-1].strip()
-        if len(value) >= 2 and not re.fullmatch(r"[+-]?\d+(?:\.\d+)?", value):
-            strings.add(value)
     for match in re.finditer(r"\bdef\s+([A-Za-z_]\w*)\s*\(", code_context):
         functions.add(match.group(1))
     for match in re.finditer(r"\b((?:[A-Za-z_]\w*\.)*[A-Za-z_]\w*)\s*\(", code_context):
@@ -225,47 +220,7 @@ def challenge_vocabulary(code_context: str = "") -> dict[str, set[str]]:
                 if name:
                     functions.add(name)
                     functions.add(name.rsplit(".", 1)[-1])
-            elif isinstance(node, ast.Constant) and isinstance(node.value, str):
-                value = node.value.strip()
-                if len(value) >= 2 and not re.fullmatch(r"[+-]?\d+(?:\.\d+)?", value):
-                    strings.add(value)
-    return {"functions": functions, "strings": strings}
-
-
-def literal_reference_spans(text: str, literal: str) -> list[tuple[int, int]]:
-    """Locate exact literal references without matching inside identifiers.
-
-    Args:
-        text: Learner-facing prose to inspect.
-        literal: Unquoted string value extracted from the lesson programs.
-
-    Returns:
-        Start and end offsets for literal occurrences that are not embedded
-        inside a larger word or snake_case identifier.
-    """
-    if not literal:
-        return []
-    spans: list[tuple[int, int]] = []
-    cursor = 0
-    while True:
-        start = text.find(literal, cursor)
-        if start < 0:
-            break
-        end = start + len(literal)
-        left_embedded = (
-            (literal[0].isalnum() or literal[0] == "_")
-            and start > 0
-            and (text[start - 1].isalnum() or text[start - 1] == "_")
-        )
-        right_embedded = (
-            (literal[-1].isalnum() or literal[-1] == "_")
-            and end < len(text)
-            and (text[end].isalnum() or text[end] == "_")
-        )
-        if not left_embedded and not right_embedded:
-            spans.append((start, end))
-        cursor = end
-    return spans
+    return {"functions": functions}
 
 
 def challenge_semantic_segments(
@@ -273,17 +228,17 @@ def challenge_semantic_segments(
 ) -> list[tuple[str, str]]:
     """Apply the suite's narrow inline-code contract to learner prose.
 
-    This extends the original challenge-PDF semantic pass: exact program
-    string literals are green; explicit calls, types and unambiguous named
-    keywords are blue; ordinary prose, variables and operators stay black.
+    Explicit quoted string literals are green; explicit calls, types and
+    unambiguous named keywords are blue; ordinary prose, variables and
+    operators stay black. Styling never changes the supplied text.
     """
     vocabulary = challenge_vocabulary(code_context)
     spans: list[tuple[int, int, str]] = []
-    for match in re.finditer(r'("[^"\n]*"|“[^”\n]*”|\'[^\'\n]*\')', text):
+    literal_pattern = (
+        r'("[^"\n]*"|“[^”\n]*”|(?<![A-Za-z0-9_])\'[^\'\n]*\'(?![A-Za-z0-9_]))'
+    )
+    for match in re.finditer(literal_pattern, text):
         spans.append((match.start(), match.end(), "literal"))
-    for literal in sorted(vocabulary["strings"], key=len, reverse=True):
-        for start, end in literal_reference_spans(text, literal):
-            spans.append((start, end, "literal"))
     function_pattern = "|".join(
         re.escape(name)
         for name in sorted(vocabulary["functions"], key=len, reverse=True)
@@ -335,22 +290,6 @@ def challenge_semantic_segments(
     return parts or [(text, "ordinary")]
 
 
-def quote_exact_string_references(text: str, code_context: str = "") -> str:
-    vocabulary = challenge_vocabulary(code_context)
-    quoted = [
-        (match.start(), match.end())
-        for match in re.finditer(r'("[^"\n]*"|\'[^\'\n]*\')', text)
-    ]
-    replacements: list[tuple[int, int, str]] = []
-    for literal in sorted(vocabulary["strings"], key=len, reverse=True):
-        for start, end in literal_reference_spans(text, literal):
-            if not any(start >= left and end <= right for left, right in quoted):
-                replacements.append((start, end, f'"{literal}"'))
-    for start, end, replacement in sorted(replacements, reverse=True):
-        text = text[:start] + replacement + text[end:]
-    return text
-
-
 def set_challenge_prompt(
     paragraph: etree._Element, text: str, code_context: str = ""
 ) -> None:
@@ -359,7 +298,6 @@ def set_challenge_prompt(
     Exact-height spacing is reserved for empty cadence spacers.  Prompts can
     wrap, so their line height must remain automatic rather than compressed.
     """
-    text = quote_exact_string_references(text, code_context)
     rpr = first_run_properties(paragraph)
     removable = [
         child
