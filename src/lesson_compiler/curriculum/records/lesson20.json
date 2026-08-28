@@ -161,17 +161,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0."
+      "prompt": "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\""
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2."
+      "prompt": "Add \"3: help\" to the menu input message. Use an elif condition so \"3\" displays \"Help: choose a number.\" Change the invalid-input message to \"Choose 1, 2 or 3.\" Test \"3\", \"x\", then \"2\"; display the help message, invalid-input message, then \"Menu closed.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response."
+      "prompt": "Use a while loop to repeat the menu \"1: bus, 2: walk, 3: leave\". Use if and elif conditions for the choices. For \"1\", ask for a bus stop in [stop] and display \"Selected stop:\" with [stop]. For \"2\", display \"Walk selected.\" For \"3\", end the loop and display \"Planner closed.\" Otherwise, display \"Choose 1, 2 or 3.\" Test \"1\", \"Central\", \"2\", then \"3\"."
     },
     {
       "phase": "Debug",
@@ -231,17 +231,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+          "prompt": "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\"",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2.",
+          "prompt": "Add \"3: help\" to the menu input message. Use an elif condition so \"3\" displays \"Help: choose a number.\" Change the invalid-input message to \"Choose 1, 2 or 3.\" Test \"3\", \"x\", then \"2\"; display the help message, invalid-input message, then \"Menu closed.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response.",
+          "prompt": "Use a while loop to repeat the menu \"1: bus, 2: walk, 3: leave\". Use if and elif conditions for the choices. For \"1\", ask for a bus stop in [stop] and display \"Selected stop:\" with [stop]. For \"2\", display \"Walk selected.\" For \"3\", end the loop and display \"Planner closed.\" Otherwise, display \"Choose 1, 2 or 3.\" Test \"1\", \"Central\", \"2\", then \"3\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -289,7 +289,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+      "body": "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -302,7 +302,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2.",
+      "body": "Add \"3: help\" to the menu input message. Use an elif condition so \"3\" displays \"Help: choose a number.\" Change the invalid-input message to \"Choose 1, 2 or 3.\" Test \"3\", \"x\", then \"2\"; display the help message, invalid-input message, then \"Menu closed.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -315,7 +315,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response.",
+      "body": "Use a while loop to repeat the menu \"1: bus, 2: walk, 3: leave\". Use if and elif conditions for the choices. For \"1\", ask for a bus stop in [stop] and display \"Selected stop:\" with [stop]. For \"2\", display \"Walk selected.\" For \"3\", end the loop and display \"Planner closed.\" Otherwise, display \"Choose 1, 2 or 3.\" Test \"1\", \"Central\", \"2\", then \"3\".",
       "starter_ref": "shared_program"
     },
     {
@@ -341,7 +341,7 @@
   "programs": {
     "challenge1": "running = True\n\nwhile running == True:\n    choice = input(\"1: greet, 0: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"0\":\n        running = False\n    else:\n        print(\"Choose 1 or 0.\")\n\nprint(\"Menu closed.\")",
     "challenge2": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave, 3: help: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False\n    elif choice == \"3\":\n        print(\"Help: choose a number.\")\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Menu closed.\")",
-    "challenge3": "running = True\nwhile running == True:\n    choice = input(\"1: bus, 2: walk, 3: leave: \")\n    if choice == \"1\":\n        stop = input(\"Bus stop: \")\n        print(\"Selected stop:\", stop)\n    elif choice == \"2\":\n        print(\"Walking route selected.\")\n    elif choice == \"3\":\n        running = False\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Planner closed.\")",
+    "challenge3": "running = True\nwhile running == True:\n    choice = input(\"1: bus, 2: walk, 3: leave: \")\n    if choice == \"1\":\n        stop = input(\"Bus stop: \")\n        print(\"Selected stop:\", stop)\n    elif choice == \"2\":\n        print(\"Walk selected.\")\n    elif choice == \"3\":\n        running = False\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Planner closed.\")",
     "broken": "running = \"True\"\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running == False",
     "fixed": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False"
   },
@@ -395,13 +395,13 @@
     {
       "challenge": 1,
       "ownership": "Modify A",
-      "observable_outcome": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+      "observable_outcome": "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\"",
       "success_criteria": [
-        "Changes route 1 outcome",
-        "Retains invalid and exit routes"
+        "Changes the exit option to 0",
+        "Retains option 1 and invalid-input handling"
       ],
       "test_cases": [
-        "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0."
+        "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\""
       ],
       "complexity": {
         "edit_distance": 1,
@@ -418,10 +418,10 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Adds a third valid route; Updates prompt and guidance; Menu still exits only on 2",
+      "observable_outcome": "Adds a third valid option; Updates the input message and guidance; Menu still exits only on 2",
       "success_criteria": [
-        "Adds a third valid route",
-        "Updates prompt and guidance",
+        "Adds a third valid option",
+        "Updates the input message and guidance",
         "Menu still exits only on 2"
       ],
       "test_cases": [
@@ -443,10 +443,10 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Has two useful routes and one exit; One route collects and labels more data; Invalid input repeats",
+      "observable_outcome": "Has two useful options and one exit; The bus option asks for and labels a stop; Invalid input repeats",
       "success_criteria": [
-        "Has two useful routes and one exit",
-        "One route collects and labels more data",
+        "Has two useful options and one exit",
+        "The bus option asks for and labels a stop",
         "Invalid input repeats"
       ],
       "test_cases": [

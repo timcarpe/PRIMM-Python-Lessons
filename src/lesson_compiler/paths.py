@@ -10,6 +10,7 @@ CONFIG_PATH = PACKAGE_ROOT / "curriculum/suite.json"
 RECORDS_ROOT = PACKAGE_ROOT / "curriculum/records"
 TEMPLATE_PATH = PACKAGE_ROOT / "templates/template-starter.pptx"
 DEFAULT_WORK_ROOT = DEFAULT_REPOSITORY_ROOT / ".build/lesson-compiler"
+DEFAULT_REVIEW_TOOL_PATH = DEFAULT_REPOSITORY_ROOT / "lesson-manifest-review.html"
 LEARNER_DIRECTORY = "Mapped Curriculum Lessons"
 SUPPLEMENTAL_DIRECTORY = "Mapped Curriculum Lesson - Supplemental Material"
 

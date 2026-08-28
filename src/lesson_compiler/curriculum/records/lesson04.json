@@ -178,17 +178,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Replace the walk route with a cycle route. Update the prompt, the if comparison and its message so \"cycle\" displays \"Ride a bike in the park.\" Keep the else route unchanged. Test \"cycle\" and \"read\"."
+      "prompt": "Change the first choice from \"walk\" to \"cycle\". Update the input message, the if comparison and its output so \"cycle\" displays \"Ride a bike in the park.\" Keep the \"read\" choice and its output unchanged. Test \"cycle\"; display \"Ride a bike in the park.\" Test \"read\"; display \"Read a book at home.\""
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Personalise both routes: ask for the user's name, then include it in whichever recommendation appears. Check that the name is shown for both possible choices."
+      "prompt": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "A cafe asks, \"Do you want tea?\" Use if and else to build a two-way choice: yes displays \"Tea is ready.\"; every other answer displays \"Choose another drink.\" Test one input for each route."
+      "prompt": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\""
     },
     {
       "phase": "Debug",
@@ -249,17 +249,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Replace the walk route with a cycle route. Update the prompt, the if comparison and its message so \"cycle\" displays \"Ride a bike in the park.\" Keep the else route unchanged. Test \"cycle\" and \"read\".",
+          "prompt": "Change the first choice from \"walk\" to \"cycle\". Update the input message, the if comparison and its output so \"cycle\" displays \"Ride a bike in the park.\" Keep the \"read\" choice and its output unchanged. Test \"cycle\"; display \"Ride a bike in the park.\" Test \"read\"; display \"Read a book at home.\"",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Personalise both routes: ask for the user's name, then include it in whichever recommendation appears. Check that the name is shown for both possible choices.",
+          "prompt": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\"",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 3",
-          "prompt": "A cafe asks, \"Do you want tea?\" Use if and else to build a two-way choice: yes displays \"Tea is ready.\"; every other answer displays \"Choose another drink.\" Test one input for each route.",
+          "prompt": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\"",
           "layout_profile": "challenge-medium"
         }
       ]
@@ -307,7 +307,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Replace the walk route with a cycle route. Update the prompt, the if comparison and its message so \"cycle\" displays \"Ride a bike in the park.\" Keep the else route unchanged. Test \"cycle\" and \"read\".",
+      "body": "Change the first choice from \"walk\" to \"cycle\". Update the input message, the if comparison and its output so \"cycle\" displays \"Ride a bike in the park.\" Keep the \"read\" choice and its output unchanged. Test \"cycle\"; display \"Ride a bike in the park.\" Test \"read\"; display \"Read a book at home.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -320,8 +320,8 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Personalise both routes: ask for the user's name, then include it in whichever recommendation appears. Check that the name is shown for both possible choices.",
-      "starter_ref": "shared_program"
+      "body": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\"",
+      "starter_ref": "challenge1"
     },
     {
       "number": 9,
@@ -333,7 +333,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "A cafe asks, \"Do you want tea?\" Use if and else to build a two-way choice: yes displays \"Tea is ready.\"; every other answer displays \"Choose another drink.\" Test one input for each route.",
+      "body": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -358,7 +358,7 @@
   ],
   "programs": {
     "challenge1": "choice = input(\"Choose cycle or read: \")\n\nif choice == \"cycle\":\n    print(\"Ride a bike in the park.\")\nelse:\n    print(\"Read a book at home.\")",
-    "challenge2": "name = input(\"What is your name? \" )\nchoice = input(\"Choose walk or read: \" )\nif choice == \"walk\":\n    print(name, \"Take a walk in the park.\")\nelse:\n    print(name, \"Read a book at home.\")",
+    "challenge2": "name = input(\"What is your name? \" )\nchoice = input(\"Choose cycle or read: \" )\nif choice == \"cycle\":\n    print(name, \"rides a bike in the park.\")\nelse:\n    print(name, \"reads a book at home.\")",
     "challenge3": "answer = input(\"Do you want tea? \" )\nif answer == \"yes\":\n    print(\"Tea is ready.\")\nelse:\n    print(\"Choose another drink.\")",
     "broken": "choice = input(\"Choose walk or read: \" )\nif choice == \"walk\":\n    print(\"Take a walk in the park.\")\nelse:\n    print(\"Read a book at home.\", display_choice)",
     "fixed": "choice = input(\"Choose walk or read: \" )\nif choice == \"walk\":\n    print(\"Take a walk in the park.\")\nelse:\n    print(\"Read a book at home.\")\n# The else branch prints its own message."

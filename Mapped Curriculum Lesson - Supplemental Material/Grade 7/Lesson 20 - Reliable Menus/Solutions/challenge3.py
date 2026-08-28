@@ -5,7 +5,7 @@ while running == True:
         stop = input("Bus stop: ")
         print("Selected stop:", stop)
     elif choice == "2":
-        print("Walking route selected.")
+        print("Walk selected.")
     elif choice == "3":
         running = False
     else:

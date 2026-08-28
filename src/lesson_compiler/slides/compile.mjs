@@ -176,11 +176,17 @@ setCode(5, "Rectangle 1", shared, 1, { fontSize: compactSharedFontSize, vertical
 
 for (const slideNumber of [6, 8, 10]) {
   const spec = slides[slideNumber - 1];
+  const starter = spec.starter_ref === "shared_program"
+    ? shared
+    : programs[spec.starter_ref];
+  if (typeof starter !== "string") {
+    throw new Error(`Unsupported starter_ref on slide ${slideNumber}: ${spec.starter_ref}`);
+  }
   setText(slideNumber, "Title 1", spec.title);
   setChallengeText(slideNumber, "Content Placeholder 2", spec.body);
   const labelName = slideNumber === 10 ? "TextBox 4" : "TextBox 7";
   setText(slideNumber, labelName, "Starter Code:");
-  setCode(slideNumber, "Rectangle 1", shared, 0, { fontSize: compactSharedFontSize, verticalAlignment: "top", autoFit: "shrinkText", compactLines: true });
+  setCode(slideNumber, "Rectangle 1", starter, 0, { fontSize: compactSharedFontSize, verticalAlignment: "top", autoFit: "shrinkText", compactLines: true });
 }
 
 setText(7, "Title 1", slides[6].title);

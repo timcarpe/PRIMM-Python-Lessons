@@ -162,12 +162,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Collect a title and a subtitle. Display both on separate lines, then display a labelled character count for each one."
+      "prompt": "Ask for a title and store it in [title]. Ask for a subtitle and store it in [subtitle]. Display the title and subtitle on separate lines, followed by a labelled len() result for each one. Test \"Code Club\" and \"Join today\"; display \"Title characters: 9\" and \"Subtitle characters: 10\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a two-line poster checker. Ask for a heading and one instruction, display the poster on two lines, and report the combined character count using the two len() results."
+      "prompt": "Ask for a poster heading and store it in [heading]. Ask for one instruction and store it in [instruction]. Display [heading] on the first line and [instruction] on the second line by placing \\n between them. Add len(heading) and len(instruction), then display \"Combined characters:\" followed by the result. Test \"Welcome\" and \"Sit here\"; display \"Combined characters: 15\"."
     },
     {
       "phase": "Debug",
@@ -232,12 +232,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Collect a title and a subtitle. Display both on separate lines, then display a labelled character count for each one.",
+          "prompt": "Ask for a title and store it in [title]. Ask for a subtitle and store it in [subtitle]. Display the title and subtitle on separate lines, followed by a labelled len() result for each one. Test \"Code Club\" and \"Join today\"; display \"Title characters: 9\" and \"Subtitle characters: 10\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a two-line poster checker. Ask for a heading and one instruction, display the poster on two lines, and report the combined character count using the two len() results.",
+          "prompt": "Ask for a poster heading and store it in [heading]. Ask for one instruction and store it in [instruction]. Display [heading] on the first line and [instruction] on the second line by placing \\n between them. Add len(heading) and len(instruction), then display \"Combined characters:\" followed by the result. Test \"Welcome\" and \"Sit here\"; display \"Combined characters: 15\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -298,7 +298,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Collect a title and a subtitle. Display both on separate lines, then display a labelled character count for each one.",
+      "body": "Ask for a title and store it in [title]. Ask for a subtitle and store it in [subtitle]. Display the title and subtitle on separate lines, followed by a labelled len() result for each one. Test \"Code Club\" and \"Join today\"; display \"Title characters: 9\" and \"Subtitle characters: 10\".",
       "starter_ref": "shared_program"
     },
     {
@@ -311,7 +311,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a two-line poster checker. Ask for a heading and one instruction, display the poster on two lines, and report the combined character count using the two len() results.",
+      "body": "Ask for a poster heading and store it in [heading]. Ask for one instruction and store it in [instruction]. Display [heading] on the first line and [instruction] on the second line by placing \\n between them. Add len(heading) and len(instruction), then display \"Combined characters:\" followed by the result. Test \"Welcome\" and \"Sit here\"; display \"Combined characters: 15\".",
       "starter_ref": "shared_program"
     },
     {

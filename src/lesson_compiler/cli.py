@@ -8,7 +8,8 @@ import shutil
 from pathlib import Path
 
 from lesson_compiler.build import build_suite
-from lesson_compiler.paths import DEFAULT_REPOSITORY_ROOT
+from lesson_compiler.paths import DEFAULT_REPOSITORY_ROOT, DEFAULT_REVIEW_TOOL_PATH
+from lesson_compiler.review_tool import build_review_tool
 from lesson_compiler.verify import verify_suite
 
 
@@ -52,10 +53,20 @@ def parser() -> argparse.ArgumentParser:
         default=DEFAULT_REPOSITORY_ROOT,
         help="root containing the two lesson folders",
     )
+
+    review = commands.add_parser(
+        "review-tool", help="generate the browser-based manifest review tool"
+    )
+    review.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_REVIEW_TOOL_PATH,
+        help="self-contained HTML output path",
+    )
     return command_parser
 
 
-def run_build(args: argparse.Namespace) -> dict:
+def run_build(args: argparse.Namespace) -> dict[str, object]:
     """Build, verify, and clean temporary compiler files."""
     repository = args.repository.resolve()
     output = (args.output or repository).resolve()
@@ -90,7 +101,9 @@ def main() -> None:
     arguments = parser().parse_args()
     if arguments.command == "build":
         report = run_build(arguments)
-    else:
+    elif arguments.command == "verify":
         report = verify_suite(arguments.output)
+    else:
+        report = build_review_tool(arguments.output)
     print(json.dumps(report, indent=2))
     raise SystemExit(0 if report["passed"] else 1)

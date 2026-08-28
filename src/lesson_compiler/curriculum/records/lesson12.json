@@ -90,7 +90,7 @@
   },
   "shared_program": {
     "filename": "Strings and Text - Starter Code.py",
-    "code": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")",
+    "code": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name)",
     "normalization": [
       {
         "find": "\" )",
@@ -112,7 +112,7 @@
         "value": "Alex"
       }
     ],
-    "expected_output": "Hello, Alex !"
+    "expected_output": "Hello, Alex"
   },
   "primm": [
     {
@@ -142,17 +142,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex."
+      "prompt": "Use strip() and title() on [name], then store the result in a new variable called [clean_name]. Display [clean_name]. The input \"  aLEX  \" must display \"Hello, Alex\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name."
+      "prompt": "Ask for a first name and store it in [name]. Ask for a surname and store it in [surname]. Apply strip() and title() to both variables, then display the full name. Test \"  aLEX  \" and \"  nGUYEN  \"; display \"Hello, Alex Nguyen\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\"."
+      "prompt": "Ask for a city, country and landmark and store the answers in [city], [country] and [landmark]. Apply strip() and title() to all three variables. Display the city and country on a line beginning \"Destination:\". Display the landmark on a second line beginning \"Visit:\". Test \"  hANOI  \", \"  vIETNAM  \" and \"  hOAN kIEM lAKE  \"; display \"Destination: Hanoi - Vietnam\" and \"Visit: Hoan Kiem Lake\"."
     },
     {
       "phase": "Debug",
@@ -187,7 +187,7 @@
       {
         "term": "Text-processing flow",
         "definition": "Ask for text, remove unwanted spaces, change the case and then display the result. One operation on each line makes the program easy to trace.",
-        "example": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")"
+        "example": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name)"
       }
     ]
   },
@@ -206,23 +206,23 @@
     },
     "page2": {
       "reference_heading": "Look at this code:",
-      "reference": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name, \"!\")",
+      "reference": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nprint(\"Hello,\", name)",
       "heading": "Programming Challenges",
       "instruction": "Use the code above to help you. After completing each challenge below, run your program to test that it works correctly. Save each completed challenge program in a new file.",
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex.",
+          "prompt": "Use strip() and title() on [name], then store the result in a new variable called [clean_name]. Display [clean_name]. The input \"  aLEX  \" must display \"Hello, Alex\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 2",
-          "prompt": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name.",
+          "prompt": "Ask for a first name and store it in [name]. Ask for a surname and store it in [surname]. Apply strip() and title() to both variables, then display the full name. Test \"  aLEX  \" and \"  nGUYEN  \"; display \"Hello, Alex Nguyen\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\".",
+          "prompt": "Ask for a city, country and landmark and store the answers in [city], [country] and [landmark]. Apply strip() and title() to all three variables. Display the city and country on a line beginning \"Destination:\". Display the landmark on a second line beginning \"Visit:\". Test \"  hANOI  \", \"  vIETNAM  \" and \"  hOAN kIEM lAKE  \"; display \"Destination: Hanoi - Vietnam\" and \"Visit: Hoan Kiem Lake\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -270,7 +270,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex.",
+      "body": "Use strip() and title() on [name], then store the result in a new variable called [clean_name]. Display [clean_name]. The input \"  aLEX  \" must display \"Hello, Alex\".",
       "starter_ref": "shared_program"
     },
     {
@@ -283,7 +283,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name.",
+      "body": "Ask for a first name and store it in [name]. Ask for a surname and store it in [surname]. Apply strip() and title() to both variables, then display the full name. Test \"  aLEX  \" and \"  nGUYEN  \"; display \"Hello, Alex Nguyen\".",
       "starter_ref": "shared_program"
     },
     {
@@ -296,7 +296,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\".",
+      "body": "Ask for a city, country and landmark and store the answers in [city], [country] and [landmark]. Apply strip() and title() to all three variables. Display the city and country on a line beginning \"Destination:\". Display the landmark on a second line beginning \"Visit:\". Test \"  hANOI  \", \"  vIETNAM  \" and \"  hOAN kIEM lAKE  \"; display \"Destination: Hanoi - Vietnam\" and \"Visit: Hoan Kiem Lake\".",
       "starter_ref": "shared_program"
     },
     {
@@ -320,11 +320,11 @@
     }
   ],
   "programs": {
-    "challenge1": "name = input(\"What is your first name? \")\nclean_name = name.strip().title()\n\nprint(\"Hello,\", clean_name, \"!\")",
-    "challenge2": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nsurname = input(\"What is your surname? \" )\nsurname = surname.strip()\nsurname = surname.title()\nprint(\"Hello,\", name, surname, \"!\")",
-    "challenge3": "city = input(\"Enter a city: \" )\ncity = city.strip()\ncity = city.title()\ncountry = input(\"Enter a country: \" )\ncountry = country.strip()\ncountry = country.title()\nprint(\"Destination:\", city, \"-\", country)",
-    "broken": "name = input(\"What is your first name? \" )\nname = name.strip\nname = name.title()\nprint(\"Hello,\", display_name, \"!\")",
-    "fixed": "name = input(\"What is your first name? \" )\nname = name.strip()  # Add the missing parentheses.\nname = name.title()\nprint(\"Hello,\", name, \"!\")  # Use the correct variable."
+    "challenge1": "name = input(\"What is your first name? \")\nclean_name = name.strip().title()\n\nprint(\"Hello,\", clean_name)",
+    "challenge2": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nsurname = input(\"What is your surname? \" )\nsurname = surname.strip()\nsurname = surname.title()\nprint(\"Hello,\", name, surname)",
+    "challenge3": "city = input(\"Enter a city: \" )\ncity = city.strip()\ncity = city.title()\ncountry = input(\"Enter a country: \" )\ncountry = country.strip()\ncountry = country.title()\nlandmark = input(\"Enter a landmark: \" )\nlandmark = landmark.strip()\nlandmark = landmark.title()\nprint(\"Destination:\", city, \"-\", country)\nprint(\"Visit:\", landmark)",
+    "broken": "name = input(\"What is your first name? \" )\nname = name.strip\nname = name.title()\nprint(\"Hello,\", display_name)",
+    "fixed": "name = input(\"What is your first name? \" )\nname = name.strip()  # Add the missing parentheses.\nname = name.title()\nprint(\"Hello,\", name)  # Use the correct variable."
   },
   "assets": {
     "master": "src/lesson_compiler/assets/lesson03/typewriter-canonical.png",

@@ -88,17 +88,30 @@ def run(command: list[str], cwd: Path | None = None) -> None:
     subprocess.run(command, cwd=cwd, check=True)
 
 
-def extract_page_two(worksheet_pdf: Path, challenge_pdf: Path) -> None:
-    """Extract worksheet page two as the learner challenge PDF."""
+def extract_challenge_pages(worksheet_pdf: Path, challenge_pdf: Path) -> None:
+    """Extract all worksheet challenge pages into the learner challenge PDF.
+
+    A worksheet contains a first activity page, one or two challenge pages, and
+    a final debugging page. Keeping the middle pages together prevents longer
+    challenge text from being discarded when a worksheet requires four pages.
+
+    Args:
+        worksheet_pdf: Rendered three- or four-page worksheet.
+        challenge_pdf: Destination for the extracted challenge pages.
+
+    Raises:
+        RuntimeError: If the worksheet does not contain three or four pages.
+    """
     reader = PdfReader(str(worksheet_pdf))
-    if len(reader.pages) != 3:
+    page_count = len(reader.pages)
+    if page_count not in {3, 4}:
         raise RuntimeError(
-            "worksheet must render to three pages: "
-            f"{worksheet_pdf} ({len(reader.pages)} pages)"
+            "worksheet must render to three or four pages: "
+            f"{worksheet_pdf} ({page_count} pages)"
         )
-    writer = PdfWriter(clone_from=reader)
-    del writer.pages[2]
-    del writer.pages[0]
+    writer = PdfWriter()
+    for page in reader.pages[1:-1]:
+        writer.add_page(page)
     with challenge_pdf.open("wb") as stream:
         writer.write(stream)
 
@@ -224,7 +237,7 @@ def compile_lesson(
             "--emit_pdf",
         ]
     )
-    extract_page_two(
+    extract_challenge_pages(
         document_render / f"{worksheet_source.stem}.pdf",
         lesson_root / f"{title} - Challenges.pdf",
     )

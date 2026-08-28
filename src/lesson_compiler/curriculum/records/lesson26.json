@@ -161,17 +161,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Collect exactly five notes instead of three. The program must display all five in their original input order."
+      "prompt": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Replace the fixed input loop with a condition-controlled loop. Keep asking for a note until stop is entered; do not append or display the sentinel stop."
+      "prompt": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a team roster builder. Ask how many names will be entered, collect exactly that many names into an empty list, then ask for one valid replacement position and update that name before displaying the final roster one name per line."
+      "prompt": "Create an empty list called [roster]. Ask how many names will be entered and store the whole number in [team_size]. Use a for loop and range(team_size) to ask for each name and append it to [roster]. Ask for a replacement position from 0 to team_size - 1 and store it in [position]. Ask for a replacement name and store it in [replacement], then update [roster][position]. Test 3 names—\"Ari\", \"Bao\" and \"Cleo\"—then replace position 1 with \"Dara\". Display Ari, Dara and Cleo beneath \"Final roster:\"."
     },
     {
       "phase": "Debug",
@@ -232,17 +232,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Collect exactly five notes instead of three. The program must display all five in their original input order.",
+          "prompt": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\".",
           "layout_profile": "challenge-short"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Replace the fixed input loop with a condition-controlled loop. Keep asking for a note until stop is entered; do not append or display the sentinel stop.",
+          "prompt": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a team roster builder. Ask how many names will be entered, collect exactly that many names into an empty list, then ask for one valid replacement position and update that name before displaying the final roster one name per line.",
+          "prompt": "Create an empty list called [roster]. Ask how many names will be entered and store the whole number in [team_size]. Use a for loop and range(team_size) to ask for each name and append it to [roster]. Ask for a replacement position from 0 to team_size - 1 and store it in [position]. Ask for a replacement name and store it in [replacement], then update [roster][position]. Test 3 names—\"Ari\", \"Bao\" and \"Cleo\"—then replace position 1 with \"Dara\". Display Ari, Dara and Cleo beneath \"Final roster:\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -290,7 +290,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Collect exactly five notes instead of three. The program must display all five in their original input order.",
+      "body": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\".",
       "starter_ref": "shared_program"
     },
     {
@@ -303,7 +303,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Replace the fixed input loop with a condition-controlled loop. Keep asking for a note until stop is entered; do not append or display the sentinel stop.",
+      "body": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\".",
       "starter_ref": "shared_program"
     },
     {
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a team roster builder. Ask how many names will be entered, collect exactly that many names into an empty list, then ask for one valid replacement position and update that name before displaying the final roster one name per line.",
+      "body": "Create an empty list called [roster]. Ask how many names will be entered and store the whole number in [team_size]. Use a for loop and range(team_size) to ask for each name and append it to [roster]. Ask for a replacement position from 0 to team_size - 1 and store it in [position]. Ask for a replacement name and store it in [replacement], then update [roster][position]. Test 3 names—\"Ari\", \"Bao\" and \"Cleo\"—then replace position 1 with \"Dara\". Display Ari, Dara and Cleo beneath \"Final roster:\".",
       "starter_ref": "shared_program"
     },
     {
@@ -446,12 +446,12 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Uses a user-selected count; Builds an initially empty list; Updates one valid position; Traverses final roster",
+      "observable_outcome": "Uses a user-selected count; Builds an initially empty list; Updates one selected position; Displays the final roster",
       "success_criteria": [
         "Uses a user-selected count",
         "Builds an initially empty list",
-        "Updates one valid position",
-        "Traverses final roster"
+        "Updates one selected position",
+        "Displays the final roster"
       ],
       "test_cases": [
         "2/Ari/Bao/1/Cleo gives Ari,Cleo",

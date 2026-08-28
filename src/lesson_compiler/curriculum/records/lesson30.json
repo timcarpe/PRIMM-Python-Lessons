@@ -162,12 +162,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Ask for a new club name and member count, build a two-field row, append it, then ask for one valid row position to delete. Display the remaining rows."
+      "prompt": "Ask for a new club name and member count and store them in [name] and [members]. Store both values in [new_club], then append [new_club] to [clubs]. Ask for a deletion position from 0 to 2 and store it in [position], then delete that row. Use a for loop to display each remaining club name and member count. Test \"Code\", 15 and position 0; display \"Chess 18\" followed by \"Code 15\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build an event schedule editor with three [event, room] rows. Insert one user-created row at a valid position, delete a different valid row from the enlarged schedule, and display numbered remaining rows using a counter."
+      "prompt": "Store ['Talk', 1], ['Quiz', 2] and ['Demo', 3] in [schedule]. Ask for an insertion position, event and room, then insert the new [event, room] row at that position. Ask for a different position and delete that row from the enlarged schedule. Use a counter called [number] to display each remaining position, event and room. Test inserting ['Workshop', 4] at position 1 and deleting position 3; display \"0 Talk 1\", \"1 Workshop 4\" and \"2 Quiz 2\"."
     },
     {
       "phase": "Debug",
@@ -233,12 +233,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Ask for a new club name and member count, build a two-field row, append it, then ask for one valid row position to delete. Display the remaining rows.",
+          "prompt": "Ask for a new club name and member count and store them in [name] and [members]. Store both values in [new_club], then append [new_club] to [clubs]. Ask for a deletion position from 0 to 2 and store it in [position], then delete that row. Use a for loop to display each remaining club name and member count. Test \"Code\", 15 and position 0; display \"Chess 18\" followed by \"Code 15\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build an event schedule editor with three [event, room] rows. Insert one user-created row at a valid position, delete a different valid row from the enlarged schedule, and display numbered remaining rows using a counter.",
+          "prompt": "Store ['Talk', 1], ['Quiz', 2] and ['Demo', 3] in [schedule]. Ask for an insertion position, event and room, then insert the new [event, room] row at that position. Ask for a different position and delete that row from the enlarged schedule. Use a counter called [number] to display each remaining position, event and room. Test inserting ['Workshop', 4] at position 1 and deleting position 3; display \"0 Talk 1\", \"1 Workshop 4\" and \"2 Quiz 2\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -299,7 +299,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Ask for a new club name and member count, build a two-field row, append it, then ask for one valid row position to delete. Display the remaining rows.",
+      "body": "Ask for a new club name and member count and store them in [name] and [members]. Store both values in [new_club], then append [new_club] to [clubs]. Ask for a deletion position from 0 to 2 and store it in [position], then delete that row. Use a for loop to display each remaining club name and member count. Test \"Code\", 15 and position 0; display \"Chess 18\" followed by \"Code 15\".",
       "starter_ref": "shared_program"
     },
     {
@@ -312,7 +312,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build an event schedule editor with three [event, room] rows. Insert one user-created row at a valid position, delete a different valid row from the enlarged schedule, and display numbered remaining rows using a counter.",
+      "body": "Store ['Talk', 1], ['Quiz', 2] and ['Demo', 3] in [schedule]. Ask for an insertion position, event and room, then insert the new [event, room] row at that position. Ask for a different position and delete that row from the enlarged schedule. Use a counter called [number] to display each remaining position, event and room. Test inserting ['Workshop', 4] at position 1 and deleting position 3; display \"0 Talk 1\", \"1 Workshop 4\" and \"2 Quiz 2\".",
       "starter_ref": "shared_program"
     },
     {

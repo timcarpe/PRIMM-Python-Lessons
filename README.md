@@ -21,6 +21,33 @@ Lessons are grouped by grade and numbered as one continuous curriculum. Lesson
 numbers 11, 27, and 36 are reserved for capstone work and are not included in
 this non-capstone collection.
 
+## Reviewing examples and challenges
+
+Generate the self-contained browser review page from the same effective
+manifests used by the compiler:
+
+```bash
+.venv/bin/lesson-compiler review-tool
+```
+
+Open `lesson-manifest-review.html`, flag individual example or challenge issues,
+and export the issue report. The report contains identified issues only and
+includes exact manifest paths, fields, original values, flags, and written
+feedback for agent ingestion.
+
+The page can also export a change-proposal template. After an agent fills its
+`new_value` fields, import that JSON to compare each proposed value beside the
+current effective manifest. Full revised lesson record JSON files can also be
+imported. Record approval decisions in the page and export the resulting
+approval report. Review progress is stored only in the browser's local storage;
+the source manifests are never edited by the page.
+
+Before drafting challenge changes, follow the
+[challenge review workflow](docs/challenge-review-workflow.md). It includes the
+required grounding step using relevant positive examples from the Python Review
+PDFs, technical cross-checking against starter and solution code, and proposal
+approval before canonical edits.
+
 ## Resources in each lesson
 
 Every lesson has the same predictable set of resources.

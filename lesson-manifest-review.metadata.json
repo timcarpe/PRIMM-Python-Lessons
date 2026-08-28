@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "kind": "lesson_manifest_review_artifact",
+  "artifact": "lesson-manifest-review.html",
+  "source_suite": "src/lesson_compiler/curriculum/suite.json",
+  "lesson_count": 33,
+  "review_item_count": 132,
+  "self_contained": true
+}

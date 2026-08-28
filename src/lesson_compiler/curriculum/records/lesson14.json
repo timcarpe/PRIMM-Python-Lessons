@@ -154,17 +154,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Make the displayed team name uppercase and the displayed code lowercase. Falcons and f7 should become FALCONS and f7."
+      "prompt": "Change the program so [team] is displayed in upper case and [code] is displayed in lower case. Test \"Falcons\" and \"F7\"; display \"Team: FALCONS\" and \"Code: f7\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add a response input and store response.lower(). Display Accepted when the normalised response equals yes and Not accepted otherwise."
+      "prompt": "Ask the user to enter \"yes\" or \"no\" and store the answer in [response]. Store [response].lower() back in [response]. Use an if statement to check whether [response] equals \"yes\". Display \"Accepted\" when it does; otherwise display \"Not accepted\". Test \"YES\" and \"no\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a badge formatter. Ask for a first name and a two-letter group code; display the name in lower case and the group code in upper case on separate labelled lines."
+      "prompt": "Ask for a first name and store it in [name]. Ask for a two-letter group code, such as \"ab\", and store it in [group]. Display [name] in lower case and [group] in upper case on separate labelled lines. Test \"Ava\" and \"ab\"; display \"Account name: ava\" and \"Group code: AB\"."
     },
     {
       "phase": "Debug",
@@ -225,17 +225,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Make the displayed team name uppercase and the displayed code lowercase. Falcons and f7 should become FALCONS and f7.",
+          "prompt": "Change the program so [team] is displayed in upper case and [code] is displayed in lower case. Test \"Falcons\" and \"F7\"; display \"Team: FALCONS\" and \"Code: f7\".",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add a response input and store response.lower(). Display Accepted when the normalised response equals yes and Not accepted otherwise.",
+          "prompt": "Ask the user to enter \"yes\" or \"no\" and store the answer in [response]. Store [response].lower() back in [response]. Use an if statement to check whether [response] equals \"yes\". Display \"Accepted\" when it does; otherwise display \"Not accepted\". Test \"YES\" and \"no\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a badge formatter. Ask for a first name and a two-letter group code; display the name in lower case and the group code in upper case on separate labelled lines.",
+          "prompt": "Ask for a first name and store it in [name]. Ask for a two-letter group code, such as \"ab\", and store it in [group]. Display [name] in lower case and [group] in upper case on separate labelled lines. Test \"Ava\" and \"ab\"; display \"Account name: ava\" and \"Group code: AB\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -283,7 +283,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Make the displayed team name uppercase and the displayed code lowercase. Falcons and f7 should become FALCONS and f7.",
+      "body": "Change the program so [team] is displayed in upper case and [code] is displayed in lower case. Test \"Falcons\" and \"F7\"; display \"Team: FALCONS\" and \"Code: f7\".",
       "starter_ref": "shared_program"
     },
     {
@@ -296,7 +296,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add a response input and store response.lower(). Display Accepted when the normalised response equals yes and Not accepted otherwise.",
+      "body": "Ask the user to enter \"yes\" or \"no\" and store the answer in [response]. Store [response].lower() back in [response]. Use an if statement to check whether [response] equals \"yes\". Display \"Accepted\" when it does; otherwise display \"Not accepted\". Test \"YES\" and \"no\".",
       "starter_ref": "shared_program"
     },
     {
@@ -309,7 +309,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a badge formatter. Ask for a first name and a two-letter group code; display the name in lower case and the group code in upper case on separate labelled lines.",
+      "body": "Ask for a first name and store it in [name]. Ask for a two-letter group code, such as \"ab\", and store it in [group]. Display [name] in lower case and [group] in upper case on separate labelled lines. Test \"Ava\" and \"ab\"; display \"Account name: ava\" and \"Group code: AB\".",
       "starter_ref": "shared_program"
     },
     {
@@ -413,9 +413,9 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Normalises before selection; Handles YES and yes identically",
+      "observable_outcome": "Stores a lower-case response before selection; Handles YES and yes identically",
       "success_criteria": [
-        "Normalises before selection",
+        "Stores a lower-case response before selection",
         "Handles YES and yes identically"
       ],
       "test_cases": [

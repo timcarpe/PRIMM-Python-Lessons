@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "kind": "lesson_manifest_change_proposal",
+  "source_suite": "src/lesson_compiler/curriculum/suite.json",
+  "approval": "Approved directly by the user on 2026-08-28.",
+  "changes": [
+    {
+      "lesson_number": 4,
+      "field": "challenge_1",
+      "old_value": "Replace the walk route with a cycle route. Update the prompt, the if comparison and its message so \"cycle\" displays \"Ride a bike in the park.\" Keep the else route unchanged. Test \"cycle\" and \"read\".",
+      "new_value": "Change the first choice from \"walk\" to \"cycle\". Update the input message, the if comparison and its output so \"cycle\" displays \"Ride a bike in the park.\" Keep the \"read\" choice and its output unchanged. Test \"cycle\"; display \"Ride a bike in the park.\" Test \"read\"; display \"Read a book at home.\""
+    },
+    {
+      "lesson_number": 4,
+      "field": "challenge_2",
+      "old_value": "Ask for the user's name and store it in [name] before asking for \"walk\" or \"read\". Include [name] in both possible messages. For the name \"Sam\" and the choice \"walk\", display \"Sam walks in the park.\" For the choice \"read\", display \"Sam reads a book at home.\"",
+      "new_value": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\""
+    },
+    {
+      "lesson_number": 4,
+      "field": "challenge_3",
+      "old_value": "A cafe asks, \"Do you want tea?\" Use if and else to build a two-way choice: yes displays \"Tea is ready.\"; every other answer displays \"Choose another drink.\" Test one input for each route.",
+      "new_value": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\""
+    },
+    {
+      "lesson_number": 7,
+      "field": "challenge_1",
+      "old_value": "When it is raining, ask whether the wind is strong or light. Display \"Wear a coat.\" for strong wind and \"Take an umbrella.\" for light wind. Keep the dry-weather route unchanged.",
+      "new_value": "When [raining] is \"yes\", ask whether the wind is strong or light and store the answer in [wind_strength]. Display \"Wear a coat.\" for \"strong\" and \"Take an umbrella.\" for \"light\". Keep \"No rain gear needed.\" when [raining] is \"no\". Test \"yes\" and \"strong\"; display \"Wear a coat.\" Test \"no\"; display \"No rain gear needed.\""
+    },
+    {
+      "lesson_number": 7,
+      "field": "challenge_2",
+      "old_value": "Change the no-rain decision. When [raining] is \"no\", ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain messages unchanged.",
+      "new_value": "Change the decision for when [raining] is \"no\". Ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain outputs unchanged. Test \"no\" and \"yes\"; display \"Take sunglasses.\" Test \"no\" and \"no\"; display \"No weather gear needed.\""
+    },
+    {
+      "lesson_number": 7,
+      "field": "challenge_3",
+      "old_value": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" for an overdue book and \"You may borrow a book.\" otherwise. When [has_card] is \"no\", display \"Apply for a library card.\"",
+      "new_value": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" when [overdue] is \"yes\"; otherwise display \"You may borrow a book.\" When [has_card] is \"no\", display \"Apply for a library card.\" Test \"yes\" and \"yes\", \"yes\" and \"no\", then \"no\"; verify all three outputs."
+    },
+    {
+      "lesson_number": 9,
+      "field": "challenge_1",
+      "old_value": "Change the maximum number of attempts from 3 to 2. Test the input 7; display \"Finished in 1 tries.\" Test the inputs 4 and 5; display \"Finished in 2 tries.\"",
+      "new_value": "Change the maximum number of attempts from 3 to 2. Change the final output to display \"Attempts used:\" followed by [attempts]. Test \"7\"; display \"Attempts used: 1\". Test \"4\" and \"5\"; display \"Attempts used: 2\"."
+    },
+    {
+      "lesson_number": 9,
+      "field": "challenge_3",
+      "old_value": "Create a door-code checker with a while loop that allows at most three attempts. Stop early when \"open\" is entered, then display either a success message or a final locked message with the attempts used.",
+      "new_value": "Store \"open\" in [password]. Use a while loop to ask for a door code until the user enters \"open\" or [attempts] reaches 3. Add 1 to [attempts] after each answer. Test \"open\"; display \"Door opened. Attempts used: 1\". Test \"red\", \"blue\" and \"green\"; display \"Door locked. Attempts used: 3\"."
+    },
+    {
+      "lesson_number": 10,
+      "field": "challenge_3",
+      "old_value": "Use a for loop to display \"Exercise station 1\" through \"Exercise station 4\". Then use a while loop to ask for a whole-number effort rating until the user enters 0. Count only the non-zero ratings in [ratings]. Test 3, 4 and 0; display \"Ratings recorded: 2\".",
+      "new_value": "Use a for loop to display \"Exercise 1\" through \"Exercise 4\". After those four lines, use a while loop to ask for whole-number effort scores until the user enters 0. Store the number of scores entered in [ratings], but do not count 0. Test 2, 3 and 0; display \"Scores entered: 2\"."
+    },
+    {
+      "lesson_number": 12,
+      "field": "challenge_3",
+      "old_value": "Ask for a city and store it in [city]. Ask for a country and store it in [country]. Apply strip() and title() to both variables before displaying \"Destination:\" followed by the city, a hyphen and the country. Test \"  hANOI  \" and \"  vIETNAM  \"; display \"Destination: Hanoi - Vietnam\".",
+      "new_value": "Ask for a city, country and landmark and store the answers in [city], [country] and [landmark]. Apply strip() and title() to all three variables. Display the city and country on a line beginning \"Destination:\". Display the landmark on a second line beginning \"Visit:\". Test \"  hANOI  \", \"  vIETNAM  \" and \"  hOAN kIEM lAKE  \"; display \"Destination: Hanoi - Vietnam\" and \"Visit: Hoan Kiem Lake\"."
+    },
+    {
+      "lesson_number": 17,
+      "field": "challenge_3",
+      "old_value": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading.",
+      "new_value": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\"."
+    },
+    {
+      "lesson_number": 22,
+      "field": "challenge_1",
+      "old_value": "Keep the starter's position and replacement inputs. After storing the replacement in [supplies], display \"New item:\" followed by the item now stored at [position]. Test position 2 and the replacement \"scissors\"; display \"Old item: tape\" and \"New item: scissors\" before the updated list.",
+      "new_value": "Keep the starter's first position and replacement inputs. After the first update, display \"New item:\" followed by the item at [position]. Ask for another position from 0 to 2 and store it in [second_position]. Ask for another replacement and store it in [second_replacement], then update that item. Test position 2 with \"scissors\", followed by position 0 with \"pen\"; display \"Updated list: ['pen', 'book', 'scissors']\"."
+    },
+    {
+      "lesson_number": 23,
+      "field": "challenge_3",
+      "old_value": "Create a four-name running order editor. Insert a reserve at a user-chosen valid position, remove one known existing name by value, and display the final order one name per line using a for loop.",
+      "new_value": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [runners]. Ask for an insertion position from 0 to 4 and store it in [position]. Ask for a reserve name and store it in [reserve], then insert it at [position]. Ask for an existing name and store it in [leaving], then remove it. Use a for loop to display each remaining name. Test position 1, reserve \"Eli\" and leaving name \"Bao\"; display Ari, Eli, Cleo and Dara on separate lines."
+    },
+    {
+      "lesson_number": 25,
+      "field": "challenge_3",
+      "old_value": "Create a colour-survey summary with three answers of your choice. Use a for loop to label every colour, then use len() once to report how many answers were collected.",
+      "new_value": "Store \"blue\", \"green\" and \"red\" in [colours]. Use a for loop and [colour] to display each value after the label \"Colour:\". After the loop, display \"Number of answers:\" followed by len(colours). The final line must be \"Number of answers: 3\"."
+    },
+    {
+      "lesson_number": 26,
+      "field": "challenge_3",
+      "old_value": "Create a team roster builder. Ask how many names will be entered, collect exactly that many names into an empty list, then ask for one valid replacement position and update that name before displaying the final roster one name per line.",
+      "new_value": "Create an empty list called [roster]. Ask how many names will be entered and store the whole number in [team_size]. Use a for loop and range(team_size) to ask for each name and append it to [roster]. Ask for a replacement position from 0 to team_size - 1 and store it in [position]. Ask for a replacement name and store it in [replacement], then update [roster][position]. Test 3 names—\"Ari\", \"Bao\" and \"Cleo\"—then replace position 1 with \"Dara\". Display Ari, Dara and Cleo beneath \"Final roster:\"."
+    },
+    {
+      "lesson_number": 28,
+      "field": "challenge_3",
+      "old_value": "Create a three-row timetable. Each row stores a subject and room number. Ask for a valid row, then display a sentence containing both selected fields. Also display every subject name using a loop.",
+      "new_value": "Store [\"Maths\", 12], [\"Music\", 4] and [\"Science\", 8] in [timetable]. Ask for a row from 0 to 2 and store it in [row]. Display \"Selected:\" followed by the subject, \"in room\", and the room number from that row. Then use a for loop to display every subject name beneath \"Subjects:\". Test row 1; display \"Selected: Music in room 4\", followed by Maths, Music and Science on separate lines."
+    },
+    {
+      "lesson_number": 29,
+      "field": "challenge_2",
+      "old_value": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments.",
+      "new_value": "Ask for a row from 0 to 2 and store it in [row]. Display \"Before:\" followed by [clubs][row]. Ask for a new club name and member count and store them in [new_name] and [new_members]. Update both cells in the selected row, then display \"After:\" followed by the updated row. Test row 1, \"Robotics\" and 22; display \"Before: ['Chess', 18]\" and \"After: ['Robotics', 22]\"."
+    },
+    {
+      "lesson_number": 30,
+      "field": "challenge_2",
+      "old_value": "Ask for a new club name and member count, build a two-field row, append it, then ask for one valid row position to delete. Display the remaining rows.",
+      "new_value": "Ask for a new club name and member count and store them in [name] and [members]. Store both values in [new_club], then append [new_club] to [clubs]. Ask for a deletion position from 0 to 2 and store it in [position], then delete that row. Use a for loop to display each remaining club name and member count. Test \"Code\", 15 and position 0; display \"Chess 18\" followed by \"Code 15\"."
+    },
+    {
+      "lesson_number": 31,
+      "field": "challenge_2",
+      "old_value": "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music.",
+      "new_value": "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\""
+    },
+    {
+      "lesson_number": 31,
+      "field": "challenge_3",
+      "old_value": "Create a three-record book search with [title, pages] rows. Search case-insensitively by title, display the page count for a match, and display one not-found message only after every row has been checked.",
+      "new_value": "Store [\"orbit\", 120], [\"harbour\", 96] and [\"forest\", 144] in [books]. Ask for a title and store its lower-case value in [target]. Use a for loop to compare [target] with each title. Display \"Pages:\" followed by the page count when a title matches. Display \"Book not found.\" only after every row has been checked and no match was found. Test \"Harbour\"; display \"Pages: 96\". Test \"Music\"; display \"Book not found.\""
+    },
+    {
+      "lesson_number": 34,
+      "field": "challenge_1",
+      "old_value": "Change square() into triple(), update menu route 2, and make choice 2 with value 6 display Result: 18.",
+      "new_value": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\"."
+    },
+    {
+      "lesson_number": 34,
+      "field": "challenge_2",
+      "old_value": "Add a third function called half(number) that returns number / 2. Add menu route 3 and an invalid-choice message. Test 3 with 5 and x with 5.",
+      "new_value": "Add a function called half(number) that returns number / 2. Add \"3: half\" to the menu and use an elif condition to call half(value) when [choice] is \"3\". Add an else block that displays \"Invalid choice.\" Test \"3\" and 5; display \"Result: 2.5\". Test \"x\" and 5; display \"Invalid choice.\""
+    },
+    {
+      "lesson_number": 34,
+      "field": "challenge_3",
+      "old_value": "Build a measurement helper with separate functions to show a menu, calculate rectangle area, and calculate rectangle perimeter. The main program collects length and width, selects one calculation, and displays a labelled result; include an invalid route.",
+      "new_value": "Write show_menu() to display \"1: area, 2: perimeter\". Write area(length, width) to return length * width. Write perimeter(length, width) to return 2 * length + 2 * width. In the main program, call show_menu(), then ask for [choice], [length] and [width]. Display \"Area:\" when [choice] is \"1\", \"Perimeter:\" when [choice] is \"2\", and \"Invalid choice.\" for any other value. Test \"1\", 4 and 3; display \"Area: 12.0\". Test \"2\", 4 and 3; display \"Perimeter: 14.0\". Test \"x\", 4 and 3; display \"Invalid choice.\""
+    },
+    {
+      "lesson_number": 35,
+      "field": "challenge_3",
+      "old_value": "Build a small results manager using [name, score] rows and three functions: display every record, search by lower-case name, and return the highest score. The main program must call all three and show a clear not-found message for a missing name.",
+      "new_value": "Store [\"ari\", 7], [\"bao\", 9] and [\"cleo\", 8] in [results]. Write show_records(records) to display every name and score. Write find_score(records, target) to return the matching score or -1. Write highest_score(records) to return the highest score. In the main program, call all three functions. Test \"Bao\"; display \"Score: 9\" and \"Highest score: 9\". Test \"Mina\"; display \"Name not found.\" and \"Highest score: 9\"."
+    }
+  ]
+}

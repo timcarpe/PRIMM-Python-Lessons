@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import re
+from collections.abc import Callable
 from copy import deepcopy
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
@@ -149,6 +150,34 @@ def token_color(token: str) -> str:
     return "080808"
 
 
+def code_semantic_segments(code: str) -> list[tuple[str, str]]:
+    """Split Python code using the suite's established colour contract.
+
+    Args:
+        code: Python source text to classify without modification.
+
+    Returns:
+        Ordered ``(text, role)`` segments that reproduce the original code.
+    """
+    code = normalize_code(code)
+    parts: list[tuple[str, str]] = []
+    cursor = 0
+    for match in TOKEN_RE.finditer(code):
+        if match.start() > cursor:
+            parts.append((code[cursor : match.start()], "ordinary"))
+        token = match.group(0)
+        role = {
+            "666666": "comment",
+            "067D17": "literal",
+            "1750EB": "call",
+        }.get(token_color(token), "ordinary")
+        parts.append((token, role))
+        cursor = match.end()
+    if cursor < len(code):
+        parts.append((code[cursor:], "ordinary"))
+    return parts or [(code, "ordinary")]
+
+
 def add_text_run(
     paragraph: etree._Element,
     text: str,
@@ -259,7 +288,8 @@ def challenge_semantic_segments(
     ):
         spans.append((match.start(1), match.end(1), "call"))
     for match in re.finditer(
-        r"\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch))", text
+        r"\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch|comparison))",
+        text,
     ):
         spans.append((match.start(), match.end(), "call"))
     for match in re.finditer(
@@ -386,7 +416,7 @@ def set_code(
 def write_docx(
     source: Path,
     destination: Path,
-    patcher,
+    patcher: Callable[[etree._Element], None],
     media_replacements: dict[str, bytes] | None = None,
 ) -> None:
     with ZipFile(source) as archive:

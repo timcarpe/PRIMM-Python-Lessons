@@ -166,12 +166,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments."
+      "prompt": "Ask for a row from 0 to 2 and store it in [row]. Display \"Before:\" followed by [clubs][row]. Ask for a new club name and member count and store them in [new_name] and [new_members]. Update both cells in the selected row, then display \"After:\" followed by the updated row. Test row 1, \"Robotics\" and 22; display \"Before: ['Chess', 18]\" and \"After: ['Robotics', 22]\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity."
+      "prompt": "Store the rows ['Pens', 10], ['Books', 6] and ['Tape', 4] in [stock]. Ask for a row from 0 to 2 and store it in [row]. Ask for a delivery amount and store it in [delivery], then add [delivery] to the quantity at [stock][row][1]. Display the updated row followed by every item name and quantity. Test row 2 and delivery 3; the updated row must be ['Tape', 7]."
     },
     {
       "phase": "Debug",
@@ -237,12 +237,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments.",
+          "prompt": "Ask for a row from 0 to 2 and store it in [row]. Display \"Before:\" followed by [clubs][row]. Ask for a new club name and member count and store them in [new_name] and [new_members]. Update both cells in the selected row, then display \"After:\" followed by the updated row. Test row 1, \"Robotics\" and 22; display \"Before: ['Chess', 18]\" and \"After: ['Robotics', 22]\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity.",
+          "prompt": "Store the rows ['Pens', 10], ['Books', 6] and ['Tape', 4] in [stock]. Ask for a row from 0 to 2 and store it in [row]. Ask for a delivery amount and store it in [delivery], then add [delivery] to the quantity at [stock][row][1]. Display the updated row followed by every item name and quantity. Test row 2 and delivery 3; the updated row must be ['Tape', 7].",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -303,7 +303,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Let the user choose a valid row and update both its club name and member count. Display the selected row before and after the two assignments.",
+      "body": "Ask for a row from 0 to 2 and store it in [row]. Display \"Before:\" followed by [clubs][row]. Ask for a new club name and member count and store them in [new_name] and [new_members]. Update both cells in the selected row, then display \"After:\" followed by the updated row. Test row 1, \"Robotics\" and 22; display \"Before: ['Chess', 18]\" and \"After: ['Robotics', 22]\".",
       "starter_ref": "shared_program"
     },
     {
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity.",
+      "body": "Store the rows ['Pens', 10], ['Books', 6] and ['Tape', 4] in [stock]. Ask for a row from 0 to 2 and store it in [row]. Ask for a delivery amount and store it in [delivery], then add [delivery] to the quantity at [stock][row][1]. Display the updated row followed by every item name and quantity. Test row 2 and delivery 3; the updated row must be ['Tape', 7].",
       "starter_ref": "shared_program"
     },
     {
@@ -445,11 +445,11 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Reads an existing numeric cell; Stores the increased value; Traverses all updated records",
+      "observable_outcome": "Reads an existing numeric cell; Stores the increased value; Displays all updated records",
       "success_criteria": [
         "Reads an existing numeric cell",
         "Stores the increased value",
-        "Traverses all updated records"
+        "Displays all updated records"
       ],
       "test_cases": [
         "1/3 makes Books 9",

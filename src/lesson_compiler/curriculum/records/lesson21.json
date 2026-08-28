@@ -163,17 +163,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c."
+      "prompt": "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Ask for one lower-case letter a-w and a shift from 1 to 3. Add the shift to the character code and display the encoded letter. For c and 2, display e."
+      "prompt": "Ask for one lower-case letter between a and w and store it in [letter]. Ask for a whole number between 1 and 3 and store it in [shift]. Add [shift] to the character code, pass the result to chr(), and store the returned character in [encoded]. Test \"c\" and 2; display \"Encoded letter: e\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a three-character encoder without a loop. Ask for three lower-case letters a-y, move each code forward by 1, concatenate the three encoded characters, and display the encoded text."
+      "prompt": "Ask for three lower-case letters between a and y. Increase each character code by 1 and pass each result to chr(). Join the three returned characters and store the result in [encoded_text]. Test \"a\", \"b\" and \"c\"; display \"Encoded text: bcd\"."
     },
     {
       "phase": "Debug",
@@ -234,17 +234,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c.",
+          "prompt": "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\".",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Ask for one lower-case letter a-w and a shift from 1 to 3. Add the shift to the character code and display the encoded letter. For c and 2, display e.",
+          "prompt": "Ask for one lower-case letter between a and w and store it in [letter]. Ask for a whole number between 1 and 3 and store it in [shift]. Add [shift] to the character code, pass the result to chr(), and store the returned character in [encoded]. Test \"c\" and 2; display \"Encoded letter: e\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a three-character encoder without a loop. Ask for three lower-case letters a-y, move each code forward by 1, concatenate the three encoded characters, and display the encoded text.",
+          "prompt": "Ask for three lower-case letters between a and y. Increase each character code by 1 and pass each result to chr(). Join the three returned characters and store the result in [encoded_text]. Test \"a\", \"b\" and \"c\"; display \"Encoded text: bcd\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -292,7 +292,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c.",
+      "body": "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\".",
       "starter_ref": "shared_program"
     },
     {
@@ -305,7 +305,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Ask for one lower-case letter a-w and a shift from 1 to 3. Add the shift to the character code and display the encoded letter. For c and 2, display e.",
+      "body": "Ask for one lower-case letter between a and w and store it in [letter]. Ask for a whole number between 1 and 3 and store it in [shift]. Add [shift] to the character code, pass the result to chr(), and store the returned character in [encoded]. Test \"c\" and 2; display \"Encoded letter: e\".",
       "starter_ref": "shared_program"
     },
     {
@@ -318,7 +318,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a three-character encoder without a loop. Ask for three lower-case letters a-y, move each code forward by 1, concatenate the three encoded characters, and display the encoded text.",
+      "body": "Ask for three lower-case letters between a and y. Increase each character code by 1 and pass each result to chr(). Join the three returned characters and store the result in [encoded_text]. Test \"a\", \"b\" and \"c\"; display \"Encoded text: bcd\".",
       "starter_ref": "shared_program"
     },
     {
@@ -399,13 +399,13 @@
     {
       "challenge": 1,
       "ownership": "Modify A",
-      "observable_outcome": "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c.",
+      "observable_outcome": "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\".",
       "success_criteria": [
         "Subtracts one before chr()",
         "Updates prompt and label"
       ],
       "test_cases": [
-        "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c."
+        "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\"."
       ],
       "complexity": {
         "edit_distance": 1,
@@ -422,9 +422,9 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Collects a numeric shift; Adds shift to code; Converts back to a character",
+      "observable_outcome": "Asks for a numeric shift; Adds shift to code; Converts back to a character",
       "success_criteria": [
-        "Collects a numeric shift",
+        "Asks for a numeric shift",
         "Adds shift to code",
         "Converts back to a character"
       ],
@@ -447,11 +447,11 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Converts three separate characters; Joins all encoded characters; Uses the stated a-y boundary",
+      "observable_outcome": "Converts three separate characters; Joins all encoded characters; Uses the stated a-y range",
       "success_criteria": [
         "Converts three separate characters",
         "Joins all encoded characters",
-        "Uses the stated a-y boundary"
+        "Uses the stated a-y range"
       ],
       "test_cases": [
         "abc gives bcd",

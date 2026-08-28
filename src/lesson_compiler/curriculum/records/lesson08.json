@@ -171,12 +171,12 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "The display stops too soon. Change range() so the starter prints the first ten multiples, then check that the final line is the tenth multiple."
+      "prompt": "Change range() so [count] uses the numbers 1 through 10. For the input 4, the first line must be \"4 x 1 = 4\" and the last line must be \"4 x 10 = 40\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Let the user choose where the table begins. Use range() with that starting multiplier to display five consecutive multiples."
+      "prompt": "Ask which table line to start with and store the whole number in [start]. Use range() to display five lines beginning with [start]. For table 3 and start 4, display lines from \"3 x 4 = 12\" through \"3 x 8 = 24\"."
     },
     {
       "phase": "Make",
@@ -242,12 +242,12 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "The display stops too soon. Change range() so the starter prints the first ten multiples, then check that the final line is the tenth multiple.",
+          "prompt": "Change range() so [count] uses the numbers 1 through 10. For the input 4, the first line must be \"4 x 1 = 4\" and the last line must be \"4 x 10 = 40\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Let the user choose where the table begins. Use range() with that starting multiplier to display five consecutive multiples.",
+          "prompt": "Ask which table line to start with and store the whole number in [start]. Use range() to display five lines beginning with [start]. For table 3 and start 4, display lines from \"3 x 4 = 12\" through \"3 x 8 = 24\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
@@ -300,7 +300,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "The display stops too soon. Change range() so the starter prints the first ten multiples, then check that the final line is the tenth multiple.",
+      "body": "Change range() so [count] uses the numbers 1 through 10. For the input 4, the first line must be \"4 x 1 = 4\" and the last line must be \"4 x 10 = 40\".",
       "starter_ref": "shared_program"
     },
     {
@@ -313,7 +313,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Let the user choose where the table begins. Use range() with that starting multiplier to display five consecutive multiples.",
+      "body": "Ask which table line to start with and store the whole number in [start]. Use range() to display five lines beginning with [start]. For table 3 and start 4, display lines from \"3 x 4 = 12\" through \"3 x 8 = 24\".",
       "starter_ref": "shared_program"
     },
     {

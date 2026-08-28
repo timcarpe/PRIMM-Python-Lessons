@@ -146,7 +146,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list."
+      "prompt": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\"."
     },
     {
       "phase": "Modify B",
@@ -156,7 +156,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading."
+      "prompt": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\"."
     },
     {
       "phase": "Debug",
@@ -217,7 +217,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list.",
+          "prompt": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\".",
           "layout_profile": "challenge-medium"
         },
         {
@@ -227,7 +227,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading.",
+          "prompt": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\".",
           "layout_profile": "challenge-medium"
         }
       ]
@@ -275,7 +275,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list.",
+      "body": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\".",
       "starter_ref": "shared_program"
     },
     {
@@ -301,7 +301,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Make a movie-night checklist. Start with two items of your choice, ask the user for a third, append it, and display the finished list with a clear heading.",
+      "body": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\".",
       "starter_ref": "shared_program"
     },
     {

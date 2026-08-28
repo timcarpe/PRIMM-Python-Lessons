@@ -167,7 +167,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a random practice target. Ask for a minimum and maximum whole number, generate one target inside those inclusive bounds, and display it with a label. Test bounds 4 and 4; the target must be 4."
+      "prompt": "Ask for a minimum whole number and store it in [minimum]. Ask for a maximum whole number and store it in [maximum]. Use randint() to generate a number between [minimum] and [maximum], including both values, and store it in [target]. Test 4 and 4; display \"Practice target: 4\"."
     },
     {
       "phase": "Debug",
@@ -237,7 +237,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a random practice target. Ask for a minimum and maximum whole number, generate one target inside those inclusive bounds, and display it with a label. Test bounds 4 and 4; the target must be 4.",
+          "prompt": "Ask for a minimum whole number and store it in [minimum]. Ask for a maximum whole number and store it in [maximum]. Use randint() to generate a number between [minimum] and [maximum], including both values, and store it in [target]. Test 4 and 4; display \"Practice target: 4\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -311,7 +311,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a random practice target. Ask for a minimum and maximum whole number, generate one target inside those inclusive bounds, and display it with a label. Test bounds 4 and 4; the target must be 4.",
+      "body": "Ask for a minimum whole number and store it in [minimum]. Ask for a maximum whole number and store it in [maximum]. Use randint() to generate a number between [minimum] and [maximum], including both values, and store it in [target]. Test 4 and 4; display \"Practice target: 4\".",
       "starter_ref": "shared_program"
     },
     {
@@ -439,10 +439,10 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Uses user-selected integer bounds; Generates within inclusive bounds; Labels the target",
+      "observable_outcome": "Uses a user-selected minimum and maximum; Includes both values when generating; Labels the target",
       "success_criteria": [
-        "Uses user-selected integer bounds",
-        "Generates within inclusive bounds",
+        "Uses a user-selected minimum and maximum",
+        "Includes both values when generating",
         "Labels the target"
       ],
       "test_cases": [

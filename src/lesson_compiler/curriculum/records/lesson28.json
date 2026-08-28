@@ -168,12 +168,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Traverse every row and display each club name followed by its member count. Do not print the row brackets."
+      "prompt": "Use a for loop to visit each row in [clubs]. For each [club], display \"Club:\" followed by the value at position 0, then display \"Members:\" followed by the value at position 1. The starter data must display Art with 12 members, Chess with 18 members and Code with 15 members without displaying list brackets."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a three-row timetable. Each row stores a subject and room number. Ask for a valid row, then display a sentence containing both selected fields. Also display every subject name using a loop."
+      "prompt": "Store [\"Maths\", 12], [\"Music\", 4] and [\"Science\", 8] in [timetable]. Ask for a row from 0 to 2 and store it in [row]. Display \"Selected:\" followed by the subject, \"in room\", and the room number from that row. Then use a for loop to display every subject name beneath \"Subjects:\". Test row 1; display \"Selected: Music in room 4\", followed by Maths, Music and Science on separate lines."
     },
     {
       "phase": "Debug",
@@ -239,12 +239,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Traverse every row and display each club name followed by its member count. Do not print the row brackets.",
+          "prompt": "Use a for loop to visit each row in [clubs]. For each [club], display \"Club:\" followed by the value at position 0, then display \"Members:\" followed by the value at position 1. The starter data must display Art with 12 members, Chess with 18 members and Code with 15 members without displaying list brackets.",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a three-row timetable. Each row stores a subject and room number. Ask for a valid row, then display a sentence containing both selected fields. Also display every subject name using a loop.",
+          "prompt": "Store [\"Maths\", 12], [\"Music\", 4] and [\"Science\", 8] in [timetable]. Ask for a row from 0 to 2 and store it in [row]. Display \"Selected:\" followed by the subject, \"in room\", and the room number from that row. Then use a for loop to display every subject name beneath \"Subjects:\". Test row 1; display \"Selected: Music in room 4\", followed by Maths, Music and Science on separate lines.",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -305,7 +305,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Traverse every row and display each club name followed by its member count. Do not print the row brackets.",
+      "body": "Use a for loop to visit each row in [clubs]. For each [club], display \"Club:\" followed by the value at position 0, then display \"Members:\" followed by the value at position 1. The starter data must display Art with 12 members, Chess with 18 members and Code with 15 members without displaying list brackets.",
       "starter_ref": "shared_program"
     },
     {
@@ -318,7 +318,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a three-row timetable. Each row stores a subject and room number. Ask for a valid row, then display a sentence containing both selected fields. Also display every subject name using a loop.",
+      "body": "Store [\"Maths\", 12], [\"Music\", 4] and [\"Science\", 8] in [timetable]. Ask for a row from 0 to 2 and store it in [row]. Display \"Selected:\" followed by the subject, \"in room\", and the room number from that row. Then use a for loop to display every subject name beneath \"Subjects:\". Test row 1; display \"Selected: Music in room 4\", followed by Maths, Music and Science on separate lines.",
       "starter_ref": "shared_program"
     },
     {
@@ -447,11 +447,11 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Creates three two-field rows; Reads a selected cell pair; Traverses the subject column",
+      "observable_outcome": "Creates three two-field rows; Reads a selected cell pair; Displays the subject column",
       "success_criteria": [
         "Creates three two-field rows",
         "Reads a selected cell pair",
-        "Traverses the subject column"
+        "Displays the subject column"
       ],
       "test_cases": [
         "1 selects Music room 4",

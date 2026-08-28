@@ -34,7 +34,7 @@ function candidates(text, vocabulary) {
     const start = match.index + match[0].lastIndexOf(token);
     add(start, start + token.length, BLUE);
   }
-  for (const match of text.matchAll(/\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch))/g)) add(match.index, match.index + match[0].length, BLUE);
+  for (const match of text.matchAll(/\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch|comparison))/g)) add(match.index, match.index + match[0].length, BLUE);
   for (const match of text.matchAll(/\b(?:and|or|not|in)\b(?=\s+(?:operator|condition|keyword))/g)) add(match.index, match.index + match[0].length, BLUE);
   return found.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
 }

@@ -194,7 +194,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a door-code checker with a while loop that allows at most three attempts. Stop early when \"open\" is entered, then display either a success message or a final locked message with the attempts used."
+      "prompt": "Store \"open\" in [password]. Use a while loop to ask for a door code until the user enters \"open\" or [attempts] reaches 3. Add 1 to [attempts] after each answer. Test \"open\"; display \"Door opened. Attempts used: 1\". Test \"red\", \"blue\" and \"green\"; display \"Door locked. Attempts used: 3\"."
     },
     {
       "phase": "Debug",
@@ -265,7 +265,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a door-code checker with a while loop that allows at most three attempts. Stop early when \"open\" is entered, then display either a success message or a final locked message with the attempts used.",
+          "prompt": "Store \"open\" in [password]. Use a while loop to ask for a door code until the user enters \"open\" or [attempts] reaches 3. Add 1 to [attempts] after each answer. Test \"open\"; display \"Door opened. Attempts used: 1\". Test \"red\", \"blue\" and \"green\"; display \"Door locked. Attempts used: 3\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -339,7 +339,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a door-code checker with a while loop that allows at most three attempts. Stop early when \"open\" is entered, then display either a success message or a final locked message with the attempts used.",
+      "body": "Store \"open\" in [password]. Use a while loop to ask for a door code until the user enters \"open\" or [attempts] reaches 3. Add 1 to [attempts] after each answer. Test \"open\"; display \"Door opened. Attempts used: 1\". Test \"red\", \"blue\" and \"green\"; display \"Door locked. Attempts used: 3\".",
       "starter_ref": "shared_program"
     },
     {
@@ -363,9 +363,9 @@
     }
   ],
   "programs": {
-    "challenge1": "target = 7\nattempts = 0\nguess = 0\n\nwhile guess != target and attempts < 2:\n    guess = int(input(\"Guess 1 to 10: \"))\n    attempts = attempts + 1\n\nprint(\"Finished in\", attempts, \"tries.\")",
+    "challenge1": "target = 7\nattempts = 0\nguess = 0\n\nwhile guess != target and attempts < 2:\n    guess = int(input(\"Guess 1 to 10: \"))\n    attempts = attempts + 1\n\nprint(\"Attempts used:\", attempts)",
     "challenge2": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 5:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + 1\nprint(\"You used\", attempts, \"tries.\")",
-    "challenge3": "password = \"open\"\nattempts = 0\nguess = \"\"\nwhile guess != password and attempts < 3:\n    guess = input(\"Door code: \" )\n    attempts = attempts + 1\nif guess == password:\n    print(\"Door opened in\", attempts, \"tries.\")\nelse:\n    print(\"Door locked after\", attempts, \"tries.\")",
+    "challenge3": "password = \"open\"\nattempts = 0\nguess = \"\"\nwhile guess != password and attempts < 3:\n    guess = input(\"Door code: \" )\n    attempts = attempts + 1\nif guess == password:\n    print(\"Door opened. Attempts used:\", attempts)\nelse:\n    print(\"Door locked. Attempts used:\", attempts)",
     "broken": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + \"1\"\nprint(\"Finished in\", attempts, \"tries.\")",
     "fixed": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + 1\nprint(\"Finished in\", attempts, \"tries.\")\n# The counter changes on every loop."
   },

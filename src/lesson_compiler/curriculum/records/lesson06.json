@@ -187,12 +187,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add an adult exception with or: entry is allowed when the age-and-ticket rule is true or an adult is present. Test an under-age visitor with no ticket but with an adult."
+      "prompt": "Change the if condition. Use the and operator to allow entry when [age] is at least 12 and [has_ticket] is \"yes\". Use the or operator to also allow entry when [has_adult] is \"yes\". Otherwise, display \"Please check the entry rules.\" Test age 10 with \"no\" for the ticket and \"yes\" for the adult; display \"You may enter.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a club checker that asks whether the visitor is a member and has a valid pass. Use and so entry is allowed only when both answers are \"yes\"; otherwise show a refusal. Test one allowed and one refused route."
+      "prompt": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\"."
     },
     {
       "phase": "Debug",
@@ -258,12 +258,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add an adult exception with or: entry is allowed when the age-and-ticket rule is true or an adult is present. Test an under-age visitor with no ticket but with an adult.",
+          "prompt": "Change the if condition. Use the and operator to allow entry when [age] is at least 12 and [has_ticket] is \"yes\". Use the or operator to also allow entry when [has_adult] is \"yes\". Otherwise, display \"Please check the entry rules.\" Test age 10 with \"no\" for the ticket and \"yes\" for the adult; display \"You may enter.\"",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a club checker that asks whether the visitor is a member and has a valid pass. Use and so entry is allowed only when both answers are \"yes\"; otherwise show a refusal. Test one allowed and one refused route.",
+          "prompt": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -324,7 +324,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add an adult exception with or: entry is allowed when the age-and-ticket rule is true or an adult is present. Test an under-age visitor with no ticket but with an adult.",
+      "body": "Change the if condition. Use the and operator to allow entry when [age] is at least 12 and [has_ticket] is \"yes\". Use the or operator to also allow entry when [has_adult] is \"yes\". Otherwise, display \"Please check the entry rules.\" Test age 10 with \"no\" for the ticket and \"yes\" for the adult; display \"You may enter.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -337,7 +337,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a club checker that asks whether the visitor is a member and has a valid pass. Use and so entry is allowed only when both answers are \"yes\"; otherwise show a refusal. Test one allowed and one refused route.",
+      "body": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\".",
       "starter_ref": "shared_program"
     },
     {

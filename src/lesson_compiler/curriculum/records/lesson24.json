@@ -171,7 +171,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter."
+      "prompt": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [queue]. Ask for a cancellation position from 0 to 3 and store it in [position]. Store the selected name in [cancelled], delete it from [queue], and display \"Cancelled:\" followed by [cancelled]. Use a for loop and a counter called [number] to display the position and name of each remaining person. Test position 1; the remaining lines must be \"0 Ari\", \"1 Cleo\" and \"2 Dara\"."
     },
     {
       "phase": "Debug",
@@ -242,7 +242,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter.",
+          "prompt": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [queue]. Ask for a cancellation position from 0 to 3 and store it in [position]. Store the selected name in [cancelled], delete it from [queue], and display \"Cancelled:\" followed by [cancelled]. Use a for loop and a counter called [number] to display the position and name of each remaining person. Test position 1; the remaining lines must be \"0 Ari\", \"1 Cleo\" and \"2 Dara\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter.",
+      "body": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [queue]. Ask for a cancellation position from 0 to 3 and store it in [position]. Store the selected name in [cancelled], delete it from [queue], and display \"Cancelled:\" followed by [cancelled]. Use a for loop and a counter called [number] to display the position and name of each remaining person. Test position 1; the remaining lines must be \"0 Ari\", \"1 Cleo\" and \"2 Dara\".",
       "starter_ref": "shared_program"
     },
     {

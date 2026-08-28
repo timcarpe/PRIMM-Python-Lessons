@@ -163,12 +163,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add \"green\" to the colour choices and generate two independently stored colour selections. Display both selections on labelled lines."
+      "prompt": "Add \"green\" to [colours]. Use random.choice() twice and store the results separately in [first_colour] and [second_colour]. Display each result on a labelled line. For example, if \"red\" and \"green\" are selected, display \"First colour: red\" and \"Second colour: green\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a random training prompt. Choose an even repetition count from 2 through 12 and one activity from a three-item list you design. Display one instruction such as 8 jumps."
+      "prompt": "Store three activity strings, such as \"jumps\", \"push-ups\" and \"squats\", in [activities]. Generate a random even whole number from 2 through 12 and store it in [count]. Select one random item from [activities] and store it in [activity]. Display \"Training prompt:\" followed by [count] and [activity], such as \"Training prompt: 8 jumps\" or \"Training prompt: 4 push-ups\"."
     },
     {
       "phase": "Debug",
@@ -234,12 +234,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add \"green\" to the colour choices and generate two independently stored colour selections. Display both selections on labelled lines.",
+          "prompt": "Add \"green\" to [colours]. Use random.choice() twice and store the results separately in [first_colour] and [second_colour]. Display each result on a labelled line. For example, if \"red\" and \"green\" are selected, display \"First colour: red\" and \"Second colour: green\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a random training prompt. Choose an even repetition count from 2 through 12 and one activity from a three-item list you design. Display one instruction such as 8 jumps.",
+          "prompt": "Store three activity strings, such as \"jumps\", \"push-ups\" and \"squats\", in [activities]. Generate a random even whole number from 2 through 12 and store it in [count]. Select one random item from [activities] and store it in [activity]. Display \"Training prompt:\" followed by [count] and [activity], such as \"Training prompt: 8 jumps\" or \"Training prompt: 4 push-ups\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -300,7 +300,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add \"green\" to the colour choices and generate two independently stored colour selections. Display both selections on labelled lines.",
+      "body": "Add \"green\" to [colours]. Use random.choice() twice and store the results separately in [first_colour] and [second_colour]. Display each result on a labelled line. For example, if \"red\" and \"green\" are selected, display \"First colour: red\" and \"Second colour: green\".",
       "starter_ref": "shared_program"
     },
     {
@@ -313,7 +313,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a random training prompt. Choose an even repetition count from 2 through 12 and one activity from a three-item list you design. Display one instruction such as 8 jumps.",
+      "body": "Store three activity strings, such as \"jumps\", \"push-ups\" and \"squats\", in [activities]. Generate a random even whole number from 2 through 12 and store it in [count]. Select one random item from [activities] and store it in [activity]. Display \"Training prompt:\" followed by [count] and [activity], such as \"Training prompt: 8 jumps\" or \"Training prompt: 4 push-ups\".",
       "starter_ref": "shared_program"
     },
     {

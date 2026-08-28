@@ -37,6 +37,7 @@ lesson_compiler = [
   "assets/**/*.png",
   "curriculum/**/*.json",
   "curriculum/**/*.md",
+  "review_tool/*.html",
   "slides/*.mjs",
   "templates/*.pptx",
 ]

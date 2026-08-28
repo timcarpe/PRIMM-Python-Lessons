@@ -176,12 +176,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Create a two-letter badge from two words. Use indexing to display the first character of each; use inputs with different capitalisation to inspect the result."
+      "prompt": "Ask for two words and store them in [first_word] and [second_word]. Use position 0 to display the first character of each word. Test \"Code\" and \"python\"; display \"Initials: C p\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a reference code for a six-letter word. Use two slices to display its first two characters, then characters five and six. Try \"python\": the two parts should be \"py\" and \"on\"."
+      "prompt": "Ask for a six-letter word and store it in [word]. Store the slice from positions 0 to 2 in [first_part] and the slice from positions 4 to 6 in [last_part]. Display \"Reference:\" followed by both parts. Test \"python\"; display \"Reference: py on\"."
     },
     {
       "phase": "Debug",
@@ -247,12 +247,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Create a two-letter badge from two words. Use indexing to display the first character of each; use inputs with different capitalisation to inspect the result.",
+          "prompt": "Ask for two words and store them in [first_word] and [second_word]. Use position 0 to display the first character of each word. Test \"Code\" and \"python\"; display \"Initials: C p\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a reference code for a six-letter word. Use two slices to display its first two characters, then characters five and six. Try \"python\": the two parts should be \"py\" and \"on\".",
+          "prompt": "Ask for a six-letter word and store it in [word]. Store the slice from positions 0 to 2 in [first_part] and the slice from positions 4 to 6 in [last_part]. Display \"Reference:\" followed by both parts. Test \"python\"; display \"Reference: py on\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -313,7 +313,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Create a two-letter badge from two words. Use indexing to display the first character of each; use inputs with different capitalisation to inspect the result.",
+      "body": "Ask for two words and store them in [first_word] and [second_word]. Use position 0 to display the first character of each word. Test \"Code\" and \"python\"; display \"Initials: C p\".",
       "starter_ref": "shared_program"
     },
     {
@@ -326,7 +326,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a reference code for a six-letter word. Use two slices to display its first two characters, then characters five and six. Try \"python\": the two parts should be \"py\" and \"on\".",
+      "body": "Ask for a six-letter word and store it in [word]. Store the slice from positions 0 to 2 in [first_part] and the slice from positions 4 to 6 in [last_part]. Display \"Reference:\" followed by both parts. Test \"python\"; display \"Reference: py on\".",
       "starter_ref": "shared_program"
     },
     {

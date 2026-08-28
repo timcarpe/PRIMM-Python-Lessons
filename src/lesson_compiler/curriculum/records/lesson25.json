@@ -141,17 +141,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Display each drink in upper case as the loop visits it. Keep the final total unchanged. The starter list must display TEA, WATER and JUICE before Total drinks: 3."
+      "prompt": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add a fourth survey answer to the list. Before running, predict the last answer and the total that will appear; then check both."
+      "prompt": "Add \"coffee\" as the fourth item in [survey]. Keep the for loop so every item is displayed, then display the new result from len(). The last item line must be \"Drink: coffee\" and the final line must be \"Total drinks: 4\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a colour-survey summary with three answers of your choice. Use a for loop to label every colour, then use len() once to report how many answers were collected."
+      "prompt": "Store \"blue\", \"green\" and \"red\" in [colours]. Use a for loop and [colour] to display each value after the label \"Colour:\". After the loop, display \"Number of answers:\" followed by len(colours). The final line must be \"Number of answers: 3\"."
     },
     {
       "phase": "Debug",
@@ -211,17 +211,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Display each drink in upper case as the loop visits it. Keep the final total unchanged. The starter list must display TEA, WATER and JUICE before Total drinks: 3.",
+          "prompt": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\".",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add a fourth survey answer to the list. Before running, predict the last answer and the total that will appear; then check both.",
+          "prompt": "Add \"coffee\" as the fourth item in [survey]. Keep the for loop so every item is displayed, then display the new result from len(). The last item line must be \"Drink: coffee\" and the final line must be \"Total drinks: 4\".",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a colour-survey summary with three answers of your choice. Use a for loop to label every colour, then use len() once to report how many answers were collected.",
+          "prompt": "Store \"blue\", \"green\" and \"red\" in [colours]. Use a for loop and [colour] to display each value after the label \"Colour:\". After the loop, display \"Number of answers:\" followed by len(colours). The final line must be \"Number of answers: 3\".",
           "layout_profile": "challenge-medium"
         }
       ]
@@ -269,7 +269,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Display each drink in upper case as the loop visits it. Keep the final total unchanged. The starter list must display TEA, WATER and JUICE before Total drinks: 3.",
+      "body": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\".",
       "starter_ref": "shared_program"
     },
     {
@@ -282,7 +282,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add a fourth survey answer to the list. Before running, predict the last answer and the total that will appear; then check both.",
+      "body": "Add \"coffee\" as the fourth item in [survey]. Keep the for loop so every item is displayed, then display the new result from len(). The last item line must be \"Drink: coffee\" and the final line must be \"Total drinks: 4\".",
       "starter_ref": "shared_program"
     },
     {
@@ -295,7 +295,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a colour-survey summary with three answers of your choice. Use a for loop to label every colour, then use len() once to report how many answers were collected.",
+      "body": "Store \"blue\", \"green\" and \"red\" in [colours]. Use a for loop and [colour] to display each value after the label \"Colour:\". After the loop, display \"Number of answers:\" followed by len(colours). The final line must be \"Number of answers: 3\".",
       "starter_ref": "shared_program"
     },
     {
@@ -319,9 +319,9 @@
     }
   ],
   "programs": {
-    "challenge1": "survey = [\"tea\", \"water\", \"juice\"]\n\nfor drink in survey:\n    print(\"Drink:\", drink.upper())\n\nprint(\"Total drinks:\", len(survey))",
+    "challenge1": "survey = [\"tea\", \"water\", \"juice\"]\nvisited = 0\n\nfor drink in survey:\n    print(\"Drink:\", drink)\n    visited = visited + 1\n\nprint(\"Visited:\", visited)\nprint(\"Total drinks:\", len(survey))",
     "challenge2": "survey = [\"tea\", \"water\", \"juice\", \"coffee\"]\nfor drink in survey:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len(survey))",
-    "challenge3": "colours = [\"blue\", \"green\", \"red\"]\nfor colour in colours:\n    print(\"Colour:\", colour)\nprint(\"Answers collected:\", len(colours))",
+    "challenge3": "colours = [\"blue\", \"green\", \"red\"]\nfor colour in colours:\n    print(\"Colour:\", colour)\nprint(\"Number of answers:\", len(colours))",
     "broken": "survey = [\"tea\", \"water\", \"juice\"]\nfor drink in surveys:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len)",
     "fixed": "survey = [\"tea\", \"water\", \"juice\"]\nfor drink in survey:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len(survey))"
   },

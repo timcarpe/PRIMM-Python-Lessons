@@ -1,6 +1,6 @@
-route = ["Park", "Museum", "Station"]
-position = int(input("Stop position 0 to 2: "))
+places = ["Park", "Museum", "Station"]
+position = int(input("Place position 0 to 2: "))
 new_place = input("New place: ")
-route[position] = new_place
-print("First stop:", route[0])
-print("Updated route:", route)
+places[position] = new_place
+print("First stop:", places[0])
+print("Updated places:", places)

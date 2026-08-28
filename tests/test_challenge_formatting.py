@@ -4,14 +4,45 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 from pathlib import Path
 
 import pytest
 
-from lesson_compiler.docx import challenge_semantic_segments
+from lesson_compiler.docx import challenge_semantic_segments, code_semantic_segments
+from lesson_compiler.review_tool.build import load_effective_lessons
 from lesson_compiler.verify import plain
+
+REVISED_PROMPT_CALLS: dict[tuple[int, str], set[str]] = {
+    (4, "challenge_1"): {"if"},
+    (4, "challenge_3"): {"if", "else"},
+    (7, "challenge_3"): {"if"},
+    (9, "challenge_3"): {"while"},
+    (10, "challenge_3"): {"for", "while"},
+    (12, "challenge_3"): {"strip()", "title()"},
+    (17, "challenge_3"): {"list"},
+    (25, "challenge_3"): {"for", "len"},
+    (26, "challenge_3"): {"list", "for", "range"},
+    (28, "challenge_3"): {"for"},
+    (30, "challenge_2"): {"for"},
+    (31, "challenge_3"): {"for"},
+    (34, "challenge_1"): {"triple", "return"},
+    (34, "challenge_2"): {"half", "elif", "else"},
+    (34, "challenge_3"): {
+        "show_menu()",
+        "area",
+        "perimeter",
+        "return",
+    },
+    (35, "challenge_3"): {
+        "show_records",
+        "find_score",
+        "highest_score",
+        "return",
+    },
+}
 
 
 def test_pdf_line_break_hyphens_normalize_without_losing_quotes() -> None:
@@ -49,6 +80,23 @@ def test_python_formatter_preserves_prose_and_colours_explicit_code() -> None:
     assert ('"Ready"', "literal") in segments
     assert all(part not in {'"and"', '"red"'} for part, _role in segments)
     assert all(not part.startswith("'") for part, role in segments if role == "literal")
+
+
+def test_code_segments_follow_compiler_token_colours() -> None:
+    """Reviewable code segments preserve the compiler's exact token contract."""
+    # Arrange
+    code = 'if total > int(input("Number: ")):  # ordinary and\n    print(total)'
+
+    # Act
+    segments = code_semantic_segments(code)
+
+    # Assert
+    assert "".join(part for part, _role in segments) == code
+    assert ("if", "call") in segments
+    assert ("int", "call") in segments
+    assert ("input", "call") in segments
+    assert ('"Number: "', "literal") in segments
+    assert ("# ordinary and", "comment") in segments
 
 
 def test_javascript_formatter_preserves_prose_and_colours_explicit_code() -> None:
@@ -99,3 +147,95 @@ console.log(JSON.stringify(runs));
         for item in runs
         if item["textStyle"]["color"] == "#067D17"
     )
+
+
+def test_revised_prompts_colour_programming_items_without_changing_text() -> None:
+    """Approved prompts retain text while calls and literals receive roles."""
+    # Arrange
+    lessons = {lesson["number"]: lesson for lesson in load_effective_lessons()}
+
+    for (lesson_number, field), expected_calls in REVISED_PROMPT_CALLS.items():
+        item = next(
+            candidate
+            for candidate in lessons[lesson_number]["items"]
+            if candidate["field"] == field
+        )
+        text = item["value"]
+
+        # Act
+        segments = [(segment["text"], segment["role"]) for segment in item["segments"]]
+        calls = {part for part, role in segments if role == "call"}
+        literals = {part for part, role in segments if role == "literal"}
+
+        # Assert
+        assert "".join(part for part, _role in segments) == text
+        assert expected_calls <= calls
+        assert set(re.findall(r'"[^"\n]*"', text)) <= literals
+
+
+def test_javascript_formatter_matches_revised_prompt_colour_contract() -> None:
+    """Slide prose applies the same roles to every approved programming item."""
+    # Arrange
+    configured_node = os.environ.get("LESSON_COMPILER_NODE")
+    node = configured_node or shutil.which("node")
+    if node is None:
+        pytest.skip("Node.js is not available in this test environment")
+    module = (
+        Path(__file__).parents[1]
+        / "src/lesson_compiler/slides/inline_code_styling.mjs"
+    )
+    lessons = {lesson["number"]: lesson for lesson in load_effective_lessons()}
+    payload = []
+    for (lesson_number, field), expected_calls in REVISED_PROMPT_CALLS.items():
+        lesson = lessons[lesson_number]
+        item = next(
+            candidate
+            for candidate in lesson["items"]
+            if candidate["field"] == field
+        )
+        payload.append(
+            {
+                "text": item["value"],
+                "functions": lesson["functions"],
+                "expected": sorted(expected_calls),
+            }
+        )
+    script = """
+const { proseRuns } = await import(process.argv[1]);
+const payload = JSON.parse(process.argv[2]);
+console.log(JSON.stringify(payload.map((item) => ({
+  ...item,
+  runs: proseRuns(item.text, { functions: new Set(item.functions) }),
+}))));
+"""
+
+    # Act
+    completed = subprocess.run(
+        [
+            node,
+            "--input-type=module",
+            "-e",
+            script,
+            module.as_uri(),
+            json.dumps(payload),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    # Assert
+    for item in json.loads(completed.stdout):
+        assert "".join(run["run"] for run in item["runs"]) == item["text"]
+        blue = {
+            run["run"]
+            for run in item["runs"]
+            if run["textStyle"]["color"] == "#1750EB"
+        }
+        green = {
+            run["run"]
+            for run in item["runs"]
+            if run["textStyle"]["color"] == "#067D17"
+        }
+        assert set(item["expected"]) <= blue
+        assert set(re.findall(r'"[^"\n]*"', item["text"])) <= green

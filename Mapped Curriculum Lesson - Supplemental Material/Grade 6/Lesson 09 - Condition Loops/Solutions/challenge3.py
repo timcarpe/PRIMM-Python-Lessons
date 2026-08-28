@@ -5,6 +5,6 @@ while guess != password and attempts < 3:
     guess = input("Door code: ")
     attempts = attempts + 1
 if guess == password:
-    print("Door opened in", attempts, "tries.")
+    print("Door opened. Attempts used:", attempts)
 else:
-    print("Door locked after", attempts, "tries.")
+    print("Door locked. Attempts used:", attempts)

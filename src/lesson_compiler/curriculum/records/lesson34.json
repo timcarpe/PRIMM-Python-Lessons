@@ -161,17 +161,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Change square() into triple(), update menu route 2, and make choice 2 with value 6 display Result: 18."
+      "prompt": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add a third function called half(number) that returns number / 2. Add menu route 3 and an invalid-choice message. Test 3 with 5 and x with 5."
+      "prompt": "Add a function called half(number) that returns number / 2. Add \"3: half\" to the menu and use an elif condition to call half(value) when [choice] is \"3\". Add an else block that displays \"Invalid choice.\" Test \"3\" and 5; display \"Result: 2.5\". Test \"x\" and 5; display \"Invalid choice.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a measurement helper with separate functions to show a menu, calculate rectangle area, and calculate rectangle perimeter. The main program collects length and width, selects one calculation, and displays a labelled result; include an invalid route."
+      "prompt": "Write show_menu() to display \"1: area, 2: perimeter\". Write area(length, width) to return length * width. Write perimeter(length, width) to return 2 * length + 2 * width. In the main program, call show_menu(), then ask for [choice], [length] and [width]. Display \"Area:\" when [choice] is \"1\", \"Perimeter:\" when [choice] is \"2\", and \"Invalid choice.\" for any other value. Test \"1\", 4 and 3; display \"Area: 12.0\". Test \"2\", 4 and 3; display \"Perimeter: 14.0\". Test \"x\", 4 and 3; display \"Invalid choice.\""
     },
     {
       "phase": "Debug",
@@ -232,17 +232,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Change square() into triple(), update menu route 2, and make choice 2 with value 6 display Result: 18.",
+          "prompt": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add a third function called half(number) that returns number / 2. Add menu route 3 and an invalid-choice message. Test 3 with 5 and x with 5.",
+          "prompt": "Add a function called half(number) that returns number / 2. Add \"3: half\" to the menu and use an elif condition to call half(value) when [choice] is \"3\". Add an else block that displays \"Invalid choice.\" Test \"3\" and 5; display \"Result: 2.5\". Test \"x\" and 5; display \"Invalid choice.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a measurement helper with separate functions to show a menu, calculate rectangle area, and calculate rectangle perimeter. The main program collects length and width, selects one calculation, and displays a labelled result; include an invalid route.",
+          "prompt": "Write show_menu() to display \"1: area, 2: perimeter\". Write area(length, width) to return length * width. Write perimeter(length, width) to return 2 * length + 2 * width. In the main program, call show_menu(), then ask for [choice], [length] and [width]. Display \"Area:\" when [choice] is \"1\", \"Perimeter:\" when [choice] is \"2\", and \"Invalid choice.\" for any other value. Test \"1\", 4 and 3; display \"Area: 12.0\". Test \"2\", 4 and 3; display \"Perimeter: 14.0\". Test \"x\", 4 and 3; display \"Invalid choice.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -290,7 +290,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Change square() into triple(), update menu route 2, and make choice 2 with value 6 display Result: 18.",
+      "body": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\".",
       "starter_ref": "shared_program"
     },
     {
@@ -303,7 +303,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add a third function called half(number) that returns number / 2. Add menu route 3 and an invalid-choice message. Test 3 with 5 and x with 5.",
+      "body": "Add a function called half(number) that returns number / 2. Add \"3: half\" to the menu and use an elif condition to call half(value) when [choice] is \"3\". Add an else block that displays \"Invalid choice.\" Test \"3\" and 5; display \"Result: 2.5\". Test \"x\" and 5; display \"Invalid choice.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a measurement helper with separate functions to show a menu, calculate rectangle area, and calculate rectangle perimeter. The main program collects length and width, selects one calculation, and displays a labelled result; include an invalid route.",
+      "body": "Write show_menu() to display \"1: area, 2: perimeter\". Write area(length, width) to return length * width. Write perimeter(length, width) to return 2 * length + 2 * width. In the main program, call show_menu(), then ask for [choice], [length] and [width]. Display \"Area:\" when [choice] is \"1\", \"Perimeter:\" when [choice] is \"2\", and \"Invalid choice.\" for any other value. Test \"1\", 4 and 3; display \"Area: 12.0\". Test \"2\", 4 and 3; display \"Perimeter: 14.0\". Test \"x\", 4 and 3; display \"Invalid choice.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -397,9 +397,9 @@
     {
       "challenge": 1,
       "ownership": "Modify A",
-      "observable_outcome": "Renames function and route; Returns triple value; Caller uses new function",
+      "observable_outcome": "Renames the function and menu option; Returns triple value; Caller uses new function",
       "success_criteria": [
-        "Renames function and route",
+        "Renames the function and menu option",
         "Returns triple value",
         "Caller uses new function"
       ],
@@ -447,12 +447,12 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Uses three separate responsibilities; Passes two arguments; Labels both valid results; Handles invalid route",
+      "observable_outcome": "Uses three separate responsibilities; Passes two arguments; Labels both calculation results; Handles an invalid choice",
       "success_criteria": [
         "Uses three separate responsibilities",
         "Passes two arguments",
-        "Labels both valid results",
-        "Handles invalid route"
+        "Labels both calculation results",
+        "Handles an invalid choice"
       ],
       "test_cases": [
         "1/4/3 gives area 12.0",

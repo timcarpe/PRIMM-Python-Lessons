@@ -157,17 +157,17 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan."
+      "prompt": "Change the full stop between [first_name] and [last_name] to an underscore. Test \"Asha\" and \"Khan\"; display \"Username: asha_khan\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART."
+      "prompt": "Ask for a last name and store it in [last_name]. Ask for a department code and store it in [department]. Join the lower-case last name, a hyphen and the upper-case department, then store the result in [account_label]. Test \"Khan\" and \"art\"; display \"Account label: khan-ART\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case."
+      "prompt": "Ask for a venue, an activity and a two-letter group, then store the answers in [venue], [activity] and [group]. Join the lower-case venue, a forward slash, the lower-case activity, a hyphen and the upper-case group. Store the result in [tag]. Test \"Hall\", \"Quiz\" and \"b2\"; display \"Event tag: hall/quiz-B2\"."
     },
     {
       "phase": "Debug",
@@ -227,17 +227,17 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan.",
+          "prompt": "Change the full stop between [first_name] and [last_name] to an underscore. Test \"Asha\" and \"Khan\"; display \"Username: asha_khan\".",
           "layout_profile": "challenge-short"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART.",
+          "prompt": "Ask for a last name and store it in [last_name]. Ask for a department code and store it in [department]. Join the lower-case last name, a hyphen and the upper-case department, then store the result in [account_label]. Test \"Khan\" and \"art\"; display \"Account label: khan-ART\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case.",
+          "prompt": "Ask for a venue, an activity and a two-letter group, then store the answers in [venue], [activity] and [group]. Join the lower-case venue, a forward slash, the lower-case activity, a hyphen and the upper-case group. Store the result in [tag]. Test \"Hall\", \"Quiz\" and \"b2\"; display \"Event tag: hall/quiz-B2\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -285,7 +285,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan.",
+      "body": "Change the full stop between [first_name] and [last_name] to an underscore. Test \"Asha\" and \"Khan\"; display \"Username: asha_khan\".",
       "starter_ref": "shared_program"
     },
     {
@@ -298,7 +298,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART.",
+      "body": "Ask for a last name and store it in [last_name]. Ask for a department code and store it in [department]. Join the lower-case last name, a hyphen and the upper-case department, then store the result in [account_label]. Test \"Khan\" and \"art\"; display \"Account label: khan-ART\".",
       "starter_ref": "shared_program"
     },
     {
@@ -311,7 +311,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case.",
+      "body": "Ask for a venue, an activity and a two-letter group, then store the answers in [venue], [activity] and [group]. Join the lower-case venue, a forward slash, the lower-case activity, a hyphen and the upper-case group. Store the result in [tag]. Test \"Hall\", \"Quiz\" and \"b2\"; display \"Event tag: hall/quiz-B2\".",
       "starter_ref": "shared_program"
     },
     {
@@ -414,9 +414,9 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Collects and transforms two strings; Uses a hyphen separator; Stores the joined result",
+      "observable_outcome": "Asks for and transforms two strings; Uses a hyphen separator; Stores the joined result",
       "success_criteria": [
-        "Collects and transforms two strings",
+        "Asks for and transforms two strings",
         "Uses a hyphen separator",
         "Stores the joined result"
       ],

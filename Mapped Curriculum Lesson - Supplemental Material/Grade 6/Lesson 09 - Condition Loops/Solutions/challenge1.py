@@ -6,4 +6,4 @@ while guess != target and attempts < 2:
     guess = int(input("Guess 1 to 10: "))
     attempts = attempts + 1
 
-print("Finished in", attempts, "tries.")
+print("Attempts used:", attempts)

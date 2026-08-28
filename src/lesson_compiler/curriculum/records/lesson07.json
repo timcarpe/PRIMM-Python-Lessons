@@ -64,13 +64,13 @@
     },
     "worksheet": {
       "template_lesson": 1,
-      "pages": 3,
+      "pages": 4,
       "body_sdts": 8,
       "content_area_policy": "preserve every response SDT and field"
     },
     "challenge_pdf": {
-      "source": "worksheet page 2",
-      "pages": 1,
+      "source": "worksheet pages 2-3",
+      "pages": 2,
       "starter_code_policy": "show the complete shared program",
       "challenge_heading_pattern": "Challenge 1|Challenge 2|Challenge 3"
     },
@@ -168,12 +168,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Extend the dry-weather route. If raining is no, ask whether it is sunny; display \"Take sunglasses.\" for yes and \"No weather gear needed.\" for no."
+      "prompt": "Change the decision for when [raining] is \"no\". Ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain outputs unchanged. Test \"no\" and \"yes\"; display \"Take sunglasses.\" Test \"no\" and \"no\"; display \"No weather gear needed.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a library-access checker. Ask whether the visitor has a card. Only card holders are asked whether a book is overdue. Display one clear message for all three possible routes."
+      "prompt": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" when [overdue] is \"yes\"; otherwise display \"You may borrow a book.\" When [has_card] is \"no\", display \"Apply for a library card.\" Test \"yes\" and \"yes\", \"yes\" and \"no\", then \"no\"; verify all three outputs."
     },
     {
       "phase": "Debug",
@@ -239,12 +239,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Extend the dry-weather route. If raining is no, ask whether it is sunny; display \"Take sunglasses.\" for yes and \"No weather gear needed.\" for no.",
+          "prompt": "Change the decision for when [raining] is \"no\". Ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain outputs unchanged. Test \"no\" and \"yes\"; display \"Take sunglasses.\" Test \"no\" and \"no\"; display \"No weather gear needed.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a library-access checker. Ask whether the visitor has a card. Only card holders are asked whether a book is overdue. Display one clear message for all three possible routes.",
+          "prompt": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" when [overdue] is \"yes\"; otherwise display \"You may borrow a book.\" When [has_card] is \"no\", display \"Apply for a library card.\" Test \"yes\" and \"yes\", \"yes\" and \"no\", then \"no\"; verify all three outputs.",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -305,7 +305,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Extend the dry-weather route. If raining is no, ask whether it is sunny; display \"Take sunglasses.\" for yes and \"No weather gear needed.\" for no.",
+      "body": "Change the decision for when [raining] is \"no\". Ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain outputs unchanged. Test \"no\" and \"yes\"; display \"Take sunglasses.\" Test \"no\" and \"no\"; display \"No weather gear needed.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -318,7 +318,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a library-access checker. Ask whether the visitor has a card. Only card holders are asked whether a book is overdue. Display one clear message for all three possible routes.",
+      "body": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" when [overdue] is \"yes\"; otherwise display \"You may borrow a book.\" When [has_card] is \"no\", display \"Apply for a library card.\" Test \"yes\" and \"yes\", \"yes\" and \"no\", then \"no\"; verify all three outputs.",
       "starter_ref": "shared_program"
     },
     {
@@ -422,10 +422,10 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Adds a nested decision to the outer else; Every route has one message",
+      "observable_outcome": "Adds a nested decision to the outer else; Every decision produces one message",
       "success_criteria": [
         "Adds a nested decision to the outer else",
-        "Every route has one message"
+        "Every decision produces one message"
       ],
       "test_cases": [
         "no/yes gives sunglasses",
@@ -447,10 +447,10 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Uses a dependent second question; Implements three visible routes; Uses only taught selection syntax",
+      "observable_outcome": "Uses a dependent second question; Implements three visible results; Uses only taught selection syntax",
       "success_criteria": [
         "Uses a dependent second question",
-        "Implements three visible routes",
+        "Implements three visible results",
         "Uses only taught selection syntax"
       ],
       "test_cases": [

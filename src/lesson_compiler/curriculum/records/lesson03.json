@@ -164,7 +164,7 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Add a third decimal input called rest_minutes. Display total_minutes as travel minutes plus rest minutes. For 12.5 and 2.5, the total must be 15.0."
+      "prompt": "Ask for the number of rest minutes and store it in [rest_minutes]. Add [travel_minutes] and [rest_minutes], then store the result in [total_minutes]. Display \"Total minutes:\" followed by [total_minutes]. Test 10 kilometres, 12.5 travel minutes and 2.5 rest minutes; the output must include \"Total minutes: 15.0\"."
     },
     {
       "phase": "Make",
@@ -235,7 +235,7 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Add a third decimal input called rest_minutes. Display total_minutes as travel minutes plus rest minutes. For 12.5 and 2.5, the total must be 15.0.",
+          "prompt": "Ask for the number of rest minutes and store it in [rest_minutes]. Add [travel_minutes] and [rest_minutes], then store the result in [total_minutes]. Display \"Total minutes:\" followed by [total_minutes]. Test 10 kilometres, 12.5 travel minutes and 2.5 rest minutes; the output must include \"Total minutes: 15.0\".",
           "layout_profile": "challenge-medium"
         },
         {
@@ -301,7 +301,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Add a third decimal input called rest_minutes. Display total_minutes as travel minutes plus rest minutes. For 12.5 and 2.5, the total must be 15.0.",
+      "body": "Ask for the number of rest minutes and store it in [rest_minutes]. Add [travel_minutes] and [rest_minutes], then store the result in [total_minutes]. Display \"Total minutes:\" followed by [total_minutes]. Test 10 kilometres, 12.5 travel minutes and 2.5 rest minutes; the output must include \"Total minutes: 15.0\".",
       "starter_ref": "shared_program"
     },
     {
@@ -418,9 +418,9 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Collects two decimal inputs; Adds them into total_minutes; Labels the total",
+      "observable_outcome": "Asks for rest minutes; Adds travel and rest minutes into total_minutes; Labels the total",
       "success_criteria": [
-        "Collects two decimal inputs",
+        "Asks for rest minutes",
         "Adds them into total_minutes",
         "Labels the total"
       ],

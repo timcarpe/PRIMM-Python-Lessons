@@ -27,6 +27,16 @@ def plain(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def strip_pdf_page_furniture(text: str) -> str:
+    """Remove repeated worksheet headers and footers from extracted page text."""
+    return "\n".join(
+        line
+        for line in text.splitlines()
+        if not re.fullmatch(r"\s*\d+\s*", line)
+        and not re.fullmatch(r"\s*© Tim Carpenter \d{4}\s*", line)
+    )
+
+
 def verify_suite(
     output_root: Path = DEFAULT_REPOSITORY_ROOT,
     work_root: Path | None = None,
@@ -117,14 +127,22 @@ def verify_suite(
         lowered = deck_text.lower()
         if "suggested solution" in lowered:
             failures.append(f"L{number:02d}: solution slide text in learner deck")
-        if len(PdfReader(str(challenge_pdfs[0])).pages) != 1:
-            failures.append(f"L{number:02d}: challenge PDF is not one page")
+        challenge_reader = PdfReader(str(challenge_pdfs[0]))
+        challenge_page_count = len(challenge_reader.pages)
+        if challenge_page_count not in {1, 2}:
+            failures.append(
+                f"L{number:02d}: challenge PDF has {challenge_page_count} pages; "
+                "expected one or two"
+            )
 
         worksheet = next(supplemental_dir.glob("* - Worksheet.docx"))
         worksheet_text = "\n".join(
             paragraph.text for paragraph in Document(worksheet).paragraphs
         )
-        pdf_text = PdfReader(str(challenge_pdfs[0])).pages[0].extract_text() or ""
+        pdf_text = "\n".join(
+            strip_pdf_page_furniture(page.extract_text() or "")
+            for page in challenge_reader.pages
+        )
         prompts = record["worksheet"]["page2"]["challenges"]
         for challenge, item in enumerate(prompts, 1):
             replacement = item["prompt"]
@@ -144,10 +162,24 @@ def verify_suite(
             rendered = (
                 work_root / f"renders/documents/lesson{number:02d}/{worksheet.stem}.pdf"
             )
-            if not rendered.exists() or len(PdfReader(str(rendered)).pages) != 3:
+            if not rendered.exists():
                 failures.append(
-                    f"L{number:02d}: rendered worksheet source is not three pages"
+                    f"L{number:02d}: rendered worksheet source is missing"
                 )
+            else:
+                worksheet_page_count = len(PdfReader(str(rendered)).pages)
+                if worksheet_page_count not in {3, 4}:
+                    failures.append(
+                        f"L{number:02d}: rendered worksheet source has "
+                        f"{worksheet_page_count} pages; expected three or four"
+                    )
+                expected_challenge_pages = worksheet_page_count - 2
+                if challenge_page_count != expected_challenge_pages:
+                    failures.append(
+                        f"L{number:02d}: challenge PDF has "
+                        f"{challenge_page_count} pages; expected "
+                        f"{expected_challenge_pages} from worksheet"
+                    )
 
     lesson_one = next(supplemental.glob("Grade 6/Lesson 01 -*/* - Worksheet.docx"))
     with ZipFile(lesson_one) as archive:

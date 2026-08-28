@@ -166,12 +166,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music."
+      "prompt": "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a three-record book search with [title, pages] rows. Search case-insensitively by title, display the page count for a match, and display one not-found message only after every row has been checked."
+      "prompt": "Store [\"orbit\", 120], [\"harbour\", 96] and [\"forest\", 144] in [books]. Ask for a title and store its lower-case value in [target]. Use a for loop to compare [target] with each title. Display \"Pages:\" followed by the page count when a title matches. Display \"Book not found.\" only after every row has been checked and no match was found. Test \"Harbour\"; display \"Pages: 96\". Test \"Music\"; display \"Book not found.\""
     },
     {
       "phase": "Debug",
@@ -237,12 +237,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music.",
+          "prompt": "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a three-record book search with [title, pages] rows. Search case-insensitively by title, display the page count for a match, and display one not-found message only after every row has been checked.",
+          "prompt": "Store [\"orbit\", 120], [\"harbour\", 96] and [\"forest\", 144] in [books]. Ask for a title and store its lower-case value in [target]. Use a for loop to compare [target] with each title. Display \"Pages:\" followed by the page count when a title matches. Display \"Book not found.\" only after every row has been checked and no match was found. Test \"Harbour\"; display \"Pages: 96\". Test \"Music\"; display \"Book not found.\"",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -303,7 +303,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music.",
+      "body": "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a three-record book search with [title, pages] rows. Search case-insensitively by title, display the page count for a match, and display one not-found message only after every row has been checked.",
+      "body": "Store [\"orbit\", 120], [\"harbour\", 96] and [\"forest\", 144] in [books]. Ask for a title and store its lower-case value in [target]. Use a for loop to compare [target] with each title. Display \"Pages:\" followed by the page count when a title matches. Display \"Book not found.\" only after every row has been checked and no match was found. Test \"Harbour\"; display \"Pages: 96\". Test \"Music\"; display \"Book not found.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -421,14 +421,14 @@
     {
       "challenge": 2,
       "ownership": "Modify B",
-      "observable_outcome": "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music.",
+      "observable_outcome": "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\"",
       "success_criteria": [
         "Updates only a matched row",
-        "Preserves a distinct not-found route",
+        "Preserves a distinct not-found output",
         "Displays changed record"
       ],
       "test_cases": [
-        "Extend the matching route to ask for a new member count and update the matched row. Display the updated record. Test two runs: update Chess to 20, then search for Music."
+        "When [club][0] matches [target], ask for a new member count and store it in [new_members]. Update [club][1], then display \"Updated:\" followed by the changed row. Test \"Chess\" and 20; display \"Updated: ['chess', 20]\". Test \"Music\"; display \"Club not found.\""
       ],
       "complexity": {
         "edit_distance": 2,
@@ -445,10 +445,10 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Uses a three-row data set; Normalises the key; Reports match or one post-loop not-found message",
+      "observable_outcome": "Uses a three-row data set; Converts the key to lower case; Reports a match or one post-loop not-found message",
       "success_criteria": [
         "Uses a three-row data set",
-        "Normalises the key",
+        "Converts the key to lower case",
         "Reports match or one post-loop not-found message"
       ],
       "test_cases": [

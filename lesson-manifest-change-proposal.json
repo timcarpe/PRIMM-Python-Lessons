@@ -1,0 +1,480 @@
+{
+  "schema_version": "1.0",
+  "kind": "lesson_manifest_change_proposal",
+  "based_on": "/Users/timothy.carpenter/Downloads/lesson-manifest-issues.json",
+  "source_suite": "src/lesson_compiler/curriculum/suite.json",
+  "phrasing_grounding": {
+    "source_directory": "/Users/timothy.carpenter/Library/CloudStorage/OneDrive-VAS/Lesson Plans/Resources/Programming/Python Review",
+    "pdfs_reviewed": [
+      "01InputAndOutput/Your First Programs.pdf",
+      "02IfStatements/IfElseStatements.pdf",
+      "03MoreIfStatements/ComplexConditions.pdf",
+      "03MoreIfStatements/NestedStatements.pdf",
+      "04GoingLoopy/ForLoops.pdf",
+      "04GoingLoopy/WhileLoops.pdf",
+      "05TextAndNumbers/Text.pdf",
+      "06RandomValues/Random.pdf",
+      "08CreatingRobustPrograms/CreatingAMenuSystem.pdf",
+      "10Lists/Creating Lists.pdf",
+      "10Lists/More Lists.pdf",
+      "11 2DLists/Creating 2D Lists.pdf",
+      "11 2DLists/More  2D Lists.pdf"
+    ],
+    "patterns_applied": [
+      "Use short imperative sentences beginning with Ask, Use, Change, Store, Add, Delete or Display.",
+      "Describe operations in the order the learner performs them.",
+      "Use a concrete input and visible result when a requirement could be interpreted in more than one way.",
+      "Refer back to the example program when the challenge modifies existing code."
+    ]
+  },
+  "approach": [
+    "Begin with a direct programming action rather than a scenario label.",
+    "Use ask, store, change, append, insert, delete, loop, and display precisely.",
+    "Give suggested variable names in brackets and exact text in quotation marks.",
+    "Replace route, collect, traverse, bounds, normalise, and similar indirect terms.",
+    "Include concrete test inputs and observable output when they improve clarity.",
+    "Keep every challenge within the concepts introduced by that lesson or earlier lessons."
+  ],
+  "implementation_requirements": [
+    {
+      "lesson_number": 4,
+      "program": "challenge2",
+      "requirement": "Change both personalised solution messages to use walks and reads with correct subject-verb agreement."
+    },
+    {
+      "lesson_number": 10,
+      "program": "challenge2",
+      "requirement": "Rename the solution counter from [attempts] to [counter] so the approved prompt and solution use the same variable."
+    },
+    {
+      "lesson_number": 22,
+      "program": "challenge1",
+      "requirement": "Retain the starter's position and replacement inputs and add the approved New item output."
+    },
+    {
+      "lesson_number": 22,
+      "program": "challenge3",
+      "requirement": "Rename [route] to [places] and change the final label to Updated places."
+    },
+    {
+      "lesson_number": 20,
+      "program": "challenge3",
+      "requirement": "Change the walk-option solution output from Walking route selected. to Walk selected."
+    },
+    {
+      "lesson_number": 25,
+      "program": "challenge1",
+      "requirement": "Replace the upper-case transformation with the approved [visited] counter and outputs."
+    }
+  ],
+  "changes": [
+    {
+      "lesson_number": 2,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson02.json",
+      "field": "challenge_2",
+      "old_value": "Store 2 as a non-zero secret number, divide the user's sum by it, and display the new total.",
+      "new_value": "Store 2 in a variable called [divisor]. Divide [total] by [divisor] and store the result in [divided_total]. Display \"Divided total:\" followed by [divided_total]. Test inputs 8 and 4; the output must include \"Divided total: 6.0\".",
+      "rationale": "Names both new variables and supplies an observable test."
+    },
+    {
+      "lesson_number": 3,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson03.json",
+      "field": "challenge_2",
+      "old_value": "Add a third decimal input called rest_minutes. Display total_minutes as travel minutes plus rest minutes. For 12.5 and 2.5, the total must be 15.0.",
+      "new_value": "Ask for the number of rest minutes and store it in [rest_minutes]. Add [travel_minutes] and [rest_minutes], then store the result in [total_minutes]. Display \"Total minutes:\" followed by [total_minutes]. Test 10 kilometres, 12.5 travel minutes and 2.5 rest minutes; the output must include \"Total minutes: 15.0\".",
+      "rationale": "Applies bracket formatting and defines all inputs, storage and output."
+    },
+    {
+      "lesson_number": 4,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson04.json",
+      "field": "challenge_2",
+      "old_value": "Personalise both routes: ask for the user's name, then include it in whichever recommendation appears. Check that the name is shown for both possible choices.",
+      "new_value": "Ask for the user's name and store it in [name] before asking for \"walk\" or \"read\". Include [name] in both possible messages. For the name \"Sam\" and the choice \"walk\", display \"Sam walks in the park.\" For the choice \"read\", display \"Sam reads a book at home.\"",
+      "rationale": "Replaces routes with explicit decisions, a variable name and both outputs."
+    },
+    {
+      "lesson_number": 6,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson06.json",
+      "field": "challenge_2",
+      "old_value": "Add an adult exception with or: entry is allowed when the age-and-ticket rule is true or an adult is present. Test an under-age visitor with no ticket but with an adult.",
+      "new_value": "Change the if condition. Use the and operator to allow entry when [age] is at least 12 and [has_ticket] is \"yes\". Use the or operator to also allow entry when [has_adult] is \"yes\". Otherwise, display \"Please check the entry rules.\" Test age 10 with \"no\" for the ticket and \"yes\" for the adult; display \"You may enter.\"",
+      "rationale": "States the complete Boolean rule and its expected result."
+    },
+    {
+      "lesson_number": 6,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson06.json",
+      "field": "challenge_3",
+      "old_value": "Build a club checker that asks whether the visitor is a member and has a valid pass. Use and so entry is allowed only when both answers are \"yes\"; otherwise show a refusal. Test one allowed and one refused route.",
+      "new_value": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\".",
+      "rationale": "Removes the vague scenario label and defines variables, logic, outputs and tests."
+    },
+    {
+      "lesson_number": 7,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson07.json",
+      "field": "challenge_2",
+      "old_value": "Extend the dry-weather route. If raining is no, ask whether it is sunny; display \"Take sunglasses.\" for yes and \"No weather gear needed.\" for no.",
+      "new_value": "Change the no-rain decision. When [raining] is \"no\", ask whether it is sunny and store the answer in [sunny]. Display \"Take sunglasses.\" when [sunny] is \"yes\"; otherwise display \"No weather gear needed.\" Keep the two rain messages unchanged.",
+      "rationale": "Replaces route with decision and identifies the new variable."
+    },
+    {
+      "lesson_number": 7,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson07.json",
+      "field": "challenge_3",
+      "old_value": "Build a library-access checker. Ask whether the visitor has a card. Only card holders are asked whether a book is overdue. Display one clear message for all three possible routes.",
+      "new_value": "Ask whether the visitor has a library card and store the answer in [has_card]. Use a nested if statement. When [has_card] is \"yes\", ask whether a book is overdue and store the answer in [overdue]. Display \"Return the overdue book first.\" for an overdue book and \"You may borrow a book.\" otherwise. When [has_card] is \"no\", display \"Apply for a library card.\"",
+      "rationale": "Defines the nested decision and all three outputs without using route."
+    },
+    {
+      "lesson_number": 8,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson08.json",
+      "field": "challenge_1",
+      "old_value": "The display stops too soon. Change range() so the starter prints the first ten multiples, then check that the final line is the tenth multiple.",
+      "new_value": "Change range() so [count] uses the numbers 1 through 10. For the input 4, the first line must be \"4 x 1 = 4\" and the last line must be \"4 x 10 = 40\".",
+      "rationale": "Shows exactly what ten table lines mean without relying on multiple."
+    },
+    {
+      "lesson_number": 8,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson08.json",
+      "field": "challenge_2",
+      "old_value": "Let the user choose where the table begins. Use range() with that starting multiplier to display five consecutive multiples.",
+      "new_value": "Ask which table line to start with and store the whole number in [start]. Use range() to display five lines beginning with [start]. For table 3 and start 4, display lines from \"3 x 4 = 12\" through \"3 x 8 = 24\".",
+      "rationale": "Names the input variable and demonstrates the required range."
+    },
+    {
+      "lesson_number": 9,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson09.json",
+      "field": "challenge_1",
+      "old_value": "Change the program so the user has two attempts. Test one run by guessing 7 first and another with two wrong guesses. The program should display 1 try and 2 tries.",
+      "new_value": "Change the maximum number of attempts from 3 to 2. Test the input 7; display \"Finished in 1 tries.\" Test the inputs 4 and 5; display \"Finished in 2 tries.\"",
+      "rationale": "Uses exact test inputs and the program's observable output."
+    },
+    {
+      "lesson_number": 10,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson10.json",
+      "field": "challenge_1",
+      "old_value": "Make the counted warm-up display rounds 1 to 5. The condition-controlled section must still finish only when the user types done.",
+      "new_value": "Change range() in the for loop so it displays warm-up rounds 1 through 5. Do not change the while loop; it must continue asking until the user enters \"done\".",
+      "rationale": "Identifies the exact code change and preserves the second loop."
+    },
+    {
+      "lesson_number": 10,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson10.json",
+      "field": "challenge_2",
+      "old_value": "Add an attempt counter to the while loop. After done is entered, display the number of answers entered. For wait, wait, done the count must be 3.",
+      "new_value": "Create [counter] and store 0 in it before the while loop. Add 1 to [counter] each time the user enters an answer, including \"done\". After \"done\" is entered, display \"Answers entered:\" followed by [counter]. Test \"wait\", \"wait\", then \"done\"; display \"Answers entered: 3\".",
+      "rationale": "Names and brackets the counter and quotes every exact input and output."
+    },
+    {
+      "lesson_number": 10,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson10.json",
+      "field": "challenge_3",
+      "old_value": "Create a practice timer without real-time code. Use a for loop to display exactly four exercise stations, then a while loop to collect effort ratings until the user enters 0. Count and display the non-zero ratings.",
+      "new_value": "Use a for loop to display \"Exercise station 1\" through \"Exercise station 4\". Then use a while loop to ask for a whole-number effort rating until the user enters 0. Count only the non-zero ratings in [ratings]. Test 3, 4 and 0; display \"Ratings recorded: 2\".",
+      "rationale": "Removes the unnecessary opening and defines station, rating and expected output."
+    },
+    {
+      "lesson_number": 12,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson12.json",
+      "field": "challenge_1",
+      "old_value": "Store the cleaned name in a new variable called clean_name. Use strip() and title() together, then display clean_name. Input \"  aLEX  \" must display the cleaned name as Alex.",
+      "new_value": "Use strip() and title() on [name], then store the result in a new variable called [clean_name]. Display [clean_name]. The input \"  aLEX  \" must display \"Hello, Alex !\".",
+      "rationale": "Applies variable formatting and gives the exact program output."
+    },
+    {
+      "lesson_number": 12,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson12.json",
+      "field": "challenge_2",
+      "old_value": "A name badge needs a first name and surname. Extend the program so both answers are cleaned with strip() and title(), then display the finished full name.",
+      "new_value": "Ask for a first name and store it in [name]. Ask for a surname and store it in [surname]. Apply strip() and title() to both variables, then display the full name. Test \"  aLEX  \" and \"  nGUYEN  \"; display \"Hello, Alex Nguyen !\".",
+      "rationale": "Names both variables and adds a concrete transformation example."
+    },
+    {
+      "lesson_number": 12,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson12.json",
+      "field": "challenge_3",
+      "old_value": "Choose a place you would like to visit. Build a destination label from a city and country, cleaning both answers before you display \"Destination: [city] - [country]\".",
+      "new_value": "Ask for a city and store it in [city]. Ask for a country and store it in [country]. Apply strip() and title() to both variables before displaying \"Destination:\" followed by the city, a hyphen and the country. Test \"  hANOI  \" and \"  vIETNAM  \"; display \"Destination: Hanoi - Vietnam\".",
+      "rationale": "Replaces cleaning with exact methods and makes the independent task testable."
+    },
+    {
+      "lesson_number": 13,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson13.json",
+      "field": "challenge_2",
+      "old_value": "Create a two-letter badge from two words. Use indexing to display the first character of each; use inputs with different capitalisation to inspect the result.",
+      "new_value": "Ask for two words and store them in [first_word] and [second_word]. Use position 0 to display the first character of each word. Test \"Code\" and \"python\"; display \"Initials: C p\".",
+      "rationale": "Names both variables and supplies exact inputs and output."
+    },
+    {
+      "lesson_number": 13,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson13.json",
+      "field": "challenge_3",
+      "old_value": "Build a reference code for a six-letter word. Use two slices to display its first two characters, then characters five and six. Try \"python\": the two parts should be \"py\" and \"on\".",
+      "new_value": "Ask for a six-letter word and store it in [word]. Store the slice from positions 0 to 2 in [first_part] and the slice from positions 4 to 6 in [last_part]. Display \"Reference:\" followed by both parts. Test \"python\"; display \"Reference: py on\".",
+      "rationale": "Defines the slice positions, variables and complete output."
+    },
+    {
+      "lesson_number": 14,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson14.json",
+      "field": "challenge_1",
+      "old_value": "Make the displayed team name uppercase and the displayed code lowercase. Falcons and f7 should become FALCONS and f7.",
+      "new_value": "Change the program so [team] is displayed in upper case and [code] is displayed in lower case. Test \"Falcons\" and \"F7\"; display \"Team: FALCONS\" and \"Code: f7\".",
+      "rationale": "Quotes the strings and identifies the existing variables and labels."
+    },
+    {
+      "lesson_number": 14,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson14.json",
+      "field": "challenge_2",
+      "old_value": "Add a response input and store response.lower(). Display Accepted when the normalised response equals yes and Not accepted otherwise.",
+      "new_value": "Ask the user to enter \"yes\" or \"no\" and store the answer in [response]. Store [response].lower() back in [response]. Use an if statement to check whether [response] equals \"yes\". Display \"Accepted\" when it does; otherwise display \"Not accepted\". Test \"YES\" and \"no\".",
+      "rationale": "Removes normalised, brackets the variable and quotes exact strings."
+    },
+    {
+      "lesson_number": 14,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson14.json",
+      "field": "challenge_3",
+      "old_value": "Build a badge formatter. Ask for a first name and a two-letter group code; display the name in lower case and the group code in upper case on separate labelled lines.",
+      "new_value": "Ask for a first name and store it in [name]. Ask for a two-letter group code, such as \"ab\", and store it in [group]. Display [name] in lower case and [group] in upper case on separate labelled lines. Test \"Ava\" and \"ab\"; display \"Account name: ava\" and \"Group code: AB\".",
+      "rationale": "Removes the vague opening and provides variables, inputs and outputs."
+    },
+    {
+      "lesson_number": 15,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson15.json",
+      "field": "challenge_1",
+      "old_value": "Use an underscore instead of a full stop. Asha and Khan should produce asha_khan.",
+      "new_value": "Change the full stop between [first_name] and [last_name] to an underscore. Test \"Asha\" and \"Khan\"; display \"Username: asha_khan\".",
+      "rationale": "Describes the exact edit and supplies quoted input and output."
+    },
+    {
+      "lesson_number": 15,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson15.json",
+      "field": "challenge_2",
+      "old_value": "Add a department input. Build account_label from lower-case last name, a hyphen and upper-case department. Khan and art should display khan-ART.",
+      "new_value": "Ask for a last name and store it in [last_name]. Ask for a department code and store it in [department]. Join the lower-case last name, a hyphen and the upper-case department, then store the result in [account_label]. Test \"Khan\" and \"art\"; display \"Account label: khan-ART\".",
+      "rationale": "Names and brackets all variables and quotes the strings."
+    },
+    {
+      "lesson_number": 15,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson15.json",
+      "field": "challenge_3",
+      "old_value": "Create an event tag from a venue, an activity and a two-letter group. The visible tag must use the structure venue/activity-GROUP with the venue and activity in lower case.",
+      "new_value": "Ask for a venue, an activity and a two-letter group, then store the answers in [venue], [activity] and [group]. Join the lower-case venue, a forward slash, the lower-case activity, a hyphen and the upper-case group. Store the result in [tag]. Test \"Hall\", \"Quiz\" and \"b2\"; display \"Event tag: hall/quiz-B2\".",
+      "rationale": "Replaces the abstract structure with precise operations and an example."
+    },
+    {
+      "lesson_number": 16,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson16.json",
+      "field": "challenge_1",
+      "old_value": "Remove spaces from the start and end of [message] before displaying and counting it. Test \"Code now\" with two spaces before and after it; the message should display as \"Code now\" and the count should be 8.",
+      "new_value": "Use strip() to remove spaces from the start and end of [message] before using len(). Store the new length in [character_count]. Test \"  Code now  \"; display \"Code now\" on the message line and \"Characters: 8\" on the final line.",
+      "rationale": "Names the previously taught method and gives exact input and outputs."
+    },
+    {
+      "lesson_number": 16,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson16.json",
+      "field": "challenge_2",
+      "old_value": "Collect a title and a subtitle. Display both on separate lines, then display a labelled character count for each one.",
+      "new_value": "Ask for a title and store it in [title]. Ask for a subtitle and store it in [subtitle]. Display the title and subtitle on separate lines, followed by a labelled len() result for each one. Test \"Code Club\" and \"Join today\"; display \"Title characters: 9\" and \"Subtitle characters: 10\".",
+      "rationale": "Replaces collect and specifies variables, input and output."
+    },
+    {
+      "lesson_number": 16,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson16.json",
+      "field": "challenge_3",
+      "old_value": "Create a two-line poster checker. Ask for a heading and one instruction, display the poster on two lines, and report the combined character count using the two len() results.",
+      "new_value": "Ask for a poster heading and store it in [heading]. Ask for one instruction and store it in [instruction]. Display [heading] on the first line and [instruction] on the second line by placing \\n between them. Add len(heading) and len(instruction), then display \"Combined characters:\" followed by the result. Test \"Welcome\" and \"Sit here\"; display \"Combined characters: 15\".",
+      "rationale": "Explains the two-line structure, calculation and test output."
+    },
+    {
+      "lesson_number": 17,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson17.json",
+      "field": "challenge_1",
+      "old_value": "Prepare the starter for a weekend trip by replacing the initial list with three useful items. The user's extra item must still be appended and visible in the final list.",
+      "new_value": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\".",
+      "rationale": "States the exact list change and preserves the starter's input behavior."
+    },
+    {
+      "lesson_number": 17,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson17.json",
+      "field": "challenge_2",
+      "old_value": "Ask for a second item and append it to the list. Display all four items.",
+      "new_value": "Ask for the first item and store it in [item], then append it to [packing_list]. Ask for another item and store it in [another_item], then append that item too. Test \"coat\" and \"torch\"; display \"Packing list: ['water', 'map', 'coat', 'torch']\".",
+      "rationale": "Names both inputs and shows how append() produces four items."
+    },
+    {
+      "lesson_number": 18,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson18.json",
+      "field": "challenge_3",
+      "old_value": "Create a random practice target. Ask for a minimum and maximum whole number, generate one target inside those inclusive bounds, and display it with a label. Test bounds 4 and 4; the target must be 4.",
+      "new_value": "Ask for a minimum whole number and store it in [minimum]. Ask for a maximum whole number and store it in [maximum]. Use randint() to generate a number between [minimum] and [maximum], including both values, and store it in [target]. Test 4 and 4; display \"Practice target: 4\".",
+      "rationale": "Removes the scenario label and bounds while defining variables and behavior."
+    },
+    {
+      "lesson_number": 19,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson19.json",
+      "field": "challenge_1",
+      "old_value": "Generate and display a random multiple of 5 from 5 to 30. Run the program several times; every result should be a multiple of 5 in this range.",
+      "new_value": "Use randrange() to generate one of these whole numbers: 5, 10, 15, 20, 25 or 30. Store the result in [move] and display \"Move:\" followed by [move]. Run the program several times and check that no other number appears.",
+      "rationale": "Replaces multiple with the exact permitted values and observable output."
+    },
+    {
+      "lesson_number": 19,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson19.json",
+      "field": "challenge_2",
+      "old_value": "Add \"green\" to the colour choices and generate two independently stored colour selections. Display both selections on labelled lines.",
+      "new_value": "Add \"green\" to [colours]. Use random.choice() twice and store the results separately in [first_colour] and [second_colour]. Display each result on a labelled line. For example, if \"red\" and \"green\" are selected, display \"First colour: red\" and \"Second colour: green\".",
+      "rationale": "Names both stored selections and demonstrates the two labelled lines."
+    },
+    {
+      "lesson_number": 19,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson19.json",
+      "field": "challenge_3",
+      "old_value": "Build a random training prompt. Choose an even repetition count from 2 through 12 and one activity from a three-item list you design. Display one instruction such as 8 jumps.",
+      "new_value": "Store three activity strings, such as \"jumps\", \"push-ups\" and \"squats\", in [activities]. Generate a random even whole number from 2 through 12 and store it in [count]. Select one random item from [activities] and store it in [activity]. Display \"Training prompt:\" followed by [count] and [activity], such as \"Training prompt: 8 jumps\" or \"Training prompt: 4 push-ups\".",
+      "rationale": "Removes the vague opening and specifies the list, random values and output."
+    },
+    {
+      "lesson_number": 20,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson20.json",
+      "field": "challenge_1",
+      "old_value": "Change the exit route from 2 to 0. Update the menu prompt and the elif comparison. Route 1 and invalid input must keep their existing behaviour. Test route 1, the invalid input x, and exit route 0.",
+      "new_value": "Change the exit option from \"2\" to \"0\" in both the input message and the elif condition. Keep option \"1\" and the invalid-input message unchanged. Test \"1\", then \"x\", then \"0\"; display \"Hello!\", \"Choose 1 or 0.\" and finally \"Menu closed.\"",
+      "rationale": "Replaces route with option and supplies exact tests and outputs."
+    },
+    {
+      "lesson_number": 20,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson20.json",
+      "field": "challenge_2",
+      "old_value": "Add route 3 to display \"Help: choose a number.\" Update the prompt and invalid guidance. Test the path 3, x, 2.",
+      "new_value": "Add \"3: help\" to the menu input message. Use an elif condition so \"3\" displays \"Help: choose a number.\" Change the invalid-input message to \"Choose 1, 2 or 3.\" Test \"3\", \"x\", then \"2\"; display the help message, invalid-input message, then \"Menu closed.\"",
+      "rationale": "Defines the prompt change, condition, invalid input and test sequence."
+    },
+    {
+      "lesson_number": 20,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson20.json",
+      "field": "challenge_3",
+      "old_value": "Build a repeating transport menu with two useful routes, one exit route and one invalid-input message. At least one useful route must ask a follow-up question and display a labelled response.",
+      "new_value": "Use a while loop to repeat the menu \"1: bus, 2: walk, 3: leave\". Use if and elif conditions for the choices. For \"1\", ask for a bus stop in [stop] and display \"Selected stop:\" with [stop]. For \"2\", display \"Walk selected.\" For \"3\", end the loop and display \"Planner closed.\" Otherwise, display \"Choose 1, 2 or 3.\" Test \"1\", \"Central\", \"2\", then \"3\".",
+      "rationale": "Expands every menu choice, follow-up input, output and test."
+    },
+    {
+      "lesson_number": 21,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson21.json",
+      "field": "challenge_1",
+      "old_value": "Display the previous letter by subtracting 1 from the character code. Change the input range to one lower-case letter from b to z. Input d must display c.",
+      "new_value": "Change the input message so it asks for one lower-case letter from b to z. Subtract 1 from [code], pass the result to chr(), and store the returned character in [previous_letter] instead of [next_letter]. Test \"d\"; display \"Previous letter: c\".",
+      "rationale": "Names the replacement variable and exact conversion and output."
+    },
+    {
+      "lesson_number": 21,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson21.json",
+      "field": "challenge_2",
+      "old_value": "Ask for one lower-case letter a-w and a shift from 1 to 3. Add the shift to the character code and display the encoded letter. For c and 2, display e.",
+      "new_value": "Ask for one lower-case letter between a and w and store it in [letter]. Ask for a whole number between 1 and 3 and store it in [shift]. Add [shift] to the character code, pass the result to chr(), and store the returned character in [encoded]. Test \"c\" and 2; display \"Encoded letter: e\".",
+      "rationale": "Defines both input ranges, variables and the exact conversion."
+    },
+    {
+      "lesson_number": 21,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson21.json",
+      "field": "challenge_3",
+      "old_value": "Create a three-character encoder without a loop. Ask for three lower-case letters a-y, move each code forward by 1, concatenate the three encoded characters, and display the encoded text.",
+      "new_value": "Ask for three lower-case letters between a and y. Increase each character code by 1 and pass each result to chr(). Join the three returned characters and store the result in [encoded_text]. Test \"a\", \"b\" and \"c\"; display \"Encoded text: bcd\".",
+      "rationale": "Replaces move with the exact operation and provides a complete test."
+    },
+    {
+      "lesson_number": 22,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson22.json",
+      "field": "challenge_1",
+      "old_value": "Replace the item at position 2 with scissors. The final list must display pencil, book and scissors in that order.",
+      "new_value": "Keep the starter's position and replacement inputs. After storing the replacement in [supplies], display \"New item:\" followed by the item now stored at [position]. Test position 2 and the replacement \"scissors\"; display \"Old item: tape\" and \"New item: scissors\" before the updated list.",
+      "rationale": "Requires a genuine modification and reinforces reading the updated position."
+    },
+    {
+      "lesson_number": 22,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson22.json",
+      "field": "challenge_2",
+      "old_value": "After the replacement, ask for a second valid position and display the item currently stored there. For 1/folder then 1, the selected item must be folder.",
+      "new_value": "After completing one replacement, ask for another position from 0 to 2 and store it in [check_position]. Display \"Selected item:\" followed by the item at [check_position]. Test replacement position 1, replacement \"folder\" and check position 1; display \"Selected item: folder\".",
+      "rationale": "Rewrites the test sequence and names the second position variable."
+    },
+    {
+      "lesson_number": 22,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson22.json",
+      "field": "challenge_3",
+      "old_value": "Build a three-stop route editor. Start with three place names, ask which valid position to change and the new place, then display the first stop and the complete updated route.",
+      "new_value": "Store \"Park\", \"Museum\" and \"Station\" in a list called [places]. Ask for a position from 0 to 2 and store it in [position]. Ask for a new place and store it in [new_place], then replace the item at [position]. Test position 1 and \"Library\"; display \"First stop: Park\" and \"Updated places: ['Park', 'Library', 'Station']\".",
+      "rationale": "Removes route and defines the list, inputs, update and output."
+    },
+    {
+      "lesson_number": 23,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson23.json",
+      "field": "challenge_2",
+      "old_value": "Ask for an item to insert at position 1, then ask for an existing item to remove. Display the list after each operation. Test map then coat.",
+      "new_value": "Ask for an item and store it in [new_item], then insert it at position 1. Display the list after the insertion. Ask for an existing item and store it in [old_item], then remove it and display the list again. Test \"map\" followed by \"coat\".",
+      "rationale": "Quotes the inputs and names both variables and operations."
+    },
+    {
+      "lesson_number": 24,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson24.json",
+      "field": "challenge_3",
+      "old_value": "Build a queue editor with four names. Ask for one valid cancellation position, store and delete that name, then traverse the remaining queue with numbered positions using a counter.",
+      "new_value": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [queue]. Ask for a cancellation position from 0 to 3 and store it in [position]. Store the selected name in [cancelled], delete it from [queue], and display \"Cancelled:\" followed by [cancelled]. Use a for loop and a counter called [number] to display the position and name of each remaining person. Test position 1; the remaining lines must be \"0 Ari\", \"1 Cleo\" and \"2 Dara\".",
+      "rationale": "Replaces traverse with explicit list, deletion, loop and output steps."
+    },
+    {
+      "lesson_number": 25,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson25.json",
+      "field": "challenge_1",
+      "old_value": "Display each drink in upper case as the loop visits it. Keep the final total unchanged. The starter list must display TEA, WATER and JUICE before Total drinks: 3.",
+      "new_value": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\".",
+      "rationale": "Removes unrelated case conversion and makes loop iteration observable."
+    },
+    {
+      "lesson_number": 25,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson25.json",
+      "field": "challenge_2",
+      "old_value": "Add a fourth survey answer to the list. Before running, predict the last answer and the total that will appear; then check both.",
+      "new_value": "Add \"coffee\" as the fourth item in [survey]. Keep the for loop so every item is displayed, then display the new result from len(). The last item line must be \"Drink: coffee\" and the final line must be \"Total drinks: 4\".",
+      "rationale": "Replaces predict with the exact list change and observable output."
+    },
+    {
+      "lesson_number": 26,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson26.json",
+      "field": "challenge_1",
+      "old_value": "Collect exactly five notes instead of three. The program must display all five in their original input order.",
+      "new_value": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\".",
+      "rationale": "Replaces collect with the exact loop change, storage and output."
+    },
+    {
+      "lesson_number": 26,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson26.json",
+      "field": "challenge_2",
+      "old_value": "Replace the fixed input loop with a condition-controlled loop. Keep asking for a note until stop is entered; do not append or display the sentinel stop.",
+      "new_value": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\".",
+      "rationale": "Refers to the exact example loop and explains the stopping value and output."
+    },
+    {
+      "lesson_number": 28,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson28.json",
+      "field": "challenge_2",
+      "old_value": "Traverse every row and display each club name followed by its member count. Do not print the row brackets.",
+      "new_value": "Use a for loop to visit each row in [clubs]. For each [club], display \"Club:\" followed by the value at position 0, then display \"Members:\" followed by the value at position 1. The starter data must display Art with 12 members, Chess with 18 members and Code with 15 members without displaying list brackets.",
+      "rationale": "Replaces traverse with explicit row positions and expected output content."
+    },
+    {
+      "lesson_number": 29,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson29.json",
+      "field": "challenge_3",
+      "old_value": "Create a three-row stock table containing item name and quantity. Ask for a valid row and a delivery amount, add that amount to the existing quantity, then display the updated record and every item quantity.",
+      "new_value": "Store the rows ['Pens', 10], ['Books', 6] and ['Tape', 4] in [stock]. Ask for a row from 0 to 2 and store it in [row]. Ask for a delivery amount and store it in [delivery], then add [delivery] to the quantity at [stock][row][1]. Display the updated row followed by every item name and quantity. Test row 2 and delivery 3; the updated row must be ['Tape', 7].",
+      "rationale": "Expands the table structure, variables, cell update and test result."
+    },
+    {
+      "lesson_number": 30,
+      "manifest_path": "src/lesson_compiler/curriculum/records/lesson30.json",
+      "field": "challenge_3",
+      "old_value": "Build an event schedule editor with three [event, room] rows. Insert one user-created row at a valid position, delete a different valid row from the enlarged schedule, and display numbered remaining rows using a counter.",
+      "new_value": "Store ['Talk', 1], ['Quiz', 2] and ['Demo', 3] in [schedule]. Ask for an insertion position, event and room, then insert the new [event, room] row at that position. Ask for a different position and delete that row from the enlarged schedule. Use a counter called [number] to display each remaining position, event and room. Test inserting ['Workshop', 4] at position 1 and deleting position 3; display \"0 Talk 1\", \"1 Workshop 4\" and \"2 Quiz 2\".",
+      "rationale": "Expands the 2D structure, insertion, deletion, counter and full test output."
+    }
+  ]
+}

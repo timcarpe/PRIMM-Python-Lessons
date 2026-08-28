@@ -171,7 +171,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Build a small results manager using [name, score] rows and three functions: display every record, search by lower-case name, and return the highest score. The main program must call all three and show a clear not-found message for a missing name."
+      "prompt": "Store [\"ari\", 7], [\"bao\", 9] and [\"cleo\", 8] in [results]. Write show_records(records) to display every name and score. Write find_score(records, target) to return the matching score or -1. Write highest_score(records) to return the highest score. In the main program, call all three functions. Test \"Bao\"; display \"Score: 9\" and \"Highest score: 9\". Test \"Mina\"; display \"Name not found.\" and \"Highest score: 9\"."
     },
     {
       "phase": "Debug",
@@ -242,7 +242,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Build a small results manager using [name, score] rows and three functions: display every record, search by lower-case name, and return the highest score. The main program must call all three and show a clear not-found message for a missing name.",
+          "prompt": "Store [\"ari\", 7], [\"bao\", 9] and [\"cleo\", 8] in [results]. Write show_records(records) to display every name and score. Write find_score(records, target) to return the matching score or -1. Write highest_score(records) to return the highest score. In the main program, call all three functions. Test \"Bao\"; display \"Score: 9\" and \"Highest score: 9\". Test \"Mina\"; display \"Name not found.\" and \"Highest score: 9\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -316,7 +316,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Build a small results manager using [name, score] rows and three functions: display every record, search by lower-case name, and return the highest score. The main program must call all three and show a clear not-found message for a missing name.",
+      "body": "Store [\"ari\", 7], [\"bao\", 9] and [\"cleo\", 8] in [results]. Write show_records(records) to display every name and score. Write find_score(records, target) to return the matching score or -1. Write highest_score(records) to return the highest score. In the main program, call all three functions. Test \"Bao\"; display \"Score: 9\" and \"Highest score: 9\". Test \"Mina\"; display \"Name not found.\" and \"Highest score: 9\".",
       "starter_ref": "shared_program"
     },
     {

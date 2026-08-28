@@ -162,12 +162,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Ask for an item to insert at position 1, then ask for an existing item to remove. Display the list after each operation. Test map then coat."
+      "prompt": "Ask for an item and store it in [new_item], then insert it at position 1. Display the list after the insertion. Ask for an existing item and store it in [old_item], then remove it and display the list again. Test \"map\" followed by \"coat\"."
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Create a four-name running order editor. Insert a reserve at a user-chosen valid position, remove one known existing name by value, and display the final order one name per line using a for loop."
+      "prompt": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [runners]. Ask for an insertion position from 0 to 4 and store it in [position]. Ask for a reserve name and store it in [reserve], then insert it at [position]. Ask for an existing name and store it in [leaving], then remove it. Use a for loop to display each remaining name. Test position 1, reserve \"Eli\" and leaving name \"Bao\"; display Ari, Eli, Cleo and Dara on separate lines."
     },
     {
       "phase": "Debug",
@@ -232,12 +232,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Ask for an item to insert at position 1, then ask for an existing item to remove. Display the list after each operation. Test map then coat.",
+          "prompt": "Ask for an item and store it in [new_item], then insert it at position 1. Display the list after the insertion. Ask for an existing item and store it in [old_item], then remove it and display the list again. Test \"map\" followed by \"coat\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Create a four-name running order editor. Insert a reserve at a user-chosen valid position, remove one known existing name by value, and display the final order one name per line using a for loop.",
+          "prompt": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [runners]. Ask for an insertion position from 0 to 4 and store it in [position]. Ask for a reserve name and store it in [reserve], then insert it at [position]. Ask for an existing name and store it in [leaving], then remove it. Use a for loop to display each remaining name. Test position 1, reserve \"Eli\" and leaving name \"Bao\"; display Ari, Eli, Cleo and Dara on separate lines.",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -298,7 +298,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Ask for an item to insert at position 1, then ask for an existing item to remove. Display the list after each operation. Test map then coat.",
+      "body": "Ask for an item and store it in [new_item], then insert it at position 1. Display the list after the insertion. Ask for an existing item and store it in [old_item], then remove it and display the list again. Test \"map\" followed by \"coat\".",
       "starter_ref": "shared_program"
     },
     {
@@ -311,7 +311,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Create a four-name running order editor. Insert a reserve at a user-chosen valid position, remove one known existing name by value, and display the final order one name per line using a for loop.",
+      "body": "Store \"Ari\", \"Bao\", \"Cleo\" and \"Dara\" in [runners]. Ask for an insertion position from 0 to 4 and store it in [position]. Ask for a reserve name and store it in [reserve], then insert it at [position]. Ask for an existing name and store it in [leaving], then remove it. Use a for loop to display each remaining name. Test position 1, reserve \"Eli\" and leaving name \"Bao\"; display Ari, Eli, Cleo and Dara on separate lines.",
       "starter_ref": "shared_program"
     },
     {
@@ -439,11 +439,11 @@
     {
       "challenge": 3,
       "ownership": "Make",
-      "observable_outcome": "Inserts at a supplied valid position; Removes by existing value; Traverses the final order",
+      "observable_outcome": "Inserts at a supplied position; Removes by existing value; Displays the final order",
       "success_criteria": [
-        "Inserts at a supplied valid position",
+        "Inserts at a supplied position",
         "Removes by existing value",
-        "Traverses the final order"
+        "Displays the final order"
       ],
       "test_cases": [
         "0/Eli/Ari starts Eli",
