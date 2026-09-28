@@ -337,7 +337,7 @@
   "programs": {
     "challenge1": "import random\nrandom.seed(7)\nroll = random.randint(1, 12)\nprint(\"Dice roll:\", roll)",
     "challenge2": "import random\nrandom.seed(7)\nroll_one = random.randint(1, 6)\nroll_two = random.randint(1, 6)\ntotal = roll_one + roll_two\nprint(\"Rolls:\", roll_one, roll_two)\nprint(\"Total:\", total)",
-    "challenge3": "import random\nminimum = int(input(\"Minimum target: \"))\nmaximum = int(input(\"Maximum target: \"))\ntarget = random.randint(minimum, maximum)\nprint(\"Practice target:\", target)",
+    "challenge3": "import random\nminimum = int(input(\"Minimum: \"))\nmaximum = int(input(\"Maximum: \"))\ntarget = random.randint(minimum, maximum)\nguess = int(input(\"Your guess: \"))\nif guess == target:\n    print(\"Correct\")\nelse:\n    print(\"The target was\", target)",
     "broken": "import random\nrandom.seed(7)\nroll = random.randit(1 6)\nprint(\"Dice roll:\", role)",
     "fixed": "import random\nrandom.seed(7)\nroll = random.randint(1, 6)\nprint(\"Dice roll:\", roll)"
   },

@@ -335,9 +335,9 @@
     }
   ],
   "programs": {
-    "challenge1": "kit = [\"coat\", \"water\", \"torch\"]\nkit.insert(2, \"snack\")\nkit.remove(\"coat\")\nprint(\"Packed kit:\", kit)",
+    "challenge1": "kit = [\"coat\", \"water\", \"torch\"]\nkit.insert(1, \"map\")\nkit.remove(\"coat\")\nkit.remove(\"torch\")\nkit.insert(0, \"torch\")\nprint(\"Packed kit:\", kit)",
     "challenge2": "kit = [\"coat\", \"water\", \"torch\"]\nnew_item = input(\"Item to insert: \")\nkit.insert(1, new_item)\nprint(\"After insert:\", kit)\nold_item = input(\"Existing item to remove: \")\nkit.remove(old_item)\nprint(\"After remove:\", kit)",
-    "challenge3": "runners = [\"Ari\", \"Bao\", \"Cleo\", \"Dara\"]\nposition = int(input(\"Reserve position 0 to 4: \"))\nreserve = input(\"Reserve name: \")\nrunners.insert(position, reserve)\nleaving = input(\"Existing name to remove: \")\nrunners.remove(leaving)\nfor runner in runners:\n    print(runner)",
+    "challenge3": "runners = [\"Ari\", \"Bao\", \"Cleo\", \"Dara\"]\nposition = int(input(\"Reserve position 0 to 4: \"))\nreserve = input(\"Reserve name: \")\nrunners.insert(position, reserve)\nleaving = input(\"Runner to remove: \")\nrunners.remove(leaving)\nprint(\"Runners:\", runners)",
     "broken": "kit = [\"coat\", \"water\", \"torch\"]\nkit.insert(\"map\", 1)\nkit.remove(0)\nprint(kit)",
     "fixed": "kit = [\"coat\", \"water\", \"torch\"]\nkit.insert(1, \"map\")\nkit.remove(\"coat\")\nprint(kit)"
   },

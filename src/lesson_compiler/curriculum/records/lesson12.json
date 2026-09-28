@@ -320,7 +320,7 @@
     }
   ],
   "programs": {
-    "challenge1": "name = input(\"What is your first name? \")\nclean_name = name.strip().title()\n\nprint(\"Hello,\", clean_name)",
+    "challenge1": "name = input(\"What is your first name? \")\nclean_name = name.strip()\nclean_name = clean_name.title()\nprint(\"You typed:\", name)\nprint(\"Hello,\", clean_name)",
     "challenge2": "name = input(\"What is your first name? \" )\nname = name.strip()\nname = name.title()\nsurname = input(\"What is your surname? \" )\nsurname = surname.strip()\nsurname = surname.title()\nprint(\"Hello,\", name, surname)",
     "challenge3": "city = input(\"Enter a city: \" )\ncity = city.strip()\ncity = city.title()\ncountry = input(\"Enter a country: \" )\ncountry = country.strip()\ncountry = country.title()\nlandmark = input(\"Enter a landmark: \" )\nlandmark = landmark.strip()\nlandmark = landmark.title()\nprint(\"Destination:\", city, \"-\", country)\nprint(\"Visit:\", landmark)",
     "broken": "name = input(\"What is your first name? \" )\nname = name.strip\nname = name.title()\nprint(\"Hello,\", display_name)",

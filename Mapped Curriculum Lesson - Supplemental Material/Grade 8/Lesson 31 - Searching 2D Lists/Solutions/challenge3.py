@@ -1,9 +1,10 @@
-books = [["orbit", 120], ["harbour", 96], ["forest", 144]]
-target = input("Book title: ").lower()
+menu = [["tea", 2], ["cake", 3], ["soup", 5]]
+item = input("Item: ")
+quantity = int(input("Quantity: "))
 found = False
-for book in books:
-    if book[0] == target:
-        print("Pages:", book[1])
+for row in menu:
+    if row[0] == item:
+        print("Cost:", row[1] * quantity)
         found = True
 if found == False:
-    print("Book not found.")
+    print("Item not found.")

@@ -183,12 +183,12 @@
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\""
+      "prompt": "Extend the example so it asks for the user's name first and stores it in [name]. Include [name] in both messages. For example, \"Sam\" and \"walk\" display \"Sam takes a walk in the park.\""
     },
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\""
+      "prompt": "Create a program that asks two friends for their favourite colour and stores the answers in [colour_1] and [colour_2]. Use an if statement to compare them. Display \"You match!\" if they are the same; otherwise display \"Different, but both great choices.\""
     },
     {
       "phase": "Debug",
@@ -254,12 +254,12 @@
         },
         {
           "title": "Challenge 2",
-          "prompt": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\"",
+          "prompt": "Extend the example so it asks for the user's name first and stores it in [name]. Include [name] in both messages. For example, \"Sam\" and \"walk\" display \"Sam takes a walk in the park.\"",
           "layout_profile": "challenge-medium"
         },
         {
           "title": "Challenge 3",
-          "prompt": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\"",
+          "prompt": "Create a program that asks two friends for their favourite colour and stores the answers in [colour_1] and [colour_2]. Use an if statement to compare them. Display \"You match!\" if they are the same; otherwise display \"Different, but both great choices.\"",
           "layout_profile": "challenge-medium"
         }
       ]
@@ -320,8 +320,8 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Start with your Challenge 1 program. Ask for the user's name and store it in [name] before asking for \"cycle\" or \"read\". Include [name] in both outputs. Test \"Sam\" and \"cycle\"; display \"Sam rides a bike in the park.\" Test \"Sam\" and \"read\"; display \"Sam reads a book at home.\"",
-      "starter_ref": "challenge1"
+      "body": "Extend the example so it asks for the user's name first and stores it in [name]. Include [name] in both messages. For example, \"Sam\" and \"walk\" display \"Sam takes a walk in the park.\"",
+      "starter_ref": "shared_program"
     },
     {
       "number": 9,
@@ -333,7 +333,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Ask \"Do you want tea?\" and store the answer in [answer]. Use if and else so \"yes\" displays \"Tea is ready.\" and every other answer displays \"Choose another drink.\" Test \"yes\"; display \"Tea is ready.\" Test \"no\"; display \"Choose another drink.\"",
+      "body": "Create a program that asks two friends for their favourite colour and stores the answers in [colour_1] and [colour_2]. Use an if statement to compare them. Display \"You match!\" if they are the same; otherwise display \"Different, but both great choices.\"",
       "starter_ref": "shared_program"
     },
     {
@@ -357,9 +357,9 @@
     }
   ],
   "programs": {
-    "challenge1": "choice = input(\"Choose cycle or read: \")\n\nif choice == \"cycle\":\n    print(\"Ride a bike in the park.\")\nelse:\n    print(\"Read a book at home.\")",
-    "challenge2": "name = input(\"What is your name? \" )\nchoice = input(\"Choose cycle or read: \" )\nif choice == \"cycle\":\n    print(name, \"rides a bike in the park.\")\nelse:\n    print(name, \"reads a book at home.\")",
-    "challenge3": "answer = input(\"Do you want tea? \" )\nif answer == \"yes\":\n    print(\"Tea is ready.\")\nelse:\n    print(\"Choose another drink.\")",
+    "challenge1": "choice = input(\"Choose walk or read: \")\nif choice == \"read\":\n    print(\"Read a book at home.\")\nelse:\n    print(\"Take a walk in the park.\")",
+    "challenge2": "name = input(\"What is your name? \")\nchoice = input(\"Choose walk or read: \")\nif choice == \"walk\":\n    print(name, \"takes a walk in the park.\")\nelse:\n    print(name, \"reads a book at home.\")",
+    "challenge3": "colour_1 = input(\"First friend's favourite colour: \")\ncolour_2 = input(\"Second friend's favourite colour: \")\nif colour_1 == colour_2:\n    print(\"You match!\")\nelse:\n    print(\"Different, but both great choices.\")",
     "broken": "choice = input(\"Choose walk or read: \" )\nif choice == \"walk\":\n    print(\"Take a walk in the park.\")\nelse:\n    print(\"Read a book at home.\", display_choice)",
     "fixed": "choice = input(\"Choose walk or read: \" )\nif choice == \"walk\":\n    print(\"Take a walk in the park.\")\nelse:\n    print(\"Read a book at home.\")\n# The else branch prints its own message."
   },

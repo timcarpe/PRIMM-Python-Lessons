@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.0",
+  "capstones": [
+    {
+      "number": 11,
+      "title": "Arcade Tournament",
+      "overview": [
+        "The program asks for the player's name.",
+        "It plays up to five rounds and adds each score to a total.",
+        "After each round, the player chooses whether to play another.",
+        "It displays the rounds played, the total and a Gold, Silver or Bronze award.",
+        "Complete, test and save each challenge before moving on."
+      ],
+      "deck_template": "src/lesson_compiler/templates/capstones/lesson11.pptx",
+      "challenges": [
+        {
+          "goal": "Give a player an award for their score.",
+          "steps": [
+            "Ask for the player's name and store it in [name].",
+            "Ask for a total score from 0 to 30. Use int() to store it in [total].",
+            "Use if, elif and else to display [name] followed by \"earned Gold\" for 24 or more, \"earned Silver\" for 15 to 23, and \"earned Bronze\" for anything lower."
+          ],
+          "tests": [
+            "\"Sam\" and 24 display \"Sam earned Gold\".",
+            "15 displays \"Sam earned Silver\" and 14 displays \"Sam earned Bronze\"."
+          ],
+          "talk": "Why must the Gold check come before the Silver check?",
+          "solution": "name = input(\"Player name: \")\ntotal = int(input(\"Total score 0 to 30: \"))\nif total >= 24:\n    print(name, \"earned Gold\")\nelif total >= 15:\n    print(name, \"earned Silver\")\nelse:\n    print(name, \"earned Bronze\")",
+          "checks": [
+            {
+              "input": [
+                "Sam",
+                "24"
+              ],
+              "expect": [
+                "Sam earned Gold"
+              ]
+            },
+            {
+              "input": [
+                "Sam",
+                "15"
+              ],
+              "expect": [
+                "Sam earned Silver"
+              ]
+            },
+            {
+              "input": [
+                "Sam",
+                "14"
+              ],
+              "expect": [
+                "Sam earned Bronze"
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Add up three round scores before giving the award.",
+          "steps": [
+            "Store 0 in [total].",
+            "Use a for loop and range() to play rounds 1 to 3. In each round, display \"Round\" and the round number, ask for a score from 0 to 10, and add it to [total].",
+            "After the loop, display \"Total:\" followed by [total], then the award from Challenge 1."
+          ],
+          "tests": [
+            "8, 8 and 8 display \"Total: 24\" and Gold.",
+            "5, 5 and 5 display \"Total: 15\" and Silver."
+          ],
+          "talk": "Why is [total] set to 0 before the loop and not inside it?",
+          "solution": "name = input(\"Player name: \")\ntotal = 0\nfor round_number in range(1, 4):\n    print(\"Round\", round_number)\n    score = int(input(\"Score 0 to 10: \"))\n    total = total + score\nprint(\"Total:\", total)\nif total >= 24:\n    print(name, \"earned Gold\")\nelif total >= 15:\n    print(name, \"earned Silver\")\nelse:\n    print(name, \"earned Bronze\")",
+          "checks": [
+            {
+              "input": [
+                "Sam",
+                "8",
+                "8",
+                "8"
+              ],
+              "expect": [
+                "Round 3",
+                "Total: 24",
+                "Sam earned Gold"
+              ]
+            },
+            {
+              "input": [
+                "Sam",
+                "5",
+                "5",
+                "5"
+              ],
+              "expect": [
+                "Total: 15",
+                "Sam earned Silver"
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Let the player choose how many rounds to play, up to five.",
+          "steps": [
+            "Replace the for loop with a while loop. Store 0 in [rounds] and \"yes\" in [again].",
+            "Keep playing while [again] is \"yes\" and [rounds] is less than 5. In each round, add 1 to [rounds], ask for a score and add it to [total], then ask \"Another round? yes/no\".",
+            "After the loop, display \"Rounds played:\" followed by [rounds], then \"Total:\" with [total] and the award."
+          ],
+          "tests": [
+            "9, \"yes\", 9, \"yes\", 9, \"no\" display \"Rounds played: 3\", \"Total: 27\" and Gold.",
+            "Answering \"yes\" every time stops after round 5."
+          ],
+          "talk": "Why is a while loop a better fit than a for loop for this version?",
+          "solution": "name = input(\"Player name: \")\ntotal = 0\nrounds = 0\nagain = \"yes\"\nwhile again == \"yes\" and rounds < 5:\n    rounds = rounds + 1\n    score = int(input(\"Score 0 to 10: \"))\n    total = total + score\n    again = input(\"Another round? yes/no: \")\nprint(\"Rounds played:\", rounds)\nprint(\"Total:\", total)\nif total >= 24:\n    print(name, \"earned Gold\")\nelif total >= 15:\n    print(name, \"earned Silver\")\nelse:\n    print(name, \"earned Bronze\")",
+          "checks": [
+            {
+              "input": [
+                "Sam",
+                "9",
+                "yes",
+                "9",
+                "yes",
+                "9",
+                "no"
+              ],
+              "expect": [
+                "Rounds played: 3",
+                "Total: 27",
+                "Sam earned Gold"
+              ]
+            },
+            {
+              "input": [
+                "Sam",
+                "5",
+                "yes",
+                "5",
+                "yes",
+                "5",
+                "yes",
+                "5",
+                "yes",
+                "5",
+                "yes"
+              ],
+              "expect": [
+                "Rounds played: 5",
+                "Total: 25"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "title": "School Fair Prize Draw",
+      "overview": [
+        "The program starts with three cleaned entrant names and three prizes.",
+        "A menu lets the organiser list the names, add a name or run a draw.",
+        "Each draw picks a winner, a prize and 1 to 10 bonus tokens.",
+        "The menu repeats until exit, then shows how many entrants remain.",
+        "Complete, test and save each challenge before moving on."
+      ],
+      "deck_template": "src/lesson_compiler/templates/capstones/lesson27.pptx",
+      "challenges": [
+        {
+          "goal": "Collect three names and draw a winner.",
+          "steps": [
+            "Create an empty list called [entrants].",
+            "Use a for loop to ask for three names. Use strip() and title() on each name, then use append() to add it to [entrants].",
+            "Use random.choice() to pick a winner and display \"Winner:\" followed by the name.",
+            "Use random.randint() to choose 1 to 10 bonus tokens and display \"Bonus tokens:\" followed by the number."
+          ],
+          "tests": [
+            "\"  ana\", \"BAO\" and \"cleo \" are stored as Ana, Bao and Cleo.",
+            "The winner is one of those names and the tokens are from 1 to 10."
+          ],
+          "talk": "Why must [entrants] be created before the loop?",
+          "solution": "import random\nentrants = []\nfor count in range(3):\n    name = input(\"Entrant name: \")\n    name = name.strip()\n    name = name.title()\n    entrants.append(name)\nwinner = random.choice(entrants)\ntokens = random.randint(1, 10)\nprint(\"Winner:\", winner)\nprint(\"Bonus tokens:\", tokens)",
+          "checks": [
+            {
+              "input": [
+                "  ana",
+                "BAO",
+                "cleo "
+              ],
+              "expect": [
+                "Winner:",
+                "Bonus tokens:"
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Let the organiser change the names before the draw.",
+          "steps": [
+            "Create a list called [prizes] with three prizes.",
+            "After the names are collected, ask for a position from 0 to 2 and a new name. Clean the name with strip() and title(), then put it at that position.",
+            "Ask for the name of someone who is leaving. Clean it, then use remove() to take it out of [entrants].",
+            "Display the winner, then a random prize after \"Prize:\", then the bonus tokens."
+          ],
+          "tests": [
+            "Names Ana, Bao and Cleo; replace position 1 with \"dara\"; remove \"ana\". The winner is Dara or Cleo.",
+            "Only remove a name that is in the list. Checking first comes later in the course."
+          ],
+          "talk": "Why must the leaving name be cleaned before remove() is used?",
+          "solution": "import random\nentrants = []\nfor count in range(3):\n    name = input(\"Entrant name: \")\n    name = name.strip()\n    name = name.title()\n    entrants.append(name)\nprizes = [\"Teddy bear\", \"Book token\", \"Water bottle\"]\nposition = int(input(\"Position to replace 0 to 2: \"))\nnew_name = input(\"New name: \")\nnew_name = new_name.strip()\nnew_name = new_name.title()\nentrants[position] = new_name\nleaving = input(\"Who is leaving? \")\nleaving = leaving.strip()\nleaving = leaving.title()\nentrants.remove(leaving)\nwinner = random.choice(entrants)\nprize = random.choice(prizes)\ntokens = random.randint(1, 10)\nprint(\"Winner:\", winner)\nprint(\"Prize:\", prize)\nprint(\"Bonus tokens:\", tokens)\nprint(\"Entrants:\", entrants)",
+          "checks": [
+            {
+              "input": [
+                "ana",
+                "bao",
+                "cleo",
+                "1",
+                "dara",
+                "ana"
+              ],
+              "expect": [
+                "Entrants: ['Dara', 'Cleo']"
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Turn the draw into a menu the organiser can use again and again.",
+          "steps": [
+            "Start with three cleaned names in [entrants] and three [prizes]. Store True in [running].",
+            "Use a while loop to display \"1: list, 2: add, 3: draw, 4: exit\" and ask for a choice.",
+            "For \"1\", use a for loop to display each entrant. For \"2\", ask for a name, clean it and append it. For \"3\", display a random winner, prize and 1 to 10 bonus tokens.",
+            "For \"4\", store False in [running]. For anything else, display \"Choose a valid option.\"",
+            "After the loop, use len() to display \"Entrants remaining:\" followed by the count."
+          ],
+          "tests": [
+            "2, \"  eli \", 1, then 4: Eli is listed and \"Entrants remaining: 4\" appears.",
+            "\"x\" then 4: \"Choose a valid option.\" then \"Entrants remaining: 3\"."
+          ],
+          "talk": "What makes the while loop stop?",
+          "solution": "import random\nentrants = [\"Ana\", \"Bao\", \"Cleo\"]\nprizes = [\"Teddy bear\", \"Book token\", \"Water bottle\"]\nrunning = True\nwhile running == True:\n    choice = input(\"1: list, 2: add, 3: draw, 4: exit: \")\n    if choice == \"1\":\n        for entrant in entrants:\n            print(entrant)\n    elif choice == \"2\":\n        name = input(\"New entrant: \")\n        name = name.strip()\n        name = name.title()\n        entrants.append(name)\n    elif choice == \"3\":\n        print(\"Winner:\", random.choice(entrants))\n        print(\"Prize:\", random.choice(prizes))\n        print(\"Bonus tokens:\", random.randint(1, 10))\n    elif choice == \"4\":\n        running = False\n    else:\n        print(\"Choose a valid option.\")\nprint(\"Entrants remaining:\", len(entrants))",
+          "checks": [
+            {
+              "input": [
+                "2",
+                "  eli ",
+                "1",
+                "4"
+              ],
+              "expect": [
+                "Eli",
+                "Entrants remaining: 4"
+              ]
+            },
+            {
+              "input": [
+                "x",
+                "4"
+              ],
+              "expect": [
+                "Choose a valid option.",
+                "Entrants remaining: 3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "title": "School Club Manager",
+      "overview": [
+        "The program stores club records in a 2D list: name, members and room.",
+        "Functions show, search, add and update the records.",
+        "A menu calls the functions and repeats until exit.",
+        "On exit, it displays the final number of records.",
+        "Complete, test and save each challenge before moving on."
+      ],
+      "deck_template": "src/lesson_compiler/templates/capstones/lesson36.pptx",
+      "challenges": [
+        {
+          "goal": "Store club records and search them with functions.",
+          "steps": [
+            "Create a 2D list called [clubs] with rows [\"art\", 12, \"R1\"], [\"chess\", 18, \"R2\"] and [\"code\", 15, \"R3\"].",
+            "Write show_records(records) to display each club's name, members and room on one line.",
+            "Write find_members(records, target) so it will return the matching club's member count, or return -1 after the loop when nothing matches.",
+            "In the main program, call show_records(), ask for a club name, use lower() on it and call find_members(). Display \"Members:\" followed by the result, or \"Club not found.\" for -1."
+          ],
+          "tests": [
+            "\"Art\" displays \"Members: 12\" and \"code\" displays \"Members: 15\".",
+            "\"music\" displays \"Club not found.\""
+          ],
+          "talk": "Why must return -1 come after the loop and not inside it?",
+          "solution": "def show_records(records):\n    for record in records:\n        print(record[0], record[1], record[2])\ndef find_members(records, target):\n    for record in records:\n        if record[0] == target:\n            return record[1]\n    return -1\nclubs = [[\"art\", 12, \"R1\"], [\"chess\", 18, \"R2\"], [\"code\", 15, \"R3\"]]\nshow_records(clubs)\ntarget = input(\"Club to find: \")\ntarget = target.lower()\nmembers = find_members(clubs, target)\nif members == -1:\n    print(\"Club not found.\")\nelse:\n    print(\"Members:\", members)",
+          "checks": [
+            {
+              "input": [
+                "Art"
+              ],
+              "expect": [
+                "Members: 12"
+              ]
+            },
+            {
+              "input": [
+                "code"
+              ],
+              "expect": [
+                "Members: 15"
+              ]
+            },
+            {
+              "input": [
+                "music"
+              ],
+              "expect": [
+                "Club not found."
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Add a new club and change a member count.",
+          "steps": [
+            "Write add_record(records) to ask for a club name, a whole-number member count and a room. Use lower() on the name, then append the new row to records.",
+            "Write update_members(records, target, new_members) to change the matching club's member count and return True, or return False after the loop when nothing matches.",
+            "In the main program, call add_record(), then ask which club to update and its new count. Display \"Club updated.\" or \"Club not found.\" from the returned value, then call show_records()."
+          ],
+          "tests": [
+            "Add \"Music\", 9, \"R4\", then update \"chess\" to 20. Both changes appear.",
+            "Updating \"drama\" displays \"Club not found.\" and no record changes."
+          ],
+          "talk": "add_record() does not return anything. How does the new row still reach [clubs]?",
+          "solution": "def show_records(records):\n    for record in records:\n        print(record[0], record[1], record[2])\ndef add_record(records):\n    name = input(\"Club name: \")\n    name = name.lower()\n    members = int(input(\"Members: \"))\n    room = input(\"Room: \")\n    records.append([name, members, room])\ndef update_members(records, target, new_members):\n    for record in records:\n        if record[0] == target:\n            record[1] = new_members\n            return True\n    return False\nclubs = [[\"art\", 12, \"R1\"], [\"chess\", 18, \"R2\"], [\"code\", 15, \"R3\"]]\nadd_record(clubs)\ntarget = input(\"Club to update: \")\ntarget = target.lower()\nnew_members = int(input(\"New member count: \"))\nif update_members(clubs, target, new_members) == True:\n    print(\"Club updated.\")\nelse:\n    print(\"Club not found.\")\nshow_records(clubs)",
+          "checks": [
+            {
+              "input": [
+                "Music",
+                "9",
+                "R4",
+                "chess",
+                "20"
+              ],
+              "expect": [
+                "Club updated.",
+                "chess 20 R2",
+                "music 9 R4"
+              ]
+            },
+            {
+              "input": [
+                "Music",
+                "9",
+                "R4",
+                "drama",
+                "5"
+              ],
+              "expect": [
+                "Club not found.",
+                "chess 18 R2"
+              ]
+            }
+          ]
+        },
+        {
+          "goal": "Put all the functions behind a repeating menu.",
+          "steps": [
+            "Store True in [running]. Use a while loop to display \"1: show, 2: search, 3: add, 4: update, 5: exit\" and ask for a choice.",
+            "For choices 1 to 4, ask for any extra input and call the matching function.",
+            "For \"5\", store False in [running]. For anything else, display \"Choose a valid option.\"",
+            "After the loop, use len() to display \"Final record count:\" followed by the number of rows."
+          ],
+          "tests": [
+            "3 to add \"music\", 9, \"R4\", then 4 to update \"music\" to 11, then 1 and 5: the music row shows 11 and \"Final record count: 4\" appears.",
+            "\"x\" then 5: \"Choose a valid option.\" then \"Final record count: 3\"."
+          ],
+          "talk": "Why does every function take [records] as a parameter?",
+          "solution": "def show_records(records):\n    for record in records:\n        print(record[0], record[1], record[2])\ndef find_members(records, target):\n    for record in records:\n        if record[0] == target:\n            return record[1]\n    return -1\ndef add_record(records):\n    name = input(\"Club name: \")\n    name = name.lower()\n    members = int(input(\"Members: \"))\n    room = input(\"Room: \")\n    records.append([name, members, room])\ndef update_members(records, target, new_members):\n    for record in records:\n        if record[0] == target:\n            record[1] = new_members\n            return True\n    return False\nclubs = [[\"art\", 12, \"R1\"], [\"chess\", 18, \"R2\"], [\"code\", 15, \"R3\"]]\nrunning = True\nwhile running == True:\n    choice = input(\"1: show, 2: search, 3: add, 4: update, 5: exit: \")\n    if choice == \"1\":\n        show_records(clubs)\n    elif choice == \"2\":\n        target = input(\"Club to find: \")\n        target = target.lower()\n        members = find_members(clubs, target)\n        if members == -1:\n            print(\"Club not found.\")\n        else:\n            print(\"Members:\", members)\n    elif choice == \"3\":\n        add_record(clubs)\n    elif choice == \"4\":\n        target = input(\"Club to update: \")\n        target = target.lower()\n        new_members = int(input(\"New member count: \"))\n        if update_members(clubs, target, new_members) == True:\n            print(\"Club updated.\")\n        else:\n            print(\"Club not found.\")\n    elif choice == \"5\":\n        running = False\n    else:\n        print(\"Choose a valid option.\")\nprint(\"Final record count:\", len(clubs))",
+          "checks": [
+            {
+              "input": [
+                "3",
+                "music",
+                "9",
+                "R4",
+                "4",
+                "music",
+                "11",
+                "1",
+                "5"
+              ],
+              "expect": [
+                "Club updated.",
+                "music 11 R4",
+                "Final record count: 4"
+              ]
+            },
+            {
+              "input": [
+                "x",
+                "5"
+              ],
+              "expect": [
+                "Choose a valid option.",
+                "Final record count: 3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -337,7 +337,7 @@
   "programs": {
     "challenge1": "message = input(\"Short message: \")\nmessage = message.strip()\ncharacter_count = len(message)\n\nprint(\"Message:\\n\" + message)\nprint(\"Characters:\", character_count)",
     "challenge2": "title = input(\"Title: \")\nsubtitle = input(\"Subtitle: \")\ntitle_count = len(title)\nsubtitle_count = len(subtitle)\nprint(\"Text:\\n\" + title + \"\\n\" + subtitle)\nprint(\"Title characters:\", title_count)\nprint(\"Subtitle characters:\", subtitle_count)",
-    "challenge3": "heading = input(\"Poster heading: \")\ninstruction = input(\"Instruction: \")\ntotal = len(heading) + len(instruction)\nprint(heading + \"\\n\" + instruction)\nprint(\"Combined characters:\", total)",
+    "challenge3": "heading = input(\"Poster heading: \")\ninstruction = input(\"Instruction: \")\ntotal = len(heading) + len(instruction)\nprint(heading + \"\\n\" + instruction)\nprint(\"Combined characters:\", total)\nif total > 20:\n    print(\"Too long for the poster.\")",
     "broken": "message = input(\"Short message: \")\ncharacter_count = len message\nprint(\"Message:\"\n + message)\nprint(\"Characters:\", character_count)",
     "fixed": "message = input(\"Short message: \")\ncharacter_count = len(message)\nprint(\"Message:\\n\" + message)\nprint(\"Characters:\", character_count)"
   },

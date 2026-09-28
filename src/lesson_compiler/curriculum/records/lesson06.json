@@ -192,7 +192,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\"."
+      "prompt": "Create a cinema-ticket program that asks for the user's age and whether they are a student. Display \"Discount price\" for anyone under 16, or for students aged 25 or under; otherwise display \"Full price\". Use the and operator and the or operator. Test 12 and \"no\", 20 and \"yes\", then 30 and \"yes\"."
     },
     {
       "phase": "Debug",
@@ -263,7 +263,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\".",
+          "prompt": "Create a cinema-ticket program that asks for the user's age and whether they are a student. Display \"Discount price\" for anyone under 16, or for students aged 25 or under; otherwise display \"Full price\". Use the and operator and the or operator. Test 12 and \"no\", 20 and \"yes\", then 30 and \"yes\".",
           "layout_profile": "challenge-code-heavy"
         }
       ]
@@ -337,7 +337,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Ask whether the visitor is a member and store the answer in [member]. Ask whether the visitor has a valid pass and store the answer in [valid_pass]. Use the and operator in the if condition so \"Club entry allowed.\" is displayed only when both answers are \"yes\"; otherwise display \"Club entry refused.\" Test \"yes\" and \"yes\", then test \"yes\" and \"no\".",
+      "body": "Create a cinema-ticket program that asks for the user's age and whether they are a student. Display \"Discount price\" for anyone under 16, or for students aged 25 or under; otherwise display \"Full price\". Use the and operator and the or operator. Test 12 and \"no\", 20 and \"yes\", then 30 and \"yes\".",
       "starter_ref": "shared_program"
     },
     {
@@ -361,9 +361,9 @@
     }
   ],
   "programs": {
-    "challenge1": "age = int(input(\"Enter your age: \" ))\nhas_ticket = input(\"Do you have a ticket? \" )\nhas_adult = input(\"Is an adult with you? \" )\nif age >= 14 and (has_ticket == \"yes\" or has_adult == \"yes\"):\n    print(\"You may enter.\")\nelse:\n    print(\"Please check the entry rules.\")",
+    "challenge1": "age = int(input(\"Enter your age: \"))\nhas_ticket = input(\"Do you have a ticket? \")\nhas_adult = input(\"Is an adult with you? \")\nif age >= 12 and age <= 17 and (has_ticket == \"yes\" or has_adult == \"yes\"):\n    print(\"You may enter.\")\nelse:\n    print(\"Please check the entry rules.\")",
     "challenge2": "age = int(input(\"Enter your age: \" ))\nhas_ticket = input(\"Do you have a ticket? \" )\nhas_adult = input(\"Is an adult with you? \" )\nif (age >= 12 and has_ticket == \"yes\") or has_adult == \"yes\":\n    print(\"You may enter.\")\nelse:\n    print(\"Please check the entry rules.\")",
-    "challenge3": "member = input(\"Are you a member? \" )\nvalid_pass = input(\"Do you have a valid pass? \" )\nif member == \"yes\" and valid_pass == \"yes\":\n    print(\"Club entry allowed.\")\nelse:\n    print(\"Club entry refused.\")",
+    "challenge3": "age = int(input(\"Enter your age: \"))\nstudent = input(\"Are you a student? \")\nif age < 16 or (student == \"yes\" and age <= 25):\n    print(\"Discount price\")\nelse:\n    print(\"Full price\")",
     "broken": "age = int(input(\"Enter your age: \" ))\nhas_ticket = input(\"Do you have a ticket? \" )\nhas_adult = input(\"Is an adult with you? \" )\nif age >= 12 and (has_ticket == \"yes\" or has_adults == \"yes\"):\n    print(\"You may enter.\")\nelse:\n    print(\"Please check the entry rules.\")",
     "fixed": "age = int(input(\"Enter your age: \" ))\nhas_ticket = input(\"Do you have a ticket? \" )\nhas_adult = input(\"Is an adult with you? \" )\nif age >= 12 and (has_ticket == \"yes\" or has_adult == \"yes\"):\n    print(\"You may enter.\")\nelse:\n    print(\"Please check the entry rules.\")\n# Both parts of the rule must be True."
   },

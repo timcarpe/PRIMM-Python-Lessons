@@ -340,7 +340,7 @@
   "programs": {
     "challenge1": "distance = float(input(\"Enter kilometres: \"))\nminutes = float(input(\"Enter minutes: \"))\n\nhalfway_distance = distance / 2\nspeed = distance / minutes\n\nprint(\"Halfway distance:\", halfway_distance)\nprint(\"Kilometres per minute:\", speed)",
     "challenge2": "travel_minutes = float(input(\"Travel minutes: \"))\nrest_minutes = float(input(\"Rest minutes: \"))\ntotal_minutes = travel_minutes + rest_minutes\nprint(\"Total minutes:\", total_minutes)",
-    "challenge3": "length = float(input(\"Room length: \"))\nwidth = float(input(\"Room width: \"))\narea = length * width\nprint(\"Floor area:\", area)",
+    "challenge3": "length = float(input(\"Room length: \"))\nwidth = float(input(\"Room width: \"))\nprice = float(input(\"Price per square metre: \"))\narea = length * width\ncost = area * price\nprint(\"Floor area:\", area)\nprint(\"Carpet cost:\", cost)",
     "broken": "distance = float(input(\"Enter kilometres: \"))\nminutes = float(input(\"Enter minutes: \")\nspeed = distance / minute\nprint(\"Kilometres per minute:\", speed)",
     "fixed": "distance = float(input(\"Enter kilometres: \"))\nminutes = float(input(\"Enter minutes: \"))\nspeed = distance / minutes\nprint(\"Kilometres per minute:\", speed)"
   },

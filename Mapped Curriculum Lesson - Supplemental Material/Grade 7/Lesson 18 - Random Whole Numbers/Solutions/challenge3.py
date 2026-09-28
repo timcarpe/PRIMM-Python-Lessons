@@ -1,5 +1,9 @@
 import random
-minimum = int(input("Minimum target: "))
-maximum = int(input("Maximum target: "))
+minimum = int(input("Minimum: "))
+maximum = int(input("Maximum: "))
 target = random.randint(minimum, maximum)
-print("Practice target:", target)
+guess = int(input("Your guess: "))
+if guess == target:
+    print("Correct")
+else:
+    print("The target was", target)

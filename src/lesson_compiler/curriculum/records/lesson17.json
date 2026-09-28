@@ -146,7 +146,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\"."
+      "prompt": "Change the example so it also asks whether the trip is overnight. If the answer is \"yes\", use append() to add \"sleeping bag\" to [packing_list] before it is displayed. For example, \"coat\" and \"yes\" display \"Packing list: ['water', 'map', 'coat', 'sleeping bag']\"."
     },
     {
       "phase": "Modify B",
@@ -156,7 +156,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\"."
+      "prompt": "Create a guest-list program. Start with an empty list called [guests]. Ask for three names and append each one. Then ask whether a plus-one is coming; if the answer is \"yes\", append \"Plus one\". Display the list after \"Guests:\"."
     },
     {
       "phase": "Debug",
@@ -217,7 +217,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\".",
+          "prompt": "Change the example so it also asks whether the trip is overnight. If the answer is \"yes\", use append() to add \"sleeping bag\" to [packing_list] before it is displayed. For example, \"coat\" and \"yes\" display \"Packing list: ['water', 'map', 'coat', 'sleeping bag']\".",
           "layout_profile": "challenge-medium"
         },
         {
@@ -227,7 +227,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\".",
+          "prompt": "Create a guest-list program. Start with an empty list called [guests]. Ask for three names and append each one. Then ask whether a plus-one is coming; if the answer is \"yes\", append \"Plus one\". Display the list after \"Guests:\".",
           "layout_profile": "challenge-medium"
         }
       ]
@@ -275,7 +275,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Add \"snacks\" as the third item in [packing_list]. Keep the input and append() lines so the user's item is added after it. Test the input \"coat\"; display \"Packing list: ['water', 'map', 'snacks', 'coat']\".",
+      "body": "Change the example so it also asks whether the trip is overnight. If the answer is \"yes\", use append() to add \"sleeping bag\" to [packing_list] before it is displayed. For example, \"coat\" and \"yes\" display \"Packing list: ['water', 'map', 'coat', 'sleeping bag']\".",
       "starter_ref": "shared_program"
     },
     {
@@ -301,7 +301,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Store \"film\" and \"popcorn\" in a list called [movie_night]. Ask for another item and store it in [item]. Append [item] to [movie_night], then display \"Movie-night checklist:\" followed by the list. Test \"tickets\"; display \"Movie-night checklist: ['film', 'popcorn', 'tickets']\".",
+      "body": "Create a guest-list program. Start with an empty list called [guests]. Ask for three names and append each one. Then ask whether a plus-one is coming; if the answer is \"yes\", append \"Plus one\". Display the list after \"Guests:\".",
       "starter_ref": "shared_program"
     },
     {
@@ -325,9 +325,9 @@
     }
   ],
   "programs": {
-    "challenge1": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\", \"snacks\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)",
+    "challenge1": "item = input(\"Pack one item: \")\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\novernight = input(\"Is the trip overnight? \")\nif overnight == \"yes\":\n    packing_list.append(\"sleeping bag\")\nprint(\"Packing list:\", packing_list)",
     "challenge2": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nanother_item = input(\"Pack one more item: \" )\npacking_list.append(another_item)\nprint(\"Packing list:\", packing_list)",
-    "challenge3": "item = input(\"Add a movie-night item: \" )\nmovie_night = [\"film\", \"popcorn\"]\nmovie_night.append(item)\nprint(\"Movie-night checklist:\", movie_night)",
+    "challenge3": "guests = []\nguest = input(\"Guest name: \")\nguests.append(guest)\nguest = input(\"Guest name: \")\nguests.append(guest)\nguest = input(\"Guest name: \")\nguests.append(guest)\nplus_one = input(\"Is a plus-one coming? \")\nif plus_one == \"yes\":\n    guests.append(\"Plus one\")\nprint(\"Guests:\", guests)",
     "broken": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(missing_item)\nprint(\"Packing list:\", packing_list)",
     "fixed": "item = input(\"Pack one item: \" )\npacking_list = [\"water\", \"map\"]\npacking_list.append(item)\nprint(\"Packing list:\", packing_list)"
   },

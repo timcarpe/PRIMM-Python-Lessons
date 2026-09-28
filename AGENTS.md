@@ -27,7 +27,8 @@ Set `LESSON_DOCX_RENDERER` when it cannot be discovered automatically.
 .venv/bin/lesson-compiler build
 ```
 
-This compiles and verifies all 33 non-capstone lessons. By default it writes
+This compiles and verifies all 33 regular lessons and then the three capstones
+(Lessons 11, 27 and 36). By default it writes
 the generated files into the two root lesson folders. Use `--output PATH` only
 when a separate build is explicitly requested.
 
@@ -42,7 +43,10 @@ build. Failed builds retain this directory for diagnosis.
 
 ## Editing lessons
 
-1. Change canonical lesson content in `src/lesson_compiler/curriculum`.
+1. Change canonical lesson content in `src/lesson_compiler/curriculum`. Capstone
+   challenges live in `curriculum/capstones.json`; their decks start from
+   `templates/capstones`. In challenge prose, write variables as `[name]`; they
+   render as shaded variable chips.
 2. Change shared formatting behavior in the Python or JavaScript compiler code.
 3. Do not hand-edit generated PowerPoint, PDF, Word, or Python outputs unless a
    manual exception is explicitly requested.

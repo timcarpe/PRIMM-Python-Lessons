@@ -342,7 +342,7 @@
   "programs": {
     "challenge1": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nrow = int(input(\"Club row 0 to 2: \"))\nmembers_to_add = int(input(\"Members to add: \"))\n\nclubs[row][1] = clubs[row][1] + members_to_add\n\nprint(\"Updated record:\", clubs[row])\nprint(\"All records:\", clubs)",
     "challenge2": "clubs = [[\"Art\", 12], [\"Chess\", 18], [\"Code\", 15]]\nrow = int(input(\"Club row 0 to 2: \"))\nprint(\"Before:\", clubs[row])\nnew_name = input(\"New club name: \")\nnew_members = int(input(\"New member count: \"))\nclubs[row][0] = new_name\nclubs[row][1] = new_members\nprint(\"After:\", clubs[row])",
-    "challenge3": "stock = [[\"Pens\", 10], [\"Books\", 6], [\"Tape\", 4]]\nrow = int(input(\"Stock row 0 to 2: \"))\ndelivery = int(input(\"Delivery amount: \"))\nstock[row][1] = stock[row][1] + delivery\nprint(\"Updated record:\", stock[row])\nfor item in stock:\n    print(item[0], item[1])",
+    "challenge3": "stock = [[\"Pens\", 10], [\"Books\", 6], [\"Tape\", 4]]\nrow = int(input(\"Stock row 0 to 2: \"))\ndelivery = int(input(\"Delivery amount: \"))\nsold = int(input(\"Number sold: \"))\nstock[row][1] = stock[row][1] + delivery - sold\nprint(\"Updated record:\", stock[row])\nfor item in stock:\n    print(item[0], item[1])",
     "broken": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nrow = 1\nnew_members = input(\"New member count: \")\nclubs[row, 1] == new_members\nprint(clubs)",
     "fixed": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nrow = 1\nnew_members = int(input(\"New member count: \"))\nclubs[row][1] = new_members\nprint(clubs)"
   },

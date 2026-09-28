@@ -363,8 +363,8 @@
     }
   ],
   "programs": {
-    "challenge1": "target = 7\nattempts = 0\nguess = 0\n\nwhile guess != target and attempts < 2:\n    guess = int(input(\"Guess 1 to 10: \"))\n    attempts = attempts + 1\n\nprint(\"Attempts used:\", attempts)",
-    "challenge2": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 5:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + 1\nprint(\"You used\", attempts, \"tries.\")",
+    "challenge1": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \"))\n    attempts = attempts + 1\nif guess == target:\n    print(\"Correct!\")\nelse:\n    print(\"Out of guesses. It was 7.\")",
+    "challenge2": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \"))\n    attempts = attempts + 1\n    if guess < target:\n        print(\"Too low\")\n    elif guess > target:\n        print(\"Too high\")\nprint(\"Finished in\", attempts, \"tries.\")",
     "challenge3": "password = \"open\"\nattempts = 0\nguess = \"\"\nwhile guess != password and attempts < 3:\n    guess = input(\"Door code: \" )\n    attempts = attempts + 1\nif guess == password:\n    print(\"Door opened. Attempts used:\", attempts)\nelse:\n    print(\"Door locked. Attempts used:\", attempts)",
     "broken": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + \"1\"\nprint(\"Finished in\", attempts, \"tries.\")",
     "fixed": "target = 7\nattempts = 0\nguess = 0\nwhile guess != target and attempts < 3:\n    guess = int(input(\"Guess 1 to 10: \" ))\n    attempts = attempts + 1\nprint(\"Finished in\", attempts, \"tries.\")\n# The counter changes on every loop."

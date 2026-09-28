@@ -333,9 +333,9 @@
     }
   ],
   "programs": {
-    "challenge1": "team = input(\"Team name: \")\nteam = team.upper()\ncode = input(\"Team code: \")\ncode = code.lower()\nprint(\"Team:\", team)\nprint(\"Code:\", code)",
+    "challenge1": "team = input(\"Team name: \")\nteam = team.lower()\ntyped_code = input(\"Team code: \")\ncode = typed_code.upper()\nprint(\"Team:\", team)\nif typed_code == code:\n    print(\"Code format OK\")\nelse:\n    print(\"Code changed to\", code)",
     "challenge2": "response = input(\"Accept? yes/no: \")\nresponse = response.lower()\nif response == \"yes\":\n    print(\"Accepted\")\nelse:\n    print(\"Not accepted\")",
-    "challenge3": "name = input(\"First name: \")\nname = name.lower()\ngroup = input(\"Two-letter group: \")\ngroup = group.upper()\nprint(\"Account name:\", name)\nprint(\"Group code:\", group)",
+    "challenge3": "password = input(\"New password: \")\nconfirm = input(\"Enter it again: \")\nlower_password = password.lower()\nlower_confirm = confirm.lower()\nif password == confirm:\n    print(\"Thank you\")\nelif lower_password == lower_confirm:\n    print(\"They must be in the same case\")\nelse:\n    print(\"Incorrect\")",
     "broken": "code = input(\"Team code: \")\ncode.upper\nprint(\"Code:\", code)",
     "fixed": "code = input(\"Team code: \")\ncode = code.upper()\nprint(\"Code:\", code)"
   },

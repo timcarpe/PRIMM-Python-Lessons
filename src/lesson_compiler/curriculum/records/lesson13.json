@@ -350,7 +350,7 @@
     }
   ],
   "programs": {
-    "challenge1": "word = input(\"Enter a word: \" )\nfirst = word[0]\npreview = word[0:4]\nprint(\"Initial:\", first, \"Preview:\", preview)",
+    "challenge1": "word = input(\"Enter a word: \")\nfirst = word[0]\npreview = word[0:3]\nmiddle = word[2:4]\nprint(\"Initial:\", first, \"Preview:\", preview)\nprint(\"Middle:\", middle)",
     "challenge2": "first_word = input(\"Enter a first word: \" )\nsecond_word = input(\"Enter a second word: \" )\nprint(\"Initials:\", first_word[0], second_word[0])",
     "challenge3": "word = input(\"Enter a six-letter word: \" )\nfirst_part = word[0:2]\nlast_part = word[4:6]\nprint(\"Reference:\", first_part, last_part)",
     "broken": "word = input(\"Enter a word: \" )\nfirst = word[5]\npreview = word[0:3]\nprint(\"Initial:\", first, \"Preview:\", preview)",

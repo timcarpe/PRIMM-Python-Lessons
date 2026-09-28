@@ -328,8 +328,8 @@
   ],
   "programs": {
     "challenge1": "def add_score(first, second):\n    total = first + second\n    return total\nfirst_score = add_score(7, 5)\nsecond_score = add_score(10, 8)\nprint(\"First score:\", first_score)\nprint(\"Second score:\", second_score)",
-    "challenge2": "def add_score(first, second):\n    total = first + second\n    return total\nscore = add_score(7, 5)\nprint(\"Score:\", score)",
-    "challenge3": "def total_cost(price, delivery):\n    total = price + delivery\n    return total\ncost = total_cost(12, 3)\nprint(\"Total cost:\", cost)",
+    "challenge2": "def add_score(first, second):\n    total = first + second\n    return total\ndef average_score(first, second):\n    average = (first + second) / 2\n    return average\nprint(\"Score:\", add_score(7, 5))\nprint(\"Average:\", average_score(7, 5))",
+    "challenge3": "def area(length, width):\n    return length * width\nlength_1 = int(input(\"Room 1 length: \"))\nwidth_1 = int(input(\"Room 1 width: \"))\nlength_2 = int(input(\"Room 2 length: \"))\nwidth_2 = int(input(\"Room 2 width: \"))\ntotal = area(length_1, width_1) + area(length_2, width_2)\nprint(\"Total area:\", total)",
     "broken": "def add_score(first, second):\n    total = first + second\n    return totals\nprint(\"Score:\", add_score(7, 5))",
     "fixed": "def add_score(first, second):\n    total = first + second\n    return total\nprint(\"Score:\", add_score(7, 5))"
   },

@@ -22,6 +22,7 @@ from zipfile import ZipFile
 
 from pypdf import PdfReader, PdfWriter
 
+from lesson_compiler.capstones import compile_capstones
 from lesson_compiler.paths import (
     CONFIG_PATH,
     DEFAULT_REPOSITORY_ROOT,
@@ -277,7 +278,7 @@ def build_suite(
     node: Path | None = None,
     doc_renderer: Path | None = None,
 ) -> dict:
-    """Compile the complete non-capstone suite."""
+    """Compile the regular lesson suite, then the three capstones."""
     repository_root = repository_root.resolve()
     output_root = (output_root or repository_root).resolve()
     work_root = work_root.resolve()
@@ -332,6 +333,15 @@ def build_suite(
 
     output_root.mkdir(parents=True, exist_ok=True)
     package_lessons(work_root, output_root)
+    # Capstones borrow a compiled regular worksheet as their style template,
+    # so they are compiled after the regular lessons are packaged.
+    compile_capstones(
+        repository_root,
+        output_root,
+        work_root,
+        resolved_node,
+        resolved_doc_renderer,
+    )
     write_manifest(output_root, config)
     return config
 

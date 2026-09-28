@@ -341,9 +341,9 @@
     }
   ],
   "programs": {
-    "challenge1": "supplies = [\"pencil\", \"book\", \"tape\"]\nposition = int(input(\"Position 0 to 2: \"))\nprint(\"Old item:\", supplies[position])\nreplacement = input(\"Replacement item: \")\nsupplies[position] = replacement\nprint(\"New item:\", supplies[position])\nsecond_position = int(input(\"Second position 0 to 2: \"))\nsecond_replacement = input(\"Second replacement item: \")\nsupplies[second_position] = second_replacement\nprint(\"Updated list:\", supplies)",
+    "challenge1": "supplies = [\"pencil\", \"book\", \"tape\"]\nfirst = int(input(\"First position 0 to 2: \"))\nsecond = int(input(\"Second position 0 to 2: \"))\ntemp = supplies[first]\nsupplies[first] = supplies[second]\nsupplies[second] = temp\nprint(\"Updated list:\", supplies)",
     "challenge2": "supplies = [\"pencil\", \"book\", \"tape\"]\nposition = int(input(\"Position to replace 0 to 2: \"))\nreplacement = input(\"Replacement item: \")\nsupplies[position] = replacement\ncheck_position = int(input(\"Position to check 0 to 2: \"))\nprint(\"Selected item:\", supplies[check_position])\nprint(\"Updated list:\", supplies)",
-    "challenge3": "places = [\"Park\", \"Museum\", \"Station\"]\nposition = int(input(\"Place position 0 to 2: \"))\nnew_place = input(\"New place: \")\nplaces[position] = new_place\nprint(\"First stop:\", places[0])\nprint(\"Updated places:\", places)",
+    "challenge3": "scores = [0, 0, 0]\nteam = int(input(\"Team 0 to 2: \"))\npoints = int(input(\"Points: \"))\nscores[team] = scores[team] + points\nteam = int(input(\"Team 0 to 2: \"))\npoints = int(input(\"Points: \"))\nscores[team] = scores[team] + points\nprint(\"Scores:\", scores)",
     "broken": "supplies = [\"pencil\", \"book\", \"tape\"]\nprint(\"Old item:\", supplies(3))\nsupplies(1) = \"folder\"\nprint(supplies)",
     "fixed": "supplies = [\"pencil\", \"book\", \"tape\"]\nprint(\"Old item:\", supplies[1])\nsupplies[1] = \"folder\"\nprint(supplies)"
   },

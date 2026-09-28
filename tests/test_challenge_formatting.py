@@ -11,20 +11,24 @@ from pathlib import Path
 
 import pytest
 
-from lesson_compiler.docx import challenge_semantic_segments, code_semantic_segments
+from lesson_compiler.docx import (
+    challenge_semantic_segments,
+    code_semantic_segments,
+    display_prose,
+)
 from lesson_compiler.review_tool.build import load_effective_lessons
 from lesson_compiler.verify import plain
 
 REVISED_PROMPT_CALLS: dict[tuple[int, str], set[str]] = {
-    (4, "challenge_1"): {"if"},
-    (4, "challenge_3"): {"if", "else"},
+    (4, "challenge_1"): {"if", "print()"},
+    (4, "challenge_3"): {"if"},
     (7, "challenge_3"): {"if"},
     (9, "challenge_3"): {"while"},
     (10, "challenge_3"): {"for", "while"},
     (12, "challenge_3"): {"strip()", "title()"},
     (17, "challenge_3"): {"list"},
     (25, "challenge_3"): {"for", "len"},
-    (26, "challenge_3"): {"list", "for", "range"},
+    (26, "challenge_3"): {"list", "for", "range()"},
     (28, "challenge_3"): {"for"},
     (30, "challenge_2"): {"for"},
     (31, "challenge_3"): {"for"},
@@ -39,7 +43,6 @@ REVISED_PROMPT_CALLS: dict[tuple[int, str], set[str]] = {
     (35, "challenge_3"): {
         "show_records",
         "find_score",
-        "highest_score",
         "return",
     },
 }
@@ -226,7 +229,8 @@ console.log(JSON.stringify(payload.map((item) => ({
 
     # Assert
     for item in json.loads(completed.stdout):
-        assert "".join(run["run"] for run in item["runs"]) == item["text"]
+        chips = re.sub(r"\[([A-Za-z_]\w*)\]", "\u202f\\1\u202f", item["text"])
+        assert "".join(run["run"] for run in item["runs"]) == chips
         blue = {
             run["run"]
             for run in item["runs"]
@@ -239,3 +243,35 @@ console.log(JSON.stringify(payload.map((item) => ({
         }
         assert set(item["expected"]) <= blue
         assert set(re.findall(r'"[^"\n]*"', item["text"])) <= green
+
+
+def test_variable_markers_become_chips_without_losing_literals() -> None:
+    """Bracketed variables become chips, including inside quoted output text."""
+    # Arrange
+    text = 'Store it in [total]. Display "Hello, [name]" and [total].'
+
+    # Act
+    segments = challenge_semantic_segments(text)
+
+    # Assert
+    assert "".join(part for part, _role in segments) == text
+    assert [part for part, role in segments if role == "variable"] == [
+        "[total]",
+        "[name]",
+        "[total]",
+    ]
+    assert ('"Hello, ', "literal") in segments
+    assert ('"', "literal") in segments
+
+
+def test_chip_padding_matches_prompt_text_after_normalizing() -> None:
+    """Verification ignores chip padding that extractors report as spaces."""
+    # Arrange
+    prompt = "Store 2 in [divisor]. Divide [total] by [divisor]."
+    extracted = "Store 2 in  divisor  . Divide  total  by\n divisor ."
+
+    # Act
+    needle = plain(display_prose(prompt))
+
+    # Assert
+    assert needle in plain(extracted)

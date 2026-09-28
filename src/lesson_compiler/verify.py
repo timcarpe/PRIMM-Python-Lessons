@@ -11,6 +11,8 @@ from docx import Document
 from pptx import Presentation
 from pypdf import PdfReader
 
+from lesson_compiler.capstones import check_solutions, load_capstones
+from lesson_compiler.docx import VARIABLE_PAD, display_prose
 from lesson_compiler.paths import (
     CONFIG_PATH,
     DEFAULT_REPOSITORY_ROOT,
@@ -22,9 +24,14 @@ from lesson_compiler.support import patch_standard_record, write_manifest
 
 
 def plain(text: str) -> str:
-    """Normalize prose for cross-format challenge-text comparisons."""
-    text = re.sub(r"-\s*\n\s*", "-", text)
-    return re.sub(r"\s+", " ", text).strip()
+    """Normalize prose for cross-format challenge-text comparisons.
+
+    Variable chips add narrow no-break padding that extractors may report as
+    spaces, so space before closing punctuation is removed on both sides.
+    """
+    text = re.sub(r"(?<=\w)-[ \t]*\n\s*", "-", text)
+    text = re.sub(r"\s+", " ", text.replace(VARIABLE_PAD, " ")).strip()
+    return re.sub(r" ([.,;:!?)\]])", r"\1", text)
 
 
 def strip_pdf_page_furniture(text: str) -> str:
@@ -35,6 +42,66 @@ def strip_pdf_page_furniture(text: str) -> str:
         if not re.fullmatch(r"\s*\d+\s*", line)
         and not re.fullmatch(r"\s*© Tim Carpenter \d{4}\s*", line)
     )
+
+
+def verify_capstones(learner: Path, supplemental: Path) -> tuple[list[str], int]:
+    """Check each compiled capstone's files, prompt text and solutions."""
+    failures: list[str] = []
+    count = 0
+    for capstone in load_capstones():
+        number, title = capstone["number"], capstone["title"]
+        label = f"L{number:02d} capstone"
+        learner_dir = next(learner.glob(f"Grade */Lesson {number:02d} - *"), None)
+        supplemental_dir = next(
+            supplemental.glob(f"Grade */Lesson {number:02d} - *"), None
+        )
+        if learner_dir is None or supplemental_dir is None:
+            failures.append(f"{label}: missing learner or supplemental folder")
+            continue
+        pdf = learner_dir / f"{title} - Challenges.pdf"
+        deck = learner_dir / f"{title} - Slides.pptx"
+        solutions = sorted((supplemental_dir / "Solutions").glob("challenge*.py"))
+        if not pdf.exists() or not deck.exists() or len(solutions) != 3:
+            failures.append(f"{label}: expected challenge PDF, slides and 3 solutions")
+            continue
+        count += 1
+        reader = PdfReader(str(pdf))
+        if len(reader.pages) != len(capstone["challenges"]):
+            failures.append(f"{label}: {len(reader.pages)} PDF pages, expected 3")
+        pdf_text = plain(
+            "\n".join(
+                strip_pdf_page_furniture(page.extract_text() or "")
+                for page in reader.pages
+            )
+        )
+        presentation = Presentation(deck)
+        deck_text = plain(
+            "\n".join(
+                shape.text
+                for slide in presentation.slides
+                for shape in slide.shapes
+                if hasattr(shape, "text")
+            )
+        )
+        if len(presentation.slides) != 5:
+            failures.append(f"{label}: {len(presentation.slides)} slides, expected 5")
+        for index, challenge in enumerate(capstone["challenges"], 1):
+            for text in [challenge["goal"], *challenge["steps"]]:
+                needle = plain(display_prose(text))
+                if needle not in pdf_text:
+                    failures.append(f"{label} C{index}: step absent from PDF")
+                if needle not in deck_text:
+                    failures.append(f"{label} C{index}: step absent from slides")
+        for slide_index, slide in enumerate(presentation.slides, 1):
+            for shape in slide.shapes:
+                if shape.name.startswith("Slide Number Placeholder") and (
+                    shape.text.strip() != str(slide_index)
+                ):
+                    failures.append(
+                        f"{label}: slide {slide_index} numbered {shape.text}"
+                    )
+        failures.extend(check_solutions(capstone))
+    return failures, count
 
 
 def verify_suite(
@@ -68,7 +135,10 @@ def verify_suite(
     }
     learner = output_root / LEARNER_DIRECTORY
     supplemental = output_root / SUPPLEMENTAL_DIRECTORY
-    actual = {int(path.name.split()[1]) for path in learner.glob("Grade */Lesson *")}
+    capstone_numbers = set(config["excluded_capstones"])
+    actual = {
+        int(path.name.split()[1]) for path in learner.glob("Grade */Lesson *")
+    } - capstone_numbers
     if actual != expected:
         failures.append(
             f"lesson set mismatch: expected {sorted(expected)}, got {sorted(actual)}"
@@ -146,7 +216,7 @@ def verify_suite(
         prompts = record["worksheet"]["page2"]["challenges"]
         for challenge, item in enumerate(prompts, 1):
             replacement = item["prompt"]
-            needle = plain(replacement)
+            needle = plain(display_prose(replacement))
             for artifact, text in (
                 ("deck", deck_text),
                 ("worksheet", worksheet_text),
@@ -180,6 +250,10 @@ def verify_suite(
                         f"{challenge_page_count} pages; expected "
                         f"{expected_challenge_pages} from worksheet"
                     )
+
+    capstone_failures, capstone_count = verify_capstones(learner, supplemental)
+    failures.extend(capstone_failures)
+    stats["capstones"] = capstone_count
 
     lesson_one = next(supplemental.glob("Grade 6/Lesson 01 -*/* - Worksheet.docx"))
     with ZipFile(lesson_one) as archive:

@@ -1,7 +1,14 @@
 const GREEN = "#067D17";
 const BLUE = "#1750EB";
 const BLACK = "#080808";
-const UNAMBIGUOUS_KEYWORDS = new Set(["def", "return", "elif", "else", "break", "continue"]);
+const VARIABLE = "#6A1B9A";
+const VARIABLE_FILL = "#ECEAF4";
+const VARIABLE_PAD = "\u202F";
+const VARIABLE_MARKER = /\[([A-Za-z_]\w*)\]/g;
+
+const UNAMBIGUOUS_KEYWORDS = new Set(["def", "return", "elif", "else", "break", "continue", "True", "False", "None"]);
+// JetBrains Mono looks about 15% larger than Calibri at the same point size.
+const CODE_SCALE = 0.85;
 const INLINE_TYPES = new Set(["integer", "integers", "string", "strings", "list", "lists", "dictionary", "dictionaries", "boolean", "booleans"]);
 
 export function buildCodeVocabulary(codeBlobs = []) {
@@ -25,6 +32,7 @@ function candidates(text, vocabulary) {
     const name = match[0];
     if (vocabulary.functions?.has(name) || vocabulary.functions?.has(name.split(".").at(-1))) add(match.index, match.index + name.length, BLUE);
   }
+  for (const match of text.matchAll(VARIABLE_MARKER)) add(match.index, match.index + match[0].length, VARIABLE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\.py\b/g)) add(match.index, match.index + match[0].length, BLUE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\b/g)) {
     if (UNAMBIGUOUS_KEYWORDS.has(match[0]) || INLINE_TYPES.has(match[0].toLowerCase())) add(match.index, match.index + match[0].length, BLUE);
@@ -42,6 +50,9 @@ function candidates(text, vocabulary) {
 export function proseRuns(text, vocabulary, { fontSize = "18pt", typeface = "Arial", bold = false } = {}) {
   text = String(text);
   const base = { color: BLACK, typeface, fontSize, bold };
+  const codeSize = `${Math.round(parseFloat(fontSize) * CODE_SCALE * 2) / 2}pt`;
+  const code = { ...base, typeface: "JetBrains Mono", fontSize: codeSize };
+  const chip = (name) => ({ run: VARIABLE_PAD + name + VARIABLE_PAD, textStyle: { ...code, color: VARIABLE, highlight: VARIABLE_FILL } });
   const selected = [];
   let occupiedUntil = -1;
   for (const item of candidates(text, vocabulary)) {
@@ -53,7 +64,18 @@ export function proseRuns(text, vocabulary, { fontSize = "18pt", typeface = "Ari
   let cursor = 0;
   for (const item of selected) {
     if (item.start > cursor) runs.push({ run: text.slice(cursor, item.start), textStyle: base });
-    runs.push({ run: text.slice(item.start, item.end), textStyle: { ...base, color: item.color, typeface: "JetBrains Mono" } });
+    const span = text.slice(item.start, item.end);
+    if (item.color === VARIABLE) {
+      runs.push(chip(span.slice(1, -1)));
+    } else if (item.color === GREEN) {
+      // A placeholder inside output text, such as "Hello, [name]", is still a variable chip.
+      span.split(VARIABLE_MARKER).forEach((piece, index) => {
+        if (index % 2) runs.push(chip(piece));
+        else if (piece) runs.push({ run: piece, textStyle: { ...code, color: GREEN } });
+      });
+    } else {
+      runs.push({ run: span, textStyle: { ...code, color: item.color } });
+    }
     cursor = item.end;
   }
   if (cursor < text.length) runs.push({ run: text.slice(cursor), textStyle: base });

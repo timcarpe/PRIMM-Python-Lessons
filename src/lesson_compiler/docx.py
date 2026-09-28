@@ -42,6 +42,27 @@ KEYWORDS = {
     "True",
     "False",
 }
+VARIABLE_MARKER_RE = re.compile(r"\[([A-Za-z_]\w*)\]")
+VARIABLE_PAD = "\u202f"
+VARIABLE_COLOR = "6A1B9A"
+VARIABLE_FILL = "ECEAF4"
+PROSE_CODE_FONT = "JetBrains Mono"
+# JetBrains Mono's x-height is about 0.55 em against Calibri's 0.47 em, so
+# inline code is set at 85% of the surrounding prose to match its visual size.
+PROSE_CODE_SCALE = 0.85
+NORMAL_HALF_POINTS = 24
+
+
+LITERAL_RE = re.compile(
+    r'("[^"\n]*"|“[^”\n]*”|(?<![A-Za-z0-9_])\'[^\'\n]*\'(?![A-Za-z0-9_]))'
+)
+
+
+def display_prose(text: str) -> str:
+    """Return learner-visible prose: variable markers lose their brackets."""
+    return VARIABLE_MARKER_RE.sub(r"\1", text)
+
+
 INLINE_TYPES = {
     "integer",
     "integers",
@@ -54,7 +75,17 @@ INLINE_TYPES = {
     "boolean",
     "booleans",
 }
-UNAMBIGUOUS_INLINE_KEYWORDS = {"def", "return", "elif", "else", "break", "continue"}
+UNAMBIGUOUS_INLINE_KEYWORDS = {
+    "def",
+    "return",
+    "elif",
+    "else",
+    "break",
+    "continue",
+    "True",
+    "False",
+    "None",
+}
 BUILTIN_CALLS = {
     "print",
     "input",
@@ -184,6 +215,8 @@ def add_text_run(
     rpr: etree._Element | None = None,
     color: str | None = None,
     typeface: str | None = None,
+    shading: str | None = None,
+    size_half_points: int | None = None,
 ) -> None:
     run = etree.SubElement(paragraph, W + "r")
     if rpr is not None:
@@ -207,6 +240,27 @@ def add_text_run(
             fonts = etree.SubElement(props, W + "rFonts")
         fonts.set(W + "ascii", typeface)
         fonts.set(W + "hAnsi", typeface)
+    if size_half_points:
+        props = run.find(W + "rPr")
+        if props is None:
+            props = etree.Element(W + "rPr")
+            run.insert(0, props)
+        for tag in (W + "sz", W + "szCs"):
+            size = props.find(tag)
+            if size is None:
+                size = etree.SubElement(props, tag)
+            size.set(W + "val", str(size_half_points))
+    if shading:
+        props = run.find(W + "rPr")
+        if props is None:
+            props = etree.Element(W + "rPr")
+            run.insert(0, props)
+        shade = props.find(W + "shd")
+        if shade is None:
+            shade = etree.SubElement(props, W + "shd")
+        shade.set(W + "val", "clear")
+        shade.set(W + "color", "auto")
+        shade.set(W + "fill", shading)
     node = etree.SubElement(run, W + "t")
     if text.startswith(" ") or text.endswith(" ") or "  " in text:
         node.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
@@ -258,15 +312,14 @@ def challenge_semantic_segments(
     """Apply the suite's narrow inline-code contract to learner prose.
 
     Explicit quoted string literals are green; explicit calls, types and
-    unambiguous named keywords are blue; ordinary prose, variables and
-    operators stay black. Styling never changes the supplied text.
+    unambiguous named keywords are blue; bracketed variable markers such as
+    [total] become shaded variable chips, including inside quoted output
+    text; ordinary prose and operators stay black. Segments always
+    concatenate back to the supplied text.
     """
     vocabulary = challenge_vocabulary(code_context)
     spans: list[tuple[int, int, str]] = []
-    literal_pattern = (
-        r'("[^"\n]*"|“[^”\n]*”|(?<![A-Za-z0-9_])\'[^\'\n]*\'(?![A-Za-z0-9_]))'
-    )
-    for match in re.finditer(literal_pattern, text):
+    for match in LITERAL_RE.finditer(text):
         spans.append((match.start(), match.end(), "literal"))
     function_pattern = "|".join(
         re.escape(name)
@@ -277,6 +330,8 @@ def challenge_semantic_segments(
             spans.append((match.start(), match.end(), "call"))
         for match in re.finditer(rf"\b(?:{function_pattern})\s*\(\s*\)", text):
             spans.append((match.start(), match.end(), "call"))
+    for match in VARIABLE_MARKER_RE.finditer(text):
+        spans.append((match.start(), match.end(), "variable"))
     for match in re.finditer(r"\b[A-Za-z_]\w*\.py\b", text):
         spans.append((match.start(), match.end(), "call"))
     for match in re.finditer(r"\b[A-Za-z_]\w*\b", text):
@@ -296,7 +351,7 @@ def challenge_semantic_segments(
         r"\b(?:and|or|not|in)\b(?=\s+(?:operator|condition|keyword))", text
     ):
         spans.append((match.start(), match.end(), "call"))
-    priority = {"literal": 2, "call": 1}
+    priority = {"literal": 3, "variable": 2, "call": 1}
     chosen: list[tuple[int, int, str]] = []
     for start, end, role in sorted(
         spans, key=lambda item: (item[0], -priority[item[2]], -(item[1] - item[0]))
@@ -313,7 +368,18 @@ def challenge_semantic_segments(
     for start, end, role in chosen:
         if start > cursor:
             parts.append((text[cursor:start], "ordinary"))
-        parts.append((text[start:end], role))
+        if role == "literal":
+            # A placeholder in output text, such as "Hello, [name]", is still
+            # a variable: split it out of the green string as its own chip.
+            for index, piece in enumerate(
+                VARIABLE_MARKER_RE.split(text[start:end])
+            ):
+                if index % 2:
+                    parts.append((f"[{piece}]", "variable"))
+                elif piece:
+                    parts.append((piece, "literal"))
+        else:
+            parts.append((text[start:end], role))
         cursor = end
     if cursor < len(text):
         parts.append((text[cursor:], "ordinary"))
@@ -341,21 +407,26 @@ def set_challenge_prompt(
     for child in removable:
         paragraph.remove(child)
     inserted = 0
+    colors = {"literal": "067D17", "call": "1750EB", "variable": VARIABLE_COLOR}
+    base = rpr.find(W + "sz") if rpr is not None else None
+    base_half_points = (
+        int(base.get(W + "val")) if base is not None else NORMAL_HALF_POINTS
+    )
+    code_half_points = round(base_half_points * PROSE_CODE_SCALE)
     for part, role in challenge_semantic_segments(text, code_context):
         if not part:
             continue
-        color = (
-            None
-            if role == "ordinary"
-            else ("067D17" if role == "literal" else "1750EB")
-        )
+        if role == "variable":
+            part = VARIABLE_PAD + part[1:-1] + VARIABLE_PAD
         holder = etree.Element(W + "p")
         add_text_run(
             holder,
             part,
             rpr,
-            color or "080808",
-            "Consolas" if role != "ordinary" else None,
+            colors.get(role, "080808"),
+            PROSE_CODE_FONT if role != "ordinary" else None,
+            VARIABLE_FILL if role == "variable" else None,
+            code_half_points if role != "ordinary" else None,
         )
         paragraph.insert(insert_at + inserted, holder[-1])
         inserted += 1

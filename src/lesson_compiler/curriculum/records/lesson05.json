@@ -357,9 +357,9 @@
     }
   ],
   "programs": {
-    "challenge1": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 9:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")",
+    "challenge1": "score = int(input(\"Enter a score from 0 to 10: \"))\nif score > 7:\n    print(\"Excellent\")\nelif score > 4:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")",
     "challenge2": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelif score >= 3:\n    print(\"Keep practising\")\nelse:\n    print(\"Try again\")",
-    "challenge3": "temperature = int(input(\"Enter the temperature: \" ))\nif temperature >= 30:\n    print(\"Hot\")\nelif temperature >= 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")",
+    "challenge3": "temperature = int(input(\"Enter the temperature: \"))\nif temperature >= 30:\n    print(\"Hot\")\nelif temperature >= 20:\n    print(\"Warm\")\nelif temperature < 0:\n    print(\"Freezing\")\nelse:\n    print(\"Cool\")",
     "broken": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score > 5:\n    print(\"Good\", score_value)\nelse:\n    print(\"Keep practising\")",
     "fixed": "score = int(input(\"Enter a score from 0 to 10: \" ))\nif score >= 8:\n    print(\"Excellent\")\nelif score >= 5:\n    print(\"Good\")\nelse:\n    print(\"Keep practising\")\n# Each branch displays one result."
   },

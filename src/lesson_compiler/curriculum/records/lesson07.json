@@ -342,7 +342,7 @@
     }
   ],
   "programs": {
-    "challenge1": "raining = input(\"Is it raining? yes/no: \")\n\nif raining == \"yes\":\n    wind_strength = input(\"Wind strength strong/light: \")\n    if wind_strength == \"strong\":\n        print(\"Wear a coat.\")\n    else:\n        print(\"Take an umbrella.\")\nelse:\n    print(\"No rain gear needed.\")",
+    "challenge1": "raining = input(\"Is it raining? yes/no: \")\nif raining == \"yes\":\n    wind = input(\"Wind strong/light/none: \")\n    if wind == \"strong\":\n        print(\"Wear a coat.\")\n    elif wind == \"light\":\n        print(\"Take an umbrella.\")\n    else:\n        print(\"A hood will do.\")\nelse:\n    print(\"No rain gear needed.\")",
     "challenge2": "raining = input(\"Is it raining? yes/no: \")\nif raining == \"yes\":\n    windy = input(\"Is it windy? yes/no: \")\n    if windy == \"yes\":\n        print(\"Wear a coat.\")\n    else:\n        print(\"Take an umbrella.\")\nelse:\n    sunny = input(\"Is it sunny? yes/no: \")\n    if sunny == \"yes\":\n        print(\"Take sunglasses.\")\n    else:\n        print(\"No weather gear needed.\")",
     "challenge3": "has_card = input(\"Library card? yes/no: \")\nif has_card == \"yes\":\n    overdue = input(\"Overdue book? yes/no: \")\n    if overdue == \"yes\":\n        print(\"Return the overdue book first.\")\n    else:\n        print(\"You may borrow a book.\")\nelse:\n    print(\"Apply for a library card.\")",
     "broken": "raining = input(\"Is it raining? yes/no: \")\nif raining == \"yes\":\nwindy = input(\"Is it windy? yes/no: \")\n    if windy == \"yes\"\n        print(\"Wear a coat.\")\n    else:\n        print(\"Take an umbrella.\")",

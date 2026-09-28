@@ -6,7 +6,8 @@
     "pdf": 33,
     "docx": 66,
     "python": 198,
-    "slide_pages": 297
+    "slide_pages": 297,
+    "capstones": 3
   },
   "excluded_capstones": [
     11,

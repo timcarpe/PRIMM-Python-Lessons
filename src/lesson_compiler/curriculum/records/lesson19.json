@@ -339,7 +339,7 @@
   "programs": {
     "challenge1": "import random\nrandom.seed(4)\nmove = random.randrange(5, 31, 5)\nprint(\"Move:\", move)",
     "challenge2": "import random\nrandom.seed(4)\ncolours = [\"red\", \"blue\", \"gold\", \"green\"]\nfirst_colour = random.choice(colours)\nsecond_colour = random.choice(colours)\nprint(\"First colour:\", first_colour)\nprint(\"Second colour:\", second_colour)",
-    "challenge3": "import random\nactivities = [\"jumps\", \"turns\", \"steps\"]\ncount = random.randrange(2, 13, 2)\nactivity = random.choice(activities)\nprint(\"Training prompt:\", count, activity)",
+    "challenge3": "import random\nactivities = [\"jumps\", \"turns\", \"steps\"]\nfor count in range(3):\n    reps = random.randrange(2, 13, 2)\n    activity = random.choice(activities)\n    print(\"Training prompt:\", reps, activity)",
     "broken": "import random\nrandom.seed(4)\neven_step = random.randrange(2, 12, 2)\ncolours = [\"red\", \"blue\", \"gold\"]\ncolour = random.choice\nprint(\"Move:\", even_step)\nprint(\"Colour:\", colour)",
     "fixed": "import random\nrandom.seed(4)\neven_step = random.randrange(2, 13, 2)\ncolours = [\"red\", \"blue\", \"gold\"]\ncolour = random.choice(colours)\nprint(\"Move:\", even_step)\nprint(\"Colour:\", colour)"
   },

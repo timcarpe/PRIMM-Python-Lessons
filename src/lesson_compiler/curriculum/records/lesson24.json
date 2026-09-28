@@ -340,9 +340,9 @@
     }
   ],
   "programs": {
-    "challenge1": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = int(input(\"Completed position 0 to 3: \"))\ncompleted = tasks[position]\ndel tasks[position]\n\nprint(\"Completed:\", completed)\nprint(\"Next:\", tasks[0])\nprint(\"Remaining:\", tasks)",
+    "challenge1": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = int(input(\"Completed position 0 to 2: \"))\ncompleted = tasks[position]\ndel tasks[position]\nprint(\"Completed:\", completed)\nprint(\"Moved up:\", tasks[position])\nprint(\"Remaining:\", tasks)",
     "challenge2": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nfirst_position = int(input(\"First position 0 to 3: \"))\nfirst_completed = tasks[first_position]\ndel tasks[first_position]\nsecond_position = int(input(\"Second position 0 to 2: \"))\nsecond_completed = tasks[second_position]\ndel tasks[second_position]\nprint(\"Completed:\", first_completed, second_completed)\nprint(\"Remaining:\", tasks)",
-    "challenge3": "queue = [\"Ari\", \"Bao\", \"Cleo\", \"Dara\"]\nposition = int(input(\"Cancel position 0 to 3: \"))\ncancelled = queue[position]\ndel queue[position]\nprint(\"Cancelled:\", cancelled)\nnumber = 0\nfor name in queue:\n    print(number, name)\n    number = number + 1",
+    "challenge3": "queue = [\"Ari\", \"Bao\", \"Cleo\", \"Dara\"]\nserved = queue[0]\ndel queue[0]\nprint(\"Served:\", served)\nposition = int(input(\"Cancel position 0 to 2: \"))\ndel queue[position]\nprint(\"Queue:\", queue)",
     "broken": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = 2\ncompleted = tasks(position)\ndel(tasks[position])\nprint(tasks)",
     "fixed": "tasks = [\"email\", \"design\", \"test\", \"publish\"]\nposition = 2\ncompleted = tasks[position]\ndel tasks[position]\nprint(tasks)"
   },

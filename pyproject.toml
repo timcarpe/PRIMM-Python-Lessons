@@ -39,7 +39,7 @@ lesson_compiler = [
   "curriculum/**/*.md",
   "review_tool/*.html",
   "slides/*.mjs",
-  "templates/*.pptx",
+  "templates/**/*.pptx",
 ]
 
 [tool.pytest.ini_options]

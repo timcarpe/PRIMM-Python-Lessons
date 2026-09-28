@@ -1,9 +1,7 @@
 queue = ["Ari", "Bao", "Cleo", "Dara"]
-position = int(input("Cancel position 0 to 3: "))
-cancelled = queue[position]
+served = queue[0]
+del queue[0]
+print("Served:", served)
+position = int(input("Cancel position 0 to 2: "))
 del queue[position]
-print("Cancelled:", cancelled)
-number = 0
-for name in queue:
-    print(number, name)
-    number = number + 1
+print("Queue:", queue)

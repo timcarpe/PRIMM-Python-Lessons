@@ -23,7 +23,9 @@ def test_effective_lessons_include_suite_overrides() -> None:
     # Assert
     assert len(lessons) == expected_lesson_count
     assert len(lesson_one["items"]) == 4
-    assert challenge_one["value"].startswith("Store a greeting")
+    assert challenge_one["value"].startswith(
+        "Change the example so it stores a greeting"
+    )
     assert "[greeting]" in challenge_one["value"]
     assert "".join(segment["text"] for segment in challenge_one["segments"]) == (
         challenge_one["value"]

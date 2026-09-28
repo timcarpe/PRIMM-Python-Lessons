@@ -335,7 +335,7 @@
     }
   ],
   "programs": {
-    "challenge1": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + \"_\" + last_name.lower()\nprint(\"Username:\", username)",
+    "challenge1": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\ninitial = first_name[0]\nusername = initial.lower() + last_name.lower()\nprint(\"Username:\", username)",
     "challenge2": "last_name = input(\"Last name: \")\ndepartment = input(\"Department code: \")\naccount_label = last_name.lower() + \"-\" + department.upper()\nprint(\"Account label:\", account_label)",
     "challenge3": "venue = input(\"Venue: \")\nactivity = input(\"Activity: \")\ngroup = input(\"Group: \")\ntag = venue.lower() + \"/\" + activity.lower() + \"-\" + group.upper()\nprint(\"Event tag:\", tag)",
     "broken": "first_name = input(\"First name: \")\nlast_name = input(\"Last name: \")\nusername = first_name.lower() + . + last_name.lower()\nprint(\"Username:\", user_name)",

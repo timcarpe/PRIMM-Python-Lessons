@@ -162,7 +162,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Change range() in the for loop so it displays warm-up rounds 1 through 5. Do not change the while loop; it must continue asking until the user enters \"done\"."
+      "prompt": "Change the example so it first asks how many warm-up rounds to show and stores the whole number in [rounds]. Use [rounds] in range() so the for loop shows that many rounds. The while loop should still end when the user types \"done\"."
     },
     {
       "phase": "Modify B",
@@ -172,7 +172,7 @@
     {
       "phase": "Make",
       "ownership": "independent transfer",
-      "prompt": "Use a for loop to display \"Exercise 1\" through \"Exercise 4\". After those four lines, use a while loop to ask for whole-number effort scores until the user enters 0. Store the number of scores entered in [ratings], but do not count 0. Test 2, 3 and 0; display \"Scores entered: 2\"."
+      "prompt": "Create a training program. Use a for loop to display \"Exercise 1\" to \"Exercise 4\". Then use a while loop to ask for whole-number effort scores until the user enters 0. Count every score except 0 and display \"Scores entered:\" with the count."
     },
     {
       "phase": "Debug",
@@ -233,7 +233,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Change range() in the for loop so it displays warm-up rounds 1 through 5. Do not change the while loop; it must continue asking until the user enters \"done\".",
+          "prompt": "Change the example so it first asks how many warm-up rounds to show and stores the whole number in [rounds]. Use [rounds] in range() so the for loop shows that many rounds. The while loop should still end when the user types \"done\".",
           "layout_profile": "challenge-medium"
         },
         {
@@ -243,7 +243,7 @@
         },
         {
           "title": "Challenge 3",
-          "prompt": "Use a for loop to display \"Exercise 1\" through \"Exercise 4\". After those four lines, use a while loop to ask for whole-number effort scores until the user enters 0. Store the number of scores entered in [ratings], but do not count 0. Test 2, 3 and 0; display \"Scores entered: 2\".",
+          "prompt": "Create a training program. Use a for loop to display \"Exercise 1\" to \"Exercise 4\". Then use a while loop to ask for whole-number effort scores until the user enters 0. Count every score except 0 and display \"Scores entered:\" with the count.",
           "layout_profile": "challenge-code-heavy-multi-step"
         }
       ]
@@ -291,7 +291,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Change range() in the for loop so it displays warm-up rounds 1 through 5. Do not change the while loop; it must continue asking until the user enters \"done\".",
+      "body": "Change the example so it first asks how many warm-up rounds to show and stores the whole number in [rounds]. Use [rounds] in range() so the for loop shows that many rounds. The while loop should still end when the user types \"done\".",
       "starter_ref": "shared_program"
     },
     {
@@ -317,7 +317,7 @@
       "number": 10,
       "role": "make",
       "title": "Challenge 3",
-      "body": "Use a for loop to display \"Exercise 1\" through \"Exercise 4\". After those four lines, use a while loop to ask for whole-number effort scores until the user enters 0. Store the number of scores entered in [ratings], but do not count 0. Test 2, 3 and 0; display \"Scores entered: 2\".",
+      "body": "Create a training program. Use a for loop to display \"Exercise 1\" to \"Exercise 4\". Then use a while loop to ask for whole-number effort scores until the user enters 0. Count every score except 0 and display \"Scores entered:\" with the count.",
       "starter_ref": "shared_program"
     },
     {
@@ -341,7 +341,7 @@
     }
   ],
   "programs": {
-    "challenge1": "for round_number in range(1, 6):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")",
+    "challenge1": "rounds = int(input(\"How many warm-up rounds? \"))\nfor round_number in range(1, rounds + 1):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\nprint(\"Session complete.\")",
     "challenge2": "for round_number in range(1, 4):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\ncounter = 0\nwhile answer != \"done\":\n    answer = input(\"Type done to finish: \")\n    counter = counter + 1\nprint(\"Answers entered:\", counter)",
     "challenge3": "for exercise in range(1, 5):\n    print(\"Exercise\", exercise)\nscore = -1\nratings = 0\nwhile score != 0:\n    score = int(input(\"Effort score, or 0 to stop: \"))\n    if score != 0:\n        ratings = ratings + 1\nprint(\"Scores entered:\", ratings)",
     "broken": "for round_number in range(1, 3):\n    print(\"Warm-up round\", round_number)\nanswer = \"\"\nwhile answer != \"done\":\n    input(\"Type done to finish: \")\nprint(\"Session complete.\")",
@@ -447,15 +447,15 @@
     {
       "challenge": 3,
       "ownership": "Make",
-    "observable_outcome": "Uses for for the four fixed exercises; Uses while for sentinel input; Does not count the terminating zero",
+      "observable_outcome": "Uses for for the four fixed exercises; Uses while for sentinel input; Does not count the terminating zero",
       "success_criteria": [
-      "Uses for for the four fixed exercises",
+        "Uses for for the four fixed exercises",
         "Uses while for sentinel input",
         "Does not count the terminating zero"
       ],
       "test_cases": [
-      "0 gives 0 scores",
-      "2/3/0 gives 2 scores"
+        "0 gives 0 scores",
+        "2/3/0 gives 2 scores"
       ],
       "complexity": {
         "edit_distance": 2,

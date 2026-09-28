@@ -1,4 +1,7 @@
-survey = ["tea", "water", "juice", "coffee"]
+survey = ["tea", "water", "tea", "juice"]
+target = input("Drink to count: ")
+count = 0
 for drink in survey:
-    print("Drink:", drink)
-print("Total drinks:", len(survey))
+    if drink == target:
+        count = count + 1
+print(target, "appears", count, "times")

@@ -161,7 +161,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\"."
+      "prompt": "Change the example's square() function into triple(number), which should return number * 3. Update the menu text and the function call so option \"2\" triples. For example, \"2\" and 6 display \"Result: 18\"."
     },
     {
       "phase": "Modify B",
@@ -232,7 +232,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\".",
+          "prompt": "Change the example's square() function into triple(number), which should return number * 3. Update the menu text and the function call so option \"2\" triples. For example, \"2\" and 6 display \"Result: 18\".",
           "layout_profile": "challenge-code-heavy"
         },
         {
@@ -290,7 +290,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Rename square(number) to triple(number) and return number * 3. Change menu option 2 from \"square\" to \"triple\", then call triple(value) when [choice] is \"2\". Test \"2\" and 6; display \"Result: 18\".",
+      "body": "Change the example's square() function into triple(number), which should return number * 3. Update the menu text and the function call so option \"2\" triples. For example, \"2\" and 6 display \"Result: 18\".",
       "starter_ref": "shared_program"
     },
     {

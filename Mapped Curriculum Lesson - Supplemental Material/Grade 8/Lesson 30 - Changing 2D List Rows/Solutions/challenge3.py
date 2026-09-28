@@ -5,7 +5,5 @@ room = int(input("Room: "))
 schedule.insert(position, [event, room])
 delete_position = int(input("Delete position 0 to 3: "))
 del schedule[delete_position]
-number = 0
 for row in schedule:
-    print(number, row[0], row[1])
-    number = number + 1
+    print(row[0], row[1])

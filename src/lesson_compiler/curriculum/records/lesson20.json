@@ -339,7 +339,7 @@
     }
   ],
   "programs": {
-    "challenge1": "running = True\n\nwhile running == True:\n    choice = input(\"1: greet, 0: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"0\":\n        running = False\n    else:\n        print(\"Choose 1 or 0.\")\n\nprint(\"Menu closed.\")",
+    "challenge1": "running = True\ngreetings = 0\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    choice = choice.lower()\n    if choice == \"1\":\n        print(\"Hello!\")\n        greetings = greetings + 1\n    elif choice == \"2\":\n        running = False\n    else:\n        print(\"Choose 1 or 2.\")\nprint(\"Menu closed.\")\nprint(\"Greetings:\", greetings)",
     "challenge2": "running = True\nwhile running == True:\n    choice = input(\"1: greet, 2: leave, 3: help: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running = False\n    elif choice == \"3\":\n        print(\"Help: choose a number.\")\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Menu closed.\")",
     "challenge3": "running = True\nwhile running == True:\n    choice = input(\"1: bus, 2: walk, 3: leave: \")\n    if choice == \"1\":\n        stop = input(\"Bus stop: \")\n        print(\"Selected stop:\", stop)\n    elif choice == \"2\":\n        print(\"Walk selected.\")\n    elif choice == \"3\":\n        running = False\n    else:\n        print(\"Choose 1, 2 or 3.\")\nprint(\"Planner closed.\")",
     "broken": "running = \"True\"\nwhile running == True:\n    choice = input(\"1: greet, 2: leave: \")\n    if choice == \"1\":\n        print(\"Hello!\")\n    elif choice == \"2\":\n        running == False",

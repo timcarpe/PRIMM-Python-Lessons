@@ -1,5 +1,5 @@
-num1 = int(input("Enter the first whole number: "))
-num2 = int(input("Enter the second whole number: "))
-num3 = int(input("Enter the third whole number: "))
-total = num1 - num2 - num3
-print("Total:", total)
+slices = int(input("How many slices are there? "))
+first_eaten = int(input("Slices eaten by the first friend: "))
+second_eaten = int(input("Slices eaten by the second friend: "))
+slices_left = slices - first_eaten - second_eaten
+print("Slices left:", slices_left)

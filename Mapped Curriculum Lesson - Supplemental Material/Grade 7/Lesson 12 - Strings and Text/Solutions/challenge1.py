@@ -1,4 +1,5 @@
 name = input("What is your first name? ")
-clean_name = name.strip().title()
-
+clean_name = name.strip()
+clean_name = clean_name.title()
+print("You typed:", name)
 print("Hello,", clean_name)

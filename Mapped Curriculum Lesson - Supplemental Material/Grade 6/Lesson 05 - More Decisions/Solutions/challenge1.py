@@ -1,7 +1,7 @@
 score = int(input("Enter a score from 0 to 10: "))
-if score >= 9:
+if score > 7:
     print("Excellent")
-elif score >= 5:
+elif score > 4:
     print("Good")
 else:
     print("Keep practising")

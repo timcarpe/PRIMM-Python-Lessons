@@ -161,12 +161,12 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\"."
+      "prompt": "Change the example's output so each saved note is numbered from 1. Store 1 in [number] before the second for loop, display [number] and the note, then add 1. For example, if the first note is \"milk\", display \"1 milk\"."
     },
     {
       "phase": "Modify B",
       "ownership": "functional extension",
-      "prompt": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\"."
+      "prompt": "Change the example so a while loop replaces the first for loop and collects notes until the user enters \"stop\". Append every other answer to [notes], then display the saved notes as before. For example, \"alpha\", \"beta\" and \"stop\" display only \"alpha\" and \"beta\"."
     },
     {
       "phase": "Make",
@@ -232,12 +232,12 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\".",
+          "prompt": "Change the example's output so each saved note is numbered from 1. Store 1 in [number] before the second for loop, display [number] and the note, then add 1. For example, if the first note is \"milk\", display \"1 milk\".",
           "layout_profile": "challenge-short"
         },
         {
           "title": "Challenge 2",
-          "prompt": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\".",
+          "prompt": "Change the example so a while loop replaces the first for loop and collects notes until the user enters \"stop\". Append every other answer to [notes], then display the saved notes as before. For example, \"alpha\", \"beta\" and \"stop\" display only \"alpha\" and \"beta\".",
           "layout_profile": "challenge-code-heavy-multi-step"
         },
         {
@@ -290,7 +290,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Change range(3) to range(5) so the program asks for five notes. Append each answer to [notes]. Test \"one\", \"two\", \"three\", \"four\" and \"five\"; display the five notes in that order beneath \"Saved notes:\".",
+      "body": "Change the example's output so each saved note is numbered from 1. Store 1 in [number] before the second for loop, display [number] and the note, then add 1. For example, if the first note is \"milk\", display \"1 milk\".",
       "starter_ref": "shared_program"
     },
     {
@@ -303,7 +303,7 @@
       "number": 8,
       "role": "modify B",
       "title": "Challenge 2",
-      "body": "Using the example code, replace the for loop that asks for notes with a while loop. Keep asking for a note until the user enters \"stop\". Append each earlier answer to [notes], but do not append or display \"stop\". Test \"alpha\", \"beta\" and \"stop\"; display only \"alpha\" and \"beta\" beneath \"Saved notes:\".",
+      "body": "Change the example so a while loop replaces the first for loop and collects notes until the user enters \"stop\". Append every other answer to [notes], then display the saved notes as before. For example, \"alpha\", \"beta\" and \"stop\" display only \"alpha\" and \"beta\".",
       "starter_ref": "shared_program"
     },
     {
@@ -340,7 +340,7 @@
     }
   ],
   "programs": {
-    "challenge1": "notes = []\nfor count in range(5):\n    note = input(\"Enter a note: \")\n    notes.append(note)\nprint(\"Saved notes:\")\nfor note in notes:\n    print(note)",
+    "challenge1": "notes = []\nfor count in range(3):\n    note = input(\"Enter a note: \")\n    notes.append(note)\nprint(\"Saved notes:\")\nnumber = 1\nfor note in notes:\n    print(number, note)\n    number = number + 1",
     "challenge2": "notes = []\nnote = input(\"Enter a note, or stop: \")\nwhile note != \"stop\":\n    notes.append(note)\n    note = input(\"Enter a note, or stop: \")\nprint(\"Saved notes:\")\nfor saved_note in notes:\n    print(saved_note)",
     "challenge3": "roster = []\nteam_size = int(input(\"Number of names: \"))\nfor count in range(team_size):\n    name = input(\"Name: \")\n    roster.append(name)\nposition = int(input(\"Valid replacement position: \"))\nreplacement = input(\"Replacement name: \")\nroster[position] = replacement\nprint(\"Final roster:\")\nfor name in roster:\n    print(name)",
     "broken": "notes = []\nfor count in range(3):\n    note = input(\"Enter a note: \")\nnotes.append(note)\nfor note in notes\n    print(note)",

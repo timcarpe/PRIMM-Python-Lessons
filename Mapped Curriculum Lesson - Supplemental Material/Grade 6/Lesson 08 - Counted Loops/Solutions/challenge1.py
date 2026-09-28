@@ -1,3 +1,4 @@
 number = int(input("Which times table? "))
-for count in range(1, 11):
+lines = int(input("How many lines? "))
+for count in range(1, lines + 1):
     print(number, "x", count, "=", number * count)

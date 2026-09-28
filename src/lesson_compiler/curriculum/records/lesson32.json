@@ -142,7 +142,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order."
+      "prompt": "Change the example by adding a second function called show_rules() that displays \"Save your work often.\" and \"Ask for help when stuck.\" Call show_rules() after show_greeting() and before the final message."
     },
     {
       "phase": "Modify B",
@@ -213,7 +213,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order.",
+          "prompt": "Change the example by adding a second function called show_rules() that displays \"Save your work often.\" and \"Ask for help when stuck.\" Call show_rules() after show_greeting() and before the final message.",
           "layout_profile": "challenge-medium"
         },
         {
@@ -271,7 +271,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Rename show_greeting() to show_welcome() and update the function call. The two original messages must still appear in the same order.",
+      "body": "Change the example by adding a second function called show_rules() that displays \"Save your work often.\" and \"Ask for help when stuck.\" Call show_rules() after show_greeting() and before the final message.",
       "starter_ref": "shared_program"
     },
     {
@@ -321,9 +321,9 @@
     }
   ],
   "programs": {
-    "challenge1": "def show_welcome():\n    print(\"Hello, Python learner!\")\n\n\nshow_welcome()\nprint(\"Welcome to Python.\")",
-    "challenge2": "def show_greeting():\n    print(\"Hello, Python learner!\")\n\n\nshow_greeting()\nshow_greeting()\nprint(\"Welcome to Python.\")",
-    "challenge3": "def show_tip():\n    print(\"Use clear names.\")\nshow_tip()\nshow_tip()",
+    "challenge1": "def show_greeting():\n    print(\"Hello, Python learner!\")\ndef show_rules():\n    print(\"Save your work often.\")\n    print(\"Ask for help when stuck.\")\nshow_greeting()\nshow_rules()\nprint(\"Welcome to Python.\")",
+    "challenge2": "def show_greeting():\n    print(\"Hello, Python learner!\")\ndef show_line():\n    print(\"--------------------\")\nshow_line()\nshow_greeting()\nshow_line()\nprint(\"Welcome to Python.\")",
+    "challenge3": "def show_intro():\n    print(\"Welcome to the program.\")\ndef show_goodbye():\n    print(\"Goodbye for now.\")\nshow_intro()\nname = input(\"What is your name? \")\nprint(\"Nice to meet you,\", name)\nshow_goodbye()",
     "broken": "def show_greeting():\n    print(greeting_message)\nshow_greeting()\nprint(\"Welcome to Python.\")",
     "fixed": "def show_greeting():\n    print(\"Hello, Python learner!\")\nshow_greeting()\nprint(\"Welcome to Python.\")"
   },

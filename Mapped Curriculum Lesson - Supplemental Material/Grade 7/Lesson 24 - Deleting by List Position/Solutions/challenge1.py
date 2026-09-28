@@ -1,8 +1,7 @@
 tasks = ["email", "design", "test", "publish"]
-position = int(input("Completed position 0 to 3: "))
+position = int(input("Completed position 0 to 2: "))
 completed = tasks[position]
 del tasks[position]
-
 print("Completed:", completed)
-print("Next:", tasks[0])
+print("Moved up:", tasks[position])
 print("Remaining:", tasks)

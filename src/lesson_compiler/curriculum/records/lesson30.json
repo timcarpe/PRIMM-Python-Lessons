@@ -336,9 +336,9 @@
     }
   ],
   "programs": {
-    "challenge1": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nclubs.append([\"Code\", 15])\nclubs.insert(0, [\"Drama\", 11])\nfor club in clubs:\n    print(club[0], club[1])",
+    "challenge1": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nnew_club = [\"Code\", 15]\nclubs.append(new_club)\nclubs.insert(1, [\"Music\", 9])\nremoved = clubs[0]\ndel clubs[0]\nclubs.append(removed)\nprint(\"Moved to end:\", removed[0])\nfor club in clubs:\n    print(club[0], club[1])",
     "challenge2": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nname = input(\"New club: \")\nmembers = int(input(\"Members: \"))\nnew_club = [name, members]\nclubs.append(new_club)\nposition = int(input(\"Delete row 0 to 2: \"))\ndel clubs[position]\nfor club in clubs:\n    print(club[0], club[1])",
-    "challenge3": "schedule = [[\"Talk\", 1], [\"Quiz\", 2], [\"Demo\", 3]]\nposition = int(input(\"Insert position 0 to 3: \"))\nevent = input(\"Event: \")\nroom = int(input(\"Room: \"))\nschedule.insert(position, [event, room])\ndelete_position = int(input(\"Delete position 0 to 3: \"))\ndel schedule[delete_position]\nnumber = 0\nfor row in schedule:\n    print(number, row[0], row[1])\n    number = number + 1",
+    "challenge3": "schedule = [[\"Talk\", 1], [\"Quiz\", 2], [\"Demo\", 3]]\nposition = int(input(\"Insert position 0 to 3: \"))\nevent = input(\"Event: \")\nroom = int(input(\"Room: \"))\nschedule.insert(position, [event, room])\ndelete_position = int(input(\"Delete position 0 to 3: \"))\ndel schedule[delete_position]\nfor row in schedule:\n    print(row[0], row[1])",
     "broken": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nclubs.append(\"Code\", 15)\ndel clubs[0][0]\nprint(clubs)",
     "fixed": "clubs = [[\"Art\", 12], [\"Chess\", 18]]\nclubs.append([\"Code\", 15])\ndel clubs[0]\nprint(clubs)"
   },

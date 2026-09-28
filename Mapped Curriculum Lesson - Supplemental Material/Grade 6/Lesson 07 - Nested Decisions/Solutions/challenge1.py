@@ -1,10 +1,11 @@
 raining = input("Is it raining? yes/no: ")
-
 if raining == "yes":
-    wind_strength = input("Wind strength strong/light: ")
-    if wind_strength == "strong":
+    wind = input("Wind strong/light/none: ")
+    if wind == "strong":
         print("Wear a coat.")
-    else:
+    elif wind == "light":
         print("Take an umbrella.")
+    else:
+        print("A hood will do.")
 else:
     print("No rain gear needed.")

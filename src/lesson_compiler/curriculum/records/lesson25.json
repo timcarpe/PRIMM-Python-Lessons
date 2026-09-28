@@ -141,7 +141,7 @@
     {
       "phase": "Modify A",
       "ownership": "small constrained edit",
-      "prompt": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\"."
+      "prompt": "Change the example so it counts the drinks as the loop runs. Store 0 in [visited] before the for loop and add 1 inside it. After the loop, display \"Visited:\" followed by [visited], then the existing len() total. Both lines should show 3."
     },
     {
       "phase": "Modify B",
@@ -211,7 +211,7 @@
       "challenges": [
         {
           "title": "Challenge 1",
-          "prompt": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\".",
+          "prompt": "Change the example so it counts the drinks as the loop runs. Store 0 in [visited] before the for loop and add 1 inside it. After the loop, display \"Visited:\" followed by [visited], then the existing len() total. Both lines should show 3.",
           "layout_profile": "challenge-medium"
         },
         {
@@ -269,7 +269,7 @@
       "number": 6,
       "role": "modify A",
       "title": "Challenge 1",
-      "body": "Create [visited] and store 0 in it before the for loop. Add 1 to [visited] each time the loop displays a drink. After the loop, display \"Visited:\" followed by [visited], then keep the existing total from len(). For the starter list, display \"Visited: 3\" and \"Total drinks: 3\".",
+      "body": "Change the example so it counts the drinks as the loop runs. Store 0 in [visited] before the for loop and add 1 inside it. After the loop, display \"Visited:\" followed by [visited], then the existing len() total. Both lines should show 3.",
       "starter_ref": "shared_program"
     },
     {
@@ -320,8 +320,8 @@
   ],
   "programs": {
     "challenge1": "survey = [\"tea\", \"water\", \"juice\"]\nvisited = 0\n\nfor drink in survey:\n    print(\"Drink:\", drink)\n    visited = visited + 1\n\nprint(\"Visited:\", visited)\nprint(\"Total drinks:\", len(survey))",
-    "challenge2": "survey = [\"tea\", \"water\", \"juice\", \"coffee\"]\nfor drink in survey:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len(survey))",
-    "challenge3": "colours = [\"blue\", \"green\", \"red\"]\nfor colour in colours:\n    print(\"Colour:\", colour)\nprint(\"Number of answers:\", len(colours))",
+    "challenge2": "survey = [\"tea\", \"water\", \"tea\", \"juice\"]\ntarget = input(\"Drink to count: \")\ncount = 0\nfor drink in survey:\n    if drink == target:\n        count = count + 1\nprint(target, \"appears\", count, \"times\")",
+    "challenge3": "scores = [12, 15, 9, 18, 6]\ntotal = 0\nfor score in scores:\n    total = total + score\nprint(\"Total:\", total)\nprint(\"Average:\", total / len(scores))",
     "broken": "survey = [\"tea\", \"water\", \"juice\"]\nfor drink in surveys:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len)",
     "fixed": "survey = [\"tea\", \"water\", \"juice\"]\nfor drink in survey:\n    print(\"Drink:\", drink)\nprint(\"Total drinks:\", len(survey))"
   },

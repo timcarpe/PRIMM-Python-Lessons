@@ -176,7 +176,7 @@
     }
   ],
   "concept_sheet": {
-    "title": "Decimal Numbers \u2013 Concept Sheet",
+    "title": "Decimal Numbers – Concept Sheet",
     "intro": "In this lesson we learned:",
     "blocks": [
       {
@@ -212,7 +212,7 @@
       "look_heading": "Look at this code:",
       "predict_heading": "What do you think this code will display?",
       "run_heading": "Run the code. Compare the result with your prediction:",
-      "investigate_heading": "Let\u2019s investigate! Answer the questions below:",
+      "investigate_heading": "Let’s investigate! Answer the questions below:",
       "investigate_questions": [
         "If you enter 7.5, which value is stored in distance?",
         "Why does this program use float() instead of int() for 7.5?",
@@ -278,7 +278,7 @@
     {
       "number": 5,
       "role": "investigate",
-      "title": "Let\u2019s investigate.",
+      "title": "Let’s investigate.",
       "body": "Answer the questions:\n1. If I enter 6, which number is stored with the name num2?\n2. After num1 is added to num2, which number is stored with the name total?\n3. What number appears on screen when the program finishes?",
       "code_ref": "shared_program"
     },
@@ -292,7 +292,7 @@
     {
       "number": 7,
       "role": "hidden solution A",
-      "title": "Challenge 1 \u2013 Suggested Solution",
+      "title": "Challenge 1 – Suggested Solution",
       "solution_ref": "challenge1"
     },
     {
@@ -300,12 +300,12 @@
       "role": "modify B",
       "title": "Challenge 2",
       "body": "Store 2 as a non-zero secret number, divide the user's sum by it, and display the new total.",
-      "starter_ref": "shared_program"
+      "starter_ref": "challenge1"
     },
     {
       "number": 9,
       "role": "hidden solution B",
-      "title": "Challenge 2 \u2013 Suggested Solution",
+      "title": "Challenge 2 – Suggested Solution",
       "solution_ref": "challenge2"
     },
     {
@@ -318,7 +318,7 @@
     {
       "number": 11,
       "role": "hidden solution C",
-      "title": "Challenge 3 \u2013 Suggested Solution",
+      "title": "Challenge 3 – Suggested Solution",
       "solution_ref": "challenge3"
     },
     {
@@ -331,7 +331,7 @@
     {
       "number": 13,
       "role": "hidden debug solution",
-      "title": "Fix the code! \u2013 Suggested Solution",
+      "title": "Fix the code! – Suggested Solution",
       "solution_ref": "fixed"
     }
   ],
@@ -339,7 +339,7 @@
     "challenge1": "num1 = int(input(\"Enter the first whole number: \"))\nnum2 = int(input(\"Enter the second whole number: \"))\ntotal = num1 + num2\nprint(\"Total:\", total)",
     "challenge2": "num1 = int(input(\"Enter the first whole number: \"))\nnum2 = int(input(\"Enter the second whole number: \"))\ntotal = num1 + num2\ndivisor = 2\ndivided_total = total / divisor\nprint(\"Divided total:\", divided_total)",
     "challenge3": "num1 = int(input(\"Enter the first whole number: \"))\nnum2 = int(input(\"Enter the second whole number: \"))\nnum3 = int(input(\"Enter the third whole number: \"))\ntotal = num1 - num2 - num3\nprint(\"Total:\", total)",
-    "broken": "# Lesson 02 - Hello Python!\n# Fix the code!\n\nnum1 = (\"12\")\nnum1 = int(input(\"Enter a number between 1 and 12: \"))\n\ninput(num1 * num2 \u2013 num1)\n\n",
+    "broken": "# Lesson 02 - Hello Python!\n# Fix the code!\n\nnum1 = (\"12\")\nnum1 = int(input(\"Enter a number between 1 and 12: \"))\n\ninput(num1 * num2 – num1)\n\n",
     "fixed": "# Lesson 02 - Hello Python!\n# Fix the code! - Solution\n\nnum1 = 12 #integers do not have \"\" like strings\nnum2 = int(input(\"Enter a number between 1 and 12: \")) #Assign this to a new variable num2\n\nprint(num1 * num2 - num1) #print() instead of input()\n"
   },
   "assets": {

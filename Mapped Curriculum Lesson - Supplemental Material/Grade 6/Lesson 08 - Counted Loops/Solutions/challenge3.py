@@ -1,3 +1,5 @@
-message = input("Enter a short message: ")
-for count in range(1, 4):
-    print(count, message)
+total = int(input("Starting amount: "))
+saving = int(input("Weekly saving: "))
+for week in range(1, 5):
+    total = total + saving
+    print("Week", week, "total:", total)

@@ -1,6 +1,9 @@
 team = input("Team name: ")
-team = team.upper()
-code = input("Team code: ")
-code = code.lower()
+team = team.lower()
+typed_code = input("Team code: ")
+code = typed_code.upper()
 print("Team:", team)
-print("Code:", code)
+if typed_code == code:
+    print("Code format OK")
+else:
+    print("Code changed to", code)
