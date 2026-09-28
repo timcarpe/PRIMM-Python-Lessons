@@ -1,5 +1,7 @@
 const GREEN = "#067D17";
 const BLUE = "#1750EB";
+// PyCharm-style keyword orange, slightly darker than Darcula's #CC7832 for white slides.
+const ORANGE = "#C45E00";
 const BLACK = "#080808";
 const VARIABLE = "#6A1B9A";
 const VARIABLE_FILL = "#ECEAF4";
@@ -35,15 +37,16 @@ function candidates(text, vocabulary) {
   for (const match of text.matchAll(VARIABLE_MARKER)) add(match.index, match.index + match[0].length, VARIABLE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\.py\b/g)) add(match.index, match.index + match[0].length, BLUE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\b/g)) {
-    if (UNAMBIGUOUS_KEYWORDS.has(match[0]) || INLINE_TYPES.has(match[0].toLowerCase())) add(match.index, match.index + match[0].length, BLUE);
+    if (UNAMBIGUOUS_KEYWORDS.has(match[0])) add(match.index, match.index + match[0].length, ORANGE);
+    else if (INLINE_TYPES.has(match[0].toLowerCase())) add(match.index, match.index + match[0].length, BLUE);
   }
   for (const match of text.matchAll(/\b(?:use|using|add|write|include|with|a|an)\s+(if|for|while)\b/gi)) {
     const token = match[1];
     const start = match.index + match[0].lastIndexOf(token);
-    add(start, start + token.length, BLUE);
+    add(start, start + token.length, ORANGE);
   }
-  for (const match of text.matchAll(/\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch|comparison))/g)) add(match.index, match.index + match[0].length, BLUE);
-  for (const match of text.matchAll(/\b(?:and|or|not|in)\b(?=\s+(?:operator|condition|keyword))/g)) add(match.index, match.index + match[0].length, BLUE);
+  for (const match of text.matchAll(/\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch|comparison))/g)) add(match.index, match.index + match[0].length, ORANGE);
+  for (const match of text.matchAll(/\b(?:and|or|not|in)\b(?=\s+(?:operator|condition|keyword))/g)) add(match.index, match.index + match[0].length, ORANGE);
   return found.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
 }
 

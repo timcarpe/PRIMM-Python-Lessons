@@ -26,8 +26,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 01 - Hello Python!/Hello Python! - Slides.pptx",
-      "bytes": 503701,
-      "sha256": "a0e44900da90105a6a33fcf2a2c262eb188e04636e1c1fe6fc14f248b5d98d23"
+      "bytes": 503704,
+      "sha256": "9e80c7a81a2bcd5c7b34489f60724f7fd4bdd3e5287b24bfbfcd4d2f1f229e3b"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 01 - Hello Python!/Hello Python! - Starter Code.py",
@@ -41,8 +41,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 02 - Operators and Integers/Operators and Integers - Slides.pptx",
-      "bytes": 702015,
-      "sha256": "895997809d90c9cfc8017b1da3df046f51f4040c6c16e46c6de2ea95a34e8823"
+      "bytes": 702016,
+      "sha256": "7b9bba5ac1aa107479c9e8977ac04da75972044566c289827486ed9ec96eed0f"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 02 - Operators and Integers/Operators and Integers - Starter Code.py",
@@ -56,8 +56,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 03 - Decimal Numbers/Decimal Numbers - Slides.pptx",
-      "bytes": 201055,
-      "sha256": "56f7ff1874361ba578f1ba939e09496a90bea0f2aa3cb2753cae8152d1c97632"
+      "bytes": 201067,
+      "sha256": "3758179b51771d6820bb8aef991f83590e0ce93fe7a85c19f3a3ffacffaf4033"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 03 - Decimal Numbers/Decimal Numbers - Starter Code.py",
@@ -66,13 +66,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 04 - Decisions/Decisions - Challenges.pdf",
-      "bytes": 171783,
-      "sha256": "e9e58a4318a832e29c9b25496670a6873735197eb6929d5355b9d39ed026f94f"
+      "bytes": 171790,
+      "sha256": "b7c1800d77956c5526a887bff137859b63c02488953bd1e580b542881a9e1d59"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 04 - Decisions/Decisions - Slides.pptx",
-      "bytes": 540378,
-      "sha256": "1c2ce638116637857fdbeab4e3a41bb8ca621525a511b15c2d5257c1e7679dc7"
+      "bytes": 540435,
+      "sha256": "ad0a8c96af1e13ce2fd2127e578c4192c4ca158eb31917b6e4f6f0c7bf04e88c"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 04 - Decisions/Decisions - Starter Code.py",
@@ -81,13 +81,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 05 - More Decisions/More Decisions - Challenges.pdf",
-      "bytes": 181326,
-      "sha256": "39516d86dd8d1678e84f05c56c6f97b4e093c7f6b50a69949cf777790d1f3307"
+      "bytes": 181335,
+      "sha256": "db51ea7eeb31e8b0cca82ddb2b57582060ab2732c7427b0088745bb112515434"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 05 - More Decisions/More Decisions - Slides.pptx",
-      "bytes": 571038,
-      "sha256": "e1b188242e96de44888f2e48265f15c3893f1fa63ac19015c2bbd5963685ec37"
+      "bytes": 571084,
+      "sha256": "cf305747b6864f0bf54e121725d43b7f35c1e9f20d5541e16da7a6e7dbc33c46"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 05 - More Decisions/More Decisions - Starter Code.py",
@@ -96,13 +96,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 06 - Logical Choices/Logical Choices - Challenges.pdf",
-      "bytes": 185146,
-      "sha256": "46be0ad5e6c3d22a7ddeb0311ceaf1f4d05fde625ba5955b0f37f97341dba21f"
+      "bytes": 185154,
+      "sha256": "9e4e679a27a3a91fad8943027333e80415dab29b84263fd3ff28d830b14c50c0"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 06 - Logical Choices/Logical Choices - Slides.pptx",
-      "bytes": 585182,
-      "sha256": "08d293a3a1ab2af64c4619593f626548ca19d782f6467dc273c93c8045430d27"
+      "bytes": 585240,
+      "sha256": "19daf639be3b6a7b1cc1e586c0f8d8764078d41c11e6ed7d9a4b628321a2aef4"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 06 - Logical Choices/Logical Choices - Starter Code.py",
@@ -111,13 +111,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 07 - Nested Decisions/Nested Decisions - Challenges.pdf",
-      "bytes": 159172,
-      "sha256": "7dffdc332d4199679c0ff01bb6cfae6b16ac7a5bc74ec5c461162de2ee761bc2"
+      "bytes": 159181,
+      "sha256": "05449bf9fa77ea203046c22180991bc8eea834af71ccf560099b69ae90f2895e"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 07 - Nested Decisions/Nested Decisions - Slides.pptx",
-      "bytes": 415522,
-      "sha256": "8accfbfb8623e2005e5871ca1db6d4ad5b96badbe8139200c60f2b5adbf8bab7"
+      "bytes": 415597,
+      "sha256": "7f2d44bac224fa126b4e449ba24a26a6baede8a81afabb472c7e2ac9dda27bd1"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 07 - Nested Decisions/Nested Decisions - Starter Code.py",
@@ -126,13 +126,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 08 - Counted Loops/Counted Loops - Challenges.pdf",
-      "bytes": 233050,
-      "sha256": "16afdd348ccab35ed1da850d983c4349e3c472eb3f163fddde2a7c57eb79f4de"
+      "bytes": 233058,
+      "sha256": "22f26794e51844e857783165cad80fe51e2535e79eeb43a4ed1b6745e0ab8cf6"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 08 - Counted Loops/Counted Loops - Slides.pptx",
-      "bytes": 942217,
-      "sha256": "8178f996554359005c73fd2c038d5845eccf0892b84d2a4f9391eedc3406f84b"
+      "bytes": 942311,
+      "sha256": "7647f85987a17b77bfd6fc59b63af49485ea5e1e00c2354f6e1d2360eb0c1a25"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 08 - Counted Loops/Counted Loops - Starter Code.py",
@@ -141,13 +141,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 09 - Condition Loops/Condition Loops - Challenges.pdf",
-      "bytes": 185025,
-      "sha256": "61f062206d68fc825c1f91fe12ee449ef5b8c281e39e230adebf9e02b2a52cb1"
+      "bytes": 185032,
+      "sha256": "8198080064cf0a115b9e5c91593f39c5be8e53d4acca87e8d2e9bf24e8d2326f"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 09 - Condition Loops/Condition Loops - Slides.pptx",
-      "bytes": 585684,
-      "sha256": "cc7ac9c76547da40a899ec1f698153d4514efb99881a1aaed75111409a553832"
+      "bytes": 585745,
+      "sha256": "89af32cc71bbfbc0f331abacbc6d1aca89d588a757999665219a7abdc5c566d5"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 09 - Condition Loops/Condition Loops - Starter Code.py",
@@ -156,13 +156,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 10 - Choosing Loop Structures/Choosing Loop Structures - Challenges.pdf",
-      "bytes": 190527,
-      "sha256": "1a88d5d77b3a92dff8ddfa19d62f5c4a2ec4702eb18fef6bfa17a18dbb411be5"
+      "bytes": 190537,
+      "sha256": "8a9802382a44f04152971c46b98531f93e74542f6407230a663a70ece881986a"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 10 - Choosing Loop Structures/Choosing Loop Structures - Slides.pptx",
-      "bytes": 652791,
-      "sha256": "74ad466e7737b51021f7c118c862a87d5239ad79b743fb115039ce952f43026b"
+      "bytes": 652860,
+      "sha256": "79326f878a3a53cb8ff6c40a26c6de5e56043a0088df9877a6f369b950f33932"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 10 - Choosing Loop Structures/Choosing Loop Structures - Starter Code.py",
@@ -171,13 +171,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 11 - Arcade Tournament/Arcade Tournament - Challenges.pdf",
-      "bytes": 116118,
-      "sha256": "1877dd6112757524c3265d39671cd60e0c2dd6f0971961a9c4f6a6a5d4c7f3f9"
+      "bytes": 116143,
+      "sha256": "a27be127ff335063f22cb73808c13b20bd9d0a497f5588cb22b91ddc69494170"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 6/Lesson 11 - Arcade Tournament/Arcade Tournament - Slides.pptx",
-      "bytes": 639243,
-      "sha256": "891241cfeccb446273a4bd8373d03498c1744f60b09d24b01ed370590287512e"
+      "bytes": 639259,
+      "sha256": "db728df2c77d82f7fdba011b74ababef6dec28808a6108efb7c2b172c327bc33"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 12 - Strings and Text/Strings and Text - Challenges.pdf",
@@ -186,8 +186,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 12 - Strings and Text/Strings and Text - Slides.pptx",
-      "bytes": 757138,
-      "sha256": "39e1d6c9f80a881ac99efbf22cacdb9fc4d9e5abbf2c490000d0056a9cd01b9c"
+      "bytes": 757148,
+      "sha256": "02514bd088ddd6c0889dd6966a4258ba647c5621d5573b77796a5bed0a9c6ce4"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 12 - Strings and Text/Strings and Text - Starter Code.py",
@@ -201,8 +201,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 13 - String Positions/String Positions - Slides.pptx",
-      "bytes": 547777,
-      "sha256": "c7d3f3c26be16a53f3d55c9e757a05e3724992fab7bdb2a8e33f2e6557c9f4a0"
+      "bytes": 547768,
+      "sha256": "8394ee9738913bcde38beaffdf264d40f1f0ddd39ed7221ac64cd3c2b4fae87b"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 13 - String Positions/String Positions - Starter Code.py",
@@ -211,13 +211,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 14 - Changing Text Case/Changing Text Case - Challenges.pdf",
-      "bytes": 157498,
-      "sha256": "fdfe4ef0007c8a1675e1de6fa5eaa8d85c4955c138a1b8724ece095d993eabc0"
+      "bytes": 157507,
+      "sha256": "9ada355a176c25e2926cd81eca500782315e2e426189a2cd89a1dca14beb5073"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 14 - Changing Text Case/Changing Text Case - Slides.pptx",
-      "bytes": 415096,
-      "sha256": "c0fa7591d8d82e3c4757f4b7294f7d812e7b300cdd881bde7eff9cb6e689129a"
+      "bytes": 415100,
+      "sha256": "45d1fbff9b9c967f2077316ad7f8fab1aa636cf0d3115672e626025d2ea92388"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 14 - Changing Text Case/Changing Text Case - Starter Code.py",
@@ -231,8 +231,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 15 - Joining Text/Joining Text - Slides.pptx",
-      "bytes": 491756,
-      "sha256": "0b582992eeca7136a0caa3fdd9934b0781382c54114e549bfddfc59017eb5288"
+      "bytes": 491763,
+      "sha256": "b6baccab9aac7f916317009e057b6772536a22ccd816eb522d276249c34177d5"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 15 - Joining Text/Joining Text - Starter Code.py",
@@ -246,8 +246,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 16 - Text Length and Lines/Text Length and Lines - Slides.pptx",
-      "bytes": 528974,
-      "sha256": "e4ee10486fa7650f36d694086f9688aa49c685b3e26e633a5c5806ec4fd89c43"
+      "bytes": 528980,
+      "sha256": "6654a6c732b4098080ca6e2035fc4669a56fabd1c7180da4606ccf91ce2dfd9f"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 16 - Text Length and Lines/Text Length and Lines - Starter Code.py",
@@ -261,8 +261,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 17 - Lists/Lists - Slides.pptx",
-      "bytes": 792360,
-      "sha256": "6d294bd8ab91d04278e1bab51eb35dd9cc429b6c39ee3957185fc49e9b2c9443"
+      "bytes": 792354,
+      "sha256": "8efd901bc122fece0601e4fcff09ec946b280c7f708a5b7e0f0eab21a7242c34"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 17 - Lists/Lists - Starter Code.py",
@@ -271,13 +271,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 18 - Random Whole Numbers/Random Whole Numbers - Challenges.pdf",
-      "bytes": 204089,
-      "sha256": "a910c04f1b8f6e461a410616f42cfa8ea6f214b1542f8f17254460c840b1b496"
+      "bytes": 204098,
+      "sha256": "8efb4acd65b6cda2c932f590e969580ca1f56e265d628a25a5012ec410883fe0"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 18 - Random Whole Numbers/Random Whole Numbers - Slides.pptx",
-      "bytes": 794009,
-      "sha256": "5aab1dbd57c6b47d977a1173684798f39cd521fa4e50eac5db266e86a112a9ab"
+      "bytes": 794022,
+      "sha256": "5402fc74366596f50b57f60b6d788846e700bbcb35554f36a9a086360a1c2fcc"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 18 - Random Whole Numbers/Random Whole Numbers - Starter Code.py",
@@ -286,13 +286,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 19 - Random Steps and Choices/Random Steps and Choices - Challenges.pdf",
-      "bytes": 184650,
-      "sha256": "f8a1c22c8669db72f738097de2e722bef7682ddc064706479ce1978aa808ba5c"
+      "bytes": 184657,
+      "sha256": "0715c7933d497b6a274796b5b9d36f03aa037383a34095ad06e96cd575d196fd"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 19 - Random Steps and Choices/Random Steps and Choices - Slides.pptx",
-      "bytes": 624107,
-      "sha256": "07cdcc8bcee45e186526864f7890685148716bd7c8343b577832f8cec10d4e9f"
+      "bytes": 624115,
+      "sha256": "29c3992ea9cfd185974752c6a7aeb1e0ad16109b773eb6e754b0241616dbce8c"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 19 - Random Steps and Choices/Random Steps and Choices - Starter Code.py",
@@ -301,13 +301,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 20 - Reliable Menus/Reliable Menus - Challenges.pdf",
-      "bytes": 166257,
-      "sha256": "9b33b42c3521090b8c2d5e9f7c6b42d52ad42b29e3b6bf9fb2a86047dd57783c"
+      "bytes": 166265,
+      "sha256": "5c1d0beed4317529ab353eb251684a287a87cad874a8a7edc0727c0ac49ffbd5"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 20 - Reliable Menus/Reliable Menus - Slides.pptx",
-      "bytes": 459876,
-      "sha256": "345de283b7e06ab78139b68b02837b118c4287bf55fa4a79180904fbbcf74388"
+      "bytes": 459994,
+      "sha256": "f6d8682adfac1f7f3ed611ff5195a215f503f42b971784e729e86ad9d6cb5fdb"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 20 - Reliable Menus/Reliable Menus - Starter Code.py",
@@ -321,8 +321,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 21 - Character Codes/Character Codes - Slides.pptx",
-      "bytes": 790803,
-      "sha256": "088024c885f278a1e66f6aa14b2625216d35b7767b78a104c6f621ce223c43e3"
+      "bytes": 790791,
+      "sha256": "03bbc62420d4bfc21405e7efbe64e913eaff2a3ea2d694960e6aa1881d6da8f8"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 21 - Character Codes/Character Codes - Starter Code.py",
@@ -336,8 +336,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 22 - List Positions and Updates/List Positions and Updates - Slides.pptx",
-      "bytes": 699854,
-      "sha256": "0945370120e2bbad23d0e657caf9d530cc8ee4e20543cc593d7eaed9d58c0167"
+      "bytes": 699853,
+      "sha256": "06328fc1b9fe003051fbfc2ecfb15c0519b74b4ec0d51a6c6e4cd6be6ef28260"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 22 - List Positions and Updates/List Positions and Updates - Starter Code.py",
@@ -351,8 +351,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 23 - Inserting and Removing List Items/Inserting and Removing List Items - Slides.pptx",
-      "bytes": 562331,
-      "sha256": "37f0a295d35ec39694f761f9f3d220fa5e1d181131efaddda85967ba63c2471d"
+      "bytes": 562333,
+      "sha256": "1203e22b9932ce9ef7de6b9c95b1a2a2706fd3d03c1d0f0bfdb7987363e3f7ed"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 23 - Inserting and Removing List Items/Inserting and Removing List Items - Starter Code.py",
@@ -366,8 +366,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 24 - Deleting by List Position/Deleting by List Position - Slides.pptx",
-      "bytes": 415659,
-      "sha256": "e2d64863726b875910a757f9b7e6a2a1accab6c4345c69a3828701ef70c2897b"
+      "bytes": 415661,
+      "sha256": "d1dbcbdc4db558d9fee1458f3c825d08cda7100e9001f0d79ce7a149482d6cd9"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 24 - Deleting by List Position/Deleting by List Position - Starter Code.py",
@@ -376,13 +376,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 25 - Working Through Lists/Working Through Lists - Challenges.pdf",
-      "bytes": 223678,
-      "sha256": "1f8e2bad75e04aea40f0fb4ab25950a3841d836b231d7752e309e183b3c9616d"
+      "bytes": 223686,
+      "sha256": "8379b917d6f95bea49728fc0cff2ac8b2324b250ed28be8cee78a060130a5c35"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 25 - Working Through Lists/Working Through Lists - Slides.pptx",
-      "bytes": 899836,
-      "sha256": "f879549f9ece260774c6258e666f757894f35e7a2be9a141d990d00ef7abdb25"
+      "bytes": 899908,
+      "sha256": "a3653b3b67eb290c61120c1d9850804bc7c7a72ea7399717b0646a2e79ff037b"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 25 - Working Through Lists/Working Through Lists - Starter Code.py",
@@ -391,13 +391,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 26 - Building Lists with Loops/Building Lists with Loops - Challenges.pdf",
-      "bytes": 165079,
-      "sha256": "db359c78631cd5c6dd4be7c5f3879551d2e7c285f1a4cc82d517184d62272fdf"
+      "bytes": 165086,
+      "sha256": "e34e4ccfa622a161240ac829107cbb4ceb94ce95483829c8231d545f87c1fd64"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 26 - Building Lists with Loops/Building Lists with Loops - Slides.pptx",
-      "bytes": 460256,
-      "sha256": "a33aee804410cb5dad3dda49cd59d6ba5e4d9538c0c01eea3fd5489e9f2304a6"
+      "bytes": 460310,
+      "sha256": "d4578ab85da49be9e0decdfd06fb46cfbed9f4a1d3baf7a39ce5577e0cc9e2ba"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 26 - Building Lists with Loops/Building Lists with Loops - Starter Code.py",
@@ -406,23 +406,23 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 27 - School Fair Prize Draw/School Fair Prize Draw - Challenges.pdf",
-      "bytes": 117430,
-      "sha256": "ac443e4782a5f17ca1cac9e4b585f88f0b8e3c5e5f6197a904de6ff126e997b3"
+      "bytes": 117446,
+      "sha256": "e8a4f1e50131d69738b95d594bcd6560541416d774316a7d95364f4ca1cdbca8"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 7/Lesson 27 - School Fair Prize Draw/School Fair Prize Draw - Slides.pptx",
-      "bytes": 860932,
-      "sha256": "ab9b0dd187d47f9eb1abc68a4f9dd26deb7e3acefe532fc1850137c622f2e31d"
+      "bytes": 860940,
+      "sha256": "52d16644a0fb0ec41d7449bedd83de8a05d5ef6cbc3cda4ee36b9f96ec4d73ff"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 28 - Reading 2D Lists/Reading 2D Lists - Challenges.pdf",
-      "bytes": 189203,
-      "sha256": "a36434bebefe925787557ccf6b2f2a9db1ba024c7196825bcb01d14c27f66be8"
+      "bytes": 189213,
+      "sha256": "c44e90750b10da145de8371f5e66abb7c59e26dc149648b81f35a1e0825485d6"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 28 - Reading 2D Lists/Reading 2D Lists - Slides.pptx",
-      "bytes": 661175,
-      "sha256": "99f56fa5483ba08dd05042cf62589f0ace820ef3822a5dfd38cbd81069c83042"
+      "bytes": 661188,
+      "sha256": "2f11521595329ea169b09fb79f0896219fc39155273c21b3c012e6864e7de49d"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 28 - Reading 2D Lists/Reading 2D Lists - Starter Code.py",
@@ -436,8 +436,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 29 - Updating 2D List Cells/Updating 2D List Cells - Slides.pptx",
-      "bytes": 820951,
-      "sha256": "63dead8ad76890f3e1be29b9b24ae7ee725b64c8ba49e93d3ba5ba50656fa8d3"
+      "bytes": 820941,
+      "sha256": "48f0a6dbce734bbd9ca489afac81ae4571dd0c26e37257075ce58bfb4a2dbacf"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 29 - Updating 2D List Cells/Updating 2D List Cells - Starter Code.py",
@@ -446,13 +446,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 30 - Changing 2D List Rows/Changing 2D List Rows - Challenges.pdf",
-      "bytes": 209345,
-      "sha256": "7ee29b5c05e48f5ddde3d450551726a2a4664bcc3742304b58986f1af7db055a"
+      "bytes": 209354,
+      "sha256": "948a5a90be98579251c05acfe708cf6a2ab50efc6bf561e330a91571007bdc0a"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 30 - Changing 2D List Rows/Changing 2D List Rows - Slides.pptx",
-      "bytes": 809347,
-      "sha256": "b4b417c8f6510aecdfd575bceff095963cfbd574912eced3bd1eb5f65ab6fd42"
+      "bytes": 809403,
+      "sha256": "186f442156a7a97688370f1205b7e169aa57305984b401623b55306ee8d839b0"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 30 - Changing 2D List Rows/Changing 2D List Rows - Starter Code.py",
@@ -461,13 +461,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 31 - Searching 2D Lists/Searching 2D Lists - Challenges.pdf",
-      "bytes": 181572,
-      "sha256": "3eed345afbb0bab4769a8e1f014598aa723be69100704753ae8da3dcef557b1d"
+      "bytes": 181581,
+      "sha256": "9d2c8e4e3845a18372fce26e68ff0edb1c2a41363de36790df049a84306a3608"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 31 - Searching 2D Lists/Searching 2D Lists - Slides.pptx",
-      "bytes": 562724,
-      "sha256": "cf3f0a7f41908496b1863cc1a082386aa8863e9f2f95f06d18517e8ab2d53019"
+      "bytes": 562828,
+      "sha256": "7f7ba1e5af9f244b70bf3b7d9a2a2e8999c1ec84cc1fe62b32cd9f03c650a172"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 31 - Searching 2D Lists/Searching 2D Lists - Starter Code.py",
@@ -481,8 +481,8 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 32 - Functions/Functions - Slides.pptx",
-      "bytes": 554866,
-      "sha256": "6100591c5b072e06cd927c640447effad8f670fbea7a6daf50755fee4e6568d5"
+      "bytes": 554934,
+      "sha256": "22f39095cdfac7cd3a9f173056a810d5f48aa109866d10524bd984e299f340bc"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 32 - Functions/Functions - Starter Code.py",
@@ -491,13 +491,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 33 - Functions with Results/Functions with Results - Challenges.pdf",
-      "bytes": 188250,
-      "sha256": "72dda6072089ffdf3218b507d57898cc75a422b2a99921028307ca341a949575"
+      "bytes": 188262,
+      "sha256": "eed75372fcc7ef60728fa492558190881aa5fee688ff7d9f5860f80b20be7ec9"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 33 - Functions with Results/Functions with Results - Slides.pptx",
-      "bytes": 648895,
-      "sha256": "81873f2e8c6cf30a91cb375ff71078aff7aaf3a8a86e3e46eede5ddc8239e8fc"
+      "bytes": 648949,
+      "sha256": "3da3d9298b1839c616cc3f9a3b0f001c2b7d100fc324fd0486a239609bd0f8dd"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 33 - Functions with Results/Functions with Results - Starter Code.py",
@@ -506,13 +506,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 34 - Several Functions/Several Functions - Challenges.pdf",
-      "bytes": 214432,
-      "sha256": "e515d2c2699498ae5e79a0838b5efc103eb02394bd1a89063893b8d620b2cf87"
+      "bytes": 214445,
+      "sha256": "217f5aad954c9053cf1301f1b6af3f12195cff8666b88bbee1f98d093e90fd9d"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 34 - Several Functions/Several Functions - Slides.pptx",
-      "bytes": 624606,
-      "sha256": "792798a65486d00923e05fa5236c6e4fcb7a61b79a7e05b6460b67e5638255bf"
+      "bytes": 624699,
+      "sha256": "0a7fc5b8d585d71e72441fc34e190db03960ad8d5651e9ccb2dc289d7447cbc8"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 34 - Several Functions/Several Functions - Starter Code.py",
@@ -521,13 +521,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 35 - Functions with 2D Data/Functions with 2D Data - Challenges.pdf",
-      "bytes": 200290,
-      "sha256": "63f981331755c59aa7348c41952cb2a14a2d2ac13c1522f73c3a90db14157876"
+      "bytes": 200297,
+      "sha256": "1270fc640000056b6afb5ed49c1279b259a3fcc18c412f8450d3b062c6a94a10"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 35 - Functions with 2D Data/Functions with 2D Data - Slides.pptx",
-      "bytes": 554846,
-      "sha256": "7e0fb6d89521aef74528663e67fafeb16dadbff2b26a73d1a00a84bb1d897f4f"
+      "bytes": 554919,
+      "sha256": "39e86480142287193a0c8fe266bc05d070e0d3ca123a4361e6ebf014ce0c3581"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 35 - Functions with 2D Data/Functions with 2D Data - Starter Code.py",
@@ -536,13 +536,13 @@
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 36 - School Club Manager/School Club Manager - Challenges.pdf",
-      "bytes": 118697,
-      "sha256": "0d2bb8bc2de61f7f993f62cb225f811dd0ebf9db48cfb8d6f222b0487cdc6ffb"
+      "bytes": 118720,
+      "sha256": "40a9f343fdd88a08ddffd406543ff50f5669b68306e6dceb20e2703d49e245a9"
     },
     {
       "path": "Mapped Curriculum Lessons/Grade 8/Lesson 36 - School Club Manager/School Club Manager - Slides.pptx",
-      "bytes": 939334,
-      "sha256": "c57f6f21a39e1480d59e14df36413f3bd22ab0ddbf69c9c798afb85bbe03bd27"
+      "bytes": 939361,
+      "sha256": "36ab30462cdb85c5636d738c921bc3df38c04b9d02622fde037843f66c4566c7"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 01 - Hello Python!/Hello Python! - Concept Sheet.docx",
@@ -656,8 +656,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 04 - Decisions/Decisions - Worksheet.docx",
-      "bytes": 3414591,
-      "sha256": "3d187929c9d03760a5dfc3892fc1da2f019008423cff7d09a20ecf7df5b51d28"
+      "bytes": 3414606,
+      "sha256": "c4ad83be94b5162ca3f5debdf7e295ab96a5f4083fddd13ac5b8563758054d2e"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 04 - Decisions/Solutions/challenge1.py",
@@ -691,8 +691,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 05 - More Decisions/More Decisions - Worksheet.docx",
-      "bytes": 3445458,
-      "sha256": "292f54f99714575119958308cc21c113705978a21a4239c5eff2f789352a712e"
+      "bytes": 3445469,
+      "sha256": "f4e2b3cf065575a6fc478558edc77fae72a74722a1e523c387358df26b615c40"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 05 - More Decisions/Solutions/challenge1.py",
@@ -726,8 +726,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 06 - Logical Choices/Logical Choices - Worksheet.docx",
-      "bytes": 3459118,
-      "sha256": "65e02912ffd47f967465d0b9c3de9549de5386d89df38ac3f656a996b678b94b"
+      "bytes": 3459134,
+      "sha256": "50413f8b2674e05dfde56273668b7872fba3648c918a8a4d620b1fa9b14344f8"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 06 - Logical Choices/Solutions/challenge1.py",
@@ -762,7 +762,7 @@
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 07 - Nested Decisions/Nested Decisions - Worksheet.docx",
       "bytes": 3289621,
-      "sha256": "45a1707b7ac805709fc5c557452db0b59c289c71bcb9c4012364c04cee724fa9"
+      "sha256": "662918eac3a165f67cab0ada9f9da0782988d8573cbb2c13558f683661c0427d"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 07 - Nested Decisions/Solutions/challenge1.py",
@@ -796,8 +796,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 08 - Counted Loops/Counted Loops - Worksheet.docx",
-      "bytes": 3816643,
-      "sha256": "6add6db41de3c66d1b6828aa991f3035c5c942943eacfb8910829d4dfe127dac"
+      "bytes": 3816658,
+      "sha256": "1a9a31ed4d49fffc9112e9459575cb7503da162aa23474e7b47dffdfa88e4cc5"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 08 - Counted Loops/Solutions/challenge1.py",
@@ -831,8 +831,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 09 - Condition Loops/Condition Loops - Worksheet.docx",
-      "bytes": 3460094,
-      "sha256": "683affbc3fdd93f34edaa6bf362e32e18c003ae5c823f0cc09e64cf979397e72"
+      "bytes": 3460101,
+      "sha256": "c6ccd7cf42b60f1c568eb1a7233c1d997092f6c197b97d47a018ea64ec5589a4"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 09 - Condition Loops/Solutions/challenge1.py",
@@ -866,8 +866,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 10 - Choosing Loop Structures/Choosing Loop Structures - Worksheet.docx",
-      "bytes": 3526726,
-      "sha256": "b7b4d3b0a925f753238c1b3049da0e6929fa8a4892d112def4eb80120712d270"
+      "bytes": 3526732,
+      "sha256": "b6589fbd353f4756ada8a8ad7d878b20b01b5585150e48b512fe83159363cc0b"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 6/Lesson 10 - Choosing Loop Structures/Solutions/challenge1.py",
@@ -986,8 +986,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 14 - Changing Text Case/Changing Text Case - Worksheet.docx",
-      "bytes": 3289648,
-      "sha256": "9a7a817bd211fe4105d11ea8a794835d9bcf7a0304294c57b07366a8c88c78ed"
+      "bytes": 3289651,
+      "sha256": "8082c541091a073b10890880b00bda573795dd6656f71aea5e9a107df4075c32"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 14 - Changing Text Case/Solutions/challenge1.py",
@@ -1126,8 +1126,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 18 - Random Whole Numbers/Random Whole Numbers - Worksheet.docx",
-      "bytes": 3668580,
-      "sha256": "5ac94e5be8ca3f44acb9e5a148fb7e885923999d3bc24b967e1a89de86b7afdc"
+      "bytes": 3668589,
+      "sha256": "12d43f331ecc95c6358406cd41e72e3c634a6e7826a78d2527d615f4ed249f20"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 18 - Random Whole Numbers/Solutions/challenge1.py",
@@ -1161,8 +1161,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 19 - Random Steps and Choices/Random Steps and Choices - Worksheet.docx",
-      "bytes": 3498443,
-      "sha256": "b8b8803abf748bad296159b19d3ea0c21ee6f628ba00f0894ed6e68e09157c00"
+      "bytes": 3498450,
+      "sha256": "dd7ad7dfc900f940ac00967c59c1da3de4d18fd49595649ad27b548e095f513f"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 19 - Random Steps and Choices/Solutions/challenge1.py",
@@ -1196,8 +1196,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 20 - Reliable Menus/Reliable Menus - Worksheet.docx",
-      "bytes": 3333804,
-      "sha256": "3306772cceb12df1717f622bdb5b4b465103b58bd05db0d2a97576d3718e6f82"
+      "bytes": 3333810,
+      "sha256": "e624e2392c4e570c42cef779dcf30cde6952d7022f83e210ef61460ad58e9c7f"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 20 - Reliable Menus/Solutions/challenge1.py",
@@ -1396,8 +1396,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 25 - Working Through Lists/Working Through Lists - Worksheet.docx",
-      "bytes": 3773601,
-      "sha256": "272739c3513f170e3b2174124da322b3f448461bde735d4b6b6d8d0d3a0d3b38"
+      "bytes": 3773609,
+      "sha256": "a00299598d457833899edfe914fb22eae1d490ff626f0895a320c148e7c3467a"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 26 - Building Lists with Loops/Building Lists with Loops - Concept Sheet.docx",
@@ -1406,8 +1406,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 26 - Building Lists with Loops/Building Lists with Loops - Worksheet.docx",
-      "bytes": 3334484,
-      "sha256": "6b9e4ea208ac0e5176f61e36684dc733417cfea64f961bc039d9c739d509bc67"
+      "bytes": 3334490,
+      "sha256": "1c87c36cacdccdf92b56734e6bbda8968d011c413046887bc4dc02a62b47db60"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 7/Lesson 26 - Building Lists with Loops/Solutions/challenge1.py",
@@ -1456,8 +1456,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 28 - Reading 2D Lists/Reading 2D Lists - Worksheet.docx",
-      "bytes": 3535271,
-      "sha256": "4a77254c688d5037ca0c2d1f26f87796518b903673e61e361b63312944cb1f71"
+      "bytes": 3535278,
+      "sha256": "2b0e882099193f3a997ae8d3837369d66e7e292a6cd1e6f806f8ab1568fd82a5"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 28 - Reading 2D Lists/Solutions/challenge1.py",
@@ -1526,8 +1526,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 30 - Changing 2D List Rows/Changing 2D List Rows - Worksheet.docx",
-      "bytes": 3683581,
-      "sha256": "b4400c8115bcda92b199392f857f9b12ba6158ce2449de9a2aaea3c7e031bdf5"
+      "bytes": 3683588,
+      "sha256": "3c0c81a41df8e55c8aef4a763d10daa04069fd99083429c25809d39c8453ce47"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 30 - Changing 2D List Rows/Solutions/challenge1.py",
@@ -1561,8 +1561,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 31 - Searching 2D Lists/Searching 2D Lists - Worksheet.docx",
-      "bytes": 3436449,
-      "sha256": "694a30f5621bba4f3fc7a506de1e2b608ee2d2d75b7fef640d382abe65a4c436"
+      "bytes": 3436456,
+      "sha256": "55156512f48cd2052f29b84bdf53325287fda02040a21d13fcaee56d1475bb86"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 31 - Searching 2D Lists/Solutions/challenge1.py",
@@ -1631,8 +1631,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 33 - Functions with Results/Functions with Results - Worksheet.docx",
-      "bytes": 3523376,
-      "sha256": "2dea4bec5b33ecc143be0d0b9429c91d38f3dc5d227b0e5576fb3aa123764f95"
+      "bytes": 3523380,
+      "sha256": "0195f262dfe45cb30897f4c0f592ad0f686e4de11c0bdd4e57423091aef377eb"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 33 - Functions with Results/Solutions/challenge1.py",
@@ -1666,8 +1666,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 34 - Several Functions/Several Functions - Worksheet.docx",
-      "bytes": 3498629,
-      "sha256": "a6c9a24360474d215ade964ab1b55f52a5bc8c70e181e84f18a48806b72040f1"
+      "bytes": 3498638,
+      "sha256": "7c63f70e7fc116ff876a7455a1f2461b9e92f3088fb7a5dad69fea71577c6eae"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 34 - Several Functions/Solutions/challenge1.py",
@@ -1701,8 +1701,8 @@
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 35 - Functions with 2D Data/Functions with 2D Data - Worksheet.docx",
-      "bytes": 3428596,
-      "sha256": "29c4996367610e82a6a4f37edec5c54ea414e83cd2ae5ab53f84db78b432541b"
+      "bytes": 3428602,
+      "sha256": "525641654efba155baedd24270e79fa27808baaf593c4b248b8b4becb55cd9ba"
     },
     {
       "path": "Mapped Curriculum Lesson - Supplemental Material/Grade 8/Lesson 35 - Functions with 2D Data/Solutions/challenge1.py",

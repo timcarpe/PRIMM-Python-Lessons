@@ -22,12 +22,12 @@ TOKEN_RE = re.compile(
     r"\b(?:print|input|int|range|len|def|return|if|elif|else|for|while|and|or|not|in|True|False)\b|"
     r"(?:==|!=|<=|>=|<|>))"
 )
+CALL_COLOR = "1750EB"
+# PyCharm-style orange for Python keywords, darkened slightly from Darcula's
+# CC7832 so it stays readable on white paper and projected slides.
+KEYWORD_COLOR = "C45E00"
+CALL_TOKENS = {"print", "input", "int", "range", "len"}
 KEYWORDS = {
-    "print",
-    "input",
-    "int",
-    "range",
-    "len",
     "def",
     "return",
     "if",
@@ -176,8 +176,10 @@ def token_color(token: str) -> str:
         return "666666"
     if token.startswith(('"', "'")):
         return "067D17"
-    if token.startswith(".") or token in KEYWORDS:
-        return "1750EB"
+    if token in KEYWORDS:
+        return KEYWORD_COLOR
+    if token.startswith(".") or token in CALL_TOKENS:
+        return CALL_COLOR
     return "080808"
 
 
@@ -200,7 +202,8 @@ def code_semantic_segments(code: str) -> list[tuple[str, str]]:
         role = {
             "666666": "comment",
             "067D17": "literal",
-            "1750EB": "call",
+            CALL_COLOR: "call",
+            KEYWORD_COLOR: "keyword",
         }.get(token_color(token), "ordinary")
         parts.append((token, role))
         cursor = match.end()
@@ -312,7 +315,7 @@ def challenge_semantic_segments(
     """Apply the suite's narrow inline-code contract to learner prose.
 
     Explicit quoted string literals are green; explicit calls, types and
-    unambiguous named keywords are blue; bracketed variable markers such as
+    types are blue; unambiguous named keywords are orange; bracketed variable markers such as
     [total] become shaded variable chips, including inside quoted output
     text; ordinary prose and operators stay black. Segments always
     concatenate back to the supplied text.
@@ -336,22 +339,24 @@ def challenge_semantic_segments(
         spans.append((match.start(), match.end(), "call"))
     for match in re.finditer(r"\b[A-Za-z_]\w*\b", text):
         token = match.group(0)
-        if token in UNAMBIGUOUS_INLINE_KEYWORDS or token.lower() in INLINE_TYPES:
+        if token in UNAMBIGUOUS_INLINE_KEYWORDS:
+            spans.append((match.start(), match.end(), "keyword"))
+        elif token.lower() in INLINE_TYPES:
             spans.append((match.start(), match.end(), "call"))
     for match in re.finditer(
         r"\b(?:use|using|add|write|include|with|a|an)\s+(if|for|while)\b", text, re.I
     ):
-        spans.append((match.start(1), match.end(1), "call"))
+        spans.append((match.start(1), match.end(1), "keyword"))
     for match in re.finditer(
         r"\b(?:if|for|while)\b(?=\s+(?:statement|condition|loop|keyword|branch|comparison))",
         text,
     ):
-        spans.append((match.start(), match.end(), "call"))
+        spans.append((match.start(), match.end(), "keyword"))
     for match in re.finditer(
         r"\b(?:and|or|not|in)\b(?=\s+(?:operator|condition|keyword))", text
     ):
-        spans.append((match.start(), match.end(), "call"))
-    priority = {"literal": 3, "variable": 2, "call": 1}
+        spans.append((match.start(), match.end(), "keyword"))
+    priority = {"literal": 3, "variable": 2, "call": 1, "keyword": 1}
     chosen: list[tuple[int, int, str]] = []
     for start, end, role in sorted(
         spans, key=lambda item: (item[0], -priority[item[2]], -(item[1] - item[0]))
@@ -407,7 +412,12 @@ def set_challenge_prompt(
     for child in removable:
         paragraph.remove(child)
     inserted = 0
-    colors = {"literal": "067D17", "call": "1750EB", "variable": VARIABLE_COLOR}
+    colors = {
+        "literal": "067D17",
+        "call": CALL_COLOR,
+        "keyword": KEYWORD_COLOR,
+        "variable": VARIABLE_COLOR,
+    }
     base = rpr.find(W + "sz") if rpr is not None else None
     base_half_points = (
         int(base.get(W + "val")) if base is not None else NORMAL_HALF_POINTS

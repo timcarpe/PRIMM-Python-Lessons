@@ -78,7 +78,7 @@ def test_python_formatter_preserves_prose_and_colours_explicit_code() -> None:
 
     # Assert
     assert "".join(part for part, _role in segments) == text
-    assert ("if", "call") in segments
+    assert ("if", "keyword") in segments
     assert ("string", "call") in segments
     assert ("integer", "call") in segments
     assert ("int()", "call") in segments
@@ -97,7 +97,7 @@ def test_code_segments_follow_compiler_token_colours() -> None:
 
     # Assert
     assert "".join(part for part, _role in segments) == code
-    assert ("if", "call") in segments
+    assert ("if", "keyword") in segments
     assert ("int", "call") in segments
     assert ("input", "call") in segments
     assert ('"Number: "', "literal") in segments
@@ -141,7 +141,7 @@ console.log(JSON.stringify(runs));
 
     # Assert
     assert "".join(item["run"] for item in runs) == text
-    assert styles["if"]["color"] == "#1750EB"
+    assert styles["if"]["color"] == "#C45E00"
     assert styles["string"]["color"] == "#1750EB"
     assert styles["integer"]["color"] == "#1750EB"
     assert styles["int()"]["color"] == "#1750EB"
@@ -198,7 +198,9 @@ def test_revised_prompts_colour_programming_items_without_changing_text() -> Non
 
         # Act
         segments = challenge_semantic_segments(text, code_context)
-        calls = {part for part, role in segments if role == "call"}
+        calls = {
+            part for part, role in segments if role in {"call", "keyword"}
+        }
         literals = {part for part, role in segments if role == "literal"}
 
         # Assert
@@ -260,7 +262,7 @@ console.log(JSON.stringify(payload.map((item) => ({
         blue = {
             run["run"]
             for run in item["runs"]
-            if run["textStyle"]["color"] == "#1750EB"
+            if run["textStyle"]["color"] in {"#1750EB", "#C45E00"}
         }
         green = {
             run["run"]
