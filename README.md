@@ -1,109 +1,145 @@
-# Python Programming Lessons
+# PRIMM Python Lessons
 
-This is a three-year sequence of introductory Python lessons for Grades 6–8.
-The lessons teach programming through short, readable examples that pupils
-predict, run, investigate, modify, and eventually use to make a new program.
+A three-year sequence of introductory Python lessons for Grades 6 to 8. Pupils
+learn from short, readable programs that they predict, run, investigate, modify,
+and then use as the pattern for a program of their own.
 
-The sequence is based on PRIMM: **Predict, Run, Investigate, Modify, Make**.
-The approach is described by Sue Sentance and Jane Waite in
-[“PRIMM: Exploring pedagogical approaches for teaching text-based programming
-in school”](https://doi.org/10.1145/3137065.3137084).
+**36 lessons** &nbsp;·&nbsp; **3 grades** &nbsp;·&nbsp; **3 capstones** &nbsp;·&nbsp; **CC BY 4.0**
 
-## Where the lessons are
-
-The repository contains one current set of lessons in two root folders:
-
-- `Mapped Curriculum Lessons` contains the files used directly with pupils.
-- `Mapped Curriculum Lesson - Supplemental Material` contains teacher and
-  planning resources.
-
-Lessons are grouped by grade and numbered as one continuous curriculum. Lesson
-numbers 11, 27, and 36 are reserved for capstone work and are not included in
-this non-capstone collection.
-
-## Reviewing examples and challenges
-
-Generate the self-contained browser review page from the same effective
-manifests used by the compiler:
-
-```bash
-.venv/bin/lesson-compiler review-tool
+```mermaid
+flowchart LR
+    P["<b>Predict</b><br/>read the code<br/>before running it"]
+    R["<b>Run</b><br/>compare output<br/>with prediction"]
+    I["<b>Investigate</b><br/>trace values<br/>line by line"]
+    M["<b>Modify</b><br/>Challenges 1 and 2"]
+    K["<b>Make</b><br/>Challenge 3 and<br/>fix the code"]
+    P --> R --> I --> M --> K
 ```
 
-Open `lesson-manifest-review.html`, flag individual example or challenge issues,
-and export the issue report. The report contains identified issues only and
-includes exact manifest paths, fields, original values, flags, and written
-feedback for agent ingestion.
+The approach follows PRIMM, described by Sue Sentance and Jane Waite in
+[PRIMM: Exploring pedagogical approaches for teaching text-based programming
+in school](https://doi.org/10.1145/3137065.3137084).
 
-The page can also export a change-proposal template. After an agent fills its
-`new_value` fields, import that JSON to compare each proposed value beside the
-current effective manifest. Full revised lesson record JSON files can also be
-imported. Record approval decisions in the page and export the resulting
-approval report. Review progress is stored only in the browser's local storage;
-the source manifests are never edited by the page.
+---
 
-Before drafting challenge changes, follow the
-[challenge review workflow](docs/challenge-review-workflow.md). It includes the
-required grounding step using relevant positive examples from the Python Review
-PDFs, technical cross-checking against starter and solution code, and proposal
-approval before canonical edits.
+## Curriculum
 
-## Resources in each lesson
+```mermaid
+flowchart LR
+    subgraph G6["Grade 6 · Foundations and control flow"]
+        direction TB
+        A1["01–10<br/>input, numbers,<br/>decisions, loops"] --> A2["<b>11 Capstone</b><br/>Arcade Tournament"]
+    end
+    subgraph G7["Grade 7 · Text, randomness, lists"]
+        direction TB
+        B1["12–26<br/>strings, random,<br/>menus, lists"] --> B2["<b>27 Capstone</b><br/>School Fair Prize Draw"]
+    end
+    subgraph G8["Grade 8 · 2D data and functions"]
+        direction TB
+        C1["28–35<br/>2D lists,<br/>functions"] --> C2["<b>36 Capstone</b><br/>School Club Manager"]
+    end
+    G6 --> G7 --> G8
+```
 
-Every lesson has the same predictable set of resources.
+<details>
+<summary><b>Grade 6</b> &nbsp; Foundations and control flow</summary>
 
-| Resource | Audience | Purpose |
+| Lesson | Focus |
+| --- | --- |
+| 01 Hello Python! | Input, output, variables, and strings |
+| 02 Operators and Integers | Whole-number input, `int()`, variables, and arithmetic |
+| 03 Decimal Numbers | Decimal input, `float()`, and arithmetic |
+| 04 Decisions | `if`/`else`, Boolean conditions, and indentation |
+| 05 More Decisions | Ordered `if`/`elif`/`else` choices |
+| 06 Logical Choices | Combining conditions with `and` and `or` |
+| 07 Nested Decisions | A decision inside another decision |
+| 08 Counted Loops | Repetition with `for` and `range()` |
+| 09 Condition Loops | Repetition with `while`, conditions, and counters |
+| 10 Choosing Loop Structures | Selecting and combining appropriate loop structures |
+| **11 Arcade Tournament** | **Capstone:** a multi-round score game combining input, decisions, and loops |
+
+</details>
+
+<details>
+<summary><b>Grade 7</b> &nbsp; Text, randomness, menus, and lists</summary>
+
+| Lesson | Focus |
+| --- | --- |
+| 12 Strings and Text | Cleaning and formatting text with string methods |
+| 13 String Positions | Reading characters and substrings with indexes and slices |
+| 14 Changing Text Case | Normalising text with upper- and lower-case methods |
+| 15 Joining Text | Building new strings by concatenation |
+| 16 Text Length and Lines | Measuring strings and arranging output across lines |
+| 17 Lists | Creating, displaying, and appending to ordered collections |
+| 18 Random Whole Numbers | Generating bounded random integers |
+| 19 Random Steps and Choices | Random stepped values and choices from a list |
+| 20 Reliable Menus | Repeating and validating a menu with a Boolean flag |
+| 21 Character Codes | Converting between characters and numeric codes |
+| 22 List Positions and Updates | Reading and replacing items by position |
+| 23 Inserting and Removing List Items | Changing list membership by value and position |
+| 24 Deleting by List Position | Removing an item when its position is known |
+| 25 Working Through Lists | Visiting each item with a loop and counting with `len()` |
+| 26 Building Lists with Loops | Collecting repeated input into a list |
+| **27 School Fair Prize Draw** | **Capstone:** a menu-driven prize draw combining text, lists, and randomness |
+
+</details>
+
+<details>
+<summary><b>Grade 8</b> &nbsp; Two-dimensional data and functions</summary>
+
+| Lesson | Focus |
+| --- | --- |
+| 28 Reading 2D Lists | Representing records as rows and reading rows or cells |
+| 29 Updating 2D List Cells | Replacing one field in a selected row |
+| 30 Changing 2D List Rows | Appending, inserting, and deleting complete records |
+| 31 Searching 2D Lists | Finding a record and handling a not-found result |
+| 32 Functions | Defining and calling a reusable procedure |
+| 33 Functions with Results | Passing parameters and returning a result |
+| 34 Several Functions | Dividing a program into separate responsibilities |
+| 35 Functions with 2D Data | Passing record data into display and search functions |
+| **36 School Club Manager** | **Capstone:** a menu of functions that show, search, add, and update 2D records |
+
+</details>
+
+---
+
+## What each lesson includes
+
+Lessons are grouped by grade in two root folders:
+
+| Folder | For | Contents |
 | --- | --- | --- |
-| Slides | Whole class | Introduce the example, guide PRIMM discussion, present three challenges, and finish with debugging. |
-| Starter Code | Pupils | The complete example program used for prediction, running, investigation, and modification. |
-| Challenges PDF | Pupils | A printable one-page copy of the example and the three programming challenges. |
-| Worksheet | Pupils and teachers | Records predictions, observations, investigation answers, challenge work, debugging, testing, and reflection. |
-| Concept Sheet | Pupils and teachers | Summarises the lesson’s vocabulary, syntax, and small code examples. |
-| Solutions | Teachers | Includes solutions for all three challenges, the broken debugging program, and its corrected version. |
+| `Mapped Curriculum Lessons` | Pupils | Slides, starter code, challenges PDF |
+| `Mapped Curriculum Lesson - Supplemental Material` | Teachers | Worksheet, concept sheet, solutions |
 
-Learner slide decks do not contain solution slides. Solutions are kept in the
-supplemental lesson folder so that the same slides can be presented directly to
-a class.
+| Resource | Purpose |
+| --- | --- |
+| **Slides** | Introduce the example, guide PRIMM discussion, present three challenges, and finish with debugging. Slides never show solutions, so they can be presented directly to a class. |
+| **Starter code** | The complete example program used for prediction, running, investigation, and modification. |
+| **Challenges PDF** | A printable one-page copy of the example and the three challenges. |
+| **Worksheet** | Records predictions, observations, investigation answers, challenge work, debugging, testing, and reflection. |
+| **Concept sheet** | Summarises the lesson's vocabulary, syntax, and small code examples. |
+| **Solutions** | All three challenges, plus the broken debugging program and its corrected version. |
 
-## How to teach a lesson with PRIMM
+Capstones have a smaller set: slides, a challenges PDF, and solutions. Each
+capstone challenge states a goal, gives numbered steps and test cases, and ends
+with a discussion question.
 
-### 1. Predict
+---
 
-Show the example code without running it. Ask pupils to explain what they think
-will happen and to identify any values they can already trace. A useful
-prediction is specific: it names an expected value, route, repetition, or line
-of output.
+## Teaching a lesson
 
-### 2. Run
+| Stage | What pupils do |
+| --- | --- |
+| **Predict** | Read the example without running it and say what will happen. A useful prediction names a specific value, route, repetition, or line of output. |
+| **Run** | Run the unchanged program and compare the result with the prediction. An incorrect prediction is useful evidence of current understanding. |
+| **Investigate** | Answer the investigation questions by tracing variables, conditions, loops, indexes, inputs, and outputs, justifying each answer with a line or value. |
+| **Modify** | Complete Challenges 1 and 2, saving and testing each as a new file. |
+| **Make** | Write a related program with less scaffolding in Challenge 3, then explain, test, and correct the fix-the-code program. |
 
-Run the unchanged starter program. Compare its actual behaviour with the class
-prediction. Treat an incorrect prediction as useful evidence about how pupils
-currently understand the code.
+### Suggested routine
 
-### 3. Investigate
-
-Use the investigation questions to read the program closely. Pupils should
-trace variables, conditions, loop behaviour, indexes, inputs, and outputs from
-the code in front of them. Ask them to justify answers with a particular line
-or value rather than guessing from the program’s topic.
-
-### 4. Modify
-
-Move through Challenges 1 and 2. Challenge 1 makes a small, meaningful change
-to the example’s main concept. Challenge 2 extends that change or combines it
-with another familiar idea. Pupils should save each completed challenge as a
-new file and test it before continuing.
-
-### 5. Make
-
-Challenge 3 asks pupils to create a related program with less scaffolding. The
-example remains available as a pattern, but pupils must decide how to adapt its
-structure. Finish with the debugging task so pupils also practise explaining,
-testing, and correcting code.
-
-## Suggested classroom routine
-
-1. Share the lesson goal and briefly retrieve the prerequisite knowledge.
+1. Share the lesson goal and briefly retrieve prerequisite knowledge.
 2. Open the starter code, but do not run it during prediction.
 3. Collect several predictions and ask pupils to explain their reasoning.
 4. Run the code with the suggested inputs and compare results.
@@ -111,87 +147,60 @@ testing, and correcting code.
 6. Model only the first change needed for Challenge 1 when support is required.
 7. Have pupils save and test each challenge separately.
 8. Use the fix-the-code task as a final check of understanding.
-9. Review a small selection of solutions, focusing on reasoning and tests rather
-   than one “perfect” program.
+9. Review a few solutions, focusing on reasoning and tests rather than one
+   "perfect" program.
 
-The concept sheet can be given before the lesson as vocabulary support, during
-the Modify stage as a reference, or after the lesson for revision. The full
-worksheet is useful when written evidence is needed; the challenge PDF supports
-a lighter practical lesson.
+The concept sheet works as vocabulary support before the lesson, a reference
+during Modify, or revision afterwards. Use the full worksheet when written
+evidence is needed, or the challenges PDF for a lighter practical lesson.
 
-## Challenge scaffolding
+### Challenge scaffolding
 
-The three challenges deliberately increase independence:
-
-- **Challenge 1:** change the example while keeping its recognisable structure.
-- **Challenge 2:** extend the program with another input, calculation, route,
-  repetition, or data change.
-- **Challenge 3:** make a new but closely related program using the same core
-  concept.
+| Challenge | Independence |
+| --- | --- |
+| **1** | Change the example while keeping its recognisable structure. |
+| **2** | Extend it with another input, calculation, route, repetition, or data change. |
+| **3** | Make a new but closely related program using the same core concept. |
 
 Instructions use short sentences and direct verbs such as *ask*, *store*,
-*change*, *display*, and *test*. Bracketed names such as `[total]` identify
-variables. Quoted text identifies exact output. Where a test value is supplied,
-pupils should be able to observe whether their program meets the requirement.
+*change*, *display*, and *test*. Bracketed names such as `[total]` are
+variables, quoted text is exact output, and supplied test values let pupils
+check whether their program meets each requirement.
 
-## Curriculum sequence
+### Assessment and support
 
-### Grade 6: foundations and control flow
+Prediction and investigation answers reveal misconceptions before editing
+begins. Challenge programs show that pupils can apply the concept, and the Make
+task shows whether they can transfer it to a related problem.
 
-| Lesson | Focus |
-| --- | --- |
-| 01 — Hello Python! | Input, output, variables, and strings |
-| 02 — Operators and Integers | Whole-number input, `int()`, variables, and arithmetic |
-| 03 — Decimal Numbers | Decimal input, `float()`, and arithmetic |
-| 04 — Decisions | `if`/`else`, Boolean conditions, and indentation |
-| 05 — More Decisions | Ordered `if`/`elif`/`else` choices |
-| 06 — Logical Choices | Combining conditions with `and` and `or` |
-| 07 — Nested Decisions | A decision inside another decision |
-| 08 — Counted Loops | Repetition with `for` and `range()` |
-| 09 — Condition Loops | Repetition with `while`, conditions, and counters |
-| 10 — Choosing Loop Structures | Selecting and combining appropriate loop structures |
+- **More support:** keep the starter code visible, trace one worked input, and
+  provide the concept sheet.
+- **More challenge:** ask pupils to choose their own test cases, explain why
+  they are useful, or compare two correct solutions.
 
-### Grade 7: text, randomness, menus, and lists
+Avoid introducing untaught syntax just to shorten a solution; the sequence
+builds complexity gradually.
 
-| Lesson | Focus |
-| --- | --- |
-| 12 — Strings and Text | Cleaning and formatting text with string methods |
-| 13 — String Positions | Reading characters and substrings with indexes and slices |
-| 14 — Changing Text Case | Normalising text with upper- and lower-case methods |
-| 15 — Joining Text | Building new strings by concatenation |
-| 16 — Text Length and Lines | Measuring strings and arranging output across lines |
-| 17 — Lists | Creating, displaying, and appending to ordered collections |
-| 18 — Random Whole Numbers | Generating bounded random integers |
-| 19 — Random Steps and Choices | Random stepped values and choices from a list |
-| 20 — Reliable Menus | Repeating and validating a menu with a Boolean flag |
-| 21 — Character Codes | Converting between characters and numeric codes |
-| 22 — List Positions and Updates | Reading and replacing items by position |
-| 23 — Inserting and Removing List Items | Changing list membership by value and position |
-| 24 — Deleting by List Position | Removing an item when its position is known |
-| 25 — Working Through Lists | Visiting each item with a loop and counting with `len()` |
-| 26 — Building Lists with Loops | Collecting repeated input into a list |
+---
 
-### Grade 8: two-dimensional data and functions
+## Building the lessons
 
-| Lesson | Focus |
-| --- | --- |
-| 28 — Reading 2D Lists | Representing records as rows and reading rows or cells |
-| 29 — Updating 2D List Cells | Replacing one field in a selected row |
-| 30 — Changing 2D List Rows | Appending, inserting, and deleting complete records |
-| 31 — Searching 2D Lists | Finding a record and handling a not-found result |
-| 32 — Functions | Defining and calling a reusable procedure |
-| 33 — Functions with Results | Passing parameters and returning a result |
-| 34 — Several Functions | Dividing a program into separate responsibilities |
-| 35 — Functions with 2D Data | Passing record data into display and search functions |
+Every lesson file is generated from the canonical records in
+`src/lesson_compiler/curriculum`. Edit those records, not the generated
+PowerPoint, PDF, Word, or Python files.
 
-## Assessment and support
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -e ".[dev]"
+npm install
+.venv/bin/lesson-compiler build
+```
 
-Prediction and investigation answers reveal misconceptions before pupils begin
-editing. Challenge programs provide evidence that pupils can apply the concept.
-The Make task shows whether they can transfer it to a related problem.
+The build compiles and verifies every lesson, including the capstones, and
+writes the results into the two root lesson folders. Run
+`.venv/bin/lesson-compiler verify` to check the current folders without
+rebuilding. See [AGENTS.md](AGENTS.md) for the full editing workflow.
 
-For additional support, keep the starter code visible, trace one worked input,
-and provide the concept sheet. For greater challenge, ask pupils to select their
-own test cases, explain why those cases are useful, or compare two correct
-solutions. Avoid introducing untaught syntax merely to make a solution shorter;
-the sequence is designed to build complexity gradually.
+## Licence
+
+[Creative Commons Attribution 4.0 International](LICENSE)

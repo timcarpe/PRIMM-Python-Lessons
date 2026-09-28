@@ -13,10 +13,12 @@ import pytest
 
 from lesson_compiler.docx import (
     challenge_semantic_segments,
+    challenge_vocabulary,
     code_semantic_segments,
     display_prose,
 )
-from lesson_compiler.review_tool.build import load_effective_lessons
+from lesson_compiler.paths import CONFIG_PATH, RECORDS_ROOT
+from lesson_compiler.support import patch_standard_record
 from lesson_compiler.verify import plain
 
 REVISED_PROMPT_CALLS: dict[tuple[int, str], set[str]] = {
@@ -152,21 +154,50 @@ console.log(JSON.stringify(runs));
     )
 
 
+def effective_prompts() -> dict[tuple[int, str], tuple[str, str, list[str]]]:
+    """Load each effective challenge prompt with its lesson code context.
+
+    Returns:
+        Prompt text, code context, and function names keyed by lesson number
+        and ``challenge_N`` field.
+    """
+    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    changes: dict[tuple[int, int], str] = {}
+    for key, text_value in config["challenge_changes"].items():
+        lesson_text, challenge_text = key.split(".")
+        changes[(int(lesson_text), int(challenge_text))] = str(text_value)
+    prompts: dict[tuple[int, str], tuple[str, str, list[str]]] = {}
+    for number_value in config["lesson_numbers"]:
+        number = int(number_value)
+        record_path = RECORDS_ROOT / f"lesson{number:02d}.json"
+        record = patch_standard_record(
+            json.loads(record_path.read_text(encoding="utf-8")), changes, config
+        )
+        code_context = "\n".join(
+            [str(record["shared_program"]["code"]), *record["programs"].values()]
+        )
+        functions = sorted(challenge_vocabulary(code_context)["functions"])
+        for index, challenge in enumerate(
+            record["worksheet"]["page2"]["challenges"], 1
+        ):
+            prompts[(number, f"challenge_{index}")] = (
+                str(challenge["prompt"]),
+                code_context,
+                functions,
+            )
+    return prompts
+
+
 def test_revised_prompts_colour_programming_items_without_changing_text() -> None:
     """Approved prompts retain text while calls and literals receive roles."""
     # Arrange
-    lessons = {lesson["number"]: lesson for lesson in load_effective_lessons()}
+    prompts = effective_prompts()
 
-    for (lesson_number, field), expected_calls in REVISED_PROMPT_CALLS.items():
-        item = next(
-            candidate
-            for candidate in lessons[lesson_number]["items"]
-            if candidate["field"] == field
-        )
-        text = item["value"]
+    for key, expected_calls in REVISED_PROMPT_CALLS.items():
+        text, code_context, _functions = prompts[key]
 
         # Act
-        segments = [(segment["text"], segment["role"]) for segment in item["segments"]]
+        segments = challenge_semantic_segments(text, code_context)
         calls = {part for part, role in segments if role == "call"}
         literals = {part for part, role in segments if role == "literal"}
 
@@ -187,19 +218,14 @@ def test_javascript_formatter_matches_revised_prompt_colour_contract() -> None:
         Path(__file__).parents[1]
         / "src/lesson_compiler/slides/inline_code_styling.mjs"
     )
-    lessons = {lesson["number"]: lesson for lesson in load_effective_lessons()}
+    prompts = effective_prompts()
     payload = []
-    for (lesson_number, field), expected_calls in REVISED_PROMPT_CALLS.items():
-        lesson = lessons[lesson_number]
-        item = next(
-            candidate
-            for candidate in lesson["items"]
-            if candidate["field"] == field
-        )
+    for key, expected_calls in REVISED_PROMPT_CALLS.items():
+        text, _code_context, functions = prompts[key]
         payload.append(
             {
-                "text": item["value"],
-                "functions": lesson["functions"],
+                "text": text,
+                "functions": functions,
                 "expected": sorted(expected_calls),
             }
         )
