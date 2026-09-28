@@ -16,6 +16,7 @@ from lesson_compiler.docx import (
     challenge_vocabulary,
     code_semantic_segments,
     display_prose,
+    recolor_keyword_runs,
 )
 from lesson_compiler.paths import CONFIG_PATH, RECORDS_ROOT
 from lesson_compiler.support import patch_standard_record
@@ -273,6 +274,19 @@ console.log(JSON.stringify(payload.map((item) => ({
         assert set(re.findall(r'"[^"\n]*"', item["text"])) <= green
 
 
+def test_english_else_is_not_coloured() -> None:
+    """Only the else keyword is orange, not English such as "anything else"."""
+    # Arrange
+    text = 'Use if and else. For anything else, display "Invalid".'
+
+    # Act
+    segments = challenge_semantic_segments(text)
+
+    # Assert
+    keywords = [part for part, role in segments if role == "keyword"]
+    assert keywords == ["if", "else"]
+
+
 def test_variable_markers_become_chips_without_losing_literals() -> None:
     """Bracketed variables become chips, including inside quoted output text."""
     # Arrange
@@ -303,3 +317,53 @@ def test_chip_padding_matches_prompt_text_after_normalizing() -> None:
 
     # Assert
     assert needle in plain(extracted)
+
+
+def test_inherited_keyword_runs_are_recoloured_orange() -> None:
+    """Code keywords turn orange; keywords inside English notes turn black."""
+    # Arrange
+    from lxml import etree
+
+    w = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    font = '<w:rFonts w:ascii="JetBrains Mono" w:hAnsi="JetBrains Mono"/>'
+
+    def run(text: str, color: str, fonts: str = font) -> str:
+        return (
+            f'<w:r><w:rPr>{fonts}<w:color w:val="{color}"/></w:rPr>'
+            f'<w:t xml:space="preserve">{text}</w:t></w:r>'
+        )
+
+    root = etree.fromstring(
+        f'<w:body xmlns:w="{w}">'
+        f'<w:p>{run("if", "1750EB")}{run(" x == 1:", "080808")}</w:p>'
+        f'<w:p>{run("print", "1750EB")}{run("(x)", "080808")}</w:p>'
+        f'<w:p>{run("import random", "080808")}</w:p>'
+        f'<w:p>{run("1 ", "080808", "")}{run("and", "1750EB", "")}'
+        f'{run(" 6 can both be rolled", "080808", "")}</w:p>'
+        f'<w:p>{run("Say what is shown", "080808")}</w:p>'
+        "</w:body>"
+    )
+
+    # Act
+    recolor_keyword_runs(root)
+
+    # Assert
+    runs = [
+        (
+            "".join(item.itertext()),
+            item.find(f"{{{w}}}rPr/{{{w}}}color").get(f"{{{w}}}val"),
+        )
+        for item in root.iter(f"{{{w}}}r")
+    ]
+    assert runs == [
+        ("if", "C45E00"),
+        (" x == 1:", "080808"),
+        ("print", "1750EB"),
+        ("(x)", "080808"),
+        ("import", "C45E00"),
+        (" random", "080808"),
+        ("1 ", "080808"),
+        ("and", "080808"),
+        (" 6 can both be rolled", "080808"),
+        ("Say what is shown", "080808"),
+    ]

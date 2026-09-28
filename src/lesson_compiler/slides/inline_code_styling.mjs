@@ -8,9 +8,10 @@ const VARIABLE_FILL = "#ECEAF4";
 const VARIABLE_PAD = "\u202F";
 const VARIABLE_MARKER = /\[([A-Za-z_]\w*)\]/g;
 
-const UNAMBIGUOUS_KEYWORDS = new Set(["def", "return", "elif", "else", "break", "continue", "True", "False", "None"]);
+const UNAMBIGUOUS_KEYWORDS = new Set(["def", "return", "elif", "else", "break", "continue", "True", "False", "None", "import"]);
 // JetBrains Mono looks about 15% larger than Calibri at the same point size.
 const CODE_SCALE = 0.85;
+const ENGLISH_ELSE = /\b(?:anything|something|everything|nothing|anyone|someone|or)\s+else$/i;
 const INLINE_TYPES = new Set(["integer", "integers", "string", "strings", "list", "lists", "dictionary", "dictionaries", "boolean", "booleans"]);
 
 export function buildCodeVocabulary(codeBlobs = []) {
@@ -37,7 +38,10 @@ function candidates(text, vocabulary) {
   for (const match of text.matchAll(VARIABLE_MARKER)) add(match.index, match.index + match[0].length, VARIABLE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\.py\b/g)) add(match.index, match.index + match[0].length, BLUE);
   for (const match of text.matchAll(/\b[A-Za-z_]\w*\b/g)) {
-    if (UNAMBIGUOUS_KEYWORDS.has(match[0])) add(match.index, match.index + match[0].length, ORANGE);
+    if (UNAMBIGUOUS_KEYWORDS.has(match[0])) {
+      // "For anything else, display ..." uses else as English.
+      if (!ENGLISH_ELSE.test(text.slice(0, match.index + match[0].length))) add(match.index, match.index + match[0].length, ORANGE);
+    }
     else if (INLINE_TYPES.has(match[0].toLowerCase())) add(match.index, match.index + match[0].length, BLUE);
   }
   for (const match of text.matchAll(/\b(?:use|using|add|write|include|with|a|an)\s+(if|for|while)\b/gi)) {

@@ -19,7 +19,8 @@ R = f"{{{R_NS}}}"
 
 TOKEN_RE = re.compile(
     r"(#[^\n]*|\"[^\"\n]*\"|'[^'\n]*'|\.(?:strip|title|append)\b|"
-    r"\b(?:print|input|int|range|len|def|return|if|elif|else|for|while|and|or|not|in|True|False)\b|"
+    r"\b(?:print|input|int|range|len|def|return|if|elif|else|for|while|and|or|not|in|"
+    r"True|False|None|import|break|continue)\b|"
     r"(?:==|!=|<=|>=|<|>))"
 )
 CALL_COLOR = "1750EB"
@@ -41,7 +42,20 @@ KEYWORDS = {
     "in",
     "True",
     "False",
+    "None",
+    "import",
+    "break",
+    "continue",
 }
+# Inherited paragraphs count as code only when they carry code punctuation or
+# open with a statement keyword, so English notes such as "1 and 6 can both
+# be rolled" keep their words uncoloured.
+CODE_LINE_RE = re.compile(
+    r"[()=:\[\]]|^\s*(?:import|return|break|continue|while|if|elif|else|def)\b"
+    r"|^\s*for \w+ in\b"
+)
+KEYWORD_WORD_RE = re.compile(r"\b(?:" + "|".join(sorted(KEYWORDS)) + r")\b")
+CODE_FONTS = {"JetBrains Mono", "Consolas"}
 VARIABLE_MARKER_RE = re.compile(r"\[([A-Za-z_]\w*)\]")
 VARIABLE_PAD = "\u202f"
 VARIABLE_COLOR = "6A1B9A"
@@ -85,7 +99,12 @@ UNAMBIGUOUS_INLINE_KEYWORDS = {
     "True",
     "False",
     "None",
+    "import",
 }
+ENGLISH_ELSE_RE = re.compile(
+    r"\b(?:anything|something|everything|nothing|anyone|someone|or)\s+else$",
+    re.I,
+)
 BUILTIN_CALLS = {
     "print",
     "input",
@@ -181,6 +200,58 @@ def token_color(token: str) -> str:
     if token.startswith(".") or token in CALL_TOKENS:
         return CALL_COLOR
     return "080808"
+
+
+def recolor_keyword_runs(root: etree._Element) -> None:
+    """Turn inherited blue keyword runs orange in hand-authored documents.
+
+    Concept sheets and the untouched parts of worksheets keep their original
+    runs, so keywords coloured with the old call blue are recoloured here.
+    """
+    for run in list(root.iter(W + "r")):
+        color = run.find(f"{W}rPr/{W}color")
+        if color is None:
+            continue
+        text = "".join(node.text or "" for node in run.iter(W + "t"))
+        value = color.get(W + "val", "").upper()
+        paragraph = next(run.iterancestors(W + "p"), None)
+        is_code = paragraph is not None and bool(
+            CODE_LINE_RE.search(
+                "".join(node.text or "" for node in paragraph.iter(W + "t"))
+            )
+        )
+        if value == CALL_COLOR and text in KEYWORDS:
+            # English such as "1 and 6 can both be rolled" returns to black.
+            color.set(W + "val", KEYWORD_COLOR if is_code else "080808")
+            continue
+        if not is_code:
+            continue
+        # Plain code runs such as "import random" hold keywords inline; split
+        # them so only the keyword turns orange.
+        fonts = run.find(f"{W}rPr/{W}rFonts")
+        if (
+            value != "080808"
+            or fonts is None
+            or fonts.get(W + "ascii") not in CODE_FONTS
+            or any(child.tag not in {W + "rPr", W + "t"} for child in run)
+            or not KEYWORD_WORD_RE.search(text)
+        ):
+            continue
+        holder = etree.Element(W + "p")
+        cursor = 0
+        rpr = run.find(W + "rPr")
+        for match in KEYWORD_WORD_RE.finditer(text):
+            if match.start() > cursor:
+                add_text_run(holder, text[cursor : match.start()], rpr)
+            add_text_run(holder, match.group(0), rpr, KEYWORD_COLOR)
+            cursor = match.end()
+        if cursor < len(text):
+            add_text_run(holder, text[cursor:], rpr)
+        parent = run.getparent()
+        index = parent.index(run)
+        parent.remove(run)
+        for offset, piece in enumerate(list(holder)):
+            parent.insert(index + offset, piece)
 
 
 def code_semantic_segments(code: str) -> list[tuple[str, str]]:
@@ -340,7 +411,9 @@ def challenge_semantic_segments(
     for match in re.finditer(r"\b[A-Za-z_]\w*\b", text):
         token = match.group(0)
         if token in UNAMBIGUOUS_INLINE_KEYWORDS:
-            spans.append((match.start(), match.end(), "keyword"))
+            # "For anything else, display ..." uses else as English.
+            if not ENGLISH_ELSE_RE.search(text[: match.end()]):
+                spans.append((match.start(), match.end(), "keyword"))
         elif token.lower() in INLINE_TYPES:
             spans.append((match.start(), match.end(), "call"))
     for match in re.finditer(

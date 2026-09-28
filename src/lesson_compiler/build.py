@@ -23,6 +23,7 @@ from zipfile import ZipFile
 from pypdf import PdfReader, PdfWriter
 
 from lesson_compiler.capstones import compile_capstones
+from lesson_compiler.docx import recolor_keyword_runs, write_docx
 from lesson_compiler.paths import (
     CONFIG_PATH,
     DEFAULT_REPOSITORY_ROOT,
@@ -156,7 +157,9 @@ def compile_lesson(
     for source in (concept_source, worksheet_source, starter_source):
         if not source.exists():
             raise FileNotFoundError(f"canonical lesson resource is missing: {source}")
-    shutil.copy2(concept_source, lesson_root / concept_source.name)
+    write_docx(
+        concept_source, lesson_root / concept_source.name, recolor_keyword_runs
+    )
 
     starter = record["shared_program"]["code"]
     source_starter = starter_source.read_text(encoding="utf-8").strip()

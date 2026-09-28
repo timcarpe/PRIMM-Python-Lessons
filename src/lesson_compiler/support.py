@@ -8,6 +8,7 @@ from lesson_compiler.docx import (
     page2_code_display,
     page2_code_size,
     read_drawing_placement,
+    recolor_keyword_runs,
     replace_drawing_placement,
     set_challenge_prompt,
     set_code,
@@ -95,6 +96,7 @@ def patch_reference_worksheet(
     )
 
     def patch(root) -> None:
+        recolor_keyword_runs(root)
         body = root.find(
             "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}body"
         )

@@ -50,9 +50,9 @@ const setText = (slide, name, text, occurrence = 0) => {
   }
 };
 
-const tokenPattern = /(#[^\n]*|"[^"\n]*"|'[^'\n]*'|\.(?:strip|title|append)\b|\b(?:print|input|int|range|len|def|return|if|elif|else|for|while|and|or|not|in|True|False)\b|(?:==|!=|<=|>=|<|>))/g;
+const tokenPattern = /(#[^\n]*|"[^"\n]*"|'[^'\n]*'|\.(?:strip|title|append)\b|\b(?:print|input|int|range|len|def|return|if|elif|else|for|while|and|or|not|in|True|False|None|import|break|continue)\b|(?:==|!=|<=|>=|<|>))/g;
 const callTokens = new Set(["print", "input", "int", "range", "len"]);
-const keywordTokens = new Set(["def", "return", "if", "elif", "else", "for", "while", "and", "or", "not", "in", "True", "False"]);
+const keywordTokens = new Set(["def", "return", "if", "elif", "else", "for", "while", "and", "or", "not", "in", "True", "False", "None", "import", "break", "continue"]);
 function tokenColor(token) {
   if (token.startsWith("#")) return "#8C8C8C";
   if (token.startsWith("\"") || token.startsWith("'")) return "#067D17";
