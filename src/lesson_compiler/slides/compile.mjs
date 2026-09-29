@@ -61,6 +61,27 @@ function tokenColor(token) {
   return "#080808";
 }
 
+// PowerPoint's slide editor collapses runs that hold only spaces, which
+// flattens indentation before keywords such as "    if" even though the
+// thumbnails show it. Spaces are moved into a neighbouring JetBrains Mono run
+// so every run carries visible code.
+function mergeSpaceRuns(runs) {
+  const merged = [];
+  for (let index = 0; index < runs.length; index += 1) {
+    const item = { ...runs[index] };
+    const next = runs[index + 1];
+    const previous = merged.at(-1);
+    if (item.run.trim() === "" && next && next.textStyle.typeface === "JetBrains Mono") {
+      runs[index + 1] = { ...next, run: item.run + next.run };
+    } else if (item.run.trim() === "" && previous && previous.textStyle.typeface === "JetBrains Mono") {
+      previous.run += item.run;
+    } else {
+      merged.push(item);
+    }
+  }
+  return merged;
+}
+
 function codeRuns(
   code,
   { fontSize = "20pt", leadingBlankLines = 0, compactLines = false } = {},
@@ -77,7 +98,7 @@ function codeRuns(
       cursor = index + token.length;
     }
     if (cursor < line.length) runs.push({ run: line.slice(cursor), textStyle: style });
-    return runs;
+    return mergeSpaceRuns(runs);
   };
   const lines = normalize(code).split("\n");
   if (compactLines) {
